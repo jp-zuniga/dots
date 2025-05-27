@@ -1,0 +1,167 @@
+source $"~/.config/nushell/env.nu"
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+$env.config.buffer_editor = "codium"
+$env.config.show_banner = false
+
+alias core-ls     = ls
+alias core-gcc    = gcc
+alias ghostscript = gs
+
+alias ga  = git add
+alias gb  = git branch
+
+alias gc  = git commit -m
+alias gca = git commit -am
+
+alias gcl = git clone
+alias gch = git checkout
+alias gd  = git diff --output-indicator-new=' ' --output-indicator-old=' '
+alias gi  = git init
+alias gl  = git log --all --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
+
+alias gp  = git push
+alias gpl = git pull
+
+alias gr  = git remote
+alias gra = git remote add
+alias grr = git remote remove
+alias grv = git remote -v
+
+alias gs  = git status --short
+alias gsh = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
+alias gsw = git switch
+alias gu  = git reset HEAD --
+
+alias ls  = ls -a
+
+alias last  = gl -1 HEAD
+alias rlast = gsh -1 HEAD
+
+###################################################################################################
+
+
+def get-euler-file-name [problem_num: int] {
+    mut zeroes = ""
+
+    if ($problem_num <= 9) {
+        $zeroes = "00"
+    }
+
+    if ($problem_num >= 10 and $problem_num <= 99) {
+        $zeroes = "0"
+    }
+
+    return ($zeroes + ($problem_num | into string))
+}
+
+
+###################################################################################################
+
+
+def euler-cpp [problem_num: int] {
+    if ($problem_num <= 0) {
+        print "Invalid problem number!\n"
+        return null
+    }
+
+    let file_name = (get-euler-file-name $problem_num) + ".cpp"
+
+    let boilerplate = (
+$"// Problem URL: https://projecteuler.net/problem=($problem_num)" + "
+// --------------------------------------------------------------------------------
+//
+
+#include <chrono>
+#include <cstdint>
+#include <iostream>
+
+#include "include/exit_routine.h"
+
+
+int main() {
+    auto start = std::chrono::steady_clock::now();
+
+    auto end = std::chrono::steady_clock::now();
+
+    exit_routine(start, end);
+    return 0;
+}
+")
+
+    $boilerplate | save $file_name
+}
+
+
+###################################################################################################
+
+
+def euler-py [problem_num: int] {
+    if ($problem_num <= 0) {
+        print "Invalid problem number!\n"
+        return null
+    }
+
+    let file_name = (get-euler-file-name $problem_num) + ".py"
+
+    let boilerplate = (
+$'"""
+Problem URL: https://projecteuler.net/problem=($problem_num)' + '
+---------------------------------------------------------------------------------
+
+"""
+
+')
+
+    $boilerplate | save $file_name
+}
+
+
+###################################################################################################
+
+
+def e-gpp [
+    file: string,
+    output?: string = "output"
+] {
+
+    let executable = $file | str replace ".cpp" ".exe"
+    let folder = $output
+    let dir = [$folder, $executable] | str join "/"
+
+    mkdir $folder
+    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $dir $file
+
+    print $"($file) compiled to ./($dir) successfully!\nRunning ($executable)...\n"
+    ./($dir)
+}
+
+
+###################################################################################################
+
+
+def gcc [src_file: string] {
+    mut file = $src_file
+
+    if ($file | str contains ".c") {
+        $file = $file | str replace ".c" ""
+    }
+
+    core-gcc -std=c99 -Wall -Wextra -Wpedantic -Werror -o $file ($file + ".c")
+}
+
+
+###################################################################################################
+
+
+def gpp [src_file: string] {
+    mut file = $src_file
+
+    if ($file | str contains ".cpp") {
+        $file = $file | str replace ".cpp" ""
+    }
+
+    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $file ($file + ".cpp")
+}

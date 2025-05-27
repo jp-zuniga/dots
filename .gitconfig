@@ -1,0 +1,81 @@
+[branch]
+	sort = -committerdate
+
+[color "branch"]
+	current  = magenta
+	local    = default
+	remote   = yellow
+	upstream = green
+	plain    = blue
+
+[color "decorate"]
+	HEAD         = blue
+	branch       = cyan
+	tag          = yellow
+	remoteBranch = green
+
+[commit]
+	gpgsign = true
+
+[core]
+	compression  = 9
+	whitespace   = error
+	preloadindex = true
+	pager = delta
+
+[diff]
+    colorMoved       = default
+	context          = 3
+	interHunkContext = 10
+	renames          = copies
+
+[delta]
+    navigate = true
+    dark = true
+
+[gpg]
+	format = ssh
+
+[init]
+	defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
+
+[log]
+	graphColors   = blue,yellow,cyan,magenta,green,red
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+	default = current
+	rebase  = true
+
+[push]
+	autoSetupRemote = true
+	default         = current
+
+[rebase]
+	autoStash           = true
+	missingCommitsCheck = warn
+
+[status]
+	branch              = true
+	showStash           = true
+	showUntrackedFiles  = all
+
+[tag]
+	sort = -taggerdate
+
+[user]
+	name = jp-zuniga
+	email = jperez070705@gmail.com
+	signingkey = /home/jaq/.ssh/id_ed25519.pub
+
+[url "git@github.com:jp-zuniga/"]
+	insteadOf = "jpz:"
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+
