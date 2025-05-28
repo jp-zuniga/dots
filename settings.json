@@ -1,0 +1,122 @@
+{
+    "window.menuBarVisibility": "compact",
+    "workbench.navigationControl.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "window.commandCenter": false,
+    "workbench.cloudChanges.autoResume": "off",
+    "workbench.cloudChanges.continueOn": "off",
+    "workbench.enableExperiments": false,
+    "workbench.welcomePage.extraAnnouncements": false,
+    "terminal.integrated.profiles.linux": {
+        "JavaScript Debug Terminal": null,
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash",
+        },
+        "nu": {
+            "path": "nu",
+            "icon": "terminal-bash",
+        },
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "files.autoSave": "afterDelay",
+    "files.readonlyInclude": {
+        "**/.cargo/registry/src/**/*.rs": true,
+        "**/.cargo/git/checkouts/**/*.rs": true,
+        "**/lib/rustlib/src/rust/library/**/*.rs": true,
+    },
+    "files.exclude": {
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/Thumbs.db": false
+    },
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.renderCharacters": false,
+    "files.autoSaveDelay": 1000,
+    "workbench.activityBar.location": "top",
+    "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
+    "workbench.preferredLightColorTheme": "Kary Pro Colors － Light",
+    "workbench.tips.enabled": false,
+    "terminal.integrated.cursorBlinking": true,
+    "telemetry.feedback.enabled": false,
+    "workbench.startupEditor": "none",
+    "files.trimTrailingWhitespace": true,
+    "rust-analyzer.showDependenciesExplorer": false,
+    "rust-analyzer.diagnostics.enable": false,
+    "workbench.colorTheme": "Kary Pro Colors － Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "material-product-icons",
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": true
+        },
+        // {
+        //     "tag": "//",
+        //     "color": "#474747",
+        //     "strikethrough": true,
+        //     "underline": false,
+        //     "backgroundColor": "transparent",
+        //     "bold": false,
+        //     "italic": false
+        // },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": true
+        }
+    ],
+    "clangd.detectExtensionConflicts": false,
+    "clangd.inactiveRegions.opacity": 0.6,
+    "explorer.confirmPasteNative": false,
+    "ruff.nativeServer": "on",
+    "rust-analyzer.restartServerOnConfigChange": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+},
+"ruff.lineLength": 90,
+"python.experiments.enabled": false,
+"python.terminal.activateEnvironment": false,
+"chat.agent.enabled": false,
+"terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+"terminal.integrated.fontLigatures.enabled": true,
+"terminal.integrated.defaultProfile.linux": "nu",
+"editor.minimap.enabled": false
+}
