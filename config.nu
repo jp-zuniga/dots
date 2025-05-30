@@ -6,9 +6,12 @@ starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.n
 $env.config.buffer_editor = "codium"
 $env.config.show_banner = false
 
+alias core-cat    = cat
 alias core-ls     = ls
 alias core-gcc    = gcc
+alias core-open   = open
 alias ghostscript = gs
+alias read        = bat
 
 alias ga  = git add
 alias gb  = git branch
@@ -39,6 +42,10 @@ alias ls  = ls -a
 
 alias last  = gl -1 HEAD
 alias rlast = gsh -1 HEAD
+
+def open [args: string] {
+    ^open $args
+}
 
 ###################################################################################################
 
