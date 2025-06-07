@@ -1,56 +1,4 @@
 {
-    "window.menuBarVisibility": "compact",
-    "workbench.navigationControl.enabled": false,
-    "workbench.layoutControl.enabled": false,
-    "workbench.editor.editorActionsLocation": "hidden",
-    "window.commandCenter": false,
-    "workbench.cloudChanges.autoResume": "off",
-    "workbench.cloudChanges.continueOn": "off",
-    "workbench.enableExperiments": false,
-    "workbench.welcomePage.extraAnnouncements": false,
-    "terminal.integrated.profiles.linux": {
-        "JavaScript Debug Terminal": null,
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash",
-        },
-        "nu": {
-            "path": "nu",
-            "icon": "terminal-bash",
-        },
-    },
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    "security.workspace.trust.untrustedFiles": "newWindow",
-    "files.autoSave": "afterDelay",
-    "files.readonlyInclude": {
-        "**/.cargo/registry/src/**/*.rs": true,
-        "**/.cargo/git/checkouts/**/*.rs": true,
-        "**/lib/rustlib/src/rust/library/**/*.rs": true,
-    },
-    "files.exclude": {
-        "**/.DS_Store": false,
-        "**/.git": false,
-        "**/.hg": false,
-        "**/.svn": false,
-        "**/Thumbs.db": false
-    },
-    "editor.accessibilitySupport": "off",
-    "editor.minimap.renderCharacters": false,
-    "files.autoSaveDelay": 1000,
-    "workbench.activityBar.location": "top",
-    "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
-    "workbench.preferredLightColorTheme": "Kary Pro Colors － Light",
-    "workbench.tips.enabled": false,
-    "terminal.integrated.cursorBlinking": true,
-    "telemetry.feedback.enabled": false,
-    "workbench.startupEditor": "none",
-    "files.trimTrailingWhitespace": true,
-    "rust-analyzer.showDependenciesExplorer": false,
-    "rust-analyzer.diagnostics.enable": false,
-    "workbench.colorTheme": "Kary Pro Colors － Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "material-product-icons",
     "better-comments.tags": [
         {
             "tag": "!",
@@ -80,7 +28,7 @@
         //     "italic": false
         // },
         {
-            "tag": "todo",
+            "tag": "to-do",
             "color": "#FF8C00",
             "strikethrough": false,
             "underline": false,
@@ -98,25 +46,88 @@
             "italic": true
         }
     ],
-    "clangd.detectExtensionConflicts": false,
+    "chat.agent.enabled": false,
     "clangd.inactiveRegions.opacity": 0.6,
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
     "explorer.confirmPasteNative": false,
-    "ruff.nativeServer": "on",
-    "rust-analyzer.restartServerOnConfigChange": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.exclude": {
+        "**/.DS_Store": false,
+        "**/.git": false,
+        "**/.hg": false,
+        "**/.svn": false,
+        "**/Thumbs.db": false
+    },
+    "files.readonlyInclude": {
+        "**/.cargo/registry/src/**/*.rs": true,
+        "**/.cargo/git/checkouts/**/*.rs": true,
+        "**/lib/rustlib/src/rust/library/**/*.rs": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "git.openRepositoryInParentFolders": "never",
     "[python]": {
+        "analysis.autoFormatStrings": true,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
             "source.fixAll": "explicit",
             "source.organizeImports": "explicit"
         },
-        "editor.defaultFormatter": "charliermarsh.ruff"
-},
-"ruff.lineLength": 90,
-"python.experiments.enabled": false,
-"python.terminal.activateEnvironment": false,
-"chat.agent.enabled": false,
-"terminal.integrated.fontFamily": "MesloLGM Nerd Font",
-"terminal.integrated.fontLigatures.enabled": true,
-"terminal.integrated.defaultProfile.linux": "nu",
-"editor.minimap.enabled": false
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "experiments.enabled": false,
+        "languageServer": "None",
+        "terminal.activateEnvironment": false
+    },
+    "rust-analyzer.showDependenciesExplorer": false,
+    "rust-analyzer.diagnostics.enable": false,
+    "rust-analyzer.restartServerOnConfigChange": true,
+    "ruff.lineLength": 90,
+    "ruff.nativeServer": "on",
+    "rust-analyzer.inlayHints.chainingHints.enable": false,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    "rust-analyzer.inlayHints.renderColons": false,
+    "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": true,
+    "rust-analyzer.inlayHints.typeHints.hideClosureParameter": true,
+    "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": true,
+    "rust-analyzer.lens.enable": false,
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "telemetry.feedback.enabled": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.defaultProfile.linux": "nu",
+    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.profiles.linux": {
+        "JavaScript Debug Terminal": null,
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "nu": {
+            "path": "nu",
+            "icon": "terminal-bash"
+        }
+    },
+    "ty.experimental.completions.enable": true,
+    "ty.logLevel": "warning",
+    "window.commandCenter": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "Kary Pro Colors － Dark",
+    "workbench.cloudChanges.autoResume": "off",
+    "workbench.cloudChanges.continueOn": "off",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.enableExperiments": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "workbench.productIconTheme": "material-product-icons",
+    "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
+    "workbench.preferredLightColorTheme": "Kary Pro Colors － Light",
+    "workbench.startupEditor": "none",
+    "workbench.tips.enabled": false,
+    "workbench.welcomePage.extraAnnouncements": false
 }

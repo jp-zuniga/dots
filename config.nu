@@ -22,6 +22,7 @@ alias gca = git commit -am
 alias gcl = git clone
 alias gch = git checkout
 alias gd  = git diff --output-indicator-new=' ' --output-indicator-old=' '
+alias gf  = git fetch --all -t
 alias gi  = git init
 alias gl  = git log --all --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
 

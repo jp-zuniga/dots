@@ -1,0 +1,15 @@
+build-essentials
+Git
+Codium
+Rust
+uutils
+bat
+tokei
+git-delta
+Nu
+Nerd Font
+Starship
+Homebrew
+uv
+Ruff
+Ty
