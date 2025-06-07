@@ -70,6 +70,7 @@
     },
     "files.trimTrailingWhitespace": true,
     "git.openRepositoryInParentFolders": "never",
+    "git.enableSmartCommit": true,
     "[python]": {
         "analysis.autoFormatStrings": true,
         "editor.formatOnSave": true,
