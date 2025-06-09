@@ -28,7 +28,7 @@
         //     "italic": false
         // },
         {
-            "tag": "to-do",
+            "tag": "todo",
             "color": "#FF8C00",
             "strikethrough": false,
             "underline": false,
@@ -49,7 +49,7 @@
     "chat.agent.enabled": false,
     "clangd.inactiveRegions.opacity": 0.6,
     "editor.accessibilitySupport": "off",
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.minimap.renderCharacters": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -72,17 +72,15 @@
     "git.openRepositoryInParentFolders": "never",
     "git.enableSmartCommit": true,
     "[python]": {
-        "analysis.autoFormatStrings": true,
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.fixAll": "explicit",
-            "source.organizeImports": "explicit"
+            "source.fixAll": "never",
+            "source.organizeImports": "never"
         },
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "experiments.enabled": false,
-        "languageServer": "None",
-        "terminal.activateEnvironment": false
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
+    "python.experiments.enabled": false,
+    "python.terminal.activateEnvironment": false,
     "rust-analyzer.showDependenciesExplorer": false,
     "rust-analyzer.diagnostics.enable": false,
     "rust-analyzer.restartServerOnConfigChange": true,

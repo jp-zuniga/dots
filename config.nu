@@ -1,17 +1,76 @@
+# load env:
 source $"~/.config/nushell/env.nu"
 
+# setup starship:
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
-$env.config.buffer_editor = "codium"
-$env.config.show_banner = false
 
-alias core-cat    = cat
-alias core-ls     = ls
+alias core-echo   = echo
 alias core-gcc    = gcc
+alias core-ls     = ls
 alias core-open   = open
+
 alias ghostscript = gs
 alias read        = bat
+
+alias echo = ^echo
+alias open = ^open
+
+
+###############################################################################
+
+
+def eza-wrapper [
+    dir?: string = "",
+    --all(-a)
+    --long(-l)
+    --tree(-t)
+    --recursive(-r)
+] {
+    mut flags = "-"
+    mut level = 0
+
+    if ($all)  {
+        $flags += "a"
+    }
+
+    if ($long) {
+        $flags += "hl"
+    } else {
+        $flags += "x"
+    }
+
+    if ($tree) {
+        $flags += "T"
+        $level  = 1
+    }
+
+    if ($recursive) {
+        $flags += "R"
+        $level  = 2
+    }
+
+    echo ""
+
+    if ($dir == "") {
+        eza ($flags) --color=always --color-scale=all --color-scale-mode=gradient --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size
+    } else {
+       eza ($flags) --color=always --color-scale=all --color-scale-mode=gradient --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size $dir
+    }
+}
+
+
+###############################################################################
+
+
+alias ls   = eza-wrapper -a
+alias ll   = eza-wrapper -l
+alias lr   = eza-wrapper -lrt
+alias lt   = eza-wrapper -lt
+
+alias tree = cbonsai -li --time=0.1
+alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0 --city Managua
 
 alias ga  = git add
 alias gb  = git branch
@@ -37,18 +96,13 @@ alias grv = git remote -v
 alias gs  = git status --short
 alias gsh = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
 alias gsw = git switch
-alias gu  = git reset HEAD --
 
-alias ls  = ls -a
+# alias gu  = git reset HEAD --
+# alias last  = gl -1 HEAD
+# alias rlast = gsh -1 HEAD
 
-alias last  = gl -1 HEAD
-alias rlast = gsh -1 HEAD
 
-def open [args: string] {
-    ^open $args
-}
-
-###################################################################################################
+###############################################################################
 
 
 def get-euler-file-name [problem_num: int] {
@@ -56,17 +110,17 @@ def get-euler-file-name [problem_num: int] {
 
     if ($problem_num <= 9) {
         $zeroes = "00"
-    }
+        }
 
-    if ($problem_num >= 10 and $problem_num <= 99) {
-        $zeroes = "0"
-    }
+        if ($problem_num >= 10 and $problem_num <= 99) {
+            $zeroes = "0"
+            }
 
-    return ($zeroes + ($problem_num | into string))
-}
+            return ($zeroes + ($problem_num | into string))
+            }
 
 
-###################################################################################################
+###############################################################################
 
 
 def euler-cpp [problem_num: int] {
@@ -103,7 +157,7 @@ int main() {
 }
 
 
-###################################################################################################
+###############################################################################
 
 
 def euler-py [problem_num: int] {
@@ -127,7 +181,7 @@ Problem URL: https://projecteuler.net/problem=($problem_num)' + '
 }
 
 
-###################################################################################################
+###############################################################################
 
 
 def e-gpp [
@@ -147,7 +201,7 @@ def e-gpp [
 }
 
 
-###################################################################################################
+###############################################################################
 
 
 def gcc [src_file: string] {
@@ -161,7 +215,7 @@ def gcc [src_file: string] {
 }
 
 
-###################################################################################################
+###############################################################################
 
 
 def gpp [src_file: string] {
@@ -173,3 +227,6 @@ def gpp [src_file: string] {
 
     g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $file ($file + ".cpp")
 }
+
+
+###############################################################################
