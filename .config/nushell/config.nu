@@ -65,9 +65,9 @@ def eza-wrapper [
 
 
 alias ls   = eza-wrapper -a
-alias ll   = eza-wrapper -l
-alias lr   = eza-wrapper -lrt
-alias lt   = eza-wrapper -lt
+alias ll   = eza-wrapper -al
+alias lr   = eza-wrapper -alrt
+alias lt   = eza-wrapper -alt
 
 alias tree = cbonsai -li --time=0.1
 alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0 --city Managua

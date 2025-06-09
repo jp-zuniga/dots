@@ -10,11 +10,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "$HOME/.cargo/env"
 
 cargo install sccache
-touch ~/.cargo/config.toml
-echo -e '[build]\nrustc-wrapper = ".cargo/bin/sccache"\n' > ~/.cargo/config.toml
+cd ~/.cargo
+touch config.toml
+echo -e '[build]\nrustc-wrapper = ".cargo/bin/sccache"\n' > config.toml
 
 cargo install coreutils
-cargo install bacon bat eza git-delta gitui mprocs ncspot pastel starship tokei 
+cargo install bacon bat eza git-delta gitui just ncspot pastel starship tokei 
 cargo install caligula cargo-info du-dust fd-find kondo mprocs tokei wiki-tui
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
