@@ -1,27 +1,17 @@
-curl -fsSL https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/fury-nushell.gpg
-echo "deb https://apt.fury.io/nushell/ /" | sudo tee /etc/apt/sources.list.d/fury.list
 sudo apt update
-
 sudo apt install build-essentials
 sudo apt install git
-sudo apt install nushell
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "$HOME/.cargo/env"
 
-cargo install sccache
-cd ~/.cargo
-touch config.toml
-echo -e '[build]\nrustc-wrapper = ".cargo/bin/sccache"\n' > config.toml
-
-cargo install coreutils
-cargo install bacon bat eza git-delta gitui just ncspot pastel starship tokei 
-cargo install caligula cargo-info du-dust fd-find kondo mprocs tokei wiki-tui
+cargo install sccache --locked
+cargo install coreutils --locked
+cargo install bacon bat eza git-delta gitui ncspot nu starship --locked
+cargo install caligula cargo-info du-dust fd-find just kondo mprocs pastel tokei wiki-tui --locked
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 . "$HOME/.local/bin/env"
 
 uv tool install ruff
 uv tool install ty
-
-sudo apt install cbonsai
