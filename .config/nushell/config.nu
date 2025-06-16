@@ -54,9 +54,9 @@ def eza-wrapper [
     echo ""
 
     if ($dir == "") {
-        eza ($flags) --color=always --color-scale=all --color-scale-mode=gradient --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size
+        eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --hyperlink --no-permissions --no-user --total-size
     } else {
-       eza ($flags) --color=always --color-scale=all --color-scale-mode=gradient --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size $dir
+       eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --hyperlink --no-permissions --no-user --total-size $dir
     }
 }
 
@@ -66,7 +66,6 @@ def eza-wrapper [
 
 alias ls   = eza-wrapper -a
 alias ll   = eza-wrapper -al
-alias lr   = eza-wrapper -alrt
 alias lt   = eza-wrapper -alt
 
 alias tree = cbonsai -li --time=0.1
@@ -95,11 +94,8 @@ alias grv = git remote -v
 
 alias gs  = git status --short
 alias gsh = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
+alias gst = git stash
 alias gsw = git switch
-
-# alias gu  = git reset HEAD --
-# alias last  = gl -1 HEAD
-# alias rlast = gsh -1 HEAD
 
 
 ###############################################################################
@@ -110,14 +106,14 @@ def get-euler-file-name [problem_num: int] {
 
     if ($problem_num <= 9) {
         $zeroes = "00"
-        }
+    }
 
-        if ($problem_num >= 10 and $problem_num <= 99) {
-            $zeroes = "0"
-            }
+    if ($problem_num >= 10 and $problem_num <= 99) {
+        $zeroes = "0"
+    }
 
-            return ($zeroes + ($problem_num | into string))
-            }
+    return ($zeroes + ($problem_num | into string))
+}
 
 
 ###############################################################################
@@ -178,26 +174,6 @@ Problem URL: https://projecteuler.net/problem=($problem_num)' + '
 ')
 
     $boilerplate | save $file_name
-}
-
-
-###############################################################################
-
-
-def e-gpp [
-    file: string,
-    output?: string = "output"
-] {
-
-    let executable = $file | str replace ".cpp" ".exe"
-    let folder = $output
-    let dir = [$folder, $executable] | str join "/"
-
-    mkdir $folder
-    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $dir $file
-
-    print $"($file) compiled to ./($dir) successfully!\nRunning ($executable)...\n"
-    ./($dir)
 }
 
 
