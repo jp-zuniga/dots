@@ -13,22 +13,27 @@ $time\
 
 [character]
 format         = "$symbol "
-success_symbol = "[ ○](bold fg:#a3aed2)"
-error_symbol   = "[ ■](bold fg:#a3aed2)"
+success_symbol = "[ ●](fg:#a3aed2)"
+error_symbol   = "[ ■](fg:#a3aed2)"
 
 [directory]
+truncation_length = 6
+truncate_to_repo  = false
+truncation_symbol = "   "
 style             = "fg:#e3e5e5 bg:#769ff0"
 format            = "[ $path ]($style)"
-truncation_length = 6
-truncation_symbol = "… /"
-truncate_to_repo  = false
 
 [directory.substitutions]
-"dev"       = " 󰲋 "
-"Documents" = " 󰈙 "
-"Downloads" = "  "
-"Music"     = " 󰝚 "
-"Pictures"  = "  "
+"~/Documents/dev" = " 󰲋 "
+"~/Pictures/pics" = "  "
+"~/Documents"     = " 󰈙 "
+"~/Downloads"     = "  "
+"~/Music"         = " 󰝚 "
+"~/Pictures"      = "  "
+"~/.config"       = "  "
+"~"               = " 󰜥 "
+"/home"           = "  "
+"/"               = "  "
 
 [git_branch]
 symbol = ""
@@ -36,13 +41,18 @@ style  = "fg:#769ff0 bg:#394260"
 format = "[[ $symbol $branch ]($style)]($style)"
 
 [git_status]
-style  = "fg:#769ff0 bg:#394260"
-format = "[[($all_status$ahead_behind )]($style)]($style)"
+ahead    = ""
+behind   = ""
+staged   = "✚"
+deleted  = "✖"
+renamed  = ""
+diverged = ""
+style    = "fg:#769ff0 bg:#394260"
+format   = "[[($all_status$ahead_behind )]($style)]($style)"
 
 [time]
 disabled    = false
-use_12hr    = true
-time_format = "%A, at %R"
 style       = "fg:#a0a9cb bg:#1d2230"
+time_format = "%A, at %R"
 format      = "[[ $time ]($style)]($style)"
 
