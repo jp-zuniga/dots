@@ -36,8 +36,10 @@ def eza-wrapper [
     echo ""
 
     if ($dir == "") {
+        # call for current directory
         eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --hyperlink --no-permissions --no-user --total-size
     } else {
+        # call for given directory
        eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --hyperlink --no-permissions --no-user --total-size $dir
     }
 }
@@ -57,7 +59,7 @@ def get-euler-file-name [problem_num: int] {
         $zeroes = "0"
     }
 
-    return ($zeroes + ($problem_num | into string))
+    return ($zeroes + $'($problem_num)')
 }
 
 
@@ -73,8 +75,8 @@ def euler-cpp [problem_num: int] {
     let file_name = (get-euler-file-name $problem_num) + ".cpp"
 
     let boilerplate = (
-$"// Problem URL: https://projecteuler.net/problem=($problem_num)" + "
-// --------------------------------------------------------------------------------
+$'// Problem URL: https://projecteuler.net/problem=($problem_num)' + '
+// -----------------------------------------------------------------------------
 //
 
 #include <chrono>
@@ -92,7 +94,7 @@ int main() {
     exit_routine(start, end);
     return 0;
 }
-")
+')
 
     $boilerplate | save $file_name
 }
@@ -110,12 +112,21 @@ def euler-py [problem_num: int] {
     let file_name = (get-euler-file-name $problem_num) + ".py"
 
     let boilerplate = (
-$'"""
-Problem URL: https://projecteuler.net/problem=($problem_num)' + '
----------------------------------------------------------------------------------
+'"""
+Problem URL: https://projecteuler.net/problem=' + $'($problem_num)' + '
+-------------------------------------------------------------------------------
 
 """
 
+from utils import timer
+
+
+def solve_' + $'($problem_num)' + '() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    print(f"Execution time: {timer(solve_' + $'($problem_num)' + '):.6f}ms")
 ')
 
     $boilerplate | save $file_name
@@ -128,11 +139,13 @@ Problem URL: https://projecteuler.net/problem=($problem_num)' + '
 def gcc [src_file: string] {
     mut file = $src_file
 
-    if ($file | str contains ".c") {
-        $file = $file | str replace ".c" ""
+    if (not ($file | str contains ".c")) {
+        $file = $file + ".c"
     }
 
-    core-gcc -std=c99 -Wall -Wextra -Wpedantic -Werror -o $file ($file + ".c")
+    let output = $file | str replace ".c" ""
+
+    core-gcc -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
 
@@ -142,11 +155,13 @@ def gcc [src_file: string] {
 def gpp [src_file: string] {
     mut file = $src_file
 
-    if ($file | str contains ".cpp") {
-        $file = $file | str replace ".cpp" ""
+    if (not ($file | str contains ".cpp")) {
+        $file = $file + ".cpp"
     }
 
-    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $file ($file + ".cpp")
+    let output = $file | str replace ".cpp" ""
+
+    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
 

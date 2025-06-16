@@ -55,7 +55,7 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmPasteNative": false,
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 5000,
+    "files.autoSaveDelay": 1000,
     "files.exclude": {
         "**/.DS_Store": false,
         "**/.git": false,
@@ -70,6 +70,7 @@
     },
     "files.trimTrailingWhitespace": true,
     "git.enableSmartCommit": true,
+    "python.languageServer": "None",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
@@ -96,11 +97,7 @@
     "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.profiles.linux": {
-        "JavaScript Debug Terminal": null,
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
+        "JavaScript Debug Terminal": null
     },
     "update.showReleaseNotes": false,
     "window.commandCenter": false,
