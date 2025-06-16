@@ -25,5 +25,3 @@ uv tool install ruff
 uv tool install ty
 
 sudo apt install cbonsai
-brew install astroterm
-
