@@ -7,7 +7,7 @@
             "color": "#98C379",
             "italic": true,
             "strikethrough": false,
-            "underline": false
+            "underline": false,
         },
         {
             "tag": "!",
@@ -16,7 +16,7 @@
             "color": "#FF2D00",
             "italic": false,
             "strikethrough": false,
-            "underline": false
+            "underline": false,
         },
         {
             "tag": "?",
@@ -25,7 +25,7 @@
             "color": "#3498DB",
             "italic": true,
             "strikethrough": false,
-            "underline": false
+            "underline": false,
         },
         {
             "tag": "todo",
@@ -34,7 +34,7 @@
             "color": "#FF8C00",
             "italic": false,
             "strikethrough": false,
-            "underline": false
+            "underline": false,
         },
         {
             "tag": "//",
@@ -43,41 +43,34 @@
             "color": "#474747",
             "italic": false,
             "strikethrough": true,
-            "underline": false
-        }
+            "underline": false,
+        },
     ],
     "chat.agent.enabled": false,
     "clangd.inactiveRegions.opacity": 0.6,
     "editor.accessibilitySupport": "off",
     "editor.fontFamily": "MesloLGM Nerd Font, monospace",
     "editor.minimap.renderCharacters": false,
+    "editor.minimap.size": "fit",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmPasteNative": false,
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
     "files.exclude": {
-        "**/.DS_Store": false,
         "**/.git": false,
-        "**/.hg": false,
-        "**/.svn": false,
-        "**/Thumbs.db": false
     },
     "files.readonlyInclude": {
         "**/.cargo/registry/src/**/*.rs": true,
         "**/.cargo/git/checkouts/**/*.rs": true,
-        "**/lib/rustlib/src/rust/library/**/*.rs": true
+        "**/lib/rustlib/src/rust/library/**/*.rs": true,
     },
     "files.trimTrailingWhitespace": true,
     "git.enableSmartCommit": true,
-    "python.languageServer": "None",
+    "python.languageServer": "Jedi",
     "[python]": {
         "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.fixAll": "explicit",
-            "source.organizeImports": "explicit"
-        },
-        "editor.defaultFormatter": "charliermarsh.ruff"
+        "editor.defaultFormatter": "charliermarsh.ruff",
     },
     "ruff.nativeServer": "on",
     "rust-analyzer.showDependenciesExplorer": false,
@@ -92,12 +85,16 @@
     "rust-analyzer.lens.enable": false,
     "security.workspace.trust.untrustedFiles": "newWindow",
     "telemetry.feedback.enabled": false,
+    "telemetry.telemetryLevel": "off",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.defaultProfile.linux": "Nushell",
     "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.profiles.linux": {
-        "JavaScript Debug Terminal": null
+        "JavaScript Debug Terminal": null,
+    },
+    "terminal.integrated.profiles.windows": {
+        "JavaScript Debug Terminal": null,
     },
     "update.showReleaseNotes": false,
     "window.commandCenter": false,

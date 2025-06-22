@@ -1,7 +1,7 @@
 # load env and custom config:
 source $"~/.config/nushell/env.nu"
-source $"~/.config/nushell/aliases.nu"
 source $"~/.config/nushell/cmds.nu"
+source $"~/.config/nushell/aliases.nu"
 
 # setup starship prompt:
 mkdir ($nu.data-dir | path join "vendor/autoload")
