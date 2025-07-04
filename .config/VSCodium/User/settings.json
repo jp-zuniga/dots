@@ -67,7 +67,6 @@
     },
     "files.trimTrailingWhitespace": true,
     "git.enableSmartCommit": true,
-    "python.languageServer": "Jedi",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "charliermarsh.ruff",
@@ -98,6 +97,7 @@
     },
     "update.showReleaseNotes": false,
     "window.commandCenter": false,
+    "window.customTitleBarVisibility": "windowed",
     "window.menuBarVisibility": "compact",
     "workbench.activityBar.location": "top",
     "workbench.colorTheme": "Kary Pro Colors － Dark",
@@ -112,6 +112,7 @@
     "workbench.preferredDarkColorTheme": "Kary Pro Colors － Dark",
     "workbench.preferredLightColorTheme": "Kary Pro Colors － Light",
     "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": false,
     "workbench.tips.enabled": false,
     "workbench.welcomePage.extraAnnouncements": false,
 }

@@ -3,12 +3,13 @@
 #####################
 ###############################################################################
 
-# alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
+alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
 alias tree = cbonsai -li --time=0.1
 
 alias core-echo   = echo
 alias core-open   = open
 alias core-ls     = ls
+
 alias core-gcc    = gcc
 alias ghostscript = gs
 
@@ -28,7 +29,7 @@ alias gcm  = git commit -m
 
 alias gcl  = git clone
 alias gch  = git checkout
-alias gd   = git diff --output-indicator-new=' ' --output-indicator-old=' '
+alias gd   = git diff
 alias gf   = git fetch --all -t
 alias gi   = git init
 alias gl   = git log --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
@@ -37,9 +38,7 @@ alias gp   = git push
 alias gpl  = git pull
 
 alias gr   = git remote
-alias gra  = git remote add
-alias grr  = git remote remove
-alias grv  = git remote -v
+alias grs  = git restore
 
 alias gs   = git status --short
 alias gsh  = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
