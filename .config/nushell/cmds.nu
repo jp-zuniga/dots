@@ -2,6 +2,11 @@
 ## Custom commands! ##
 ######################
 
+alias core-gcc    = gcc
+
+alias ls   = eza-wrapper -a
+alias ll   = eza-wrapper -al
+alias lt   = eza-wrapper -alt
 
 def eza-wrapper [
     dir?: string = "",
@@ -44,9 +49,7 @@ def eza-wrapper [
     }
 }
 
-
 ###############################################################################
-
 
 def get-euler-file-name [problem_num: int] {
     mut zeroes = ""
@@ -62,9 +65,7 @@ def get-euler-file-name [problem_num: int] {
     return ($zeroes + $'($problem_num)')
 }
 
-
 ###############################################################################
-
 
 def euler-cpp [problem_num: int] {
     if ($problem_num <= 0) {
@@ -99,9 +100,7 @@ int main() {
     $boilerplate | save $file_name
 }
 
-
 ###############################################################################
-
 
 def euler-py [problem_num: int] {
     if ($problem_num <= 0) {
@@ -132,9 +131,7 @@ if __name__ == "__main__":
     $boilerplate | save $file_name
 }
 
-
 ###############################################################################
-
 
 def gcc [src_file: string] {
     mut file = $src_file
@@ -148,9 +145,7 @@ def gcc [src_file: string] {
     core-gcc -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
-
 ###############################################################################
-
 
 def gpp [src_file: string] {
     mut file = $src_file
@@ -164,6 +159,4 @@ def gpp [src_file: string] {
     g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
-
 ###############################################################################
-

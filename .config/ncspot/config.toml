@@ -1,29 +1,27 @@
+library_tabs = ["albums", "playlists", "tracks"]
 use_nerdfont = true
-library_tabs = ["tracks", "playlists", "albums"]
 
 [track_format]
-left   = "%artists"
-center = "%title"
-right  = ""
-
-statusbar_format = "%artists  |  %title  |  %album"
+    center           = ""
+    left             = "%artists"
+    right            = "%title"
+    statusbar_format = "%artists  |  %title  |  %album"
 
 [theme]
     background         = "black"
-    primary            = "light white"
-    secondary          = "light black"
-    title              = "green"
-    playing            = "green"
-    playing_selected   = "light green"
-    playing_bg         = "black"
-    highlight          = "light white"
-    highlight_bg       = "#484848"
-    error              = "light white"
-    error_bg           = "red"
-    statusbar          = "black"
-    statusbar_progress = "green"
-    statusbar_bg       = "green"
     cmdline            = "light white"
     cmdline_bg         = "black"
+    error              = "light white"
+    error_bg           = "red"
+    highlight          = "light white"
+    highlight_bg       = "#484848"
+    playing            = "green"
+    playing_bg         = "black"
+    playing_selected   = "light green"
+    primary            = "light white"
     search_match       = "light red"
-
+    secondary          = "light black"
+    statusbar          = "black"
+    statusbar_bg       = "green"
+    statusbar_progress = "green"
+    title              = "green"

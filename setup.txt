@@ -1,3 +1,4 @@
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install build-essentials
 sudo apt install git
@@ -7,11 +8,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 cargo install sccache --locked
 cargo install coreutils --locked
-cargo install bacon bat eza git-delta gitui ncspot nu starship --locked
-cargo install caligula cargo-info du-dust fd-find just kondo mprocs pastel tokei wiki-tui --locked
+cargo install bacon bat eza git-delta ncspot nu starship --locked
+cargo install cargo-info just kondo mprocs pastel tokei --locked
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 . "$HOME/.local/bin/env"
 
 uv tool install ruff
-uv tool install ty
