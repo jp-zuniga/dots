@@ -2,11 +2,7 @@
 ## Custom commands! ##
 ######################
 
-alias core-gcc    = gcc
-
-alias ls   = eza-wrapper -a
-alias ll   = eza-wrapper -al
-alias lt   = eza-wrapper -alt
+alias core-gcc = gcc
 
 def eza-wrapper [
     dir?: string = "",
@@ -37,8 +33,6 @@ def eza-wrapper [
         $flags += "R"
         $level  = 2
     }
-
-    echo ""
 
     if ($dir == "") {
         # call for current directory
@@ -142,7 +136,7 @@ def gcc [src_file: string] {
 
     let output = $file | str replace ".c" ""
 
-    core-gcc -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
+    core-gcc -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
 ###############################################################################
@@ -156,7 +150,11 @@ def gpp [src_file: string] {
 
     let output = $file | str replace ".cpp" ""
 
-    g++ -std=c++20 -Wall -Wextra -Wpedantic -Werror -o $output $file
+    g++ -Wall -Wextra -Wpedantic -Werror -o $output $file
 }
 
 ###############################################################################
+
+alias ls = eza-wrapper -a
+alias ll = eza-wrapper -al
+alias lt = eza-wrapper -alt
