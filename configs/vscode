@@ -197,4 +197,5 @@
     "window.customTitleBarVisibility": "windowed",
     "git.autofetch": true,
     "git.confirmSync": false,
+    "editor.minimap.enabled": false,
 }

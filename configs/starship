@@ -6,28 +6,46 @@
 
 
 format = """
-[░▒▓](fg1)\
+[░▒▓](red)\
+$os\
+$username\
+[](bg:peach fg:red)\
 $directory\
-[](fg:bg1 bg:bg2)\
+[](bg:yellow fg:peach)\
 $git_branch\
 $git_status\
-[](fg:bg2 bg:bg3)\
-[](fg:bg3 bg:bg4)\
+[](fg:yellow bg:green)\
+$c\
+$cpp\
+$rust\
+$java\
+$python\
+[](fg:green bg:sapphire)\
+$cmd_duration\
+[](fg:sapphire bg:lavender)\
 $time\
-[](fg:bg4)\
-\n$character\
+[ ](fg:lavender)\
+$line_break\
+$character
 """
 
-palette = "custom"
+palette = "frappe"
 
 [character]
-    error_symbol   = "[ ■](fg:fg1)"
+    error_symbol   = "[ ■](bold fg:red)"
+    success_symbol = "[ ●](bold fg:green)"
     format         = "$symbol "
-    success_symbol = "[ ●](fg:fg1)"
+
+[cmd_duration]
+    disabled          = false
+    min_time          = 5
+    show_milliseconds = true
+    style             = "fg:crust bg:sapphire"
+    format            = "[ $duration ]($style)"
 
 [directory]
     read_only         = " 󰌾"
-    style             = "bold fg:fg1 bg:bg1"
+    style             = "bold fg:crust bg:peach"
     truncation_symbol = "/"
     format            = "[ $path ]($style)"
 
@@ -41,9 +59,9 @@ palette = "custom"
         "/"               = " / "
 
 [git_branch]
-    format = "[[ $symbol $branch ]($style)]($style)"
-    style  = "fg:bg1 bg:bg2"
     symbol = ""
+    style  = "fg:crust bg:yellow"
+    format = '[ $symbol $branch ]($style)'
 
 [git_status]
     ahead    = ""
@@ -52,21 +70,31 @@ palette = "custom"
     diverged = ""
     renamed  = ""
     staged   = "+"
-    style    = "bold fg:bg1 bg:bg2"
-    format   = "[[($all_status$ahead_behind )]($style)]($style)"
+    style    = "bold fg:crust bg:yellow"
+    format   = '[($all_status$ahead_behind )]($style)'
+
+[os]
+    disabled = false
+    style = "bg:red fg:crust"
 
 [time]
     disabled    = false
     time_format = "%R"
-    style       = "italic fg:fg2 bg:bg4"
-    format      = "[[ $time ]($style)]($style)"
+    style       = "italic fg:crust bg:lavender"
+    format      = '[  $time ]($style)'
 
-    ##################################################################
-    ############################# Icons ##############################
-    ##################################################################
+[username]
+    show_always = true
+    style_user = "bg:red fg:crust"
+    style_root = "bold bg:red fg:crust"
+    format = '[$user ]($style)'
+
+##################################################################
+############################# Icons ##############################
+##################################################################
 
 [aws]
-    symbol = "  "
+    symbol = " "
 
 [buf]
     format = "(via [$symbol($version )]($style))"
@@ -209,51 +237,51 @@ palette = "custom"
     format = "(via [$symbol($version )]($style))"
 
 [os.symbols]
-    AlmaLinux        = " "
-    Alpaquita        = " "
-    Alpine           = " "
-    Amazon           = " "
-    Android          = " "
-    Arch             = " "
-    Artix            = " "
-    CachyOS          = " "
-    CentOS           = " "
-    Debian           = " "
-    DragonFly        = " "
-    Emscripten       = " "
-    EndeavourOS      = " "
-    Fedora           = " "
-    FreeBSD          = " "
-    Garuda           = "󰛓 "
-    Gentoo           = "󰣨 "
-    HardenedBSD      = "󰞌 "
-    Illumos          = "󰈸 "
-    Kali             = " "
-    Linux            = " "
-    Mabox            = " "
-    Macos            = " "
-    Manjaro          = " "
-    Mariner          = " "
-    MidnightBSD      = " "
-    Mint             = "󰣭 "
-    NetBSD           = " "
-    NixOS            = " "
-    Nobara           = " "
-    OpenBSD          = "󰈺 "
-    OracleLinux      = "󰌷 "
-    Pop              = " "
-    Raspbian         = " "
-    RedHatEnterprise = " "
-    Redhat           = " "
-    Redox            = "󰀘 "
-    RockyLinux       = " "
-    SUSE             = " "
-    Solus            = "󰠳 "
-    Ubuntu           = " "
-    Unknown          = " "
-    Void             = " "
-    Windows          = "󰍲 "
-    openSUSE         = " "
+    AlmaLinux        = "  "
+    Alpaquita        = "  "
+    Alpine           = "  "
+    Amazon           = "  "
+    Android          = "  "
+    Arch             = "  "
+    Artix            = "  "
+    CachyOS          = "  "
+    CentOS           = "  "
+    Debian           = "  "
+    DragonFly        = "  "
+    Emscripten       = "  "
+    EndeavourOS      = "  "
+    Fedora           = "  "
+    FreeBSD          = "  "
+    Garuda           = " 󰛓 "
+    Gentoo           = " 󰣨 "
+    HardenedBSD      = " 󰞌 "
+    Illumos          = " 󰈸 "
+    Kali             = "  "
+    Linux            = "  "
+    Mabox            = "  "
+    Macos            = "  "
+    Manjaro          = "  "
+    Mariner          = "  "
+    MidnightBSD      = "  "
+    Mint             = " 󰣭 "
+    NetBSD           = "  "
+    NixOS            = "  "
+    Nobara           = "  "
+    OpenBSD          = " 󰈺 "
+    OracleLinux      = " 󰌷 "
+    Pop              = "  "
+    Raspbian         = "  "
+    RedHatEnterprise = "  "
+    Redhat           = "  "
+    Redox            = " 󰀘 "
+    RockyLinux       = "  "
+    SUSE             = "  "
+    Solus            = " 󰠳 "
+    Ubuntu           = "  "
+    Unknown          = "  "
+    Void             = "  "
+    Windows          = " 󰍲 "
+    openSUSE         = "  "
 
 [package]
     format = "(is [$symbol$version]($style) )"
@@ -322,9 +350,9 @@ palette = "custom"
     format = "(via [$symbol($version )]($style))"
     symbol = " "
 
-    ##################################################################
-    ######################### Color Palettes #########################
-    ##################################################################
+##################################################################
+######################### Color Palettes #########################
+##################################################################
 
 [palettes.custom]
     bg1 = "#769ff0"
@@ -335,7 +363,7 @@ palette = "custom"
     fg2 = "#a0a9cb"
 
 
-[palettes.catppuccin_mocha]
+[palettes.mocha]
     base      = "#1e1e2e"
     blue      = "#89b4fa"
     crust     = "#11111b"
@@ -363,7 +391,7 @@ palette = "custom"
     text      = "#cdd6f4"
     yellow    = "#f9e2af"
 
-[palettes.catppuccin_frappe]
+[palettes.frappe]
     base      = "#303446"
     blue      = "#8caaee"
     crust     = "#232634"
@@ -391,7 +419,7 @@ palette = "custom"
     text      = "#c6d0f5"
     yellow    = "#e5c890"
 
-[palettes.catppuccin_latte]
+[palettes.latte]
     base      = "#eff1f5"
     blue      = "#1e66f5"
     crust     = "#dce0e8"
@@ -419,7 +447,7 @@ palette = "custom"
     text      = "#4c4f69"
     yellow    = "#df8e1d"
 
-[palettes.catppuccin_macchiato]
+[palettes.macchiato]
     base      = "#24273a"
     blue      = "#8aadf4"
     crust     = "#181926"
