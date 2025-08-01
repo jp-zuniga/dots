@@ -80,7 +80,7 @@ palette = "frappe"
 [time]
     disabled    = false
     time_format = "%R"
-    style       = "italic fg:crust bg:lavender"
+    style       = "fg:crust bg:lavender"
     format      = '[  $time ]($style)'
 
 [username]
