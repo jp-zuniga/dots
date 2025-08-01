@@ -5,14 +5,23 @@
 # alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
 # alias tree = cbonsai -li --time=0.1
 
-alias core-echo   = echo
-alias core-open   = open
-alias core-ls     = ls
+alias nu-ls     = ls
 alias ghostscript = gs
 
-alias echo = ^echo
-alias open = ^open
-alias read = bat
+alias cp     = ^cp
+alias du     = ^du
+alias echo   = ^echo
+alias mkdir  = ^mkdir
+alias mktemp = ^mktemp
+alias mv     = ^mv
+alias open   = ^open
+alias ps     = ^ps
+alias read   = bat
+alias rm     = ^rm
+alias seq    = ^seq
+alias sleep  = ^sleep
+alias sort   = ^sort
+alias touch  = ^touch
 
 alias g    = git
 alias ga   = git add
@@ -31,7 +40,7 @@ alias gpf  = git push --force-with-lease
 alias gpl  = git pull
 alias gs   = git status --short
 alias gsh  = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
-alias gst  = git stash
+alias gst  = git stash --all
 alias gsw  = git switch
 
 ###############################################################################
