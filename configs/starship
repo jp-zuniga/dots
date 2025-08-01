@@ -94,147 +94,174 @@ palette = "frappe"
 ##################################################################
 
 [aws]
-    symbol = " "
+    symbol = "  "
 
 [buf]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [bun]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [c]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [cpp]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [cmake]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [cobol]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [conda]
-    symbol = " "
+    symbol = "  "
 
 [crystal]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [daml]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [dart]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [deno]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [dotnet]
-    format = "(via [$symbol($version )(🎯 $tfm )]($style))"
+    format = "[$symbol($version )]($style)"
+    style = "bold fg:crust bg:green"
 
 [docker_context]
-    symbol = " "
+    symbol = "  "
 
 [elixir]
-    format = '(via [$symbol($version \(OTP $otp_version\) )]($style))'
-    symbol = " "
+    format = '[$symbol($version \(OTP $otp_version\) )]($style)'
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [elm]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [erlang]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [fennel]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [fossil_branch]
-    symbol = " "
+    symbol = "  "
 
 [gcloud]
-    symbol = "  "
+    symbol = "   "
 
 [git_commit]
     tag_symbol = "  "
 
 [gleam]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [golang]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [gradle]
-    symbol = " "
+    symbol = "  "
 
 [guix_shell]
-    symbol = " "
+    symbol = "  "
 
 [haskell]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [haxe]
-    symbol = " "
+    symbol = "  "
 
 [helm]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [hg_branch]
-    symbol = " "
+    symbol = "  "
 
 [hostname]
-    ssh_symbol = " "
+    ssh_symbol = "  "
 
 [java]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [julia]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [kotlin]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [lua]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [memory_usage]
-    symbol = "󰍛 "
+    symbol = " 󰍛 "
 
 [meson]
-    symbol = "󰔷 "
+    symbol = " 󰔷 "
 
 [nim]
-    format = "(via [$symbol($version )]($style))"
-    symbol = "󰆥 "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = " 󰆥 "
 
 [nix_shell]
-    symbol = " "
+    symbol = "  "
 
 [nodejs]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [ocaml]
-    format = '(via [$symbol($version )(\($switch_indicator$switch_name\) )]($style))'
-    symbol = " "
+    format = '$symbol($version )(\($switch_indicator$switch_name\) )]($style)'
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [opa]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [os.symbols]
     AlmaLinux        = "  "
@@ -284,71 +311,88 @@ palette = "frappe"
     openSUSE         = "  "
 
 [package]
-    format = "(is [$symbol$version]($style) )"
-    symbol = "󰏗 "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = " 󰏗 "
 
 [perl]
-    format = "(is [$symbol$version]($style) )"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [php]
-    format = "(is [$symbol$version]($style) )"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [pijul_channel]
-    symbol = " "
+    symbol = "  "
 
 [pixi]
-    symbol = "󰏗 "
+    symbol = " 󰏗 "
 
 [purescript]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [python]
-    format = '(via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style))'
-    symbol = " "
+    format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [quarto]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [raku]
-    format = "(via [$symbol($version-$vm_version )]($style))"
+    format = "[$symbol($version-$vm_version )]($style)"
+    style = "bold fg:crust bg:green"
 
 [red]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [rlang]
-    format = "(via [$symbol($version )]($style))"
-    symbol = "󰟔 "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = " 󰟔 "
 
 [ruby]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [rust]
-    format = "(via [$symbol($version )]($style))"
-    symbol = "󱘗 "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = " 󱘗 "
 
 [scala]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [swift]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 [typst]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [vagrant]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [vlang]
-    format = "(via [$symbol($version )]($style))"
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
 
 [zig]
-    format = "(via [$symbol($version )]($style))"
-    symbol = " "
+    format = "[$symbol$version ]($style)"
+    style = "bold fg:crust bg:green"
+    symbol = "  "
 
 ##################################################################
 ######################### Color Palettes #########################
