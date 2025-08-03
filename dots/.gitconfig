@@ -79,11 +79,11 @@
     email      = jp.zuniga.dev@gmail.com
     signingkey = /home/jaq/.ssh/id_ed25519.pub
 
+[url "https://github.com/"]
+    insteadOf = "https/"
+
 [url "git@github.com:jp-zuniga/"]
     insteadOf = "jpz:"
 
 [url "git@github.com:"]
     insteadOf = "gh:"
-
-[url "https://github.com/"]
-    insteadOf = "gh/"

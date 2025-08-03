@@ -1,0 +1,67 @@
+[[plugin.deps]]
+use = "dedukun/relative-motions"
+rev = "ce2e890"
+hash = "23915860e59348bf4166778bb0e606f7"
+
+[[plugin.deps]]
+use = "Reledia/hexyl"
+rev = "016a09b"
+hash = "50da29476e744dba37d77fb209328fd1"
+
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "843c3fa"
+hash = "b4040931f0d2f9670ddb4923e55cd881"
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "2da96e3"
+hash = "f9ee1436e3b853508d87f7d49dce56e6"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "c6d0de7"
+hash = "7b024fc14b462235068400207cbe7bf0"
+
+[[plugin.deps]]
+use = "TD-Sky/sudo"
+rev = "af70636"
+hash = "a94dcbe9266512806c677138e8591ddb"
+
+[[plugin.deps]]
+use = "kirasok/epub-preview"
+rev = "521feb1"
+hash = "9aed469134b5c89fc4014ce278307ae3"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "63f9650"
+hash = "d0ad0c1946b46a30c8489735fe8de41c"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "63f9650"
+hash = "d5d4f3527592da5fbe77fd6f51815f80"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:vcs-files"
+rev = "63f9650"
+hash = "70898957e9e4c1ca291ff26e8fdc434"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "63f9650"
+hash = "bf6f074cd41ee33c3360341d168f9733"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "10b4627"
+hash = "3ec6a973d506665f1570a9fe08343fd8"
+
+[[plugin.deps]]
+use = "DreamMaoMao/fg"
+rev = "46a5c16"
+hash = "46dc32503296c68aa54e5ca30f022a6"
+
+[flavor]
+deps = []

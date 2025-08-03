@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+ln -sf dots/configuration.nix /etc/nixos/ && ln -sf dots/hardware-configuration.nix /etc/nixos/ && echo "Symbolic links created."
+

@@ -73,6 +73,20 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.steam.enable = true;
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      ms-python.debugpy
+      ms-python.vscode-pylance
+      charliemarsh.ruff
+      rust-lang.rust-analyzer
+      tamasfe.even-better-toml
+      aaron-bond.better-comments
+      karyfoundation.theme-karyfoundation-themes
+      TheNuProjectContributors.vscode-nushell-lang
+    ];
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -81,6 +95,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Packages!
   environment.systemPackages = with pkgs; [
     alacritty
     astroterm
@@ -93,7 +108,14 @@
     eza
     gimp3
     git
+    hyprcursor
+    hypridle
+    hyprlock
     hyprpaper
+    hyprpicker
+    hyprshot
+    hyprsunset
+    hyprswitch
     libnotify
     libreoffice-qt6-fresh
     mako
