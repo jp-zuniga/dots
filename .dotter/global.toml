@@ -1,7 +1,7 @@
 [default.files]
     "dots/.alacritty.toml"      = "~/.alacritty.toml"
     "dots/.cargo/config.toml"          = "~/.cargo/config.toml"
-    "dots/.config/Code/User/settings.json" = "config/Code/User/settings.json"
+    "dots/.config/Code/User/settings.json" = "~/.config/Code/User/settings.json"
     "dots/.gitconfig"      = "~/.gitconfig"
     "dots/.gitmessage"     = "~/.gitmessage"
 
