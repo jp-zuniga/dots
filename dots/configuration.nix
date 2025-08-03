@@ -23,8 +23,8 @@
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d"; 
-    randomizedDelaySec = "30min";
     persistent = true;
+    randomizedDelaySec = "30min";
   };
 
   networking.hostName = "ThinkPadT460";
@@ -95,7 +95,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Packages!
   environment.systemPackages = with pkgs; [
     alacritty
     astroterm
@@ -135,13 +134,9 @@
     uv
     waybar
     xdg-desktop-portal-hyprland
-    (yazi.override {
-      _7zz = _7zz-rar;
-    })
+    yazi
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
@@ -154,6 +149,7 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
+
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
