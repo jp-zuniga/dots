@@ -73,20 +73,6 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
   programs.steam.enable = true;
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-python.python
-      ms-python.debugpy
-      ms-python.vscode-pylance
-      charliemarsh.ruff
-      rust-lang.rust-analyzer
-      tamasfe.even-better-toml
-      aaron-bond.better-comments
-      karyfoundation.theme-karyfoundation-themes
-      TheNuProjectContributors.vscode-nushell-lang
-    ];
-  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -99,8 +85,9 @@
     alacritty
     astroterm
     bacon
-    brightnessctl
     bat
+    brightnessctl
+    btop
     cbonsai
     delta
     discord
@@ -121,17 +108,30 @@
     microfetch
     mprocs
     mpv
+    neovim
     networkmanagerapplet
     nushell
     pastel
     rofi-wayland
     rustup
     sccache
+    spotify
     starship
     qbittorrent
     qview
     tokei
     uv
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions; [
+        ms-python.python
+        ms-python.debugpy
+        ms-python.vscode-pylance
+        charliermarsh.ruff
+        rust-lang.rust-analyzer
+        tamasfe.even-better-toml
+        aaron-bond.better-comments
+      ];
+    })
     waybar
     xdg-desktop-portal-hyprland
     yazi
