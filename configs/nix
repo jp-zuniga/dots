@@ -12,17 +12,19 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   system.autoUpgrade = {
+    allowReboot = false;
+    dates = "06:00";
     enable = true;
     flags = [ "--print-build-logs" ];
-    dates = "06:00";
-    randomizedDelayeSec = "30min";
-    allowReboot = false;
+    randomizedDelaySec = "30min";
   };
 
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    delete_generations = "+5";
+    options = "--delete-older-than 7d"; 
+    randomizedDelaySec = "30min";
+    persistent = true;
   };
 
   networking.hostName = "ThinkPadT460";
@@ -92,14 +94,12 @@
     gimp3
     git
     hyprpaper
-    kdePackages.dolphin
     libnotify
     libreoffice-qt6-fresh
     mako
     microfetch
     mprocs
     mpv
-    neovim
     networkmanagerapplet
     nushell
     pastel
@@ -112,13 +112,10 @@
     tokei
     uv
     waybar
-    wiki-tui
-    wget
     xdg-desktop-portal-hyprland
     (yazi.override {
       _7zz = _7zz-rar;
     })
-    zoxide
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

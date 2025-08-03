@@ -11,8 +11,10 @@
     "configs/nu/cmds"        = "~/.config/nushell/cmds.nu"
     "configs/nu/config"      = "~/.config/nushell/config.nu"
     "configs/nu/env"         = "~/.config/nushell/env.nu"
-    "configs/starship"      = "~/.config/starship.toml"
-    "configs/vscode"        = "~/.config/Code/User/settings.json"
+    "configs/starship"       = "~/.config/starship.toml"
+    "configs/vscode"         = "~/.config/Code/User/settings.json"
+
+    "configs/hardware-configuration.nix" = "/etc/nixos/hardware-configuration.nix"
 
 [settings]
     default_target_type = "automatic"
