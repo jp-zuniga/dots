@@ -50,13 +50,12 @@ palette = "frappe"
     format            = "[ $path ]($style)"
 
     [directory.substitutions]
-        "~/.config"       = ""
-        "~/Documents/dev" = "󰲋"
-        "~/Documents"     = "󰈙"
-        "~/Downloads"     = ""
-        "~/Music"         = "󰝚"
-        "~/Pictures"      = ""
-        "/"               = " / "
+        "~/.config" = ""
+        "~/dev"     = "󰲋"
+        "~/docs"    = "󰈙"
+        "~/dwnlds"  = ""
+        "~/pics"    = ""
+        "/"         = " / "
 
 [git_branch]
     symbol = ""

@@ -1,0 +1,146 @@
+#####################
+### SYSTEM CONFIG ###
+#####################
+
+{ config, lib, pkgs, ... }:
+
+{
+  imports = [ ./hardware-configuration.nix ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  system.autoUpgrade = {
+    enable = true;
+    flags = [ "--print-build-logs" ];
+    dates = "06:00";
+    randomizedDelayeSec = "30min";
+    allowReboot = false;
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    delete_generations = "+5";
+  };
+
+  networking.hostName = "ThinkPadT460";
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "America/Managua";
+
+  console = {
+    keyMap = "us";
+  };
+
+  fonts = {
+    packages = with pkgs; [
+      liberation_ttf
+      nerd-fonts.meslo-lg
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Liberation Serif" ];
+        sansSerif = [ "MesloLGMNerdFont" ];
+        monospace = [ " MesloLGMNerdFont-Mono" ];
+      };
+    };
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  users.users.jaq = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ ];
+
+  programs.firefox.enable = true;
+  programs.hyprland.enable = true;
+  programs.steam.enable = true;
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  hardware.graphics.enable = true;
+  hardware.nvidia.modesetting.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
+
+  environment.systemPackages = with pkgs; [
+    alacritty
+    astroterm
+    bacon
+    brightnessctl
+    bat
+    cbonsai
+    delta
+    discord
+    eza
+    gimp3
+    git
+    hyprpaper
+    kdePackages.dolphin
+    libnotify
+    libreoffice-qt6-fresh
+    mako
+    microfetch
+    mprocs
+    mpv
+    neovim
+    networkmanagerapplet
+    nushell
+    pastel
+    rofi-wayland
+    rustup
+    sccache
+    starship
+    qbittorrent
+    qview
+    tokei
+    uv
+    waybar
+    wiki-tui
+    wget
+    xdg-desktop-portal-hyprland
+    (yazi.override {
+      _7zz = _7zz-rar;
+    })
+    zoxide
+  ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # Copy the NixOS configuration file and link it from the resulting system.
+  # system.copySystemConfiguration = true;
+
+  # DO NOT TOUCH!!!
+  system.stateVersion = "25.05";
+}

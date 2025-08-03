@@ -1,0 +1,4 @@
+preload = ~/pics/wallpapers/space.png
+wallpaper = ~/pics/wallpapers/space.png
+splash = false
+ipc = off
