@@ -7,8 +7,10 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -50,6 +52,7 @@
   };
 
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa = {
@@ -128,6 +131,7 @@
   ];
 
   # programs.mtr.enable = true;
+
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;

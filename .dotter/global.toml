@@ -23,6 +23,8 @@
     # "dots/.config/hypr/shaders/grayscale.frag" = "~/.config/hypr/shaders/grayscale.frag"
     # "dots/.config/hypr/shaders/vibrance.frag"  = "~/.config/hypr/shaders/vibrance.frag"
 
+    "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/rose-pine-moon.theme"
+
     "dots/.config/ncspot/config.toml" = "~/.config/ncspot/config.toml"
 
     "dots/.config/nushell/aliases.nu" = "~/.config/nushell/aliases.nu"
@@ -35,7 +37,9 @@
     "dots/.config/rofi/rose-pine-dawn.rasi" = "~/.config/rofi/rose-pine-dawn.rasi"
     "dots/.config/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
 
-    "dots/.config/starship/starship.toml" = "~/.config/starship.toml"
+    "dots/.config/starship/rose-pine-moon.toml" = "~/.config/starship.toml"
+
+    "dots/.config/qBittorrent/qBittorrent.conf" = "~/.config/qBittorrent/qBittorrent.conf"
 
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"

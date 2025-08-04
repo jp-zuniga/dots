@@ -186,4 +186,5 @@
     "window.titleBarStyle": "custom",
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
+    "evenBetterToml.completion.maxKeys": 3,
 }
