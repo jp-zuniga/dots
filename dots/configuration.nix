@@ -116,6 +116,7 @@
     swww
     qbittorrent
     qview
+    rose-pine-cursor
     rose-pine-hyprcursor
     tokei
     uv
