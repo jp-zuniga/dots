@@ -1,7 +1,7 @@
 program_options:
   tray: true
   notify: true
-  automount: true
+  automount: false
   file_manager: yazi
 
 notifications:

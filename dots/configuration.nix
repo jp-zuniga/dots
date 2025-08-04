@@ -7,9 +7,13 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd.verbose = false;
+    tmp.cleanOnBoot = true;
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -22,22 +26,19 @@
     randomizedDelaySec = "30min";
   };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-    persistent = true;
-    randomizedDelaySec = "30min";
+  nix = {
+    settings.auto-optimise-store = true;
+    gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
   };
 
   networking.hostName = "ThinkPadT460";
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Managua";
-
-  console = {
-    keyMap = "us";
-  };
 
   fonts = {
     packages = with pkgs; [ nerd-fonts.meslo-lg ];
@@ -80,6 +81,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.defaultPackages = [ ];
   environment.systemPackages = with pkgs; [
     alacritty
     astroterm

@@ -6,20 +6,23 @@
     "dots/.config/alacritty/rose-pine-dawn.toml" = "~/.config/alacritty/rose-pine-dawn.toml"
     "dots/.config/alacritty/rose-pine-moon.toml" = "~/.config/alacritty/rose-pine-moon.toml"
 
+    "dots/.config/hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
     "dots/.config/hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
+    "dots/.config/hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
+    "dots/.config/hypr/hyprsunset.conf" = "~/.config/hypr/hyprsunset.conf"
 
-    "dots/.config/hypr/autostart.conf" = "~/.config/hypr/autostart.conf"
-    "dots/.config/hypr/env.conf"       = "~/.config/hypr/env.conf"
-    "dots/.config/hypr/inputs.conf"    = "~/.config/hypr/inputs.conf"
-    "dots/.config/hypr/looks.conf"     = "~/.config/hypr/looks.conf"
-    "dots/.config/hypr/rules.conf"     = "~/.config/hypr/rules.conf"
-    "dots/.config/hypr/screens.conf"   = "~/.config/hypr/screens.conf"
+    "dots/.config/hypr/modules/autostart.conf" = "~/.config/hypr/modules/autostart.conf"
+    "dots/.config/hypr/modules/env.conf"       = "~/.config/hypr/modules/env.conf"
+    "dots/.config/hypr/modules/inputs.conf"    = "~/.config/hypr/modules/inputs.conf"
+    "dots/.config/hypr/modules/looks.conf"     = "~/.config/hypr/modules/looks.conf"
+    "dots/.config/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
+    "dots/.config/hypr/modules/screens.conf"   = "~/.config/hypr/modules/screens.conf"
 
-    "dots/.config/hypr/rose-pine.conf"      = "~/.config/hypr/rose-pine.conf"
-    "dots/.config/hypr/rose-pine-dawn.conf" = "~/.config/hypr/rose-pine-dawn.conf"
-    "dots/.config/hypr/rose-pine-moon.conf" = "~/.config/hypr/rose-pine-moon.conf"
+    "dots/.config/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
+    "dots/.config/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"
+    "dots/.config/hypr/themes/rose-pine-moon.conf" = "~/.config/hypr/themes/rose-pine-moon.conf"
 
-    "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/rose-pine-moon.theme"
+    "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/config"
 
     "dots/.config/ncspot/config.toml" = "~/.config/ncspot/config.toml"
 
