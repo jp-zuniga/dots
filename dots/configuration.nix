@@ -120,6 +120,7 @@
     rose-pine-cursor
     rose-pine-hyprcursor
     tokei
+    udiskie
     uv
     vscode.fhs
     waybar

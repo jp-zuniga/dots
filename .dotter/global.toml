@@ -37,6 +37,8 @@
 
     "dots/.config/starship/rose-pine-moon.toml" = "~/.config/starship.toml"
 
+    "dots/.config/udiskie/config.yml" = "~/.config/udiskie/config.yml"
+
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"
     "dots/.config/waybar/rose-pine-dawn.css" = "~/.config/waybar/rose-pine-dawn.css"

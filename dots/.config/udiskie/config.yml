@@ -1,0 +1,9 @@
+program_options:
+  tray: true
+  notify: true
+  automount: true
+  file_manager: yazi
+
+notifications:
+  timeout: 3
+  device_mounted: 5
