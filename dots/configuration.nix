@@ -51,6 +51,9 @@
     };
   };
 
+  hardware.graphics.enable = true;
+  hardware.nvidia.modesetting.enable = true;
+
   security.rtkit.enable = true;
 
   services.pipewire = {
@@ -75,15 +78,9 @@
   programs.hyprland.enable = true;
   programs.steam.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  hardware.graphics.enable = true;
-  hardware.nvidia.modesetting.enable = true;
-
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    alejandra
     alacritty
     astroterm
     bacon
@@ -100,9 +97,9 @@
     hypridle
     hyprlock
     hyprpicker
+    hyprpolkitagent
     hyprshot
     hyprsunset
-    hyprswitch
     libnotify
     libreoffice-qt6-fresh
     mako
@@ -129,6 +126,8 @@
     xdg-desktop-portal-hyprland
     yazi
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # programs.mtr.enable = true;
 

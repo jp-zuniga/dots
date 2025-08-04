@@ -2,9 +2,6 @@
 ## Custom aliases! ##
 #####################
 
-let hypr = "/home/jaq/dots/dots/.config/hypr/"
-let nix  = "/home/jaq/dots/dots/configuration.nix"
-
 alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
 alias tree = cbonsai -li --time=0.1
 
@@ -47,7 +44,6 @@ alias gsh  = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)
 alias gst  = git stash --all
 alias gsw  = git switch
 
-alias hypr-conf = cd $hypr
-alias nix-conf  = code $nix
+alias rebuild = sudo nixos-rebuild switch
 
 ###############################################################################

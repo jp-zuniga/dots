@@ -8,20 +8,16 @@
 
     "dots/.config/hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
 
-    # "dots/.config/hypr/hyprlock.conf"  = "~/.config/hypr/hyprlock.conf"
-    # "dots/.config/hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+    "dots/.config/hypr/autostart.conf" = "~/.config/hypr/autostart.conf"
+    "dots/.config/hypr/env.conf"       = "~/.config/hypr/env.conf"
+    "dots/.config/hypr/inputs.conf"    = "~/.config/hypr/inputs.conf"
+    "dots/.config/hypr/looks.conf"     = "~/.config/hypr/looks.conf"
+    "dots/.config/hypr/rules.conf"     = "~/.config/hypr/rules.conf"
+    "dots/.config/hypr/screens.conf"   = "~/.config/hypr/screens.conf"
 
-    # "dots/.config/hypr/hyprland/autostart.conf" = "~/.config/hypr/hyprland/autostart.conf"
-    # "dots/.config/hypr/hyprland/bindings.conf"  = "~/.config/hypr/hyprland/bindings.conf"
-    # "dots/.config/hypr/hyprland/colors.conf"    = "~/.config/hypr/hyprland/colors.conf"
-    # "dots/.config/hypr/hyprland/init.conf"      = "~/.config/hypr/hyprland/init.conf"
-    # "dots/.config/hypr/hyprland/input.conf"     = "~/.config/hypr/hyprland/input.conf"
-    # "dots/.config/hypr/hyprland/rules.conf"     = "~/.config/hypr/hyprland/rules.conf"
-    # "dots/.config/hypr/hyprland/visuals.conf"   = "~/.config/hypr/hyprland/visuals.conf"
-
-    # "dots/.config/hypr/shaders/blfilter.frag"  = "~/.config/hypr/shaders/blfilterfrag"
-    # "dots/.config/hypr/shaders/grayscale.frag" = "~/.config/hypr/shaders/grayscale.frag"
-    # "dots/.config/hypr/shaders/vibrance.frag"  = "~/.config/hypr/shaders/vibrance.frag"
+    "dots/.config/hypr/rose-pine.conf"      = "~/.config/hypr/rose-pine.conf"
+    "dots/.config/hypr/rose-pine-dawn.conf" = "~/.config/hypr/rose-pine-dawn.conf"
+    "dots/.config/hypr/rose-pine-moon.conf" = "~/.config/hypr/rose-pine-moon.conf"
 
     "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/rose-pine-moon.theme"
 
@@ -32,14 +28,14 @@
     "dots/.config/nushell/config.nu"  = "~/.config/nushell/config.nu"
     "dots/.config/nushell/env.nu"     = "~/.config/nushell/env.nu"
 
+    "dots/.config/qBittorrent/qBittorrent.conf" = "~/.config/qBittorrent/qBittorrent.conf"
+
     "dots/.config/rofi/config.rasi"         = "~/.config/rofi/config.rasi"
     "dots/.config/rofi/rose-pine.rasi"      = "~/.config/rofi/rose-pine.rasi"
     "dots/.config/rofi/rose-pine-dawn.rasi" = "~/.config/rofi/rose-pine-dawn.rasi"
     "dots/.config/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
 
     "dots/.config/starship/rose-pine-moon.toml" = "~/.config/starship.toml"
-
-    "dots/.config/qBittorrent/qBittorrent.conf" = "~/.config/qBittorrent/qBittorrent.conf"
 
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"
