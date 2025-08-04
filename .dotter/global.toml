@@ -30,7 +30,12 @@
     "dots/.config/nushell/config.nu"  = "~/.config/nushell/config.nu"
     "dots/.config/nushell/env.nu"     = "~/.config/nushell/env.nu"
 
-    "dots/.config/starship.toml" = "~/.config/starship.toml"
+    "dots/.config/rofi/config.rasi"         = "~/.config/rofi/config.rasi"
+    "dots/.config/rofi/rose-pine.rasi"      = "~/.config/rofi/rose-pine.rasi"
+    "dots/.config/rofi/rose-pine-dawn.rasi" = "~/.config/rofi/rose-pine-dawn.rasi"
+    "dots/.config/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
+
+    "dots/.config/starship/starship.toml" = "~/.config/starship.toml"
 
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"
