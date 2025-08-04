@@ -22,7 +22,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 7d"; 
+    options = "--delete-older-than 7d";
     persistent = true;
     randomizedDelaySec = "30min";
   };
@@ -37,16 +37,13 @@
   };
 
   fonts = {
-    packages = with pkgs; [
-      liberation_ttf
-      nerd-fonts.meslo-lg
-    ];
+    packages = with pkgs; [ nerd-fonts.meslo-lg ];
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Liberation Serif" ];
-        sansSerif = [ "MesloLGMNerdFont" ];
-        monospace = [ " MesloLGMNerdFont-Mono" ];
+        serif = [ "MesloLGMNerdFontMono" ];
+        sansSerif = [ "MesloLGMNerdFontMono" ];
+        monospace = [ " MesloLGMNerdFontMono" ];
       };
     };
   };
@@ -82,6 +79,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    alejandra
     alacritty
     astroterm
     bacon
@@ -97,7 +95,6 @@
     hyprcursor
     hypridle
     hyprlock
-    hyprpaper
     hyprpicker
     hyprshot
     hyprsunset
@@ -109,7 +106,6 @@
     mprocs
     mpv
     neovim
-    networkmanagerapplet
     nushell
     pastel
     rofi-wayland
@@ -117,21 +113,13 @@
     sccache
     spotify
     starship
+    swww
     qbittorrent
     qview
+    rose-pine-hyprcursor
     tokei
     uv
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        ms-python.python
-        ms-python.debugpy
-        ms-python.vscode-pylance
-        charliermarsh.ruff
-        rust-lang.rust-analyzer
-        tamasfe.even-better-toml
-        aaron-bond.better-comments
-      ];
-    })
+    vscode.fhs
     waybar
     xdg-desktop-portal-hyprland
     yazi

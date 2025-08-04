@@ -2,10 +2,14 @@
 ## Custom aliases! ##
 #####################
 
-# alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
-# alias tree = cbonsai -li --time=0.1
+let hypr = "/home/jaq/dots/dots/.config/hypr/"
+let nix  = "/home/jaq/dots/dots/configuration.nix"
 
-alias nu-ls     = ls
+alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
+alias tree = cbonsai -li --time=0.1
+
+alias nu-ls       = ls
+alias nu-ps       = ps
 alias ghostscript = gs
 
 alias cp     = ^cp
@@ -42,5 +46,8 @@ alias gs   = git status --short
 alias gsh  = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
 alias gst  = git stash --all
 alias gsw  = git switch
+
+alias hypr-conf = cd $hypr
+alias nix-conf  = code $nix
 
 ###############################################################################

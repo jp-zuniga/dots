@@ -1,2 +1,2 @@
 [build]
-rustc-wrapper = ".cargo/bin/sccache"
+    rustc-wrapper = ".cargo/bin/sccache"

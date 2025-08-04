@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-ln -sf /home/jaq/dots/dots/configuration.nix /etc/nixos/ && ln -sf /home/jaq/dots/dots/hardware-configuration.nix /etc/nixos/ && echo "Symbolic links created."
+let NIX_CONFIG = "/home/jaq/dots/dots/configuration.nix"
+let HARDWARE_NIX_CONFIG = "/home/jaq/dots/dots/hardware-configuration.nix"
+
+ln -sf "$USER_HOME"/dots/dots/configuration.nix /etc/nixos/ && echo "Symbolic links created."
+
+if [ ! test -f $HARDWARE_NIX_CONFIG ]; then
+    mv /etc/nixos/hardware-configuration.nix $HARDWARE_NIX_CONFIG
+fi
