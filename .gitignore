@@ -3,3 +3,4 @@
 .dotter/local.toml
 
 dots/hardware-configuration.nix
+dots/.walls/current.png

@@ -18,6 +18,8 @@
     "dots/.config/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
     "dots/.config/hypr/modules/screens.conf"   = "~/.config/hypr/modules/screens.conf"
 
+    # "dots/.config/hypr/scripts/random-wall" = "/usr/bin/"
+
     "dots/.config/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
     "dots/.config/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"
     "dots/.config/hypr/themes/rose-pine-moon.conf" = "~/.config/hypr/themes/rose-pine-moon.conf"
