@@ -1,9 +1,9 @@
 @import "rose-pine-moon.rasi"
 
-* { font: "monospace 20"; }
+* { font: "monospace 16"; }
 
 configuration {
-    display-drun: " ";
+    display-drun: "";
     drun-display-format: "{name}";
     show-icons: false;
 }
@@ -11,7 +11,7 @@ configuration {
 #window {
     border: 0;
     fullscreen: true;
-    padding: 10% 35%;
+    padding: 10% 30%;
 }
 
 #mainbox {
@@ -52,5 +52,5 @@ element {
 }
 
 entry {
-    placeholder: "Search...";
+    placeholder: " Search...";
 }

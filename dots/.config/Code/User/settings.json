@@ -181,7 +181,6 @@
     "git.confirmSync": false,
     "workbench.iconTheme": "material-icon-theme",
     "git.openRepositoryInParentFolders": "never",
-    "editor.minimap.enabled": false,
     "window.customTitleBarVisibility": "windowed",
     "window.titleBarStyle": "custom",
     "window.newWindowDimensions": "maximized",

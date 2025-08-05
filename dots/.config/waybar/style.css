@@ -1,133 +1,116 @@
 @import "./rose-pine-moon.css";
 
+@define-color group1  @foam;
+@define-color group2  @pine;
+@define-color group3  @iris;
+@define-color group4  @rose;
+
+
 * {
-  border: none;
-  border-radius: 0;
-  font-family: "MesloLGMNerdFontMono";
-  font-weight: bolder;
-  font-size: 12px;
-  min-height: 0;
+    border: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    font-size: 12pt;alias ls = eza-wrapper -a
+alias ll = eza-wrapper -al
+alias lt = eza-wrapper -alt
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    text-shadow: none;
 }
 
-window#waybar {
-  background: rgba(21, 18, 27, 0);
-  color: @text;
+#waybar.main {
+    background: transparent;
+}
+
+#waybar.main button {
+    transition: all 0.15s ease-in-out;
+}
+
+#waybar.main #battery,
+#waybar.main #backlight,
+#waybar.main #clock,
+#waybar.main #cpu,
+#waybar.main #disk,
+#waybar.main #language,
+#waybar.main #memory.ram,
+#waybar.main #network,
+#waybar.main #pulseaudio,
+#waybar.main #temperature,
+#waybar.main #tray,
+#waybar.main #window {
+    background: transparent;
+}
+
+#waybar.main #cpu,
+#waybar.main #temperature,
+#waybar.main #memory.ram,
+#waybar.main #memory.swap,
+#waybar.main #disk,
+#waybar.main #network {
+    color: @group1;
+}
+
+#waybar.main #pulseaudio {
+    color: @group2;
+}
+
+#waybar.main #language,
+#waybar.main #backlight,
+#waybar.main #battery {
+    color: @group3;
+}
+
+#waybar.main #clock {
+    color: @group4;
+}
+
+#waybar.main #window {
+    color: @love;
+}
+
+#waybar.main #pulseaudio.output.muted,
+#waybar.main #pulseaudio.input.source-muted {
+    color: @overlay;
+}
+
+#waybar.main #workspaces button {
+    background: transparent;
+    border: 3px solid transparent;
+    border-radius: 16px;
+    color: @overlay;
+    transition: all 0.25s ease;
+}
+
+#waybar.main #workspaces button.visible {
+    color: @love;
+}
+
+#waybar.main #workspaces button.active {
+    color: @love;
+    border: 3px solid @overlay;
+}
+
+#waybar.main #workspaces button:hover {
+    color: @love;
+}
+
+#waybar.main #custom-spacer1,
+#waybar.main #custom-spacer2,
+#waybar.main #custom-spacer3 {
+    background: transparent;
+    color: @muted;
 }
 
 tooltip {
-  background: @base;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: @overlay;
+    background: @base;
+    border: 3px solid @overlay;
+    border-radius: 8px;
 }
 
-#workspaces button {
-  padding: 5px;
-  color: @highlightMed;
-  margin-right: 5px;
-}
-
-#workspaces button.active {
-  color: @text;
-}
-
-#workspaces button.focused {
-  color: @subtle;
-  background: @love;
-  border-radius: 10px;
-}
-
-#workspaces button.urgent {
-  color: @base;
-  background: @pine;
-  border-radius: 10px;
-}
-
-#workspaces button:hover {
-  background: @highlightLow;
-  color: @text;
-  border-radius: 10px;
-}
-
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#bluetooth,
-#workspaces,
-#tray,
-#memory,
-#backlight {
-  background: @base;
-  opacity: 0.9;
-  padding: 0px 10px;
-  margin: 3px 0px;
-  margin-top: 10px;
-  border: 1px solid @overlay;
-}
-
-#memory {
-  color: @foam;
-}
-
-#backlight {
-  color: @text;
-  border-radius: 0px 10px 10px 0px;
-  margin-right: 10px;
-}
-
-#tray {
-  border-radius: 10px;
-  margin-right: 10px;
-}
-
-#workspaces {
-  background: @base;
-  border-radius: 10px;
-  margin-left: 10px;
-  padding-right: 0px;
-  padding-left: 5px;
-}
-
-#window {
-  border-radius: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-#clock {
-  color: @gold;
-  border-radius: 10px 0px 0px 10px;
-  margin-left: 10px;
-  border-right: 0px;
-}
-
-#network {
-  color: @love;
-  border-radius: 10px 0px 0px 10px;
-  /* border-left: 0px; */
-  border-right: 0px;
-}
-
-#bluetooth {
-  color: @gold;
-  border-radius: 0px 0px 0px 0px;
-  border-right: 0px;
-  /* margin-right: 10px; */
-}
-
-#pulseaudio {
-  color: @iris;
-  border-radius: 10px 0px 0px 10px;
-  /* border-left: 0px; */
-  border-right: 0px;
-}
-
-#battery {
-  color: @foam;
-  border-radius: 0 10px 10px 0;
-  margin-right: 10px;
-  border-left: 0px;
+#waybar.main #tray menu {
+    background: @base;
+    border: 3px solid @muted;
+    border-radius: 8px;
+    color: @foam;
 }

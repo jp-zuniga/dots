@@ -1,121 +1,190 @@
-{
-  "layer": "top",
-  "position": "top",
-  "mod": "dock",
-  "exclusive": true,
-  "passthrough": false,
-  "gtk-layer-shell": true,
-  "height": 40,
-  // "spacing": 4,
-  "modules-right": [
-    "tray",
-    "network",
-    "memory",
-    "battery",
-    "pulseaudio",
-    "backlight"
-  ],
+// based on: https://github.com/Jan-Aarela/.dotfiles/blob/main/hypr/themes/Mocha/waybar.jsonc
 
-  "hyprland/window": {
-    "format": "{}"
-  },
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "name": "main",
 
-  "wlr/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十"
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+      "tray",
+      "custom/spacer2",
+      "hyprland/workspaces",
+      "custom/spacer2",
+      "hyprland/window"
+    ],
+
+    "modules-right": [
+        "custom/spacer1",
+        "cpu",
+        // "temperature",
+        "memory#ram",
+        // "disk",
+        "network#info",
+        "custom/spacer1",
+        "pulseaudio#input",
+        "pulseaudio#output",
+        "custom/spacer1",
+        // "hyprland/language",
+        "backlight",
+        // "custom/battery",
+        "custom/spacer1",
+        // "custom/weather",
+        "clock"
+    ],
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
     },
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
-    }
-  },
 
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10
-  },
-
-  "clock": {
-    "format": "{: %R   %d/%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    // "format": "{: %I:%M %p   %a, %b %e}",
-    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-  },
-
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", "", ""],
-    "on-click": "~/.config/waybar/scripts/cycleWall.sh",
-    "on-click-right": "~/.config/rofi/bin/selectBG",
-    "on-scroll-up": "brightnessctl set 1%+",
-    "on-scroll-down": "brightnessctl set 1%-",
-    "min-length": 6
-  },
-
-  "battery": {
-    "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
+    "hyprland/workspaces": {
+        "disable-scroll-wraparound": true,
+        "smooth-scrolling-threshold": 4,
+        "format": "{icon}"
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
-  },
 
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "tooltip": false,
-    "format-muted": "",
-    "on-click": "pamixer -t",
-    "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -i 5",
-    "on-scroll-down": "pamixer -d 5",
-    "scroll-step": 5,
-    "format-icons": {
-      "default": ["", "", ""]
+    "hyprland/window": {
+        "format": "",
+        "icon": true,
+        "icon-size": 24,
+        "tooltip": false
+    },
+
+    // "temperature": {
+    //     "critical-threshold": 90,
+    //     "interval": 4,
+    //     "format": "{icon} {temperatureC}°",
+    //     "format-icons": ["", "", "", "", ""],
+    //     "tooltip": false
+    // },
+
+    "cpu": {
+        "interval": 4,
+        "format": " {usage}%",
+        "states": {
+            "warning": 80,
+            "critical": 95
+        }
+    },
+
+    "memory#ram": {
+        "interval": 4,
+        "format": " {percentage}%",
+        "states": {
+            "warning": 80,
+            "critical": 95
+        },
+        "tooltip": "{}",
+        "tooltip-format": "{used}/{total} GiB"
+    },
+
+    // "disk": {
+    //     "interval": 30,
+    //     "format": " {percentage_used}%",
+    //     "tooltip": "{}",
+    //     "tooltip-format": "{free} free",
+    //     "states": {
+    //         "warning": 85,
+    //         "critical": 95
+    //     }
+    // },
+
+    "network#info": {
+        "interval": 2,
+        "format": "󱘖",
+        "format-wifi": "{icon} {signalStrength}%",
+        "format-ethernet": "󰈀",
+        "tooltip": "{}",
+        "tooltip-format-wifi": "- {essid} ({signalStrength}%)\n- 󰇚 {bandwidthDownBits}\n- 󰕒 {bandwidthUpBits}",
+        "tooltip-format-ethernet": "- {ifname}\n- 󰇚 {bandwidthDownBits} \n- 󰕒 {bandwidthUpBits}",
+        "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "states": {
+            "normal": 25
+        }
+    },
+
+    "pulseaudio#input": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "max-volume": "100",
+        "tooltip": false
+    },
+
+    "pulseaudio#output": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "default": ""
+        },
+        "tooltip": false,
+        "scroll-step": 5
+    },
+
+    // "hyprland/language": {
+    //   "format": " {}",
+    //   "format-fi": "Vittu",
+    //   "format-ru": "Блять",
+    //   "min-length": 7,
+    //   "on-click": "hyprctl switchxkblayout current next & aplay ~/.config/sounds/interact.wav",
+    //   "tooltip": false,
+    //   "class": "language"
+    // },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󱩎", "󱩑", "󱩓", "󱩕", "󰛨"],
+        "scroll-step": 5,
+        "tooltip": false
+    },
+
+    // "custom/battery": {
+    //   "interval": 4,
+    //   "return-type": "json",
+    //   "exec": "~/.config/hypr/themes/Mocha/bat-pp.sh refresh",
+    //   "exec-on-event": true,
+    //   "format": "{text}%",
+    //   "on-click": "~/.config/hypr/themes/Mocha/bat-pp.sh toggle & aplay ~/.config/sounds/interact.wav",
+    //   "tooltip": "true",
+    //   "tooltip-format": "{alt}W"
+    // },
+
+    "clock": {
+        "interval": 1,
+        "format": " {:%H:%M ― %a, %d-%m}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#cba6f7'><b>{}</b></span>",
+                "days": "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks": "<span color='#94e2d5'> W{}</span>",
+                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
+                "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "custom/spacer1": {
+        "format": " \\\\ ",
+        "tooltip": false
+    },
+
+    "custom/spacer2": {
+        "format": " // ",
+        "tooltip": false
     }
-  },
-
-  "memory": {
-    "interval": 30,
-    "format": " {}%",
-    "max-length": 10,
-    "tooltip": true,
-    "tooltip-format": "{used:0.1f}GB of RAM in use",
-    "on-click": "alacritty -c btop"
-  },
-
-  "network": {
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{essid} - {ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}"
   }
-}
+]

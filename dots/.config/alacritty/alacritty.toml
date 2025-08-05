@@ -1,7 +1,7 @@
 general.import = ["rose-pine-moon.toml"]
 
 [window]
-    opacity = 0.75
+    opacity = 0.9
 
 [font]
     normal = { family = "MesloLGMNerdFontMono", style = "Regular" }
