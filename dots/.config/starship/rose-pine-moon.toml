@@ -33,13 +33,12 @@ palette = "rose-pine-moon"
     truncation_symbol = "…/"
 
     [directory.substitutions]
-        "/"           = " / "
-        "pics"        = ""
         "~/.config"   = ""
         "~/Downloads" = ""
         "~/dev"       = "󰲋"
         "~/docs"      = "󰈙"
         "~/pics"      = ""
+        "/"           = " / "
 
 [fill]
     style  = "fg:overlay"
@@ -76,5 +75,5 @@ palette = "rose-pine-moon"
     disabled    = false
     format      = "[░▒▓](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
     show_always = true
-    style_root  = "bg:overlay fg:iris"
+    style_root  = "bg:overlay fg:love"
     style_user  = "bg:overlay fg:iris"

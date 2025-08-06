@@ -33,13 +33,12 @@ palette = "rose-pine-dawn"
     truncation_symbol = "…/"
 
     [directory.substitutions]
-        "/"           = " / "
-        "pics"        = ""
         "~/.config"   = ""
         "~/Downloads" = ""
         "~/dev"       = "󰲋"
         "~/docs"      = "󰈙"
         "~/pics"      = ""
+        "/"           = " / "
 
 [fill]
     style  = "fg:overlay"

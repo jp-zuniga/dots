@@ -17,7 +17,6 @@ alias mktemp = ^mktemp
 alias mv     = ^mv
 alias open   = ^open
 alias ps     = ^ps
-alias read   = bat
 alias rm     = ^rm
 alias seq    = ^seq
 alias sleep  = ^sleep
