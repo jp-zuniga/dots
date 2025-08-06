@@ -55,7 +55,7 @@
     "codesnap.target": "window",
     "codesnap.transparentBackground": true,
     "editor.accessibilitySupport": "off",
-    "editor.fontFamily": "MesloLGM Nerd Font, monospace",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono",
     "editor.minimap.renderCharacters": false,
     "editor.minimap.size": "fit",
     "explorer.confirmDelete": false,
@@ -93,7 +93,7 @@
     "telemetry.telemetryLevel": "off",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.defaultProfile.linux": "Nushell",
-    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.profiles.linux": {
         "bash": null,

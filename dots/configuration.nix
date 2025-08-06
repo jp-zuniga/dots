@@ -40,17 +40,18 @@
     time.timeZone = "America/Managua";
 
     fonts = {
-        packages = with pkgs; [ nerd-fonts.meslo-lg ];
+        packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
         fontconfig = {
             defaultFonts  = {
-                serif     = [ "MesloLGMNerdFontMono" ];
-                sansSerif = [ "MesloLGMNerdFontMono" ];
-                monospace = [ " MesloLGMNerdFontMono" ];
+                serif     = [ "JetBrainsMono Nerd Font" ];
+                sansSerif = [ "JetBrainsMono Nerd Font" ];
+                monospace = [ " JetBrainsMono Nerd Font" ];
             };
         };
     };
 
+    # hardware.bluetooth.enable          = true;
     hardware.graphics.enable           = true;
     hardware.nvidia.modesetting.enable = true;
 
@@ -78,9 +79,9 @@
     programs.hyprland.enable = true;
     programs.steam.enable    = true;
 
-    nixpkgs.config.allowUnfree = true;
-
+    nixpkgs.config.allowUnfree  = true;
     environment.defaultPackages = [ ];
+
     environment.systemPackages  = with pkgs; [
         alacritty
         astroterm
