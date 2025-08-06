@@ -1,50 +1,99 @@
 @import "./rose-pine-moon.css";
 
-@define-color group1  @foam;
-@define-color group2  @pine;
-@define-color group3  @iris;
-@define-color group4  @rose;
-
+@define-color group1 @foam;
+@define-color group2 @pine;
+@define-color group3 @iris;
+@define-color group4 @rose;
 
 * {
-    border: 0px;
+    border:        0px;
     border-radius: 0px;
-    box-shadow: none;
-    font-size: 12pt;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    text-shadow: none;
+    box-shadow:    none;
+    font-size:     12pt;
+    font-weight:   bold;
+    margin:        0px;
+    padding:       0px;
+    text-shadow:   none;
+}
+
+tooltip {
+    background:    @base;
+    border:        3px solid @muted;
+    border-radius: 5px;
 }
 
 #waybar.main {
-    background: transparent;
+    background:    @base;
+    border:        3px solid @muted;
+    border-radius: 5px;
 }
 
 #waybar.main button {
     transition: all 0.15s ease-in-out;
 }
 
-#waybar.main #battery,
+#waybar.main #custom-spacer1,
+#waybar.main #custom-spacer2,
+#waybar.main #custom-spacer3 {
+    background: transparent;
+    color:      @muted;
+}
+
+#waybar.main #tray menu {
+    background:    @base;
+    border:        3px solid @muted;
+    border-radius: 8px;
+    color:         @foam;
+}
+
+#waybar.main #clock {
+    color: @group4;
+}
+
+#waybar.main #workspaces button {
+    background:    transparent;
+    border:        3px solid transparent;
+    border-radius: 16px;
+    color:         @muted;
+    transition:    all 0.25s ease;
+}
+
+#waybar.main #workspaces button.visible {
+    color: @love;
+}
+
+#waybar.main #workspaces button.active {
+    color: @gold;
+}
+
+#waybar.main #workspaces button:hover {
+    color: @gold;
+}
+
+/* #waybar.main #battery, */
 #waybar.main #backlight,
 #waybar.main #clock,
 #waybar.main #cpu,
-#waybar.main #disk,
+/* #waybar.main #disk, */
 #waybar.main #language,
 #waybar.main #memory.ram,
 #waybar.main #network,
 #waybar.main #pulseaudio,
-#waybar.main #temperature,
+/* #waybar.main #temperature, */
 #waybar.main #tray,
 #waybar.main #window {
-    background: transparent;
+    background:     transparent;
+    padding-left:   6pt;
+    padding-right:  6pt;
+    padding-bottom: 3pt;
+    padding-top:    3pt;
 }
 
 #waybar.main #cpu,
-#waybar.main #temperature,
+/* #waybar.main #temperature, */
 #waybar.main #memory.ram,
 #waybar.main #memory.swap,
-#waybar.main #disk,
+/* #waybar.main #disk, */
 #waybar.main #network {
     color: @group1;
 }
@@ -53,62 +102,13 @@
     color: @group2;
 }
 
+#waybar.main #pulseaudio.output.muted,
+#waybar.main #pulseaudio.input.source-muted {
+    color: @muted;
+}
+
 #waybar.main #language,
 #waybar.main #backlight,
 #waybar.main #battery {
     color: @group3;
-}
-
-#waybar.main #clock {
-    color: @group4;
-}
-
-#waybar.main #window {
-    color: @love;
-}
-
-#waybar.main #pulseaudio.output.muted,
-#waybar.main #pulseaudio.input.source-muted {
-    color: @overlay;
-}
-
-#waybar.main #workspaces button {
-    background: transparent;
-    border: 3px solid transparent;
-    border-radius: 16px;
-    color: @overlay;
-    transition: all 0.25s ease;
-}
-
-#waybar.main #workspaces button.visible {
-    color: @love;
-}
-
-#waybar.main #workspaces button.active {
-    color: @love;
-    border: 3px solid @overlay;
-}
-
-#waybar.main #workspaces button:hover {
-    color: @love;
-}
-
-#waybar.main #custom-spacer1,
-#waybar.main #custom-spacer2,
-#waybar.main #custom-spacer3 {
-    background: transparent;
-    color: @muted;
-}
-
-tooltip {
-    background: @base;
-    border: 3px solid @overlay;
-    border-radius: 8px;
-}
-
-#waybar.main #tray menu {
-    background: @base;
-    border: 3px solid @muted;
-    border-radius: 8px;
-    color: @foam;
 }

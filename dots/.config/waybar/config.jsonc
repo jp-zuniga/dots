@@ -2,13 +2,13 @@
 
 [
   {
-    "layer": "top",
+    "layer":    "top",
     "position": "top",
-    "name": "main",
+    "name":     "main",
 
-    "margin-top": 5,
-    "margin-left": 10,
-    "margin-right": 10,
+    "margin-top":   5,
+    "margin-left":  5,
+    "margin-right": 5,
 
     "modules-left": [
       "tray",
@@ -26,164 +26,127 @@
         // "disk",
         "network#info",
         "custom/spacer1",
-        "pulseaudio#input",
+        // "pulseaudio#input",
         "pulseaudio#output",
         "custom/spacer1",
         // "hyprland/language",
         "backlight",
-        // "custom/battery",
         "custom/spacer1",
-        // "custom/weather",
         "clock"
     ],
 
     "tray": {
-        "icon-size": 20,
-        "spacing": 10
+        "icon-size": 16,
+        "spacing":   10
     },
 
     "hyprland/workspaces": {
-        "disable-scroll-wraparound": true,
-        "smooth-scrolling-threshold": 4,
         "format": "{icon}"
     },
 
     "hyprland/window": {
-        "format": "",
-        "icon": true,
-        "icon-size": 24,
-        "tooltip": false
+        "format":    "",
+        "icon":      true,
+        "icon-size": 16,
+        "tooltip":   false
     },
 
     // "temperature": {
-    //     "critical-threshold": 90,
-    //     "interval": 4,
-    //     "format": "{icon} {temperatureC}°",
-    //     "format-icons": ["", "", "", "", ""],
-    //     "tooltip": false
+    //     "critical-threshold": 60,
+    //     "interval":           30,
+    //     "format":             "temp {temperatureC}°",
+    //     "tooltip":            false
     // },
 
     "cpu": {
         "interval": 4,
-        "format": " {usage}%",
-        "states": {
-            "warning": 80,
-            "critical": 95
-        }
+        "format":   "cpu {usage}%",
+        "states":   {
+            "warning":  75,
+            "critical": 90
+        },
+        "tooltip": false
     },
 
     "memory#ram": {
         "interval": 4,
-        "format": " {percentage}%",
-        "states": {
-            "warning": 80,
-            "critical": 95
+        "format":   "ram {percentage}%",
+        "states":   {
+            "warning":  75,
+            "critical": 90
         },
-        "tooltip": "{}",
-        "tooltip-format": "{used}/{total} GiB"
+        "tooltip": "{used}/{total} GiB"
     },
 
     // "disk": {
-    //     "interval": 30,
-    //     "format": " {percentage_used}%",
-    //     "tooltip": "{}",
+    //     "interval":       3000,
+    //     "format":         "dsk {percentage_used}%",
+    //     "tooltip":        "{}",
     //     "tooltip-format": "{free} free",
-    //     "states": {
-    //         "warning": 85,
+    //     "states":         {
+    //         "warning":  85,
     //         "critical": 95
     //     }
     // },
 
     "network#info": {
-        "interval": 2,
-        "format": "󱘖",
-        "format-wifi": "{icon} {signalStrength}%",
-        "format-ethernet": "󰈀",
-        "tooltip": "{}",
-        "tooltip-format-wifi": "- {essid} ({signalStrength}%)\n- 󰇚 {bandwidthDownBits}\n- 󰕒 {bandwidthUpBits}",
-        "tooltip-format-ethernet": "- {ifname}\n- 󰇚 {bandwidthDownBits} \n- 󰕒 {bandwidthUpBits}",
-        "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "states": {
-            "normal": 25
-        }
+        "interval":                30,
+        "format":                  "off",
+        "format-wifi":             "net {signalStrength}%",
+        "format-ethernet":         "eth",
+        "tooltip":                 "{}",
+        "tooltip-format-wifi":     "- {essid} ({signalStrength}%)\n  - dwn: {bandwidthDownBits} \n  - up: {bandwidthUpBits}",
+        "tooltip-format-ethernet": "- {ifname}\n  - dwn: {bandwidthDownBits} \n  - up: {bandwidthUpBits}"
     },
 
-    "pulseaudio#input": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "max-volume": "100",
-        "tooltip": false
-    },
+    // "pulseaudio#input": {
+    //     "format":     "mic",
+    //     "max-volume": "100",
+    //     "tooltip":    false
+    // },
 
     "pulseaudio#output": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "default": ""
-        },
-        "tooltip": false,
+        "format":      "vol {volume}%",
+        "tooltip":     false,
         "scroll-step": 5
     },
 
     // "hyprland/language": {
-    //   "format": " {}",
-    //   "format-fi": "Vittu",
-    //   "format-ru": "Блять",
-    //   "min-length": 7,
-    //   "on-click": "hyprctl switchxkblayout current next & aplay ~/.config/sounds/interact.wav",
-    //   "tooltip": false,
-    //   "class": "language"
+    // "format":  " {}",
+    // "tooltip": false,
+    // "class":   "language"
     // },
 
     "backlight": {
-        "device": "intel_backlight",
-        "format": "{icon} {percent}%",
-        "format-icons": ["󱩎", "󱩑", "󱩓", "󱩕", "󰛨"],
+        "device":      "intel_backlight",
+        "format":      "bri {percent}%",
         "scroll-step": 5,
-        "tooltip": false
+        "tooltip":     false
     },
 
-    // "custom/battery": {
-    //   "interval": 4,
-    //   "return-type": "json",
-    //   "exec": "~/.config/hypr/themes/Mocha/bat-pp.sh refresh",
-    //   "exec-on-event": true,
-    //   "format": "{text}%",
-    //   "on-click": "~/.config/hypr/themes/Mocha/bat-pp.sh toggle & aplay ~/.config/sounds/interact.wav",
-    //   "tooltip": "true",
-    //   "tooltip-format": "{alt}W"
-    // },
-
     "clock": {
-        "interval": 1,
-        "format": " {:%H:%M ― %a, %d-%m}",
+        "interval":       1,
+        "format":         "{:%H:%M}",
         "tooltip-format": "{calendar}",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "on-scroll": 1,
-            "format": {
-                "months": "<span color='#cba6f7'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weeks": "<span color='#94e2d5'> W{}</span>",
+        "calendar":       {
+            "mode":         "month",
+            "format":       {
+                "months":   "<span color='#cba6f7'><b>{}</b></span>",
+                "days":     "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks":    "<span color='#94e2d5'> W{}</span>",
                 "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-                "today": "<span color='#f5e0dc'><b><u>{}</u></b></span>"
+                "today":    "<span color='#f5e0dc'><b><u>{}</u></b></span>"
             }
         }
     },
 
     "custom/spacer1": {
-        "format": " \\\\ ",
+        "format":  " \\\\ ",
         "tooltip": false
     },
 
     "custom/spacer2": {
-        "format": " // ",
+        "format":  " // ",
         "tooltip": false
     }
   }

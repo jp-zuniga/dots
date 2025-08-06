@@ -44,6 +44,6 @@ alias gsh  = git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)
 alias gst  = git stash --all
 alias gsw  = git switch
 
-alias rebuild = sudo nixos-rebuild switch
+alias rebuild = sudo nixos-rebuild
 
 ###############################################################################

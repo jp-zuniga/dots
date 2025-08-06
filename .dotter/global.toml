@@ -6,9 +6,9 @@
     "dots/.config/alacritty/rose-pine-dawn.toml" = "~/.config/alacritty/rose-pine-dawn.toml"
     "dots/.config/alacritty/rose-pine-moon.toml" = "~/.config/alacritty/rose-pine-moon.toml"
 
-    "dots/.config/hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
-    "dots/.config/hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
-    "dots/.config/hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
+    "dots/.config/hypr/hypridle.conf"   = "~/.config/hypr/hypridle.conf"
+    "dots/.config/hypr/hyprland.conf"   = "~/.config/hypr/hyprland.conf"
+    "dots/.config/hypr/hyprlock.conf"   = "~/.config/hypr/hyprlock.conf"
     "dots/.config/hypr/hyprsunset.conf" = "~/.config/hypr/hyprsunset.conf"
 
     "dots/.config/hypr/modules/autostart.conf" = "~/.config/hypr/modules/autostart.conf"
@@ -17,8 +17,6 @@
     "dots/.config/hypr/modules/looks.conf"     = "~/.config/hypr/modules/looks.conf"
     "dots/.config/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
     "dots/.config/hypr/modules/screens.conf"   = "~/.config/hypr/modules/screens.conf"
-
-    # "dots/.config/hypr/scripts/random-wall" = "/usr/bin/"
 
     "dots/.config/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
     "dots/.config/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"

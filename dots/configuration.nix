@@ -108,6 +108,7 @@
     microfetch
     mprocs
     mpv
+    ncspot
     neovim
     nushell
     pastel

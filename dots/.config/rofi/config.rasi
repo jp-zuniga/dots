@@ -1,56 +1,115 @@
+@import "default"
 @import "rose-pine-moon.rasi"
 
-* { font: "monospace 16"; }
+* {
+    font: "mono 16";
+
+    foreground: @fgd;
+    background: @bg;
+
+    bordercolor:    @ora;
+    textcolor:      @foreground;
+
+    active-background: @grn;
+    urgent-background: @red;
+
+    selected-background:        @cmt;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+}
 
 configuration {
-    display-drun: "";
+    display-drun:        "";
+    disable-history:     true;
     drun-display-format: "{name}";
-    show-icons: false;
+    no-levenshtein-sort: true;
+    show-icons:          false;
+}
+
+element,
+element-text,
+entry {
+    horizontal-align: 0.5;
+    spacing:          0px;
 }
 
 #window {
-    border: 0;
-    fullscreen: true;
-    padding: 10% 30%;
+    border:        0px;
+    border-radius: 0px;
+    fullscreen:    true;
+    padding:       15% 30%;
 }
 
 #mainbox {
-    border: 3;
-    padding: 10;
+    padding: 0px;
 }
 
-inputbar {
-    children:   [ prompt, entry ];
-    padding:    3px;
-    spacing:    0;
+#inputbar {
+    spacing:  0px;
+    padding:  0px;
+    children: [ prompt, entry ];
+}
+
+#entry {
+    padding-bottom: 5px;
+    placeholder:    "";
+    spacing:        0px;
+    text-color:     @grn;
 }
 
 #listview {
-    border: 0 0 0 0;
-    border-color: @bordercolor;
-    scrollbar: true;
-    spacing: 0px ;
+    border:        3px;
+    border-color:  @pur;
+    border-radius: 5px;
+    padding:       5px;
+    scrollbar:     true;
+    spacing:       5px;
 }
 
 #scrollbar {
-    handle-width: 6px;
-    width: 3px;
+    handle-color: @cmt;
+    width:        3px;
 }
 
-button,
-element-text,
-entry,
-prompt {
-    horizontal-align: 0.5;
-    spacing: 0;
+#element {
+    border:  0px;
+    padding: 0px;
 }
 
-element {
-    border:  0;
-    children: [ element-text ];
-    padding: 3px;
+#element.normal.normal {
+    background-color: transparent;
 }
 
-entry {
-    placeholder: " Search...";
+#element.normal.urgent {
+    background-color: @urgent-background;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @background;
+}
+
+#element.selected.normal {
+    background-color: @selected-background;
+}
+
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+}
+
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @background;
+}
+
+#element.alternate.normal {
+    background-color: transparent;
+}
+
+#element.alternate.urgent {
+    background-color: @urgent-background;
+}
+
+#element.alternate.active {
+    background-color: @active-background;
 }

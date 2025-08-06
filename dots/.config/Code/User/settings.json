@@ -186,4 +186,21 @@
     "window.newWindowDimensions": "maximized",
     "window.restoreFullscreen": true,
     "evenBetterToml.completion.maxKeys": 3,
+    "betterAlign.operatorPadding": "left",
+    "betterAlign.indentBase": "dontchange",
+    "betterAlign.surroundSpace": {
+        "colon": [
+            -1,
+            1
+        ],
+        "assignment": [
+            1,
+            1
+        ],
+        "arrow": [
+            1,
+            1
+        ],
+        "comment": 2
+    },
 }
