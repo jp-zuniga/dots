@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-WALL_DIR=/home/jaq/dots/dots/.walls/
-CURRENT_WALL=/home/jaq/dots/dots/.walls/current.png
+WALL_DIR=/home/jaq/dots/dots/wallpapers/
+CURRENT_WALL=/home/jaq/dots/dots/wallpapers/.current.png
 
 cp $(find $WALL_DIR -type f -print0 | shuf -z -n 1 | tr -d '\0') $CURRENT_WALL
 

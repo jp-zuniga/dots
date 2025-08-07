@@ -1,5 +1,3 @@
-// based on: https://github.com/Jan-Aarela/.dotfiles/blob/main/hypr/themes/Mocha/waybar.jsonc
-
 [
     {
         "layer":    "top",
