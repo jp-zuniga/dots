@@ -7,8 +7,8 @@
     foreground: @fgd;
     background: @bg;
 
-    bordercolor:    @ora;
-    textcolor:      @foreground;
+    bordercolor: @ora;
+    textcolor:   @foreground;
 
     active-background: @grn;
     urgent-background: @red;

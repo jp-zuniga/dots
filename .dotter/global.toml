@@ -1,6 +1,6 @@
 [default.files]
-    "dots/.cargo/config.toml"                    = "~/.cargo/config.toml"
-    "dots/.config/Code/User/settings.json"       = "~/.config/Code/User/settings.json"
+    "dots/.cargo/config.toml" = "~/.cargo/config.toml"
+
     "dots/.config/alacritty/alacritty.toml"      = "~/.config/alacritty/alacritty.toml"
     "dots/.config/alacritty/rose-pine.toml"      = "~/.config/alacritty/rose-pine.toml"
     "dots/.config/alacritty/rose-pine-dawn.toml" = "~/.config/alacritty/rose-pine-dawn.toml"
@@ -10,6 +10,10 @@
     "dots/.config/btop/themes/rose-pine.theme"      = "~/.config/btop/themes/rose-pine.theme"
     "dots/.config/btop/themes/rose-pine-dawn.theme" = "~/.config/btop/themes/rose-pine-dawn.theme"
     "dots/.config/btop/themes/rose-pine-moon.theme" = "~/.config/btop/themes/rose-pine-moon.theme"
+
+    "dots/.config/Code/User/settings.json" = "~/.config/Code/User/settings.json"
+
+    "dots/.config/git/config" = "~/.config/git/config"
 
     "dots/.config/hypr/hypridle.conf"   = "~/.config/hypr/hypridle.conf"
     "dots/.config/hypr/hyprland.conf"   = "~/.config/hypr/hyprland.conf"
@@ -53,7 +57,7 @@
     "dots/.config/waybar/rose-pine-moon.css" = "~/.config/waybar/rose-pine-moon.css"
     "dots/.config/waybar/style.css"          = "~/.config/waybar/style.css"
 
-    "dots/.gitconfig" = "~/.gitconfig"
+    "dots/.config/yazi/theme.toml" = "~/.config/yazi/theme.toml"
 
 [settings]
     default_target_type = "automatic"

@@ -4,13 +4,40 @@
 
 {
     boot = {
-        loader = {
+        console.logLevel = 0;
+        loader           = {
             efi.canTouchEfiVariables = true;
             systemd-boot.enable      = true;
         };
-        initrd.verbose  = false;
-        kernelPackages  = pkgs.linuxPackages_latest;
+        initrd.verbose = false;
+        kernelPackages = pkgs.linuxPackages_latest;
+        kernelParams   = [
+            "quiet"
+            "splash"
+            "vga=current"
+            "rd.systemd.show_status=false"
+            "rd.udev.log_level=3"
+            "udev.log_priority=3"
+        ]
         tmp.cleanOnBoot = true;
+    };
+
+    fonts = {
+        packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+
+        fontconfig = {
+            defaultFonts  = {
+                serif     = [ "JetBrainsMono Nerd Font" ];
+                sansSerif = [ "JetBrainsMono Nerd Font" ];
+                monospace = [ "JetBrainsMono Nerd Font" ];
+            };
+        };
+    };
+
+    hardware = {
+        cpu.amd.updateMicrocode   = lib.mkDefault config.hardware.enableRedistributableFirmware;
+        graphics.enable           = true;
+        nvidia.modesetting.enable = true;
     };
 
     nix = {
@@ -30,24 +57,6 @@
     networking = {
         hostName              = "ThinkPadT460";
         networkmanager.enable = true;
-    };
-
-    fonts = {
-        packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
-        fontconfig = {
-            defaultFonts  = {
-                serif     = [ "JetBrainsMono Nerd Font" ];
-                sansSerif = [ "JetBrainsMono Nerd Font" ];
-                monospace = [ "JetBrainsMono Nerd Font" ];
-            };
-        };
-    };
-
-    hardware = {
-        cpu.amd.updateMicrocode   = lib.mkDefault config.hardware.enableRedistributableFirmware;
-        graphics.enable           = true;
-        nvidia.modesetting.enable = true;
     };
 
     security.rtkit.enable = true;

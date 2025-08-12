@@ -8,7 +8,13 @@
 
     programs.firefox.enable  = true;
     programs.hyprland.enable = true;
-    programs.steam.enable    = true;
+    programs.steam.enable    = {
+        enable    = true;
+        extraPkgs = pkgs: with pkgs; [
+            rose-pine-cursor
+            rose-pine-hyprcursor
+        ];
+    }
 
     nixpkgs.config.allowUnfree  = true;
     environment.defaultPackages = [ ];
@@ -34,6 +40,7 @@
         hyprshot
         hyprsunset
         libnotify
+        libreoffice-qt6-fresh
         mako
         microfetch
         mprocs
