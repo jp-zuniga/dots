@@ -2,11 +2,17 @@
 ### SYSTEM CONFIG ###
 #####################
 
-{ config, lib, pkgs, ... }:
-
 {
+    config,
+    pkgs,
+    options,
+    ...
+}: let
+    model = "t460";
+in {
     imports = [
         ./hardware-configuration.nix
+        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/lenovo/thinkpad/${model}"
 
         ./system.nix
         ./services.nix

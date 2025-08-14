@@ -25,10 +25,10 @@ def eza-wrapper [
 
     if ($dir == "") {
         # call for current directory
-        eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size
+        eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --no-permissions --no-user
     } else {
         # call for given directory
-       eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --git-ignore --group-directories-first --hyperlink --no-permissions --no-user --total-size ($dir | str replace --all '~' $nu.home-path)
+       eza ($flags) --color=always --color-scale=all --color-scale-mode=fixed --icons=auto --level=($level) --sort=type --git --group-directories-first --no-permissions --no-user ($dir | str replace --all '~' $nu.home-path)
     }
 }
 

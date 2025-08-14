@@ -33,8 +33,6 @@
 
     "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/config"
 
-    "dots/.config/ncspot/config.toml" = "~/.config/ncspot/config.toml"
-
     "dots/.config/nushell/aliases.nu" = "~/.config/nushell/aliases.nu"
     "dots/.config/nushell/cmds.nu"    = "~/.config/nushell/cmds.nu"
     "dots/.config/nushell/config.nu"  = "~/.config/nushell/config.nu"
@@ -48,8 +46,6 @@
     "dots/.config/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
 
     "dots/.config/starship/rose-pine-moon.toml" = "~/.config/starship.toml"
-
-    "dots/.config/udiskie/config.yml" = "~/.config/udiskie/config.yml"
 
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"

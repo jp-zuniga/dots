@@ -4,21 +4,33 @@
 
 {
     boot = {
-        console.logLevel = 0;
-        loader           = {
-            efi.canTouchEfiVariables = true;
-            systemd-boot.enable      = true;
-        };
-        initrd.verbose = false;
-        kernelPackages = pkgs.linuxPackages_latest;
-        kernelParams   = [
-            "quiet"
-            "splash"
-            "vga=current"
+        bootspec.enable = true;
+        consoleLogLevel = 0;
+        initrd.verbose  = false;
+        kernelPackages  = pkgs.linuxPackages_latest;
+
+        kernelParams     = [
             "rd.systemd.show_status=false"
             "rd.udev.log_level=3"
+            "rd.udev.log_priority=3"
+            "splash"
+            "systemd.show_status=auto"
+            "quiet"
+            "loglevel=3"
+            "udev.log_level=3"
             "udev.log_priority=3"
-        ]
+        ];
+
+        loader = {
+            efi.canTouchEfiVariables = true;
+
+            systemd-boot = {
+                editor = false;
+                enable = true;
+            };
+        };
+
+        plymouth.enable = true;
         tmp.cleanOnBoot = true;
     };
 
@@ -35,7 +47,6 @@
     };
 
     hardware = {
-        cpu.amd.updateMicrocode   = lib.mkDefault config.hardware.enableRedistributableFirmware;
         graphics.enable           = true;
         nvidia.modesetting.enable = true;
     };
@@ -46,17 +57,26 @@
             dates     = "weekly";
             options   = "--delete-older-than 7d";
         };
+
         nixPath = [
             "nixos-config=/home/jaq/dots/dots/nix/configuration.nix"
             "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
             "/nix/var/nix/profiles/per-user/root/channels"
         ];
+
         settings.auto-optimise-store = true;
     };
+
+    nixpkgs.config.allowUnfree = true;
 
     networking = {
         hostName              = "ThinkPadT460";
         networkmanager.enable = true;
+    };
+
+    programs.nix-ld = {
+        enable    = true;
+        libraries = with pkgs; [ ];
     };
 
     security.rtkit.enable = true;

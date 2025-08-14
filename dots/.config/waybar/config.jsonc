@@ -92,8 +92,8 @@
             "format-wifi":             "net {signalStrength}%",
             "format-ethernet":         "eth",
             "tooltip":                 "{}",
-            "tooltip-format-wifi":     "- {essid} ({signalStrength}%)\n  - dwn: {bandwidthDownBits} \n  - up: {bandwidthUpBits}",
-            "tooltip-format-ethernet": "- {ifname}\n  - dwn: {bandwidthDownBits} \n  - up: {bandwidthUpBits}"
+            "tooltip-format-wifi":     "{essid} ({signalStrength}%)",
+            "tooltip-format-ethernet": "{ifname}"
         },
 
         // "pulseaudio#input": {

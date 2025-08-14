@@ -1,70 +1,64 @@
 # stuff to install
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }: let
+    # gracias steam por:
+    steam-cursor = pkgs.runCommandLocal "steam-cursor" { } ''
+        mkdir -p $out/share/icons
+        ln -s ${pkgs.bibata-cursors}/share/icons/Bibata-Original-Classic $out/share/icons/default
+    '';
+in {
+    environment = {
+        defaultPackages = [ ];
 
-{
-    programs.nix-ld.enable    = true;
-    programs.nix-ld.libraries = with pkgs; [ ];
-
-    programs.firefox.enable  = true;
-    programs.hyprland.enable = true;
-    programs.steam.enable    = {
-        enable    = true;
-        extraPkgs = pkgs: with pkgs; [
-            rose-pine-cursor
-            rose-pine-hyprcursor
+        systemPackages  = with pkgs; [
+            alacritty
+            astroterm
+            bacon
+            bat
+            bibata-cursors
+            brightnessctl
+            btop
+            cbonsai
+            delta
+            dotter
+            eza
+            gimp3
+            git
+            hypridle
+            hyprlock
+            hyprpicker
+            hyprpolkitagent
+            hyprshot
+            libnotify
+            mako
+            microfetch
+            mpv
+            nushell
+            pastel
+            rofi-wayland
+            rustup
+            sccache
+            spotify
+            starship
+            swww
+            qbittorrent
+            qview
+            uv
+            vscode.fhs
+            waybar
+            yazi
         ];
-    }
 
-    nixpkgs.config.allowUnfree  = true;
-    environment.defaultPackages = [ ];
+        sessionVariables.NIXOS_OZONE_WL = "1";
+    };
 
-    environment.systemPackages  = with pkgs; [
-        alacritty
-        astroterm
-        bacon
-        bat
-        brightnessctl
-        btop
-        cbonsai
-        delta
-        discord
-        eza
-        gimp3
-        git
-        hyprcursor
-        hypridle
-        hyprlock
-        hyprpicker
-        hyprpolkitagent
-        hyprshot
-        hyprsunset
-        libnotify
-        libreoffice-qt6-fresh
-        mako
-        microfetch
-        mprocs
-        mpv
-        ncspot
-        nushell
-        pastel
-        rofi-wayland
-        rustup
-        sccache
-        spotify
-        starship
-        swww
-        qbittorrent
-        qview
-        rose-pine-cursor
-        rose-pine-hyprcursor
-        tokei
-        udiskie
-        uv
-        vscode.fhs
-        waybar
-        yazi
-    ];
+    programs = {
+        firefox.enable  = true;
+        hyprland.enable = true;
 
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+        steam = {
+            enable        = true;
+            extraPackages = with pkgs; [ steam-cursor ];
+        };
+    };
 }
