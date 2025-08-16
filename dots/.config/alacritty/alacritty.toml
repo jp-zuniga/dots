@@ -4,8 +4,4 @@ general.import = ["rose-pine-moon.toml"]
     opacity = 0.9
 
 [font]
-    normal = { family = "MesloLGMNerdFontMono", style = "Regular" }
     size   = 12
-
-[env]
-    SHELL = "/run/current-system/sw/bin/nu"

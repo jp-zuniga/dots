@@ -1,6 +1,4 @@
 [default.files]
-    "dots/.cargo/config.toml" = "~/.cargo/config.toml"
-
     "dots/.config/alacritty/alacritty.toml"      = "~/.config/alacritty/alacritty.toml"
     "dots/.config/alacritty/rose-pine.toml"      = "~/.config/alacritty/rose-pine.toml"
     "dots/.config/alacritty/rose-pine-dawn.toml" = "~/.config/alacritty/rose-pine-dawn.toml"
@@ -13,12 +11,16 @@
 
     "dots/.config/Code/User/settings.json" = "~/.config/Code/User/settings.json"
 
-    "dots/.config/git/config" = "~/.config/git/config"
+    "dots/.config/fish/config.fish"                 = "~/.config/fish/config.fish"
+    "dots/.config/fish/themes/rose-pine.theme"      = "~/.config/fish/themes/rose-pine.theme"
+    "dots/.config/fish/themes/rose-pine-dawn.theme" = "~/.config/fish/themes/rose-pine-dawn.theme"
+    "dots/.config/fish/themes/rose-pine-moon.theme" = "~/.config/fish/themes/rose-pine-moon.theme"
 
-    "dots/.config/hypr/hypridle.conf"   = "~/.config/hypr/hypridle.conf"
+    "dots/.config/git/config"              = "~/.config/git/config"
+
     "dots/.config/hypr/hyprland.conf"   = "~/.config/hypr/hyprland.conf"
+    "dots/.config/hypr/hypridle.conf"   = "~/.config/hypr/hypridle.conf"
     "dots/.config/hypr/hyprlock.conf"   = "~/.config/hypr/hyprlock.conf"
-    "dots/.config/hypr/hyprsunset.conf" = "~/.config/hypr/hyprsunset.conf"
 
     "dots/.config/hypr/modules/autostart.conf" = "~/.config/hypr/modules/autostart.conf"
     "dots/.config/hypr/modules/env.conf"       = "~/.config/hypr/modules/env.conf"
@@ -27,17 +29,13 @@
     "dots/.config/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
     "dots/.config/hypr/modules/screens.conf"   = "~/.config/hypr/modules/screens.conf"
 
+    "dots/.config/hypr/scripts/random-wall.sh"   = "~/.config/hypr/scripts/random-wall.sh"
+
     "dots/.config/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
     "dots/.config/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"
     "dots/.config/hypr/themes/rose-pine-moon.conf" = "~/.config/hypr/themes/rose-pine-moon.conf"
 
     "dots/.config/mako/rose-pine-moon.theme" = "~/.config/mako/config"
-
-    "dots/.config/nushell/aliases.nu" = "~/.config/nushell/aliases.nu"
-    "dots/.config/nushell/cmds.nu"    = "~/.config/nushell/cmds.nu"
-    "dots/.config/nushell/config.nu"  = "~/.config/nushell/config.nu"
-    "dots/.config/nushell/env.nu"     = "~/.config/nushell/env.nu"
-
     "dots/.config/qBittorrent/qBittorrent.conf" = "~/.config/qBittorrent/qBittorrent.conf"
 
     "dots/.config/rofi/config.rasi"         = "~/.config/rofi/config.rasi"
@@ -45,15 +43,13 @@
     "dots/.config/rofi/rose-pine-dawn.rasi" = "~/.config/rofi/rose-pine-dawn.rasi"
     "dots/.config/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
 
-    "dots/.config/starship/rose-pine-moon.toml" = "~/.config/starship.toml"
+    "dots/.config/starship/starship.toml" = "~/.config/starship.toml"
 
     "dots/.config/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
     "dots/.config/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"
     "dots/.config/waybar/rose-pine-dawn.css" = "~/.config/waybar/rose-pine-dawn.css"
     "dots/.config/waybar/rose-pine-moon.css" = "~/.config/waybar/rose-pine-moon.css"
     "dots/.config/waybar/style.css"          = "~/.config/waybar/style.css"
-
-    "dots/.config/yazi/theme.toml" = "~/.config/yazi/theme.toml"
 
 [settings]
     default_target_type = "automatic"

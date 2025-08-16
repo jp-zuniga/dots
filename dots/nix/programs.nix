@@ -4,24 +4,24 @@
     # gracias steam por:
     steam-cursor = pkgs.runCommandLocal "steam-cursor" { } ''
         mkdir -p $out/share/icons
-        ln -s ${pkgs.bibata-cursors}/share/icons/Bibata-Original-Classic $out/share/icons/default
+        ln -s ${pkgs.rose-pine-cursor}/share/icons/BreezeX-RosePine-Linux $out/share/icons/default
     '';
 in {
     environment = {
         defaultPackages = [ ];
-
         systemPackages  = with pkgs; [
             alacritty
             astroterm
-            bacon
+            # bacon
             bat
-            bibata-cursors
             brightnessctl
             btop
             cbonsai
+            cowsay
             delta
-            dotter
+            discord
             eza
+            fortune-kind
             gimp3
             git
             hypridle
@@ -30,15 +30,17 @@ in {
             hyprpolkitagent
             hyprshot
             libnotify
+            libreoffice-qt6-fresh
             mako
             microfetch
             mpv
-            nushell
             pastel
+            pipes-rs
             rofi-wayland
-            rustup
-            sccache
-            spotify
+            rose-pine-cursor
+            rose-pine-hyprcursor
+            # rustup
+            # sccache
             starship
             swww
             qbittorrent
@@ -49,11 +51,29 @@ in {
             yazi
         ];
 
-        sessionVariables.NIXOS_OZONE_WL = "1";
+        sessionVariables.NIXOS_OZONE_WL = "1";  # electron compatibility
+
+        # remove unwanted rofi drun entries
+        extraSetup = ''
+            rm $out/share/applications/Alacritty.desktop
+            rm $out/share/applications/base.desktop
+            rm $out/share/applications/btop.desktop
+            rm $out/share/applications/code-url-handler.desktop
+            rm $out/share/applications/cups.desktop
+            rm $out/share/applications/draw.desktop
+            rm $out/share/applications/fish.desktop
+            rm $out/share/applications/math.desktop
+            rm $out/share/applications/mpv.desktop
+            rm $out/share/applications/nixos-manual.desktop
+            rm $out/share/applications/rofi.desktop
+            rm $out/share/applications/rofi-theme-selector.desktop
+            rm $out/share/applications/yazi.desktop
+        '';
     };
 
     programs = {
         firefox.enable  = true;
+        fish.enable     = true;
         hyprland.enable = true;
 
         steam = {

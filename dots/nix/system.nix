@@ -9,7 +9,7 @@
         initrd.verbose  = false;
         kernelPackages  = pkgs.linuxPackages_latest;
 
-        kernelParams     = [
+        kernelParams = [
             "rd.systemd.show_status=false"
             "rd.udev.log_level=3"
             "rd.udev.log_priority=3"
@@ -38,7 +38,7 @@
         packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
         fontconfig = {
-            defaultFonts  = {
+            defaultFonts = {
                 serif     = [ "JetBrainsMono Nerd Font" ];
                 sansSerif = [ "JetBrainsMono Nerd Font" ];
                 monospace = [ "JetBrainsMono Nerd Font" ];
@@ -46,10 +46,7 @@
         };
     };
 
-    hardware = {
-        graphics.enable           = true;
-        nvidia.modesetting.enable = true;
-    };
+    hardware.graphics.enable = true;
 
     nix = {
         gc = {
@@ -70,7 +67,7 @@
     nixpkgs.config.allowUnfree = true;
 
     networking = {
-        hostName              = "ThinkPadT460";
+        hostName              = "thinkpad";
         networkmanager.enable = true;
     };
 
@@ -94,6 +91,6 @@
     users.users.jaq = {
         isNormalUser = true;
         extraGroups  = [ "networkmanager" "wheel" ];
+        shell        = pkgs.fish;
     };
-
 }
