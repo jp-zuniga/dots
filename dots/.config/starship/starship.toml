@@ -3,7 +3,7 @@
 format = """
 [ ](fg:overlay)\
 $directory\
-[](fg:overlay)\
+[ ](fg:overlay)\
 $git_branch\
 $git_status\
 $character\
@@ -35,13 +35,13 @@ palette = "rose-pine-moon"
     deleted    = '[×\($count\) ](style)'
     disabled   = false
     diverged   = '[\[](bg:overlay fg:iris)[\(${ahead_count}\)](bg:overlay fg:foam)[\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
-    format     = '[](fg:overlay)([$all_status $ahead_behind]($style))[ ](fg:overlay)'
+    format     = '[](fg:overlay)([$all_status $ahead_behind]($style))[](fg:overlay)'
     modified   = '[!\($count\) ](bg:overlay fg:gold)'
     renamed    = '[\($count\) ](bg:overlay fg:iris)'
     staged     = '[+\($count\) ](bg:overlay fg:gold)'
     stashed    = '[\$](bg:overlay fg:iris)'
     style      = "bold bg:overlay fg:love"
-    untracked  = '[?\($count\) ](bg:overlay fg:gold)'
+    untracked  = '[?\($count\)](bg:overlay fg:gold)'
     up_to_date = '[✓](bg:overlay fg:iris)'
 
 [os]

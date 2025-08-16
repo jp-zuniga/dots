@@ -1,10 +1,13 @@
 # remove greeting
-set -U fish_greeting
+set -g fish_greeting ""
 
 # init prompt
 starship init fish | source
 
-abbr --add rebuild = sudo nixos-rebuild
+# pick theme
+fish_config theme choose rose-pine-moon
+
+abbr --add rebuild sudo nixos-rebuild
 
 # git aliases
 abbr --add g    git
@@ -60,13 +63,13 @@ function custom-eza --description "Call eza with custom defaults"
     end
 
     if test -z "$dir"
-        eza $flags --color=always --color-scale=all --color-scale-mode=fixed \
-                   --icons=auto --level=$level --sort=type --git \
-                   --group-directories-first --no-permissions --no-user
+        eza $flags --color=always --color-scale=all --icons=auto \
+                   --level=$level --sort=type --group-directories-first \
+                   --no-permissions --no-user
     else
-        eza $flags --color=always --color-scale=all --color-scale-mode=fixed \
-                   --icons=auto --level=$level --sort=type --git \
-                   --group-directories-first --no-permissions --no-user "$dir"
+        eza $flags --color=always --color-scale=all --icons=auto \
+                   --level=$level --sort=type --group-directories-first \
+                   --no-permissions --no-user "$dir"
     end
 end
 
