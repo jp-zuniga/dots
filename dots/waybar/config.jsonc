@@ -1,0 +1,148 @@
+[
+    {
+        "layer":    "top",
+        "position": "top",
+        "name":     "main",
+
+        "margin-top":   5,
+        "margin-left":  5,
+        "margin-right": 5,
+
+        "modules-left": [
+            "tray",
+            "custom/spacer",
+            "hyprland/workspaces",
+            "custom/spacer",
+            "hyprland/window"
+        ],
+
+        "modules-right": [
+            "cpu",
+            "custom/spacer",
+            "memory#ram",
+            "custom/spacer",
+            "network#info",
+            "custom/spacer",
+            "battery",
+            "custom/spacer",
+            "pulseaudio#output",
+            "custom/spacer",
+            "backlight",
+            "custom/spacer",
+            "clock"
+        ],
+
+        "tray": {
+            "icon-size": 16,
+            "spacing":   10
+        },
+
+        "hyprland/workspaces": {
+            "format": "{icon}"
+        },
+
+        "hyprland/window": {
+            "format":    "",
+            "icon":      true,
+            "icon-size": 16,
+            "tooltip":   false
+        },
+
+        // "temperature": {
+        //     "critical-threshold": 60,
+        //     "interval":           30,
+        //     "format":             "temp {temperatureC}°",
+        //     "tooltip":            false
+        // },
+
+        "cpu": {
+            "interval": 4,
+            "format":   "cpu {usage}%",
+            "states":   {
+                "warning":  75,
+                "critical": 90
+            },
+            "tooltip": false
+        },
+
+        "memory#ram": {
+            "interval": 4,
+            "format":   "ram {percentage}%",
+            "states":   {
+                "warning":  75,
+                "critical": 90
+            },
+            "tooltip": false
+        },
+
+        // "disk": {
+        //     "interval":       3000,
+        //     "format":         "dsk {percentage_used}%",
+        //     "tooltip":        "{}",
+        //     "tooltip-format": "{free} free",
+        //     "states":         {
+        //         "warning":  75,
+        //         "critical": 90
+        //     }
+        // },
+
+        "network#info": {
+            "interval":                30,
+            "format":                  "off",
+            "format-wifi":             "net {signalStrength}%",
+            "format-ethernet":         "eth",
+            "tooltip":                 "{}",
+            "tooltip-format-wifi":     "{essid} ({signalStrength}%)",
+            "tooltip-format-ethernet": "{ifname}"
+        },
+
+        // "pulseaudio#input": {
+        //     "format":     "mic",
+        //     "max-volume": "100",
+        //     "tooltip":    false
+        // },
+
+        "pulseaudio#output": {
+            "format":       "vol {volume}%",
+            "format-muted": "mut",
+            "tooltip":      false,
+            "scroll-step":  5
+        },
+
+        // "hyprland/language": {
+        // "format":  " {}",
+        // "tooltip": false,
+        // "class":   "language"
+        // },
+
+        "backlight": {
+            "device":      "intel_backlight",
+            "format":      "bri {percent}%",
+            "scroll-step": 5,
+            "tooltip":     false
+        },
+
+        "battery": {
+            "format":          "bat {capacity}%",
+            "format-charging": "chg {capacity}%",
+            "format-plugged":  "chg {capacity}%",
+            "interval":        5,
+            "states":          {
+                "warning":  30,
+                "critical": 20
+            },
+            "tooltip": false
+        },
+
+        "clock": {
+            "interval": 1,
+            "format":   "{:%H:%M}",
+            "tooltip":  false
+        },
+
+        "custom/spacer": {
+            "format":  " // ",
+            "tooltip": false
+        }
+    }
+]

@@ -1,0 +1,17 @@
+* {
+    bg:  rgba(250, 244, 237, 0.8);
+    cur: #fffaf3;
+    fgd: #575279;
+    cmt: #9893a5;
+    cya: #56949f;
+    grn: #286983;
+    ora: #d7827e;
+    pur: #907aa9;
+    red: #b4637a;
+    yel: #ea9d34;
+
+    alt-fgd: #faf4ed;
+
+    active-foreground: @alt-fgd;
+    urgent-foreground: @alt-fgd;
+}

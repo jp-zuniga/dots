@@ -20,6 +20,7 @@ in {
             cowsay
             delta
             discord
+            dotter
             eza
             fortune-kind
             gimp3

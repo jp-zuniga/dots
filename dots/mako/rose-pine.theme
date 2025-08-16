@@ -1,0 +1,14 @@
+border-size=3
+border-radius=5
+padding=10
+text-alignment=center
+
+width=400
+
+background-color=#26233a
+border-color=#524f67
+progress-color=over #31748f
+text-color=#e0def4
+
+[urgency=high]
+border-color=#eb6f92
