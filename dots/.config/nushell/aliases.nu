@@ -2,8 +2,8 @@
 ### Custom aliases! ###
 #######################
 
-alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
-alias tree = cbonsai -li --time = 0.1
+# alias sky  = astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
+# alias tree = cbonsai -li --time = 0.1
 
 alias nu-ls       = ls
 alias nu-ps       = ps
