@@ -77,6 +77,12 @@ in {
         fish.enable     = true;
         hyprland.enable = true;
 
+        nh = {
+            enable          = true;
+            clean.enable    = true;
+            clean.extraArgs = "--keep-since 3d --keep 3";
+        };
+
         steam = {
             enable        = true;
             extraPackages = with pkgs; [ steam-cursor ];
