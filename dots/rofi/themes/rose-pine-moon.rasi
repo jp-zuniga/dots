@@ -1,0 +1,25 @@
+* {
+    bg:  rgba(35, 33, 54, 0.9);
+    cur: #2a273f;
+    fgd: #e0def4;
+    cmt: #6e6a86;
+    cya: #9ccfd8;
+    grn: #3e8fb0;
+    ora: #ea9a97;
+    pur: #c4a7e7;
+    red: #eb6f92;
+    yel: #f6c177;
+
+    foreground: @fgd;
+    background: @bg;
+
+    bordercolor: @ora;
+    textcolor:   @foreground;
+
+    active-background: @grn;
+    urgent-background: @red;
+
+    selected-background:        @cmt;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+}

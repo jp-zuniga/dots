@@ -11,18 +11,18 @@ in {
         defaultPackages = [ ];
         systemPackages  = with pkgs; [
             alacritty
-            astroterm
+            # astroterm
             # bacon
             bat
             brightnessctl
             btop
-            cbonsai
-            cowsay
+            # cbonsai
+            # cowsay
             delta
             discord
             dotter
             eza
-            fortune-kind
+            # fortune-kind
             gimp3
             git
             hypridle
@@ -36,8 +36,13 @@ in {
             microfetch
             mpv
             pastel
-            pipes-rs
-            rofi-wayland
+            # pipes-rs
+            (rofi-wayland.overrideAttrs (prevAttrs: {
+                postInstall = (prevAttrs.postInstall or "") + ''
+                    rm $out/share/applications/rofi.desktop
+                    rm $out/share/applications/rofi-theme-selector.desktop
+                '';
+            }))
             rose-pine-cursor
             rose-pine-hyprcursor
             # rustup
@@ -54,7 +59,7 @@ in {
 
         sessionVariables.NIXOS_OZONE_WL = "1";  # electron compatibility
 
-        # remove unwanted rofi drun entries
+        # customize rofi drun entries
         extraSetup = ''
             rm $out/share/applications/Alacritty.desktop
             rm $out/share/applications/base.desktop
@@ -66,9 +71,8 @@ in {
             rm $out/share/applications/math.desktop
             rm $out/share/applications/mpv.desktop
             rm $out/share/applications/nixos-manual.desktop
-            rm $out/share/applications/rofi.desktop
-            rm $out/share/applications/rofi-theme-selector.desktop
             rm $out/share/applications/yazi.desktop
+            sed -i 's/^Name=GNU Image Manipulation Program$/Name=GIMP/' $out/share/applications/gimp.desktop
         '';
     };
 
@@ -76,12 +80,7 @@ in {
         firefox.enable  = true;
         fish.enable     = true;
         hyprland.enable = true;
-
-        nh = {
-            enable          = true;
-            clean.enable    = true;
-            clean.extraArgs = "--keep-since 3d --keep 3";
-        };
+        nh.enable       = true;
 
         steam = {
             enable        = true;

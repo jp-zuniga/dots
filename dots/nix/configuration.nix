@@ -1,13 +1,12 @@
-#####################
-### SYSTEM CONFIG ###
-#####################
+# import all configs
 
 { config, lib, pkgs, ... }: let
-    current-hardware = "lenovo/thinkpad/t460";
+    hardware-type  = "lenovo/thinkpad";
+    hardware-model = "t460";
 in {
     imports = [
         ./hardware-configuration.nix
-        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${current-hardware}"
+        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${hardware-type}/${hardware-model}"
 
         ./system.nix
         ./services.nix
@@ -15,5 +14,6 @@ in {
         ./programs.nix
     ];
 
-    system.stateVersion = "25.05";  # DO NOT TOUCH!!!
+    networking.hostName = hardware-model;
+    system.stateVersion = "25.05";  ######## !!! DO NOT TOUCH !!!
 }

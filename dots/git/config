@@ -1,3 +1,8 @@
+[advice]
+    addEmptyPathspec   = false
+    pushNonFastForward = false
+    statusHints        = false
+
 [branch]
     sort = -committerdate
 
@@ -22,7 +27,7 @@
 
 [core]
     compression  = 9
-    pager        = delta
+    pager        = delta | $PAGER
     preloadindex = true
     whitespace   = error
 
@@ -33,8 +38,9 @@
     renames          = copies
 
 [delta]
-    navigate = true
-    dark     = true
+    dark         = true
+    line-numbers = true
+    navigate     = true
 
 [gpg]
     format = ssh
@@ -78,6 +84,9 @@
     name       = jp-zuniga
     email      = jp.zuniga.dev@gmail.com
     signingkey = /home/jaq/.ssh/id_ed25519.pub
+
+[url "https://github.com/"]
+    insteadOf = "git://"
 
 [url "git@github.com:jp-zuniga/"]
     insteadOf = "jpz:"

@@ -8,8 +8,7 @@
         consoleLogLevel = 0;
         initrd.verbose  = false;
         kernelPackages  = pkgs.linuxPackages_latest;
-
-        kernelParams = [
+        kernelParams    = [
             "rd.systemd.show_status=false"
             "rd.udev.log_level=3"
             "rd.udev.log_priority=3"
@@ -35,8 +34,7 @@
     };
 
     fonts = {
-        packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
+        packages   = with pkgs; [ nerd-fonts.jetbrains-mono ];
         fontconfig = {
             defaultFonts = {
                 serif     = [ "JetBrainsMono Nerd Font" ];
@@ -49,11 +47,12 @@
     hardware.graphics.enable = true;
 
     nix = {
-        gc = {
-            automatic = true;
-            dates     = "weekly";
-            options   = "--delete-older-than 7d";
-        };
+        # disabled to avoid conflicts with nh.clean
+        # gc = {
+        #     automatic = true;
+        #     dates     = "weekly";
+        #     options   = "--delete-older-than 7d";
+        # };
 
         nixPath = [
             "nixos-config=/home/jaq/dots/dots/nix/configuration.nix"
@@ -61,15 +60,14 @@
             "/nix/var/nix/profiles/per-user/root/channels"
         ];
 
-        settings.auto-optimise-store = true;
+        settings = {
+            auto-optimise-store   = true;
+            experimental-features = [ "nix-command" ];
+        };
     };
 
-    nixpkgs.config.allowUnfree = true;
-
-    networking = {
-        hostName              = "thinkpad";
-        networkmanager.enable = true;
-    };
+    nixpkgs.config.allowUnfree       = true;
+    networking.networkmanager.enable = true;
 
     programs.nix-ld = {
         enable    = true;
@@ -77,8 +75,7 @@
     };
 
     security.rtkit.enable = true;
-
-    system.autoUpgrade = {
+    system.autoUpgrade    = {
         allowReboot        = false;
         dates              = "06:00";
         enable             = true;
@@ -86,8 +83,7 @@
         randomizedDelaySec = "30min";
     };
 
-    time.timeZone = "America/Managua";
-
+    time.timeZone   = "America/Managua";
     users.users.jaq = {
         isNormalUser = true;
         extraGroups  = [ "networkmanager" "wheel" ];

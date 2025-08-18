@@ -9,7 +9,7 @@
     "dots/btop/themes/rose-pine-dawn.theme" = "~/.config/btop/themes/rose-pine-dawn.theme"
     "dots/btop/themes/rose-pine-moon.theme" = "~/.config/btop/themes/rose-pine-moon.theme"
 
-    "dots/Code/User/settings.json" = "~/.config/Code/User/settings.json"
+    "dots/code/settings.json" = "~/.config/Code/User/settings.json"
 
     "dots/fish/config.fish"                 = "~/.config/fish/config.fish"
     "dots/fish/themes/rose-pine.theme"      = "~/.config/fish/themes/rose-pine.theme"
@@ -27,21 +27,25 @@
     "dots/hypr/modules/inputs.conf"    = "~/.config/hypr/modules/inputs.conf"
     "dots/hypr/modules/looks.conf"     = "~/.config/hypr/modules/looks.conf"
     "dots/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
-    "dots/hypr/modules/screens.conf"   = "~/.config/hypr/modules/screens.conf"
 
+    "dots/hypr/scripts/focus.sh"       = "~/.config/hypr/scripts/focus.sh"
     "dots/hypr/scripts/random-wall.sh" = "~/.config/hypr/scripts/random-wall.sh"
 
     "dots/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
     "dots/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"
     "dots/hypr/themes/rose-pine-moon.conf" = "~/.config/hypr/themes/rose-pine-moon.conf"
 
-    "dots/mako/rose-pine-moon.theme"    = "~/.config/mako/config"
-    "dots/qBittorrent/qBittorrent.conf" = "~/.config/qBittorrent/qBittorrent.conf"
+    "dots/mako/rose-pine-moon.theme" = "~/.config/mako/config"
 
-    "dots/rofi/config.rasi"         = "~/.config/rofi/config.rasi"
-    "dots/rofi/rose-pine.rasi"      = "~/.config/rofi/rose-pine.rasi"
-    "dots/rofi/rose-pine-dawn.rasi" = "~/.config/rofi/rose-pine-dawn.rasi"
-    "dots/rofi/rose-pine-moon.rasi" = "~/.config/rofi/rose-pine-moon.rasi"
+    "dots/qBittorrent/qBittorrent.conf"              = "~/.config/qBittorrent/qBittorrent.conf"
+    "dots/qBittorrent/themes/rose-pine.qbtheme"      = "~/.config/qBittorrent/themes/rose-pine.themeqb"
+    "dots/qBittorrent/themes/rose-pine-dawn.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-dawn.themeqb"
+    "dots/qBittorrent/themes/rose-pine-moon.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-moon.themeqb"
+
+    "dots/rofi/config.rasi"                = "~/.config/rofi/config.rasi"
+    "dots/rofi/themes/rose-pine.rasi"      = "~/.config/rofi/themes/rose-pine.rasi"
+    "dots/rofi/themes/rose-pine-dawn.rasi" = "~/.config/rofi/themes/rose-pine-dawn.rasi"
+    "dots/rofi/themes/rose-pine-moon.rasi" = "~/.config/rofi/themes/rose-pine-moon.rasi"
 
     "dots/starship/starship.toml" = "~/.config/starship.toml"
 
