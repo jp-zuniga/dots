@@ -4,24 +4,33 @@
 configuration {
     display-drun:        "";
     disable-history:     true;
-    drun-display-format: "> {name}";
+    drun-display-format: "– {name}";
     no-levenshtein-sort: true;
     show-icons:          false;
 }
 
 * {
     font:    "mono 16";
+    margin:  0px;
     padding: 0px;
     spacing: 0px;
 }
 
 #window {
     anchor:        center;
-    border:        0px;
+    border:        3px;
+    border-color:  @cmt;
     border-radius: 0px;
-    fullscreen:    true;
+    enabled:       true;
+    fullscreen:    false;
+    height:        480px;
     location:      center;
-    padding:       30%;
+    padding:       20px;
+    width:         350px;
+}
+
+#mainbox {
+    spacing: 10px;
 }
 
 #inputbar {
@@ -29,16 +38,22 @@ configuration {
     border-color:  @bordercolor;
     border-radius: 5px;
     children:      [ textbox-prompt-colon, entry ];
+    padding:       5px;
+    spacing:       0px;
 }
 
 #textbox-prompt-colon {
     str:        ">";
     text-color: @ora;
+    padding:    0px 5px 0px 0px;
 }
 
 #entry {
-    placeholder:    "Search...";
-    text-color:     @ora;
+    padding:           0px;
+    placeholder:       "Search...";
+    placeholder-color: @cmt;
+    spacing:           0px;
+    text-color:        @ora;
 }
 
 #listview {
@@ -46,11 +61,14 @@ configuration {
     border-color:  @pur;
     border-radius: 5px;
     scrollbar:     false;
+    padding:       0px;
+    spacing:       0px;
 }
 
 #element {
-    border:        0px;
-    border-radius: 0px;
+    border:  0px;
+    padding: 0px 5px 0px 5px;
+    spacing: 0px;
 }
 
 #element.normal.normal {
@@ -68,6 +86,7 @@ configuration {
 
 #element.selected.normal {
     background-color: @selected-background;
+    text-color:       @cya;
 }
 
 #element.selected.urgent {

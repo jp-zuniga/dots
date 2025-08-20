@@ -5,7 +5,7 @@ set -g fish_greeting ""
 fish_config theme choose rose-pine-moon
 
 # init prompt only if alacritty is running (to avoid setting prompt in tty)
-pgrep alacritty > /dev/null
+pgrep alacritty > /dev/null || pgrep code > /dev/null
 if test $status -eq 0
     starship init fish | source
 end

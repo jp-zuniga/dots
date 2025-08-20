@@ -38,9 +38,9 @@
     "dots/mako/rose-pine-moon.theme" = "~/.config/mako/config"
 
     "dots/qBittorrent/qBittorrent.conf"              = "~/.config/qBittorrent/qBittorrent.conf"
-    "dots/qBittorrent/themes/rose-pine.qbtheme"      = "~/.config/qBittorrent/themes/rose-pine.themeqb"
-    "dots/qBittorrent/themes/rose-pine-dawn.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-dawn.themeqb"
-    "dots/qBittorrent/themes/rose-pine-moon.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-moon.themeqb"
+    "dots/qBittorrent/themes/rose-pine.qbtheme"      = "~/.config/qBittorrent/themes/rose-pine.qbtheme"
+    "dots/qBittorrent/themes/rose-pine-dawn.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-dawn.qbtheme"
+    "dots/qBittorrent/themes/rose-pine-moon.qbtheme" = "~/.config/qBittorrent/themes/rose-pine-moon.qbtheme"
 
     "dots/rofi/config.rasi"                = "~/.config/rofi/config.rasi"
     "dots/rofi/themes/rose-pine.rasi"      = "~/.config/rofi/themes/rose-pine.rasi"

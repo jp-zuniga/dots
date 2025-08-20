@@ -1,11 +1,7 @@
 general.import = ["rose-pine-moon.toml"]
 
-
 [font]
     size   = 12
-
-[terminal]
-    shell = "fish"
 
 [window]
     opacity = 0.9
