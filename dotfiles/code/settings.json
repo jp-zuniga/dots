@@ -205,5 +205,6 @@
     "workbench.tips.enabled":                                            false,
     "zenMode.hideLineNumbers":                                           false,
     "zenMode.showTabs": "none",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.statusBar.visible": false
 }

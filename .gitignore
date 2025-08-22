@@ -1,7 +1,5 @@
 .dotter/cache/
 .dotter/cache.toml
-.dotter/local.toml
 
-dots/nix/hardware-configuration.nix
-
-dots/wallpapers/.current.png
+dotfiles/nix/hardware-configuration.nix
+dotfiles/wallpapers/.current.png

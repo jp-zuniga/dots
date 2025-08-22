@@ -3,8 +3,8 @@
 OG_NIX_CONFIG="/etc/nixos/configuration.nix"
 OG_HARDWARE_CONFIG="/etc/nixos/hardware-configuration.nix"
 
-DOTS_NIX_CONFIG="/home/jaq/dots/dots/nix/configuration.nix"
-DOTS_HARDWARE_CONFIG="/home/jaq/dots/dots/nix/hardware-configuration.nix"
+DOTS_NIX_CONFIG="/home/jaq/dots/dotfiles/nix/configuration.nix"
+DOTS_HARDWARE_CONFIG="/home/jaq/dots/dotfiles/nix/hardware-configuration.nix"
 
 if [ ! -f "$DOTS_HARDWARE_CONFIG" ]; then
     echo "$DOTS_HARDWARE_CONFIG does not exist."
