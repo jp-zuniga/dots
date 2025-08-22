@@ -194,8 +194,7 @@
     "workbench.commandPalette.experimental.enableNaturalLanguageSearch": false,
     "workbench.editor.editorActionsLocation":                            "hidden",
     "workbench.editor.empty.hint":                                       "hidden",
-    "workbench.enableExperiments":                                       false,
-    "workbench.iconTheme":                                               "material-icon-theme",
+    "workbench.enableExperiments": false,
     "workbench.layoutControl.enabled":                                   false,
     "workbench.navigationControl.enabled":                               false,
     "workbench.preferredDarkColorTheme":                                 "Rosé Pine Moon",
@@ -205,5 +204,6 @@
     "workbench.startupEditor":                                           "none",
     "workbench.tips.enabled":                                            false,
     "zenMode.hideLineNumbers":                                           false,
-    "zenMode.showTabs":                                                  "none"
+    "zenMode.showTabs": "none",
+    "workbench.iconTheme": "material-icon-theme"
 }

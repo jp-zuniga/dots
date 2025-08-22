@@ -54,12 +54,6 @@
         #     options   = "--delete-older-than 7d";
         # };
 
-        nixPath = [
-            "nixos-config=/home/jaq/dots/dots/nix/configuration.nix"
-            "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-            "/nix/var/nix/profiles/per-user/root/channels"
-        ];
-
         settings = {
             auto-optimise-store   = true;
             experimental-features = [ "nix-command" ];

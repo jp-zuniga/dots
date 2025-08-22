@@ -1,12 +1,13 @@
 # import all configs
 
-{ config, lib, pkgs, ... }: let
+{ config, ... }: let
     hardware-type  = "lenovo/thinkpad";
-    hardware-model = "t460";
+    hardware-model = "t14s";
 in {
     imports = [
         ./hardware-configuration.nix
         "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${hardware-type}/${hardware-model}"
+        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${hardware-type}/${hardware-model}/amd/gen1"
 
         ./system.nix
         ./services.nix
