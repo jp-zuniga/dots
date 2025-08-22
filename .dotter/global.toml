@@ -1,8 +1,8 @@
 [default.files]
-    "dotfiles/alacritty/alacritty.toml"      = "~/.config/alacritty/alacritty.toml"
-    "dotfiles/alacritty/rose-pine.toml"      = "~/.config/alacritty/rose-pine.toml"
-    "dotfiles/alacritty/rose-pine-dawn.toml" = "~/.config/alacritty/rose-pine-dawn.toml"
-    "dotfiles/alacritty/rose-pine-moon.toml" = "~/.config/alacritty/rose-pine-moon.toml"
+    "dotfiles/alacritty/alacritty.toml"             = "~/.config/alacritty/alacritty.toml"
+    "dotfiles/alacritty/themes/rose-pine.toml"      = "~/.config/alacritty/themes/rose-pine.toml"
+    "dotfiles/alacritty/themes/rose-pine-dawn.toml" = "~/.config/alacritty/themes/rose-pine-dawn.toml"
+    "dotfiles/alacritty/themes/rose-pine-moon.toml" = "~/.config/alacritty/themes/rose-pine-moon.toml"
 
     "dotfiles/btop/btop.conf"                   = "~/.config/btop/btop.conf"
     "dotfiles/btop/themes/rose-pine.theme"      = "~/.config/btop/themes/rose-pine.theme"
@@ -49,11 +49,11 @@
 
     "dotfiles/starship/starship.toml" = "~/.config/starship.toml"
 
-    "dotfiles/waybar/config.jsonc"       = "~/.config/waybar/config.jsonc"
-    "dotfiles/waybar/rose-pine.css"      = "~/.config/waybar/rose-pine.css"
-    "dotfiles/waybar/rose-pine-dawn.css" = "~/.config/waybar/rose-pine-dawn.css"
-    "dotfiles/waybar/rose-pine-moon.css" = "~/.config/waybar/rose-pine-moon.css"
-    "dotfiles/waybar/style.css"          = "~/.config/waybar/style.css"
+    "dotfiles/waybar/config.jsonc"              = "~/.config/waybar/config.jsonc"
+    "dotfiles/waybar/themes/rose-pine.css"      = "~/.config/waybar/themes/rose-pine.css"
+    "dotfiles/waybar/themes/rose-pine-dawn.css" = "~/.config/waybar/themes/rose-pine-dawn.css"
+    "dotfiles/waybar/themes/rose-pine-moon.css" = "~/.config/waybar/themes/rose-pine-moon.css"
+    "dotfiles/waybar/style.css"                 = "~/.config/waybar/style.css"
 
 [settings]
     default_target_type = "automatic"

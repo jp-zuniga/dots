@@ -1,4 +1,4 @@
-@import "./rose-pine-moon.css";
+@import "./themes/rose-pine-moon.css";
 
 @define-color group1 @foam;
 @define-color group2 @pine;

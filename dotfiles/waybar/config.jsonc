@@ -17,6 +17,8 @@
         ],
 
         "modules-right": [
+            "temperature",
+            "custom/spacer",
             "cpu",
             "custom/spacer",
             "memory#ram",
@@ -48,12 +50,12 @@
             "tooltip":   false
         },
 
-        // "temperature": {
-        //     "critical-threshold": 60,
-        //     "interval":           30,
-        //     "format":             "temp {temperatureC}°",
-        //     "tooltip":            false
-        // },
+        "temperature": {
+            "critical-threshold": 60,
+            "interval":           30,
+            "format":             "tmp {temperatureC}°",
+            "tooltip":            false
+        },
 
         "cpu": {
             "interval": 4,
@@ -72,7 +74,7 @@
                 "warning":  75,
                 "critical": 90
             },
-            "tooltip": false
+            "tooltip-format": "Using {used}GB"
         },
 
         // "disk": {
@@ -126,12 +128,13 @@
             "format":          "bat {capacity}%",
             "format-charging": "chg {capacity}%",
             "format-plugged":  "chg {capacity}%",
+            "format-time":     "{H}h {M}m",
             "interval":        5,
             "states":          {
                 "warning":  30,
                 "critical": 20
             },
-            "tooltip": false
+            "tooltip-format": "Time remaining: {time}"
         },
 
         "clock": {
