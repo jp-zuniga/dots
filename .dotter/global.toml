@@ -4,6 +4,11 @@
     "dotfiles/alacritty/themes/rose-pine-dawn.toml" = "~/.config/alacritty/themes/rose-pine-dawn.toml"
     "dotfiles/alacritty/themes/rose-pine-moon.toml" = "~/.config/alacritty/themes/rose-pine-moon.toml"
 
+    "dotfiles/bat/config"                        = "~/.config/bat/config"
+    "dotfiles/bat/themes/rose-pine.tmTheme"      = "~/.config/bat/themes/rose-pine.tmTheme"
+    "dotfiles/bat/themes/rose-pine-dawn.tmTheme" = "~/.config/bat/themes/rose-pine-dawn.tmTheme"
+    "dotfiles/bat/themes/rose-pine-moon.tmTheme" = "~/.config/bat/themes/rose-pine-moon.tmTheme"
+
     "dotfiles/btop/btop.conf"                   = "~/.config/btop/btop.conf"
     "dotfiles/btop/themes/rose-pine.theme"      = "~/.config/btop/themes/rose-pine.theme"
     "dotfiles/btop/themes/rose-pine-dawn.theme" = "~/.config/btop/themes/rose-pine-dawn.theme"

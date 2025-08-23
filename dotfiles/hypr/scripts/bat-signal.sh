@@ -16,7 +16,7 @@ while true; do
 
     if ! [[ "$battery_percent" =~ ^[0-9]+$ ]]; then
         echo "ERROR: Could not parse battery percentage: '$battery_percent'"
-        sleep 180
+        sleep 300
         continue
     fi
 
