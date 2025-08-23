@@ -74,21 +74,20 @@ function custom-eza --description "eza with custom defaults"
     if test -z "$dir"
         eza $flags --color=always --color-scale=all --icons=auto \
                    --level=$level --sort=type --git-ignore \
-                   --group-directories-first \
-                   --no-permissions --no-user
+                   --group-directories-first
     else
         eza $flags --color=always --color-scale=all --icons=auto \
                    --level=$level --sort=type --git-ignore \
-                   --group-directories-first --no-permissions \
-                   --no-user "$dir"
+                   --group-directories-first "$dir"
     end
 end
 
 # eza/ls aliases
-abbr --add ls custom-eza -a
-abbr --add ll custom-eza -al
-abbr --add lt custom-eza -alt
-abbr --add lr custom-eza -altr
+abbr --add e  custom-eza
+abbr --add ea custom-eza -a
+abbr --add el custom-eza -al
+abbr --add et custom-eza -at
+abbr --add er custom-eza -atr
 
 # fun stuff
 # abbr --add sky  astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0

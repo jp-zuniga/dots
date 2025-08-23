@@ -2,6 +2,3 @@ general.import = ["themes/rose-pine-moon.toml"]
 
 [font]
     size   = 12
-
-[window]
-    opacity = 0.9

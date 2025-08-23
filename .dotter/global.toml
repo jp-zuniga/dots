@@ -9,7 +9,8 @@
     "dotfiles/btop/themes/rose-pine-dawn.theme" = "~/.config/btop/themes/rose-pine-dawn.theme"
     "dotfiles/btop/themes/rose-pine-moon.theme" = "~/.config/btop/themes/rose-pine-moon.theme"
 
-    "dotfiles/code/settings.json" = "~/.config/Code/User/settings.json"
+    "dotfiles/code/settings.json"     = "~/.config/Code/User/settings.json"
+    "dotfiles/eza/rose-pine-moon.yml" = "~/.config/eza/theme.yml"
 
     "dotfiles/fish/config.fish"                 = "~/.config/fish/config.fish"
     "dotfiles/fish/themes/rose-pine.theme"      = "~/.config/fish/themes/rose-pine.theme"
@@ -28,6 +29,7 @@
     "dotfiles/hypr/modules/looks.conf"     = "~/.config/hypr/modules/looks.conf"
     "dotfiles/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
 
+    "dotfiles/hypr/scripts/bat-signal.sh"  = "~/.config/hypr/scripts/bat-signal.sh"
     "dotfiles/hypr/scripts/focus.sh"       = "~/.config/hypr/scripts/focus.sh"
     "dotfiles/hypr/scripts/random-wall.sh" = "~/.config/hypr/scripts/random-wall.sh"
 

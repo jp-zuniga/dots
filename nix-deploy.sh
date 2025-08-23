@@ -20,9 +20,9 @@ if [ -e "$OG_NIX_CONFIG" ]; then
 
     if [ "$REBUILD" = "" ] || [ "$REBUILD" = "N" ] || [ "$REBUILD" = "n" ]; then
         echo "You must do so manually by running:"
-        echo "  $ sudo nixos-rebuild switch --I nixos-config=$DOTS_NIX_CONFIG"
+        echo "  $ sudo nixos-rebuild switch -I nixos-config=$DOTS_NIX_CONFIG"
     elif [ "$REBUILD" = "y" ] || [ "$REBUILD" = "Y" ]; then
         echo "Executing nixos-rebuild switch."
-        sudo nixos-rebuild switch --I nixos-config="$DOTS_NIX_CONFIG"
+        sudo nixos-rebuild switch -I nixos-config="$DOTS_NIX_CONFIG"
     fi
 fi
