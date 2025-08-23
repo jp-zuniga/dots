@@ -14,7 +14,7 @@ if git diff --quiet "*.nix"; then
 fi
 
 # Autoformat nix files
-alejandra . &> $F_LOG || (alejandra . ; echo "Formatting failed!" && exit 1)
+alejandra . &> $F_LOG || (echo "Formatting failed!" && exit 1)
 
 # Show changes
 git diff -U0 "*.nix"

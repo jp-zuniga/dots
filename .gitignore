@@ -2,4 +2,4 @@
 .dotter/cache.toml
 
 dotfiles/nix/hardware-configuration.nix
-dotfiles/wallpapers/.current.png
+wallpapers/.current.png
