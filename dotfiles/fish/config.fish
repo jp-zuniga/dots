@@ -4,14 +4,13 @@ set -g fish_greeting ""
 # pick theme
 fish_config theme choose rose-pine-moon
 
-# init prompt only if alacritty is running (to avoid setting prompt in tty)
-pgrep alacritty > /dev/null || pgrep code > /dev/null
-if test $status -eq 0
+# init prompt only if a gui terminal is running (to avoid setting prompt in tty)
+if pgrep alacritty > /dev/null || pgrep code > /dev/null
     starship init fish | source
 end
 
-abbr --add nrs  sudo nixos-rebuild           switch
-abbr --add nrsu sudo nixos-rebuild --upgrade switch
+# nix aliases
+abbr --add rebuild /home/jaq/dots/dotfiles/nix/scripts/rebuild.sh
 
 # git aliases
 abbr --add g    git
@@ -95,8 +94,7 @@ abbr --add lr custom-eza -altr
 # abbr --add sky  astroterm -Ccu --speed 100 --fps 360 --aspect-ratio 4.0
 # abbr --add tree cbonsai   -li  --time=0.1
 
-# autostart hyprland (only on boot, when it's not running)
-pgrep Hyprland > /dev/null
-if test $status -eq 1
-    hyprland > ~/.hyprstartup
+# autostart hyprland (only on boot)
+if ! pgrep Hyprland > /dev/null
+    hyprland > /dev/null
 end

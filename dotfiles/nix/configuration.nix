@@ -1,20 +1,19 @@
 # import all configs
-
-{ config, ... }: let
-    hardware-type  = "lenovo/thinkpad";
-    hardware-model = "t14s";
+{config, ...}: let
+  hardware-type = "lenovo/thinkpad";
+  hardware-model = "t14s";
 in {
-    imports = [
-        ./hardware-configuration.nix
-        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${hardware-type}/${hardware-model}"
-        "${builtins.fetchGit { url = "https://github.com/NixOS/nixos-hardware.git"; }}/${hardware-type}/${hardware-model}/amd/gen1"
+  imports = [
+    ./hardware-configuration.nix
+    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/${hardware-type}/${hardware-model}"
+    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/${hardware-type}/${hardware-model}/amd/gen1"
 
-        ./system.nix
-        ./services.nix
+    ./system.nix
+    ./services.nix
 
-        ./programs.nix
-    ];
+    ./programs.nix
+  ];
 
-    networking.hostName = hardware-model;
-    system.stateVersion = "25.05";  ######## !!! DO NOT TOUCH !!!
+  networking.hostName = hardware-model;
+  system.stateVersion = "25.05"; ######## !!! DO NOT TOUCH !!!
 }

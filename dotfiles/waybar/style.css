@@ -1,9 +1,5 @@
 @import "./themes/rose-pine-moon.css";
 
-@define-color group1 @foam;
-@define-color group2 @pine;
-@define-color group3 @iris;
-
 * {
     border:        0px;
     border-radius: 0px;
@@ -22,49 +18,15 @@ tooltip {
 }
 
 #waybar.main {
+    background: transparent;
+}
+
+#waybar.main.modules-center
+#waybar.main.modules-left
+#waybar.main.modules-right {
     background:    @base;
     border:        3px solid @muted;
     border-radius: 5px;
-}
-
-#waybar.main button {
-    transition: all 0.15s ease-in-out;
-}
-
-#waybar.main #custom-spacer {
-    background: transparent;
-    color:      @muted;
-}
-
-#waybar.main #tray {
-    padding-left: 8pt;
-}
-
-#waybar.main #tray menu {
-    background:    @base;
-    border:        3px solid @muted;
-    border-radius: 8px;
-    color:         @foam;
-}
-
-#waybar.main #workspaces button {
-    background:    transparent;
-    border:        3px solid transparent;
-    border-radius: 16px;
-    color:         @muted;
-    transition:    all 0.25s ease;
-}
-
-#waybar.main #workspaces button.visible {
-    color: @love;
-}
-
-#waybar.main #workspaces button.active {
-    color: @gold;
-}
-
-#waybar.main #workspaces button:hover {
-    color: @gold;
 }
 
 #waybar.main #battery,
@@ -78,31 +40,88 @@ tooltip {
 #waybar.main #pulseaudio,
 #waybar.main #temperature,
 #waybar.main #tray,
-#waybar.main #window {
-    background:     transparent;
-    padding-bottom: 3pt;
-    padding-top:    3pt;
+#waybar.main #window,
+#waybar.main #workspaces {
+    background:     @base;
+    border:         3px solid @muted;
+    border-radius:  5px;
+    padding-top:    0px;
+    padding-bottom: 0px;
+    padding-left:   10px;
+    padding-right:  10px;
 }
 
-#waybar.main #cpu,
-#waybar.main #temperature,
-#waybar.main #memory.ram,
-#waybar.main #memory.swap,
-#waybar.main #disk,
-#waybar.main #network {
-    color: @group1;
+#waybar.main #tray menu {
+    background:    @base;
+    border:        3px solid @muted;
+    border-radius: 5px;
+    color:         @foam;
+    padding:       3px;
 }
 
-#waybar.main #language,
-#waybar.main #backlight,
-#waybar.main #battery,
-#waybar.main #pulseaudio {
-    color: @group2;
+#waybar.main #tray > .active,
+#waybar.main #tray > .passive,
+#waybar.main #tray > .needs-attention {
+    border-radius: 5px;
+}
+
+#waybar.main #workspaces button {
+    background:    transparent;
+    color:         @muted;
+    transition:    all 0.25s ease;
+}
+
+#waybar.main #workspaces button.visible {
+    color: @rose;
+}
+
+#waybar.main #workspaces button.active {
+    color: @gold;
+}
+
+#waybar.main #workspaces button:hover {
+    color: @love;
 }
 
 #waybar.main #clock {
-    color: @group3;
-    padding-right: 8pt;
+    color: @iris;
+}
+
+#waybar.main #temperature,
+#waybar.main #cpu,
+#waybar.main #memory.ram,
+#waybar.main #disk,
+#waybar.main #network {
+    color: @foam;
+}
+
+#waybar.main #network.disconnected {
+    color: @muted;
+}
+
+#waybar.main #language,
+#waybar.main #pulseaudio,
+#waybar.main #backlight,
+#waybar.main #battery {
+    color: @pine;
+}
+
+#waybar.main #battery {
+    padding-right: 10px;
+}
+
+#waybar.main #battery.warning,
+#waybar.main #cpu.warning,
+#waybar.main #memory.ram.warning,
+#waybar.main #temperature.warning {
+    color: @rose;
+}
+
+#waybar.main #battery.critical,
+#waybar.main #cpu.critical,
+#waybar.main #memory.ram.critical,
+#waybar.main #temperature.critical {
+    color: @love;
 }
 
 #waybar.main #pulseaudio.output.muted,
