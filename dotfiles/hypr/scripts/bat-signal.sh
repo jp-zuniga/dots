@@ -16,15 +16,14 @@ while true; do
 
     if ! [[ "$battery_percent" =~ ^[0-9]+$ ]]; then
         echo "ERROR: Could not parse battery percentage: '$battery_percent'"
-        sleep 120
+        sleep 180
         continue
     fi
 
     if [ "$battery_percent" -le 20 ]; then
         echo "Battery low: ${battery_percent}%. Sending notification."
         notify-send "Low battery!"
-        sleep 600  # check back in 10 mins
-    else
-        sleep 900  # check back in 15 mins
     fi
+
+    sleep 300  # check back in 5 mins
 done
