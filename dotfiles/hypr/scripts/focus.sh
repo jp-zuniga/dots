@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 MODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
 
