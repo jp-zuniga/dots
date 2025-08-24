@@ -1,13 +1,11 @@
-{config, ...}: let
-  hardware-type = "lenovo/thinkpad";
-  hardware-model = "t14s";
-in {
+{config, ...}: {
   imports = [
     ./hardware.nix
-    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/${hardware-type}/${hardware-model}"
-    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/${hardware-type}/${hardware-model}/amd/gen1"
+    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s"
+    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s/amd/gen1"
   ];
 
-  networking.hostName = hardware-model;
-  system.stateVersion = "25.05"; ######## !!! DO NOT TOUCH !!!
+  hardware.laptop.enable = true;
+  networking.hostName = "t14s";
+  system.stateVersion = "25.05";
 }
