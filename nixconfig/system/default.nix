@@ -14,5 +14,4 @@
   ];
 
   time.timeZone = "America/Managua";
-  system.stateVersion = "25.05";
 }
