@@ -7,13 +7,14 @@
   in {
     packages = user.packages pkgs;
     formatter = pkgs.alejandra;
-    devShells.default = user.shell pkgs;
+
     nixosModules =
       {
         system = import ./system;
         user = user.module;
       }
       // import ./modules;
+
     nixosConfigurations = import ./hosts inputs;
   };
 

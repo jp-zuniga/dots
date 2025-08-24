@@ -1,12 +1,10 @@
 pkgs: {
   opacity = 1.0;
   background = "232136";
-
   text = "e0def4";
 
   regular = {
     background = "2a273f";
-
     red = "eb6f92";
     green = "3e8fb0";
     yellow = "f6c177";
@@ -45,12 +43,14 @@ pkgs: {
   base0F = "56526e";
 
   accent = "c4a7e7";
+
   wallpaper = let
-    path = "rosepine/clouds.jpg";
-    wallpapers = (pkgs.callPackages ./_sources/generated.nix {}).wallpapers;
+    path = "01.png";
+    wallpapers = (pkgs.callPackages ./sources/generated.nix {}).wallpapers;
   in "${wallpapers.src}/${path}";
 
-  bat = "Nord";
+  bat = "rose-pine-moon";
+
   cursor = {
     hypr = {
       package = pkgs.rose-pine-hyprcursor;
@@ -62,14 +62,14 @@ pkgs: {
     };
   };
 
-  nvim = {
-    enable = true;
-    # uses generated base16 them if set to false
+  # nvim = {
+  #   enable = true;
+  #   # uses generated base16 them if set to false
 
-    package = pkgs.vimPlugins.rose-pine;
-    name = "rose-pine-moon";
-    configExtra = "";
-  };
+  #   package = pkgs.vimPlugins.rose-pine;
+  #   name = "rose-pine-moon";
+  #   configExtra = "";
+  # };
 
   gtk = {
     enable = true;

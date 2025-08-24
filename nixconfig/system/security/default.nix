@@ -1,9 +1,4 @@
 {pkgs, ...}: {
-  services = {
-    networkd-dispatcher.enable = true;
-    pcscd.enable = true;
-    yubikey-touch-detector.enable = true;
-  };
   security = {
     protectKernelImage = false;
     lockKernelModules = false;
@@ -18,6 +13,7 @@
       packages = [pkgs.apparmor-profiles];
     };
   };
+
   # credits: poz
   fileSystems = let
     defaults = ["nodev" "nosuid" "noexec"];
@@ -25,12 +21,14 @@
     "/boot".options = defaults;
     "/var/log".options = defaults;
   };
+
   boot = {
     blacklistedKernelModules = [
       # Obscure network protocols
       "ax25"
       "netrom"
       "rose"
+
       # Old or rare or insufficiently audited filesystems
       "adfs"
       "affs"
