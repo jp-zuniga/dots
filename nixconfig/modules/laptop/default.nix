@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  ...
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.hardware.laptop;

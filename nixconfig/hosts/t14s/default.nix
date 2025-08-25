@@ -1,4 +1,4 @@
-{config, ...}: {
+{config}: {
   imports = [
     ./hardware.nix
     "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s"

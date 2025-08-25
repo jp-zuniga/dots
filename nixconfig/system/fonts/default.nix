@@ -1,9 +1,7 @@
-{pkgs, ...}: let
-  inherit (builtins) attrValues;
-in {
+{pkgs}: {
   fonts = {
     packages =
-      attrValues {
+      builtins.attrValues {
         inherit
           (pkgs)
           material-icons

@@ -2,7 +2,6 @@
   pkgs,
   theme,
   lib,
-  ...
 }: let
   inherit (builtins) toString isBool;
   inherit (lib) boolToString escape generators optionalAttrs;
@@ -25,10 +24,10 @@ in {
     gtkINI = {
       inherit gtk-theme-name;
       gtk-application-prefer-dark-theme = 1;
-      gtk-font-name = "Lexend 11";
+      gtk-font-name = "Noto 12";
       gtk-icon-theme-name = "Papirus";
       gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
+      gtk-xft-hinting = 0;
       gtk-xft-hintstyle = "hintslight";
       gtk-xft-rgba = "rgb";
       gtk-cursor-theme-name = theme.cursor.x.name;
@@ -59,11 +58,10 @@ in {
         then theme.gtk.package
         else pkgs.adw-gtk3
       )
-      pkgs.adw-gtk3
       pkgs.papirus-icon-theme
     ];
     variables = let
-      cursorSize = 24;
+      cursorSize = 30;
     in {
       GTK_THEME = gtk-theme-name;
       GSK_RENDERER = "gl";

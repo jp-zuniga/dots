@@ -2,7 +2,6 @@
   flake,
   pkgs,
   config,
-  ...
 }: {
   users.users = {
     jaq = {

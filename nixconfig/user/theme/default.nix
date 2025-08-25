@@ -44,7 +44,7 @@ pkgs: {
 
   accent = "c4a7e7"; # iris
 
-  bat = "rose-pine-moon";
+  rosePineVariant = "rose-pine-moon";
 
   cursor = {
     hypr = {

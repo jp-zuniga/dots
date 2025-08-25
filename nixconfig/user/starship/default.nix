@@ -12,7 +12,7 @@
       ];
 
       right_format = "$time";
-      palette = "rose-pine-moon";
+      palette = theme.rosePineVariant;
 
       character = {
         error_symbol = "[■](bold fg:love)";
@@ -53,7 +53,7 @@
         modified = "[!\($count\) ](bg:overlay fg:gold)";
         renamed = "[\($count\) ](bg:overlay fg:iris)";
         staged = "[+\($count\) ](bg:overlay fg:gold)";
-        stashed = "[\$](bg:overlay fg:iris)";
+        stashed = "[\$ ](bg:overlay fg:iris)";
         style = "bold bg:overlay fg:love";
         untracked = "[?\($count\) ](bg:overlay fg:gold)";
         up_to_date = "[✓](bg:overlay fg:iris)";
@@ -81,14 +81,32 @@
       };
 
       palettes = {
+        rose-pine = {
+          foam = "#9ccfd8";
+          gold = "#f6c177";
+          iris = "#c4a7e7";
+          love = "#eb6f92";
+          overlay = "#26233a";
+          pine = "#31748f";
+          rose = "#ebbcba";
+        };
+        rose-pine-dawn = {
+          foam = "#56949f";
+          gold = "#ea9d34";
+          iris = "#907aa9";
+          love = "#b4637a";
+          overlay = "#f2e9e1";
+          pine = "#286983";
+          rose = "#d7827e";
+        };
         rose-pine-moon = {
-          foam = "${theme.regular.blue}";
-          gold = "${theme.regular.yellow}";
-          iris = "${theme.accent}";
-          love = "${theme.regular.red}";
-          overlay = "${theme.bright.overlay}";
-          pine = "${theme.regular.green}";
-          rose = "${theme.regular.cyan}";
+          foam = "#9ccfd8";
+          gold = "#f6c177";
+          iris = "#c4a7e7";
+          love = "#eb6f92";
+          overlay = "#393552";
+          pine = "#3e8fb0";
+          rose = "#ea9a97";
         };
       };
 

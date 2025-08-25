@@ -1,7 +1,6 @@
 {
   pkgs,
   theme,
-  ...
 }:
 pkgs.symlinkJoin {
   name = "mako-wrapped";
@@ -9,14 +8,13 @@ pkgs.symlinkJoin {
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/mako --add-flags "\
-    --font 'Lexend 11' \
-    --border-radius 8 \
-    --padding 8 \
-    --border-size 5 \
+    --font 'monospace 12' \
+    --border-radius 5 \
+    --border-size 3 \
+    --padding 10 \
     --background-color '#${theme.bright.background}' \
-    --border-color '#${theme.base03}' \
+    --border-color '#${theme.base0F}' \
+    --progress-color '#${theme.regular.green}' \
     --text-color '#${theme.text}' \
-    --progress-color '#${theme.base04}' \
-    --default-timeout 4000"
   '';
 }

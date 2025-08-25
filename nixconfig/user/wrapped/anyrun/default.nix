@@ -1,7 +1,6 @@
 {
   pkgs,
   theme,
-  ...
 }: let
   anyrun-configs = pkgs.symlinkJoin {
     name = "anyrun-configs";
