@@ -1,5 +1,1 @@
-.dotter/cache/
-.dotter/cache.toml
 
-dotfiles/nix/hardware-configuration.nix
-wallpapers/.current.png
