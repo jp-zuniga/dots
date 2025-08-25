@@ -1,10 +1,18 @@
 {
+    "[nix]": {
+        "editor.defaultFormatter": "kamadorueda.alejandra",
+        "editor.formatOnPaste": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnType": false,
+        "editor.tabSize": 2
+    },
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave":     true
     },
     "accessibility.hideAccessibleView": true,
     "accessibility.underlineLinks":     true,
+    "alejandra.program": "alejandra",
     "better-comments.tags":             [
         {
             "backgroundColor": "transparent",
@@ -122,7 +130,7 @@
     "git.autofetch":                                             true,
     "git.confirmSync":                                           false,
     "git.enableSmartCommit":                                     true,
-    "git.openRepositoryInParentFolders":                         "never",
+    "git.openRepositoryInParentFolders":                         "always",
     "python.analysis.autoFormatStrings":                         true,
     "python.analysis.autoImportCompletions":                     true,
     "python.analysis.diagnosticMode":                            "openFilesOnly",
@@ -205,5 +213,6 @@
     "workbench.startupEditor":                                           "none",
     "workbench.tips.enabled":                                            false,
     "zenMode.hideLineNumbers":                                           false,
-    "zenMode.showTabs":                                                  "none"
+    "zenMode.showTabs": "none",
+    "editor.minimap.enabled": false
 }

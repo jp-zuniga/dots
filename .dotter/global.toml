@@ -34,9 +34,10 @@
     "dotfiles/hypr/modules/looks.conf"     = "~/.config/hypr/modules/looks.conf"
     "dotfiles/hypr/modules/rules.conf"     = "~/.config/hypr/modules/rules.conf"
 
-    "dotfiles/hypr/scripts/bat-signal.sh"  = "~/.config/hypr/scripts/bat-signal.sh"
-    "dotfiles/hypr/scripts/focus.sh"       = "~/.config/hypr/scripts/focus.sh"
-    "dotfiles/hypr/scripts/random-wall.sh" = "~/.config/hypr/scripts/random-wall.sh"
+    "dotfiles/hypr/scripts/bat-signal.sh"       = "~/.config/hypr/scripts/bat-signal.sh"
+    "dotfiles/hypr/scripts/focus.sh"            = "~/.config/hypr/scripts/focus.sh"
+    "dotfiles/hypr/scripts/get-current-wall.sh" = "~/.config/hypr/scripts/get-current-wall.sh"
+    "dotfiles/hypr/scripts/random-wall.sh"      = "~/.config/hypr/scripts/random-wall.sh"
 
     "dotfiles/hypr/themes/rose-pine.conf"      = "~/.config/hypr/themes/rose-pine.conf"
     "dotfiles/hypr/themes/rose-pine-dawn.conf" = "~/.config/hypr/themes/rose-pine-dawn.conf"
