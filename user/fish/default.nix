@@ -1,4 +1,8 @@
-{theme}: let
+{
+  pkgs,
+  theme,
+  ...
+}: let
   fishTheme = pkgs.writeText "${theme.rosePineVariant}.fish" ''
     set -g fish_color_normal ${theme.text}
     set -g fish_color_command ${theme.accent}
@@ -121,6 +125,7 @@ in {
     shellAbbrs = {
       # nix aliases
       rebuild = "/home/jaq/dots/scripts/rebuild.sh";
+      ale = "alejandra -q .";
 
       # git aliases
       g = "git";

@@ -2,6 +2,7 @@
   flake,
   pkgs,
   config,
+  ...
 }: {
   users.users = {
     jaq = {
@@ -12,7 +13,7 @@
 
       isNormalUser = true;
       homix = true;
-      shell = flake.packages.${pkgs.system}.fish;
+      shell = pkgs.fish;
     };
   };
 

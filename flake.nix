@@ -2,11 +2,11 @@
   description = "rawdogging nix for shits and giggles";
 
   outputs = inputs @ {nixpkgs, ...}: let
-    user = import ./user;
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    user = import ./user pkgs;
   in {
-    packages = user.packages pkgs;
-    formatter = pkgs.alejandra;
+    packages.x86_64-linux = user.packages;
+    formatter.x86_64-linux = pkgs.alejandra;
 
     nixosModules =
       {
