@@ -1,8 +1,4 @@
-{
-  pkgs,
-  flake,
-  ...
-}: {
+{pkgs}: {
   hardware = {
     graphics.enable = true;
   };

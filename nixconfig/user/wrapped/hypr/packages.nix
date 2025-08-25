@@ -2,9 +2,7 @@ pkgs:
 builtins.attrValues {
   inherit
     (pkgs)
+    brightnessctl
     brillo
-    hypridle
-    hyprlock
-    hyprshot
     ;
 }

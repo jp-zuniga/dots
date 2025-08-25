@@ -2,7 +2,6 @@
   pkgs,
   lib,
   theme,
-  ...
 }: let
   toHyprConf = import ./tohyprconf.nix lib;
 in

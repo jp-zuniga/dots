@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs}: {
   security = {
     protectKernelImage = false;
     lockKernelModules = false;

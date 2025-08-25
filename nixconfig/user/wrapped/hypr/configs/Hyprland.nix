@@ -16,16 +16,24 @@ theme: let
     )
     10);
 in {
+  ecosystem = {
+    no_update_news = true;
+    no_donation_nag = true;
+  };
+
   env = [
     "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
   ];
+
   exec-once = [
-    "swaybg -i ${theme.wallpaper}"
-    "hyprsunset -t 4000"
-    "hypridle"
-    "mako"
-    "waybar"
+    "mako &"
+    "hypridle &"
+    "systemctl --user start hyprpolkitagent &"
+
+    "swww-daemon &"
+    ""
   ];
+
   general = {
     gaps_in = 5;
     gaps_out = 5;
@@ -41,16 +49,15 @@ in {
     pseudotile = true;
     preserve_split = true;
   };
+
   misc = {
     disable_autoreload = true;
+    disable_hyprland_logo = true;
     force_default_wallpaper = 0;
-    animate_mouse_windowdragging = false;
-    swallow_regex = "^(Alacritty|kitty|footclient|foot)$";
-    enable_swallow = true;
-    vrr = 1;
+    vfr = true;
   };
-  xwayland.force_zero_scaling = true;
 
+  xwayland.force_zero_scaling = true;
   debug.disable_logs = false;
 
   decoration = {
@@ -94,7 +101,6 @@ in {
   input = {
     kb_layout = "pl";
     kb_options = "caps:escape";
-
     follow_mouse = 1;
     accel_profile = "flat";
     tablet.output = "current";
@@ -104,6 +110,7 @@ in {
       natural_scroll = true;
     };
   };
+
   gestures = {
     workspace_swipe = true;
     workspace_swipe_distance = 200;
@@ -122,11 +129,13 @@ in {
     ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   ];
+
   bindr = [
     # launcher
     "${mod}, Space, exec, anyrun"
     ", XF86Search, exec, anyrun"
   ];
+
   bindle = [
     # volume
     ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
@@ -138,12 +147,14 @@ in {
     "${mod}, XF86MonBrightnessUp, exec, keylit"
     "${mod}, XF86MonBrightnessDown, exec, keylit"
   ];
+
   bindm = [
     "${mod}, mouse:272, movewindow"
     "${mod}, Control_L, movewindow"
     "${mod}, mouse:273, resizewindow"
     "${mod}, ALT_L, resizewindow"
   ];
+
   bind =
     [
       "${mod}, minus, killactive"
@@ -181,6 +192,7 @@ in {
     "blur, anyrun"
     " ignorealpha 0.6, anyrun"
   ];
+
   windowrulev2 = [
     "workspace 2, class:(firefox|librewolf|brave)"
     "workspace 4 silent, class:(signal|vesktop)"

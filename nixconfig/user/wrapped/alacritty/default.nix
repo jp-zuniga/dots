@@ -1,7 +1,6 @@
 {
   pkgs,
   theme,
-  ...
 }: let
   config = pkgs.writeText "alacritty.toml" ''
     [colors.primary]

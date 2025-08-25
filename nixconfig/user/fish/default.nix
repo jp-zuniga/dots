@@ -1,5 +1,5 @@
 {theme}: let
-  fishTheme = pkgs.writeText "rose-pine-moon.fish" ''
+  fishTheme = pkgs.writeText "${theme.rosePineVariant}.fish" ''
     set -g fish_color_normal ${theme.text}
     set -g fish_color_command ${theme.accent}
     set -g fish_color_keyword ${theme.regular.blue}
@@ -47,8 +47,6 @@
 in {
   programs.fish = {
     enable = true;
-    generateCompletions = false;
-
     shellInit = ''
       set -g fish_greeting ""
 
