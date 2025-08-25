@@ -13,9 +13,9 @@ pkgs.symlinkJoin {
     --border-radius 8 \
     --padding 8 \
     --border-size 5 \
-    --background-color '#${theme.base02}' \
+    --background-color '#${theme.bright.background}' \
     --border-color '#${theme.base03}' \
-    --text-color '#${theme.base05}' \
+    --text-color '#${theme.text}' \
     --progress-color '#${theme.base04}' \
     --default-timeout 4000"
   '';

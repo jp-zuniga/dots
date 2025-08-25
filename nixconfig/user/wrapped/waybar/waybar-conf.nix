@@ -1,108 +1,141 @@
-{pkgs, ...}: let
+{pkgs}: let
   settings = {
     layer = "top";
     position = "top";
-    height = 32;
-    spacing = 7;
+    name = "main";
+
     fixed-center = false;
-    margin-left = null;
-    margin-top = null;
-    margin-bottom = null;
-    margin-right = null;
-    exclusive = true;
+
+    margin-top = 5;
+    margin-left = 5;
+    margin-right = 5;
+
     modules-left = [
-      "custom/search"
+      "tray"
       "hyprland/workspaces"
-      "custom/lock"
+    ];
+
+    modules-center = ["clock"];
+
+    modules-right = [
+      "cpu"
+      "memory#ram"
+      "network#info"
+      "pulseaudio#output"
       "backlight"
       "battery"
-      "idle_inhibitor"
     ];
-    modules-right = ["bluetooth" "pulseaudio" "network" "clock"];
 
-    "custom/search" = {
-      format = " ";
-      tooltip = false;
-      on-click = "lib.getBin config.programs.anyrun.package/anyrun";
+    tray = {
+      "icon-size" = 16;
+      "spacing" = 10;
     };
 
-    "custom/power" = {
-      tooltip = false;
-      # TODO
-      format = "󰐥";
-    };
-    clock = {
-      format = "{:%H:%M}";
-      tooltip-format = ''
-        <big>{:%Y %B}</big>
-        <tt><small>{calendar}</small></tt>'';
-    };
-
-    "idle_inhibitor" = {
+    "hyprland/workspaces" = {
       format = "{icon}";
-      format-icons = {
-        activated = "";
-        deactivated = "󰔟";
-      };
     };
 
-    bluetooth = {
-      on-click = ''
-        bash -c 'bluetoothctl power $(bluetoothctl show | grep -q "Powered: yes" && echo off || echo on)'
-      '';
+    # "hyprland/window" = {
+    #   format = "";
+    #   icon = true;
+    #   icon-size = 16;
+    #   tooltip = false;
+    # };
+
+    clock = {
+      calendar = {
+        format = {
+          months = "<span color='#f6c177'><b>{}</b></span>";
+          today = "<span color='#eb6f92'><b><u>{}</u></b></span>";
+          weekdays = "<span color='#ea9a97'><b>{}</b></span>";
+        };
+      };
+
+      interval = 1;
+      format = "{:%H:%M}";
+      tooltip-format = "{calendar}";
     };
-    backlight = {
-      format = "{icon} {percent}%";
-      format-icons = ["" "" "" "" "" "" "" "" ""];
-    };
+
+    # temperature = {
+    #   critical-threshold = 60;
+    #   interval = 30;
+    #   format = "tmp {temperatureC}°";
+    #   states = {warning = 75;};
+    #   tooltip = false;
+    # };
+
     cpu = {
       interval = 5;
-      format = "  {}%";
+      format = "cpu {usage}%";
+      states = {warning = 75;};
+      tooltip = false;
     };
-    battery = {
-      states = {
-        warning = 30;
-        critical = 15;
-      };
-      format = "{icon}";
-      format-charging = "󰂄 {capacity}%";
-      format-plugged = "󰂄 {capacity}%";
-      tooltip-format = "{capacity}% {timeTo} // {power}";
-      format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+
+    "memory#ram" = {
+      interval = 5;
+      format = "ram {percentage}%";
+      states = {warning = 75;};
+      tooltip-format = "Using {used}GB";
     };
-    pulseaudio = {
+
+    # disk = {
+    #   interval = 3000;
+    #   format = "dsk {percentage_used}%";
+    #   tooltip = "{}";
+    #   tooltip-format = "{free}GB free";
+    #   states = {warning = 75;};
+    # };
+
+    "network#info" = {
+      interval = 30;
+      format-disconnected = "off";
+      format-ethernet = "eth {ifname}";
+      format-wifi = "net {signalStrength}%";
+      tooltip-format-disconnected = "No network connection active";
+      tooltip-format-ethernet = "{ifname}";
+      tooltip-format-wifi = "{essid} ({signalStrength}%)";
+    };
+
+    # "pulseaudio#input" = {
+    #   format = "mic";
+    #   max-volume = "100";
+    #   tooltip = false;
+    # };
+
+    "pulseaudio#output" = {
+      format = "vol {volume}%";
+      format-muted = "mut";
+      tooltip = false;
       scroll-step = 5;
-      tooltip = true;
-      on-click = "${pkgs.killall}/bin/killall pavucontrol || ${pkgs.pavucontrol}/bin/pavucontrol";
-      format = "{icon}  {volume}%";
-      format-muted = "󰝟 ";
-      format-bluetooth = "󰂯 {volume}%";
-      format-icons = {
-        default = ["" "" " "];
-      };
     };
-    network = let
-      nm-editor = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
-    in {
-      format-wifi = "󰤨 {essid}";
-      format-ethernet = "󰈀";
-      format-alt = "󱛇";
-      format-disconnected = "󰤭";
-      tooltip-format = "{ipaddr}/{ifname} via {gwaddr} ({signalStrength}%)";
-      on-click-right = "${nm-editor}";
+
+    # "hyprland/language" = {
+    #   format = " {}";
+    #   tooltip = false;
+    #   class = "language";
+    # };
+
+    backlight = {
+      format = "bri {percent}%";
+      scroll-step = 5;
+      tooltip = false;
     };
-    "hyprland/workspaces" = {
-      on-click = "activate";
-      format = "{icon}";
-      active-only = false;
-      format-icons = {
-        default = "";
-        active = "";
+
+    battery = {
+      format = "bat {capacity}%";
+      format-charging = "chg {capacity}%";
+      format-plugged = "plg {capacity}%";
+      format-time = "{H}h {M}m";
+      interval = 5;
+
+      states = {
+        warning = 40;
+        critical = 20;
       };
 
-      persistent_workspaces = {
-        "*" = 5;
-      };
+      tooltip-format-charging = "{timeTo}";
+      tooltip-format-discharging = "{timeTo}";
+      tooltip-format-plugged = "Plugged in, not charging";
     };
   };
 in
