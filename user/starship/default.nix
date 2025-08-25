@@ -16,7 +16,7 @@
       ];
 
       right_format = "$time";
-      palette = theme.rosePineVariant;
+      palette = "rose-pine${theme.rosePineVariant}";
 
       character = {
         error_symbol = "[■](bold fg:love)";
