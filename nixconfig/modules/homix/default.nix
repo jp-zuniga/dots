@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  ...
 }: let
   inherit (lib) mkOption mkEnableOption types filterAttrs attrValues mkIf mkDerivedConfig;
 
@@ -15,7 +14,6 @@ in {
         name,
         config,
         options,
-        ...
       }: {
         options = {
           path = mkOption {

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs}: {
   pipewire = {
     enable = true;
     alsa = {

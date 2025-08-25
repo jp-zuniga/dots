@@ -1,4 +1,4 @@
-{...}: {
+{}: {
   boot = {
     bootspec.enable = true;
     consoleLogLevel = 0;

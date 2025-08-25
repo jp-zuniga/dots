@@ -1,5 +1,4 @@
-rec
-{
+{}: {
   theme = import ./theme;
 
   packages = pkgs: let
@@ -14,22 +13,24 @@ rec
     waybar = callPackage ./wrapped/waybar {inherit theme;};
   };
 
-  module = {pkgs, ...}: {
+  module = {pkgs}: let
+    theme = import ./theme pkgs;
+  in {
     config = {
       environment.systemPackages = builtins.attrValues (packages pkgs);
       programs.hyprland = {
         enable = true;
-        withUWSM = true;
       };
     };
 
     imports = [
       ./packages.nix
-      ./eza
-      ./fish
+      (import ./eza {inherit pkgs theme;})
+      (import ./fish {inherit theme;})
       ./git
-      ./gtk
-      ./starship
+      (import ./gtk {inherit pkgs theme;})
+      (import ./qbittorrent {inherit pkgs theme;})
+      (import ./starship {inherit theme;})
     ];
   };
 }

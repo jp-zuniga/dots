@@ -1,7 +1,6 @@
 {
   nixpkgs,
   self,
-  ...
 }: let
   inherit (self) inputs;
   mkHost = name: system:

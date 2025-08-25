@@ -11,7 +11,7 @@ theme: {
       blur_passes = 1;
       blur_size = 3;
       color = theme.background;
-      path = "/home/jaq/wallpapers/.current.png";
+      path = "~/.cache/.current-wall";
     }
   ];
 

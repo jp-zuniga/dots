@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs}: {
   nix = {
     # give rebuilds low priority so system stays responsive
     daemonCPUSchedPolicy = "idle";
@@ -29,7 +29,7 @@
       keep-going = true; # continue building derivations if one fails
       log-lines = 20;
 
-      # use binary cache, its not gentoo
+      # use binary cache, it's not gentoo
       builders-use-substitutes = true;
       substituters = [
         "https://cache.nixos.org"
@@ -47,7 +47,7 @@
   programs.nix-ld.enable = true;
   programs.nh = {
     enable = true;
-    flake = "/home/jaq/dots/dotfiles";
+    flake = "/home/jaq/dots";
   };
 
   systemd.services.nix-daemon = {
