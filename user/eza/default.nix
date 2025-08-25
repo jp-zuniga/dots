@@ -2,6 +2,7 @@
   config,
   pkgs,
   theme,
+  ...
 }: let
   themeLocation = config.users.users.jaq.home + "/.config/eza/";
   ezaTheme = pkgs.writeText "theme.yml" ''

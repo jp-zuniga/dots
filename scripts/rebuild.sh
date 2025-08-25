@@ -15,17 +15,17 @@ if git diff --quiet "*.nix"; then
 fi
 
 # Autoformat nix files
-alejandra . &> $F_LOG || (echo "Formatting failed!" && exit 1)
+alejandra -q . &> $F_LOG || (echo "Formatting failed!" && exit 1)
 
 # Show changes
 git diff -U0 "*.nix"
 
-echo "\nRebuilding system...\n"
+echo "Rebuilding system..."
 
 # Rebuild, output simplified errors, log trackebacks
 sudo nixos-rebuild switch -I nixos-config=$CONFIG &> $S_LOG || \
     (cat $S_LOG | grep --color error && \
-     notify-send "NixOS rebuild failed!" && exit 1)
+     notify-send --urgency=critical "NixOS rebuild failed!" && exit 1)
 
 # Commit all changes with generation number
 git commit -am "Generation #$(\

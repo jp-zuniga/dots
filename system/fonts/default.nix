@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   fonts = {
     packages =
       builtins.attrValues {

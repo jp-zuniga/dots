@@ -1,23 +1,23 @@
-{}: {
+{pkgs, ...}: let
   theme = import ./theme;
-
-  packages = pkgs: let
+  packages = let
     inherit (pkgs) callPackage;
     theme = import ./theme pkgs;
   in {
     alacritty = callPackage ./wrapped/alacritty {inherit theme;};
-    anyrun = callPackage ./wrapped/anyrun {inherit theme;};
     bat = callPackage ./wrapped/bat {inherit theme;};
     hypr = callPackage ./wrapped/hypr {inherit theme;};
     mako = callPackage ./wrapped/mako {inherit theme;};
     waybar = callPackage ./wrapped/waybar {inherit theme;};
   };
+in {
+  inherit packages;
 
-  module = {pkgs}: let
+  module = {pkgs, ...}: let
     theme = import ./theme pkgs;
   in {
     config = {
-      environment.systemPackages = builtins.attrValues (packages pkgs);
+      environment.systemPackages = builtins.attrValues packages;
       programs.hyprland = {
         enable = true;
       };
@@ -25,12 +25,12 @@
 
     imports = [
       ./packages.nix
-      (import ./eza {inherit pkgs theme;})
-      (import ./fish {inherit theme;})
+      ./eza
+      ./fish
       ./git
-      (import ./gtk {inherit pkgs theme;})
-      (import ./qbittorrent {inherit pkgs theme;})
-      (import ./starship {inherit theme;})
+      ./gtk
+      ./qbittorrent
+      ./starship
     ];
   };
 }

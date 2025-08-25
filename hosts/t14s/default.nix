@@ -1,8 +1,8 @@
-{config}: {
+{config, ...}: {
   imports = [
     ./hardware.nix
-    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s"
-    "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s/amd/gen1"
+    # "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s"
+    # "${builtins.fetchGit {url = "https://github.com/NixOS/nixos-hardware.git";}}/lenovo/thinkpad/t14s/amd/gen1"
   ];
 
   hardware.laptop.enable = true;
