@@ -1,4 +1,8 @@
-{theme}: {
+{
+  lib,
+  theme,
+  ...
+}: {
   programs.starship = {
     enable = true;
     settings = {

@@ -1,4 +1,4 @@
-{pkgs}: {
+{pkgs, ...}: {
   nix = {
     # give rebuilds low priority so system stays responsive
     daemonCPUSchedPolicy = "idle";
@@ -19,7 +19,7 @@
       allowed-users = ["@wheel"];
       trusted-users = ["@wheel"];
 
-      commit-lockfile-summary = "chore: Update flake.lock";
+      commit-lockfile-summary = "chore: update flake.lock";
       keep-derivations = true;
       keep-outputs = true;
       warn-dirty = false;
