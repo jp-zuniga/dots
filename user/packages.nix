@@ -1,4 +1,7 @@
 {pkgs}: {
+  # ! missing: rofi, vscode, steam (with cursor fix), btop, firefox, yazi
+  # ? libreoffice cursor fix?
+
   environment.systemPackages = builtins.attrValues {
     inherit
       (pkgs)
