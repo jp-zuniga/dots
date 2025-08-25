@@ -12,9 +12,9 @@ pkgs.symlinkJoin {
     --border-radius 5 \
     --border-size 3 \
     --padding 10 \
-    --background-color '#${theme.bright.background}' \
-    --border-color '#${theme.base0F}' \
-    --progress-color '#${theme.regular.green}' \
+    --background-color '#${theme.overlay}' \
+    --border-color '#${theme.highlightHigh}' \
+    --progress-color '#${theme.pine}' \
     --text-color '#${theme.text}' \
   '';
 }

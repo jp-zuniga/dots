@@ -6,6 +6,7 @@
   in {
     alacritty = callPackage ./wrapped/alacritty {inherit theme;};
     bat = callPackage ./wrapped/bat {inherit theme;};
+    btop = callPackage ./wrapped/btop {inherit theme;};
     hypr = callPackage ./wrapped/hypr {inherit theme;};
     mako = callPackage ./wrapped/mako {inherit theme;};
     waybar = callPackage ./wrapped/waybar {inherit theme;};
@@ -31,6 +32,7 @@ in {
       ./gtk
       ./qbittorrent
       ./starship
+      ./steam
     ];
   };
 }
