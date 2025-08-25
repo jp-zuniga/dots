@@ -3,9 +3,8 @@ builtins.attrValues {
   inherit
     (pkgs)
     brillo
-    grimblast
-    swaybg
-    hyprsunset
-    wl-clipboard
+    hypridle
+    hyprlock
+    hyprshot
     ;
 }

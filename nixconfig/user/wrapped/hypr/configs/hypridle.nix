@@ -1,25 +1,40 @@
-theme: let
-  timeout = 300;
-in {
-  general.lock_cmd = "hyprlock";
+theme: {
+  general = {
+    lock_cmd = pidof hyprlock || hyprlock; # avoid starting multiple hyprlock instances
+    before_sleep_cmd = loginctl lock-session; # lock before suspend
+    after_sleep_cmd = hyprctl dispatch dpms on; # to avoid having to press a key twice to turn on the display
+  };
 
   listener = [
     {
-      timeout = timeout - 10;
-      # save the current brightness and dim the screen over a period of
-      # 500 ms
+      timeout = 180;
       on-timeout = "brillo -O; brillo -u 500000 -S 10";
-      # brighten the screen over a period of 250ms to the saved value
       on-resume = "brillo -I -u 250000";
     }
     {
-      inherit timeout;
-      on-timeout = "hyprctl dispatch dpms off";
-      on-resume = "hyprctl dispatch dpms on";
+      timeout = 180;
+      on-timeout = ''
+        current=$(brightnessctl -sd rgb:kbd_backlight get)
+        steps=10
+        for i in $(seq $steps -1 1); do
+          brightnessctl -sd rgb:kbd_backlight set $((current * i / steps)) > /dev/null
+          sleep 0.05
+        done
+      '';
+      on-resume = "brightnessctl -rd rgb:kbd_backlight";
     }
     {
-      timeout = timeout + 10;
-      on-timeout = "hyprlock";
+      timeout = 300;
+      on-timeout = loginctl lock-session;
+    }
+    {
+      timeout = 360;
+      on-timeout = hyprctl dispatch dpms off; # screen off when timeout has passed
+      on-resume = hyprctl dispatch dpms on && brightnessctl - r; # screen on when activity is detected after timeout has fired.
+    }
+    {
+      timeout = 600;
+      on-timeout = systemctl suspend;
     }
   ];
 }

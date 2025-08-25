@@ -2,7 +2,6 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-
     config = {
       advice = {
         addEmptyPathspec = false;

@@ -3,77 +3,65 @@ theme: {
     monitor = "";
     disable_loading_bar = true;
     hide_cursor = false;
-    no_fade_in = true;
   };
+
   background = [
     {
       monitor = "";
-      path = "${theme.wallpaper}";
-      blur_passes = 2;
-      blur_size = 5;
+      blur_passes = 1;
+      blur_size = 3;
+      color = theme.background;
+      path = "/home/jaq/wallpapers/.current.png";
     }
   ];
+
   input-field = [
     {
       monitor = "eDP-1";
+      position = "0, 0";
+      size = "360, 60";
 
-      size = "300, 50";
-      valign = "bottom";
-      position = "0%, 10%";
+      halign = "center";
+      valign = "center";
 
-      outline_thickness = 1;
+      dots_center = true;
+      dots_size = 0.1;
+      dots_spacing = 0.1;
 
-      font_color = "rgb(b6c4ff)";
-      outer_color = "rgba(180, 180, 180, 0.5)";
-      inner_color = "rgba(200, 200, 200, 0.1)";
-      check_color = "rgba(247, 193, 19, 0.5)";
-      fail_color = "rgba(255, 106, 134, 0.5)";
+      capslock_color = theme.regular.yellow;
+      check_color = theme.regular.green;
+      font_color = theme.text;
+      inner_color = theme.regular.background;
+      outer_color = theme.accent;
+      fail_color = theme.regular.red;
 
       fade_on_empty = false;
-      placeholder_text = "Enter Password";
+      hide_input = false;
+      outline_thickness = 3;
 
-      dots_spacing = 0.2;
-      dots_center = true;
-      dots_fade_time = 100;
-
-      shadow_color = "rgba(0, 0, 0, 0.1)";
-      shadow_size = 7;
-      shadow_passes = 2;
+      fail_text = "󰌾 $USER";
+      placeholder_text = "󰌾 $USER";
     }
   ];
 
   label = [
     {
       monitor = "";
-      text = "$TIME";
-      font_size = 150;
-      color = "rgb(b6c4ff)";
-
-      position = "0%, 30%";
-
-      valign = "center";
-      halign = "center";
-
-      shadow_color = "rgba(0, 0, 0, 0.1)";
-      shadow_size = 20;
-      shadow_passes = 2;
-      shadow_boost = 0.3;
+      position = "20, -8";
+      halign = "left";
+      valign = "top";
+      color = theme.text;
+      font_size = 36;
+      text = "cmd[update:43200000] date +'%x'";
     }
     {
       monitor = "";
-      text = "cmd[update:3600000] date +'%a %b %d'";
-      font_size = 20;
-      color = "rgb(b6c4ff)";
-
-      position = "0%, 40%";
-
-      valign = "center";
-      halign = "center";
-
-      shadow_color = "rgba(0, 0, 0, 0.1)";
-      shadow_size = 20;
-      shadow_passes = 2;
-      shadow_boost = 0.3;
+      position = "-20, -8";
+      halign = "right";
+      valign = "top";
+      color = theme.text;
+      font_size = 36;
+      text = "$TIME";
     }
   ];
 }
