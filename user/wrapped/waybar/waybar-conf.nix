@@ -1,4 +1,4 @@
-{pkgs}: let
+{pkgs, ...}: let
   settings = {
     layer = "top";
     position = "top";

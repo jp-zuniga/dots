@@ -2,6 +2,7 @@
   pkgs,
   theme,
   lib,
+  ...
 }: let
   inherit (builtins) toString isBool;
   inherit (lib) boolToString escape generators optionalAttrs;

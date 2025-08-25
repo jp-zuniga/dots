@@ -1,8 +1,7 @@
-{}: {
+{...}: {
   imports = [
     ./audio
     ./boot
-    ./disks
     ./fonts
     ./net
     ./nix

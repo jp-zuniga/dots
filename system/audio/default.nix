@@ -1,16 +1,16 @@
-{pkgs}: {
-  pipewire = {
-    enable = true;
-    alsa = {
+{pkgs, ...}: {
+  services = {
+    pipewire = {
       enable = true;
-      support32Bit = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+
+      jack.enable = true;
+      pulse.enable = true;
     };
 
-    jack.enable = true;
-    pulse.enable = true;
-  };
-
-  hardware = {
     pulseaudio.support32Bit = true;
   };
 }

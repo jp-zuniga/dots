@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  ...
 }: let
   inherit (lib) mkOption mkEnableOption types filterAttrs attrValues mkIf mkDerivedConfig;
 
@@ -13,7 +14,9 @@ in {
       type = types.attrsOf (types.submodule ({
         name,
         config,
+        lib,
         options,
+        ...
       }: {
         options = {
           path = mkOption {
