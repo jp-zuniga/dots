@@ -38,8 +38,8 @@ in {
     gaps_in = 5;
     gaps_out = 5;
     border_size = 2;
-    "col.active_border" = "rgb(${theme.accent})";
-    "col.inactive_border" = "rgb(${theme.regular.background})";
+    "col.active_border" = "rgb(${theme.iris})";
+    "col.inactive_border" = "rgb(${theme.surface})";
 
     allow_tearing = true;
     resize_on_border = true;

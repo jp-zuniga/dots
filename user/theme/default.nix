@@ -1,50 +1,57 @@
-pkgs: {
-  opacity = 1.0;
-  background = "232136"; # base
-  text = "e0def4";
+pkgs: let
+  base00 = "232136";
+  base01 = "2a273f";
+  base02 = "393552";
+  base03 = "6e6a86";
+  base04 = "908caa";
+  base05 = "e0def4";
+  base06 = "eb6f92";
+  base07 = "f6c177";
+  base08 = "ea9a97";
+  base09 = "3e8fb0";
+  base0A = "9ccfd8";
+  base0B = "c4a7e7";
+  base0C = "f6c177";
+  base0D = "2a283e";
+  base0E = "44415a";
+  base0F = "56526e";
+in {
+  inherit
+    base00
+    base01
+    base02
+    base03
+    base04
+    base05
+    base06
+    base07
+    base08
+    base09
+    base0A
+    base0B
+    base0C
+    base0D
+    base0E
+    base0F
+    ;
 
-  regular = {
-    background = "2a273f"; # surface
-    red = "eb6f92"; # love
-    green = "3e8fb0"; # pine
-    yellow = "f6c177"; # gold
-    blue = "9ccfd8"; # foam
-    purple = "c4a7e7"; # iris
-    cyan = "ea9a97"; # rose
-    white = "e0def4"; # text
-  };
+  bg = base00;
+  surface = base01;
+  overlay = base02;
+  muted = base03;
+  subtle = base04;
+  text = base05;
+  love = base06;
+  gold = base07;
+  rose = base08;
+  pine = base09;
+  foam = base0A;
+  iris = base0B;
+  highlightLow = base0D;
+  highlightMed = base0E;
+  highlightHigh = base0F;
 
-  bright = {
-    background = "393552"; # overlay
-    white = "e0def4"; # text
-    cyan = "ea9a97"; # rose
-    purple = "c4a7e7"; # iris
-    blue = "3e8fb0";
-    yellow = "f6c177"; # gold
-    green = "3e8fb0"; # pine
-    red = "eb6f92"; # love
-  };
-
-  base00 = "232136"; # base
-  base01 = "2a273f"; # surface
-  base02 = "393552"; # overlay
-  base03 = "6e6a86"; # !muted
-  base04 = "908caa"; # !subtle
-  base05 = "e0def4"; # text
-  base06 = "eb6f92"; # love
-  base07 = "f6c177"; # gold
-  base08 = "ea9a97"; # rose
-  base09 = "3e8fb0"; # pine
-  base0A = "9ccfd8"; # foam
-  base0B = "c4a7e7"; # iris
-  base0C = "f6c177"; # gold
-  base0D = "2a283e"; # !highlight-low
-  base0E = "44415a"; # !highlight-med
-  base0F = "56526e"; # !highlight-high
-
-  accent = "c4a7e7"; # iris
-
-  rosePineVariant = "rose-pine-moon";
+  rosePineVariant = "-moon";
 
   cursor = {
     hypr = {

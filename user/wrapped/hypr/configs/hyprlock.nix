@@ -10,7 +10,7 @@ theme: {
       monitor = "";
       blur_passes = 1;
       blur_size = 3;
-      color = theme.background;
+      color = theme.bg;
       path = "~/.cache/.current-wall";
     }
   ];
@@ -28,12 +28,12 @@ theme: {
       dots_size = 0.1;
       dots_spacing = 0.1;
 
-      capslock_color = theme.regular.yellow;
-      check_color = theme.regular.green;
+      capslock_color = theme.gold;
+      check_color = theme.pine;
       font_color = theme.text;
-      inner_color = theme.regular.background;
-      outer_color = theme.accent;
-      fail_color = theme.regular.red;
+      inner_color = theme.surface;
+      outer_color = theme.iris;
+      fail_color = theme.love;
 
       fade_on_empty = false;
       hide_input = false;
