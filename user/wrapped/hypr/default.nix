@@ -21,5 +21,5 @@ in
       in ''
         wrapProgram $out/bin/${x} --add-flags "-c ${config}"
       '';
-    })) ["Hyprland" "hyprlock" "hypridle"];
+    })) ["hyprland" "hyprlock" "hypridle"];
   }
