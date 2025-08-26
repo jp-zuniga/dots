@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "firefoxTheme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749676909,
+        "narHash": "sha256-JmY1hvUKdhk/RahI8IqoNQkHRoxpSjn0aG1ZnndgAbo=",
+        "owner": "rose-pine",
+        "repo": "firefox",
+        "rev": "2fa9921301134b28e8ba31a56dee46dc78af15ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rose-pine",
+        "repo": "firefox",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1755922037,
@@ -18,7 +34,25 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "firefoxTheme": "firefoxTheme",
+        "nixpkgs": "nixpkgs",
+        "yaziTheme": "yaziTheme"
+      }
+    },
+    "yaziTheme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754076891,
+        "narHash": "sha256-Aps8NDbHEDT85GqvE9Q2/ffR1s5+DDK1MSG6bdAnMHg=",
+        "owner": "Mintass",
+        "repo": "rose-pine-moon.yazi",
+        "rev": "aa2d937daf2ede05442bd3818691882a7ad0e700",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mintass",
+        "repo": "rose-pine-moon.yazi",
+        "type": "github"
       }
     }
   },
