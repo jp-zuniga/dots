@@ -15,6 +15,7 @@
         else toString value;
     in "${escape ["="] key}=${value'}";
   };
+
   gtk-theme-name =
     if theme.gtk.enable
     then theme.gtk.name
@@ -26,7 +27,7 @@ in {
       inherit gtk-theme-name;
       gtk-application-prefer-dark-theme = 1;
       gtk-font-name = "Noto 12";
-      gtk-icon-theme-name = "Papirus";
+      gtk-icon-theme-name = "rose-pine";
       gtk-xft-antialias = 1;
       gtk-xft-hinting = 0;
       gtk-xft-hintstyle = "hintslight";
@@ -38,6 +39,7 @@ in {
       ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
         Settings = gtkINI;
       };
+
       ".config/gtk-4.0/settings.ini".text = toGtk3Ini {
         Settings =
           gtkINI
@@ -59,8 +61,9 @@ in {
         then theme.gtk.package
         else pkgs.adw-gtk3
       )
-      pkgs.papirus-icon-theme
+      pkgs.rose-pine-icon-theme
     ];
+
     variables = let
       cursorSize = 30;
     in {

@@ -27,12 +27,14 @@ in {
     imports = [
       ./packages.nix
       ./eza
+      ./firefox
       ./fish
       ./git
       ./gtk
       ./qbittorrent
       ./starship
       ./steam
+      ./yazi
     ];
   };
 }

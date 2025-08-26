@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  # ! missing: rofi, vscode, firefox, yazi
+  # ! missing: rofi, vscode, XDG
   # ? libreoffice cursor fix?
 
   environment = {
@@ -23,7 +23,6 @@
         qview
         uv
         unzip
-        zip
         ;
     };
 
