@@ -3,7 +3,7 @@
 MODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
 
 if [ "$MODE" = 1 ] ; then
-    kill $(pgrep waybar)
+    pidof waybar  || kill $(pgrep waybar)
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword animations:borderangle,0;\
@@ -17,7 +17,7 @@ if [ "$MODE" = 1 ] ; then
         keyword general:gaps_out 0;"
     exit 0
 else
-    waybar &
+    ! pidof waybar || waybar
     hyprctl reload
     exit 0
 fi
