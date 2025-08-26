@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  # ! missing: rofi, XDG
+  # ! missing: hypr, rofi, XDG
 
   environment = {
     systemPackages = builtins.attrValues {
