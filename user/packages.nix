@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   # ! missing: rofi, XDG
-  # ? libreoffice cursor fix?
 
   environment = {
     systemPackages = builtins.attrValues {
@@ -15,7 +14,7 @@
         hyprpolkitagent
         hyprshot
         libnotify
-        libreoffice-qt6-fresh
+        libreoffice-fresh
         microfetch
         mpv
         pastel
@@ -34,6 +33,7 @@
       rm $out/share/applications/cups.desktop
       rm $out/share/applications/draw.desktop
       rm $out/share/applications/fish.desktop
+      rm $out/share/applications/impress.desktop
       rm $out/share/applications/math.desktop
       rm $out/share/applications/mpv.desktop
       rm $out/share/applications/nixos-manual.desktop
