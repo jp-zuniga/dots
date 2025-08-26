@@ -214,5 +214,7 @@
     "workbench.tips.enabled":                                            false,
     "zenMode.hideLineNumbers":                                           false,
     "zenMode.showTabs": "none",
-    "editor.minimap.enabled": false
+    "files.associations": {
+        "*.lock": "json"
+    }
 }

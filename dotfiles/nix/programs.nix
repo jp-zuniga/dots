@@ -35,6 +35,7 @@ in {
       hyprpicker
       hyprpolkitagent
       hyprshot
+      jetbrains.idea-community
       libnotify
       libreoffice-qt6-fresh
       mako

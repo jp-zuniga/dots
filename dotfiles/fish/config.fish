@@ -11,6 +11,7 @@ end
 
 # nix aliases
 abbr --add rebuild /home/jaq/dots/dotfiles/nix/scripts/rebuild.sh
+abbr --add ale alejandra -q .
 
 # git aliases
 abbr --add g    git
