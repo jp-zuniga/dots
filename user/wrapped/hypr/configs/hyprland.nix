@@ -1,8 +1,13 @@
 theme: let
   mod = "Super";
 
+  fileManager = "yazi";
+  menu = "rofi";
+  shell = "fish";
+  terminal = "alacritty";
+
   # credits: fufexan
-  # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+  # binds $mod + [shift/control] {1..10} to [move to] workspace [silent] {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -12,10 +17,116 @@ theme: let
       in [
         "${mod}, ${ws}, workspace, ${toString (x + 1)}"
         "${mod} SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+        "${mod} ALT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
       ]
     )
     10);
 in {
+  animations = {
+    enabled = true;
+    animation = [
+      "border, 1, 2, default"
+      "fade, 1, 4, default"
+      "windows, 1, 2, default"
+      "workspaces, 1, 3, default, slide"
+    ];
+  };
+
+  bind =
+    [
+      # tabbing between stuff
+      "ALT, Tab, cyclenext,"
+      "ALT SHIFT, Tab, cyclenext, prev"
+      "SUPER, Tab, workspace, previous"
+
+      # screenshots
+      ", PRINT, exec, hyprshot -m region"
+      "SHIFT, PRINT, exec, hyprshot -m active -m window"
+      "SUPER, PRINT, exec, hyprshot -m active -m output"
+
+      # quit to tty
+      "SUPER, ESCAPE, exit,"
+
+      # window controls
+      "ALT SHIFT, W, movefocus, u"
+      "ALT SHIFT, A, movefocus, d"
+      "ALT SHIFT, S, movefocus, l"
+      "ALT SHIFT, D, movefocus, r"
+      "ALT CONTROL, W, swapwindow, u"
+      "ALT CONTROL, A, swapwindow, d"
+      "ALT CONTROL, S, swapwindow, l"
+      "ALT CONTROL, D, swapwindow, r"
+      "CONTROL SHIFT, W, layoutmsg, orientationtop"
+      "CONTROL SHIFT, A, layoutmsg, orientationbottom"
+      "CONTROL SHIFT, S, layoutmsg, orientationleft"
+      "CONTROL SHIFT, D, layoutmsg, orientationright"
+
+      "SUPER, B, exec, ! pidof waybar || waybar"
+      "SUPER SHIFT, B, exec, pidof waybar || kill $(pgrep waybar)"
+      "SUPER, C, exec, code"
+      "SUPER, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
+      "SUPER, F, exec, firefox"
+      "SUPER, L, exec, hyprlock"
+      "SUPER, M, exec, ~/dots/scripts/focus.sh"
+      "SUPER, N, exec, ${terminal} -e ${shell} -c nmtui"
+      "SUPER, S, exec, ${menu} -show drun"
+      "SUPER, Q, killactive,"
+      "SUPER SHIFT, Q, exec, systemctl suspend"
+      "SUPER, T, exec, ${terminal}"
+      "SUPER, W, exec, ~/dots/scripts/random-wall.sh"
+    ]
+    ++ workspaces;
+
+  # bindl = [
+  #   # media controls
+  #   ", XF86AudioPlay, exec, playerctl play-pause"
+  #   ", XF86AudioPrev, exec, playerctl previous"
+  #   ", XF86AudioNext, exec, playerctl next"
+
+  #   # volume
+  #   ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  #   ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  # ];
+
+  bindle = [
+    # backlight
+    ", XF86MonBrightnessUp,   exec, brightnessctl -n2 set 5%+"
+    ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
+
+    # volume
+    ", XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+    ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+    ", XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  ];
+
+  bindm = [
+    "${mod}, mouse:272, movewindow"
+    "${mod}, Control_L, movewindow"
+    "${mod}, mouse:273, resizewindow"
+    "${mod}, ALT_L, resizewindow"
+  ];
+
+  debug.disable_logs = false;
+  decoration = {
+    active_opacity = 1.0;
+    inactive_opacity = 0.8;
+
+    "shadow:enabled" = false;
+    blur = {
+      enabled = true;
+      passes = 1;
+      size = 3;
+    };
+
+    rounding = 5;
+    rounding_power = 5;
+  };
+
+  dwindle = {
+    pseudotile = true;
+    preserve_split = true;
+  };
+
   ecosystem = {
     no_update_news = true;
     no_donation_nag = true;
@@ -28,26 +139,34 @@ in {
   exec-once = [
     "mako &"
     "hypridle &"
+    "swww-daemon &"
     "systemctl --user start hyprpolkitagent &"
 
-    "swww-daemon &"
-    ""
+    "~/dots/scripts/random-wall.sh" # set random wallpaper on hyprland boot
   ];
 
   general = {
-    gaps_in = 5;
-    gaps_out = 5;
-    border_size = 2;
+    allow_tearing = false;
+    border_size = 3;
     "col.active_border" = "rgb(${theme.iris})";
     "col.inactive_border" = "rgb(${theme.surface})";
-
-    allow_tearing = true;
+    gaps_in = 5;
+    gaps_out = 5;
+    layout = "dwindle";
     resize_on_border = true;
   };
 
-  dwindle = {
-    pseudotile = true;
-    preserve_split = true;
+  gestures = {
+    workspace_swipe = false;
+  };
+
+  input = {
+    follow_mouse = 1;
+    kb_layout = "us";
+    kb_variant = "qwerty,";
+    kb_options = "caps:escape";
+    sensitivity = 0;
+    "touchpad:natural_scroll" = true;
   };
 
   misc = {
@@ -57,147 +176,16 @@ in {
     vfr = true;
   };
 
-  xwayland.force_zero_scaling = true;
-  debug.disable_logs = false;
-
-  decoration = {
-    rounding = 0;
-    blur = {
-      enabled = true;
-      brightness = 1.0;
-      contrast = 1.0;
-      noise = 0.01;
-
-      vibrancy = 0.2;
-      vibrancy_darkness = 0.5;
-
-      passes = 4;
-      size = 7;
-
-      popups = true;
-      popups_ignorealpha = 0.2;
-    };
-
-    shadow = {
-      enabled = true;
-      color = "rgba(2e2e2e2e)";
-      ignore_window = true;
-      offset = "2 4";
-      range = 15;
-      render_power = 2;
-    };
-  };
-
-  animations = {
-    enabled = true;
-    animation = [
-      "border, 1, 2, default"
-      "fade, 1, 4, default"
-      "windows, 1, 3, default, popin 80%"
-      "workspaces, 1, 2, default, slidevert"
-    ];
-  };
-
-  input = {
-    kb_layout = "pl";
-    kb_options = "caps:escape";
-    follow_mouse = 1;
-    accel_profile = "flat";
-    tablet.output = "current";
-    touchpad = {
-      clickfinger_behavior = true;
-      scroll_factor = 0.1;
-      natural_scroll = true;
-    };
-  };
-
-  gestures = {
-    workspace_swipe = true;
-    workspace_swipe_distance = 200;
-    workspace_swipe_invert = 1;
-    workspace_swipe_min_speed_to_force = 20;
-    workspace_swipe_cancel_ratio = 0.5;
-  };
-
-  bindl = [
-    # media controls
-    ", XF86AudioPlay, exec, playerctl play-pause"
-    ", XF86AudioPrev, exec, playerctl previous"
-    ", XF86AudioNext, exec, playerctl next"
-
-    # volume
-    ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  monitor = [
+    "eDP-1, 1920x1080@60, 0x0, 1"
+    ", preferred, auto, 1"
   ];
 
-  bindr = [
-    # launcher
-    "${mod}, Space, exec, anyrun"
-    ", XF86Search, exec, anyrun"
-  ];
-
-  bindle = [
-    # volume
-    ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-    ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
-
-    # backlight
-    ", XF86MonBrightnessUp, exec, brillo -q -A 5"
-    ", XF86MonBrightnessDown, exec, brillo -q -U 5"
-    "${mod}, XF86MonBrightnessUp, exec, keylit"
-    "${mod}, XF86MonBrightnessDown, exec, keylit"
-  ];
-
-  bindm = [
-    "${mod}, mouse:272, movewindow"
-    "${mod}, Control_L, movewindow"
-    "${mod}, mouse:273, resizewindow"
-    "${mod}, ALT_L, resizewindow"
-  ];
-
-  bind =
-    [
-      "${mod}, minus, killactive"
-      "${mod}, F, fullscreen,"
-      "${mod}, G, togglegroup,"
-      "${mod} SHIFT, N, changegroupactive, f"
-      "${mod} SHIFT, P, changegroupactive, b"
-      "${mod}, R, togglesplit,"
-      "${mod}, T, togglefloating,"
-      "${mod}, P, pseudo,"
-      "${mod} ALT, ,resizeactive,"
-
-      "${mod}, Return, exec, foot -e tmux"
-      "${mod} SHIFT, L, exec, hyprlock"
-
-      "${mod}, h, movefocus, l"
-      "${mod}, l, movefocus, r"
-      "${mod}, k, movefocus, u"
-      "${mod}, j, movefocus, d"
-
-      "${mod} SHIFT, s, exec, grimblast --notify copy area"
-
-      "${mod}, bracketleft, workspace, m-1"
-      "${mod}, bracketright, workspace, m+1"
-
-      "${mod} SHIFT, bracketleft, focusmonitor, l"
-      "${mod} SHIFT, bracketright, focusmonitor, r"
-
-      "${mod} SHIFT ALT, bracketleft, movecurrentworkspacetomonitor, l"
-      "${mod} SHIFT ALT, bracketright, movecurrentworkspacetomonitor, r"
-    ]
-    ++ workspaces;
-
-  layerrule = [
-    "blur, anyrun"
-    " ignorealpha 0.6, anyrun"
-  ];
-
-  windowrulev2 = [
-    "workspace 2, class:(firefox|librewolf|brave)"
-    "workspace 4 silent, class:(signal|vesktop)"
+  windowrule = [
     "suppressevent maximize, class:.*"
-    "scrolltouchpad 0.23, class:^(zen|firefox|brave|chromium-browser|chrome-.*)$"
-    "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+    "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
   ];
+
+  windowrulev2 = ["fullscreenstate 0 3, class:code*"];
+  xwayland.force_zero_scaling = true;
 }
