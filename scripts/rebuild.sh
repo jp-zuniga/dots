@@ -1,37 +1,39 @@
 #!/usr/bin/env bash
-# Based on: https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
-# Wrapper for 'nixos-rebuild switch' that commits on a succesful build.
+# Based on the work of 0atman:
+# - https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
+# ------------------------------------------------------------------
+# NixOS rebuilder that commits on a successful build.
 
-CONFIG=~/dots/dotfiles/nix/configuration.nix
+CONFIG=~/dots
+HOST=t14s
 F_LOG=~/.nixos-format.log
 S_LOG=~/.nixos-switch.log
 
 set -e
-pushd ~/dots/dotfiles/nix/
+cd $CONFIG
 
-# Early return if no changes are detected
+# exit if the configuration hasn't changed
 if git diff --quiet "*.nix"; then
     echo "No changes detected, exiting." && exit 0
 fi
 
-# Autoformat nix files
+# autoformat
 alejandra -q . &> $F_LOG || (echo "Formatting failed!" && exit 1)
 
-# Show changes
+# show changes
 git diff -U0 "*.nix"
 
+echo
 echo "Rebuilding system..."
 
-# Rebuild, output simplified errors, log trackebacks
-sudo nixos-rebuild switch -I nixos-config=$CONFIG &> $S_LOG || \
+sudo nixos-rebuild switch --flake $CONFIG#$HOST &> $S_LOG || \
     (cat $S_LOG | grep --color error && \
      notify-send --urgency=critical "NixOS rebuild failed!" && exit 1)
 
-# Commit all changes with generation number
+# commit all changes with generation number and hostname
 git commit -am "Generation #$(\
     nixos-rebuild list-generations | grep current | awk '{print $1}' \
-)"
+) on $HOST"
 
-# Wrap-up
-popd
+cd -
 notify-send "NixOS rebuild successful!"
