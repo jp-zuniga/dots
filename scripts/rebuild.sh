@@ -26,7 +26,7 @@ git diff -U0 "*.nix"
 echo
 echo "Rebuilding system..."
 
-sudo nixos-rebuild switch --flake $CONFIG#$HOST &> $S_LOG || \
+sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || \
     (cat $S_LOG | grep --color error && \
      notify-send --urgency=critical "NixOS rebuild failed!" && exit 1)
 

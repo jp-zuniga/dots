@@ -4,6 +4,7 @@
       inherit (pkgs.jetbrains) idea-community;
       inherit
         (pkgs)
+        ciscoPacketTracer8
         delta
         discord
         dust
