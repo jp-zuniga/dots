@@ -34,6 +34,7 @@ in {
       ./qbittorrent
       ./starship
       ./steam
+      ./vscode
       ./yazi
     ];
   };
