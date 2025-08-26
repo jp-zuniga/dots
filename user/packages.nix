@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  # ! missing: rofi, vscode, XDG
+  # ! missing: rofi, XDG
   # ? libreoffice cursor fix?
 
   environment = {
@@ -41,6 +41,7 @@
       rm $out/share/applications/rofi-theme-selector.desktop
       rm $out/share/applications/yazi.desktop
       sed -i 's/^GNU Image Manipulation Program$/GIMP/' $out/share/applications/gimp.desktop
+      sed -i 's/^IntelliJ IDEA CE$/IDEA/' $out/share/applications/idea-community.desktop
     '';
   };
 }
