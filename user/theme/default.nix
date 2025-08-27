@@ -51,7 +51,7 @@ in {
   highlightMed = base0E;
   highlightHigh = base0F;
 
-  rosePineVariant = "-moon";
+  rosePineVariant = "moon";
 
   cursor = {
     hypr = {

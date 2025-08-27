@@ -13,6 +13,6 @@ in {
   environment.systemPackages = [pkgs.qbittorrent];
   system.activationScripts.qbittorrentSetup = ''
     mkdir -p ${themeLocation}
-    cp -f ${qbitTheme} ${themeLocation}/rose-pine${theme.rosePineVariant}.qbtheme
+    cp -f ${qbitTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.qbtheme
   '';
 }
