@@ -4,7 +4,7 @@
   ...
 }: let
   batTheme = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine${theme.rosePineVariant}.tmTheme";
+    url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/themes/rose-pine-${theme.rosePineVariant}.tmTheme";
     hash = "sha256-z/RFwzen1hsGaEh1xEMBHRcI/Zxv5YNcTdd8AgwmwOE=";
   };
 in
@@ -19,9 +19,9 @@ in
 
       mkdir -p "$THEME_DIR"
       mkdir -p "$BAT_CACHE_PATH"
-      cp -f ${batTheme} "$THEME_DIR/rose-pine${theme.rosePineVariant}.tmTheme"
+      cp -f ${batTheme} "$THEME_DIR/rose-pine-${theme.rosePineVariant}.tmTheme"
 
       BAT_CACHE_PATH="$BAT_CACHE_PATH" $out/bin/bat cache --build
-      wrapProgram $out/bin/bat --add-flags "--theme=rose-pine${theme.rosePineVariant}"
+      wrapProgram $out/bin/bat --add-flags "--theme=rose-pine-${theme.rosePineVariant}"
     '';
   }

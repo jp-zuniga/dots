@@ -1,6 +1,10 @@
-{pkgs, ...}:
-pkgs.writeText "theme.toml" ''
-  [flavor]
-  dark = "rose-pine-moon"
-  light = "rose-pine-moon"
-''
+{
+  pkgs,
+  theme,
+  ...
+}: {
+  flavor = {
+    dark = "rose-pine-${theme.rosePineVariant}";
+    light = "rose-pine-${theme.rosePineVariant}";
+  };
+}

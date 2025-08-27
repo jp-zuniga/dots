@@ -3,7 +3,7 @@
   theme,
   ...
 }:
-pkgs.writeText "rose-pine${theme.rosePineVariant}.fish" ''
+pkgs.writeText "rose-pine-${theme.rosePineVariant}.fish" ''
   set -g fish_color_normal ${theme.text}
   set -g fish_color_command ${theme.iris}
   set -g fish_color_keyword ${theme.foam}
