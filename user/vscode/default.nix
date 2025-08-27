@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
+  vscodeConf = import ./vscode-conf.nix pkgs;
+in {
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
@@ -16,4 +23,9 @@
       ];
     })
   ];
+
+  system.activationScripts.vscodeSetup = ''
+    mkdir -p ${vscodeConfLocation}
+    cp -f ${vscodeConf} ${vscodeConfLocation}/settings.json
+  '';
 }
