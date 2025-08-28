@@ -4,6 +4,9 @@
       inherit (pkgs.jetbrains) idea-community;
       inherit
         (pkgs)
+        alejandra
+        brightnessctl
+        brillo
         delta
         discord
         dust
@@ -35,8 +38,6 @@
       rm $out/share/applications/math.desktop
       rm $out/share/applications/mpv.desktop
       rm $out/share/applications/nixos-manual.desktop
-      rm $out/share/applications/rofi.desktop
-      rm $out/share/applications/rofi-theme-selector.desktop
       rm $out/share/applications/yazi.desktop
       sed -i 's/^GNU Image Manipulation Program$/GIMP/' $out/share/applications/gimp.desktop
       sed -i 's/^IntelliJ IDEA CE$/IDEA/' $out/share/applications/idea-community.desktop
