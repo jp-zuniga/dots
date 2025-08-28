@@ -36,7 +36,7 @@ pkgs.writeText "config.rasi" ''
   #window {
       anchor:        center;
       border:        3px;
-      border-color:  @cmt;
+      border-color:  ${theme.muted};
       border-radius: 0px;
       enabled:       true;
       fullscreen:    false;
@@ -61,21 +61,21 @@ pkgs.writeText "config.rasi" ''
 
   #textbox-prompt-colon {
       str:        ">";
-      text-color: @ora;
+      text-color: ${theme.rose};
       padding:    0px 5px 0px 0px;
   }
 
   #entry {
       padding:           0px;
       placeholder:       "Search...";
-      placeholder-color: @cmt;
+      placeholder-color: ${theme.muted};
       spacing:           0px;
-      text-color:        @ora;
+      text-color:        ${theme.rose};
   }
 
   #listview {
       border:        2px;
-      border-color:  @pur;
+      border-color:  ${theme.iris};
       border-radius: 5px;
       scrollbar:     false;
       padding:       0px;
@@ -103,7 +103,7 @@ pkgs.writeText "config.rasi" ''
 
   #element.selected.normal {
       background-color: @selected-background;
-      text-color:       @cya;
+      text-color:       ${theme.foam};
   }
 
   #element.selected.urgent {

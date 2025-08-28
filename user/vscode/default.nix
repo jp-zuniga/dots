@@ -4,6 +4,7 @@
   ...
 }: let
   vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
+  # vscodeConf = (pkgs.formats.json {}).generate "settings.json" (import ./vscode-conf.nix pkgs);
   vscodeConf = import ./vscode-conf.nix pkgs;
 in {
   environment.systemPackages = with pkgs; [
@@ -24,8 +25,11 @@ in {
     })
   ];
 
-  system.activationScripts.vscodeSetup = ''
-    mkdir -p ${vscodeConfLocation}
-    cp -f ${vscodeConf} ${vscodeConfLocation}/settings.json
-  '';
+  system.activationScripts.vscodeSetup = {
+    deps = [];
+    text = ''
+      mkdir -p ${vscodeConfLocation}
+      ln -sf ${vscodeConf} ${vscodeConfLocation}/settings.json
+    '';
+  };
 }

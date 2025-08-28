@@ -38,16 +38,16 @@
       };
 
       git_status = {
-        ahead = "[\(\${count}\)](bg:overlay fg:foam)";
-        behind = "[\(\${count}\)](bg:overlay fg:rose)";
+        ahead = "[ \(\${count}\)](bg:overlay fg:foam)";
+        behind = "[ \(\${count}\)](bg:overlay fg:rose)";
         deleted = "[×\($count\) ](style)";
         disabled = false;
         diverged = lib.concatStrings [
           "[\[]"
           "(bg:overlay fg:iris)"
-          "[\(\${ahead_count}\)]"
+          "[ \(\${ahead_count}\)]"
           "(bg:overlay fg:foam)"
-          "[\(\${behind_count}\)]"
+          "[ \(\${behind_count}\)]"
           "(bg:overlay fg:rose)"
           "[\]]"
           "(bg:overlay fg:iris)"
@@ -55,7 +55,7 @@
 
         format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
         modified = "[!\($count\) ](bg:overlay fg:gold)";
-        renamed = "[\($count\) ](bg:overlay fg:iris)";
+        renamed = "[ \($count\) ](bg:overlay fg:iris)";
         staged = "[+\($count\) ](bg:overlay fg:gold)";
         stashed = "[\$ ](bg:overlay fg:iris)";
         style = "bold bg:overlay fg:love";

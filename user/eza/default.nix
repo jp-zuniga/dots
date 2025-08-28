@@ -10,6 +10,6 @@ in {
   environment.systemPackages = [pkgs.eza];
   system.activationScripts.ezaSetup = ''
     mkdir -p ${themeLocation}
-    cp -f ${ezaTheme} ${themeLocation}
+    ln -sf ${ezaTheme} ${themeLocation}/theme.yml
   '';
 }

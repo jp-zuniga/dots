@@ -7,6 +7,7 @@ pkgs.writeText "style.css" ''
       border:        0px;
       border-radius: 0px;
       box-shadow:    none;
+      font-family:   monospace;
       font-size:     12pt;
       font-weight:   bold;
       margin:        0px;

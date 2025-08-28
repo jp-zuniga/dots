@@ -1,4 +1,4 @@
-theme: let
+hyprColors: let
   mod = "Super";
 
   fileManager = "yazi";
@@ -37,15 +37,15 @@ in {
       # tabbing between stuff
       "ALT, Tab, cyclenext,"
       "ALT SHIFT, Tab, cyclenext, prev"
-      "SUPER, Tab, workspace, previous"
+      "${mod}, Tab, workspace, previous"
 
       # screenshots
       ", PRINT, exec, hyprshot -m region"
       "SHIFT, PRINT, exec, hyprshot -m active -m window"
-      "SUPER, PRINT, exec, hyprshot -m active -m output"
+      "${mod}, PRINT, exec, hyprshot -m active -m output"
 
       # quit to tty
-      "SUPER, ESCAPE, exit,"
+      "${mod}, ESCAPE, exit,"
 
       # window controls
       "ALT SHIFT, W, movefocus, u"
@@ -61,19 +61,19 @@ in {
       "CONTROL SHIFT, S, layoutmsg, orientationleft"
       "CONTROL SHIFT, D, layoutmsg, orientationright"
 
-      "SUPER, B, exec, ! pidof waybar || waybar"
-      "SUPER SHIFT, B, exec, pidof waybar || kill $(pgrep waybar)"
-      "SUPER, C, exec, code"
-      "SUPER, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
-      "SUPER, F, exec, firefox"
-      "SUPER, L, exec, hyprlock"
-      "SUPER, M, exec, ~/dots/scripts/focus.sh"
-      "SUPER, N, exec, ${terminal} -e ${shell} -c nmtui"
-      "SUPER, S, exec, ${menu} -show drun"
-      "SUPER, Q, killactive,"
-      "SUPER SHIFT, Q, exec, systemctl suspend"
-      "SUPER, T, exec, ${terminal}"
-      "SUPER, W, exec, ~/dots/scripts/random-wall.sh"
+      "${mod}, B, exec, pidof waybar || waybar"
+      "${mod} SHIFT, B, exec, ! pidof waybar || kill $(pgrep waybar)"
+      "${mod}, C, exec, code"
+      "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
+      "${mod}, F, exec, pidof firefox || firefox"
+      "${mod}, L, exec, hyprlock"
+      "${mod}, M, exec, ~/dots/scripts/focus.sh"
+      "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
+      "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
+      "${mod}, Q, killactive,"
+      "${mod} SHIFT, Q, exec, systemctl suspend"
+      "${mod}, T, exec, ${terminal}"
+      "${mod}, W, exec, ~/dots/scripts/random-wall.sh"
     ]
     ++ workspaces;
 
@@ -141,18 +141,19 @@ in {
     "hypridle &"
     "swww-daemon &"
     "systemctl --user start hyprpolkitagent &"
+    "waybar &"
 
-    "~/dots/scripts/random-wall.sh" # set random wallpaper on hyprland boot
+    "~/dots/scripts/random-wall.sh"
   ];
 
   general = {
     allow_tearing = false;
     border_size = 3;
-    "col.active_border" = "rgb(${theme.iris})";
-    "col.inactive_border" = "rgb(${theme.surface})";
+    "col.active_border" = "${hyprColors.iris}";
+    "col.inactive_border" = "${hyprColors.muted}";
     gaps_in = 5;
     gaps_out = 5;
-    layout = "dwindle";
+    layout = "master";
     resize_on_border = true;
   };
 
@@ -163,10 +164,14 @@ in {
   input = {
     follow_mouse = 1;
     kb_layout = "us";
-    kb_variant = "qwerty,";
-    kb_options = "caps:escape";
+    # kb_variant = "qwerty,";
+    # kb_options = "caps:escape";
     sensitivity = 0;
     "touchpad:natural_scroll" = true;
+  };
+
+  master = {
+    new_status = "master";
   };
 
   misc = {

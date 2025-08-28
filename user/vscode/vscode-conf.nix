@@ -88,7 +88,7 @@
     codesnap.target = "window";
     codesnap.transparentBackground = true;
     editor.accessibilitySupport = "off";
-    editor.fontFamily = "JetBrainsMono Nerd Font Mono";
+    editor.fontFamily = "monospace";
     editor.minimap.maxColumn = 90;
     editor.minimap.renderCharacters = false;
     editor.minimap.size = "fit";
@@ -111,6 +111,7 @@
         reorderKeys = true;
         trailingNewline = true;
       };
+
       schema.links = true;
       semanticTokens = true;
       taplo.configFile.enabled = false;
@@ -162,6 +163,7 @@
           strictSetInference = true;
         };
       };
+
       createEnvironment.trigger = "off";
       defaultInterpreterPath = "/bin/python3";
       experiments.enabled = false;
@@ -173,6 +175,7 @@
         enableREPLSmartSend = false;
         provideVariables = false;
       };
+
       terminal.activateEnvironment = false;
       testing = {
         autoTestDiscoverOnSaveEnabled = false;
@@ -185,6 +188,7 @@
       codeAction.disableRuleComment = {
         enable = false;
       };
+
       nativeServer = "on";
     };
 
@@ -200,6 +204,7 @@
           hideNamedConstructor = true;
         };
       };
+
       lens.enable = false;
       restartServerOnConfigChange = true;
       showDependenciesExplorer = false;
@@ -212,12 +217,13 @@
     terminal.integrated = {
       cursorBlinking = true;
       defaultProfile.linux = "fish";
-      fontFamily = "JetBrainsMono Nerd Font Mono";
+      fontFamily = "monospace";
       fontLigatures.enabled = true;
       profiles.linux = {
         bash = null;
         "JavaScript Debug Terminal" = null;
       };
+
       profiles.windows = {
         "JavaScript Debug Terminal" = null;
       };
@@ -235,7 +241,7 @@
       menuBarVisibility = "compact";
       newWindowDimensions = "maximized";
       restoreFullscreen = true;
-      title = " ";
+      title = "";
       titleBarStyle = "custom";
     };
 
@@ -245,6 +251,7 @@
         autoResume = "off";
         continueOn = "off";
       };
+
       colorTheme = "Rosé Pine Moon";
       commandPalette.experimental.enableNaturalLanguageSearch = false;
       editor.editorActionsLocation = "hidden";

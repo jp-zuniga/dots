@@ -1,25 +1,23 @@
-{
-  pkgs,
-  fishTheme,
-  ...
-}: ''
+{pkgs, ...}:
+pkgs.writeText "config.fish" ''
   set -g fish_greeting ""
 
-  source ${fishTheme}
+  # pick theme
+  fish_config theme choose rose-pine-moon
 
   # init starship for gui terminals
-  if pgrep alacritty > /dev/null || pgrep code > /dev/null
-      starship init fish | source
-  end
+  # if pgrep alacritty > /dev/null || pgrep code > /dev/null
+  #     starship init fish | source
+  # end
 
   # autostart hyprland on boot
   if ! pgrep Hyprland > /dev/null
       hyprland > /dev/null
   end
 
-  #############################
-  ## parse custom functions: ##
-  #############################
+  ##############################
+  ## define custom functions: ##
+  ##############################
 
   function gl --description "'git log' with custom default arguments"
       git log --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
