@@ -1,4 +1,4 @@
-theme: {
+hyprColors: {
   general = {
     lock_cmd = "pidof hyprlock || hyprlock";
     before_sleep_cmd = "loginctl lock-session";

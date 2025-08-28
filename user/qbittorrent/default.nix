@@ -11,8 +11,11 @@
   };
 in {
   environment.systemPackages = [pkgs.qbittorrent];
-  system.activationScripts.qbittorrentSetup = ''
-    mkdir -p ${themeLocation}
-    cp -f ${qbitTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.qbtheme
-  '';
+  system.activationScripts.qbittorrentSetup = {
+    deps = [];
+    text = ''
+      mkdir -p ${themeLocation}
+      ln -sf ${qbitTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.qbtheme
+    '';
+  };
 }

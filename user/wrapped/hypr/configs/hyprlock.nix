@@ -1,8 +1,8 @@
-theme: {
+hyprColors: {
   general = {
     monitor = "";
     disable_loading_bar = true;
-    hide_cursor = false;
+    hide_cursor = true;
   };
 
   background = [
@@ -10,7 +10,7 @@ theme: {
       monitor = "";
       blur_passes = 1;
       blur_size = 3;
-      color = theme.bg;
+      color = hyprColors.bg;
       path = "~/.cache/.current-wall";
     }
   ];
@@ -20,6 +20,7 @@ theme: {
       monitor = "eDP-1";
       position = "0, 0";
       size = "360, 60";
+      font_family = "monospace";
 
       halign = "center";
       valign = "center";
@@ -28,12 +29,12 @@ theme: {
       dots_size = 0.1;
       dots_spacing = 0.1;
 
-      capslock_color = theme.gold;
-      check_color = theme.pine;
-      font_color = theme.text;
-      inner_color = theme.surface;
-      outer_color = theme.iris;
-      fail_color = theme.love;
+      capslock_color = hyprColors.gold;
+      check_color = hyprColors.pine;
+      font_color = hyprColors.text;
+      inner_color = hyprColors.surface;
+      outer_color = hyprColors.iris;
+      fail_color = hyprColors.love;
 
       fade_on_empty = false;
       hide_input = false;
@@ -50,8 +51,9 @@ theme: {
       position = "20, -8";
       halign = "left";
       valign = "top";
-      color = theme.text;
+      color = hyprColors.text;
       font_size = 36;
+      font_family = "monospace";
       text = "cmd[update:43200000] date +'%x'";
     }
     {
@@ -59,8 +61,9 @@ theme: {
       position = "-20, -8";
       halign = "right";
       valign = "top";
-      color = theme.text;
+      color = hyprColors.text;
       font_size = 36;
+      font_family = "monospace";
       text = "$TIME";
     }
   ];

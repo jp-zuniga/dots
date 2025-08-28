@@ -9,6 +9,7 @@
     btop = callPackage ./wrapped/btop {inherit theme;};
     hypr = callPackage ./wrapped/hypr {inherit theme;};
     mako = callPackage ./wrapped/mako {inherit theme;};
+    rofi = callPackage ./wrapped/rofi {inherit theme;};
     waybar = callPackage ./wrapped/waybar {inherit theme;};
   };
 in {
