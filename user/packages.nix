@@ -1,30 +1,41 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: {
   environment = {
-    systemPackages = builtins.attrValues {
-      inherit (pkgs.jetbrains) idea-community;
-      inherit
-        (pkgs)
-        alejandra
-        brightnessctl
-        brillo
-        delta
-        discord
-        dust
-        gimp3
-        hyprpicker
-        hyprpolkitagent
-        hyprshot
-        libnotify
-        libreoffice-fresh
-        microfetch
-        mpv
-        pastel
-        swww
-        qview
-        uv
-        unzip
-        ;
-    };
+    systemPackages =
+      builtins.attrValues {
+        inherit
+          (pkgs)
+          alejandra
+          brightnessctl
+          brillo
+          delta
+          discord
+          dust
+          gimp3
+          hyprpicker
+          hyprpolkitagent
+          hyprshot
+          libnotify
+          libreoffice-fresh
+          microfetch
+          mpv
+          pastel
+          swww
+          qview
+          uv
+          unzip
+          ;
+      }
+      ++ [
+        pkgs.jetbrains.idea-ultimate
+        (pkgs.runCommandLocal "system-cursor-theme" {} ''
+          mkdir -p $out/share/icons
+          ln -s ${theme.cursor.x.package}/share/icons/BreezeX-RosePine-Linux $out/share/icons/default
+        '')
+      ];
 
     extraSetup = ''
       rm $out/share/applications/Alacritty.desktop
@@ -40,7 +51,7 @@
       rm $out/share/applications/nixos-manual.desktop
       rm $out/share/applications/yazi.desktop
       sed -i 's/^GNU Image Manipulation Program$/GIMP/' $out/share/applications/gimp.desktop
-      sed -i 's/^IntelliJ IDEA CE$/IDEA/' $out/share/applications/idea-community.desktop
+      sed -i 's/^IntelliJ IDEA CE$/IDEA/' $out/share/applications/idea-ultimate.desktop
     '';
   };
 }
