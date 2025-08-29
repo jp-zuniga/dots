@@ -47,6 +47,7 @@ in {
       ./starship
       ./steam
       ./vscode
+      ./wrapped/btop/btop-theme.nix
       ./yazi
     ];
   };
