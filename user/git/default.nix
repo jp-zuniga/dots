@@ -34,6 +34,10 @@
         ui = "auto";
       };
 
+      commit = {
+        gpgsign = true;
+      };
+
       core = {
         compression = 9;
         pager = "delta | $PAGER";
