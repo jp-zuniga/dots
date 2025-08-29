@@ -1,10 +1,10 @@
 {
   pkgs,
-  btopTheme,
+  theme,
   ...
 }:
 pkgs.writeText "btop.conf" ''
-  color_theme = "${btopTheme}"
+  color_theme = "rose-pine-${theme.rosePineVariant}"
   theme_background = True
   truecolor = True
   force_tty = False
