@@ -44,6 +44,7 @@ in {
       ./git
       ./gtk
       ./qbittorrent
+      ./spotify
       ./starship
       ./steam
       ./vscode
