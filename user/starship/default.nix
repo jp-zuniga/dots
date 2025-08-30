@@ -6,15 +6,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = lib.concatStrings [
-        "[ ](fg:overlay)"
-        "$directory"
-        "[ ](fg:overlay)"
-        "$git_branch"
-        "$git_status"
-        "$character"
-      ];
-
+      format = "[ ](fg:overlay)$directory[ ](fg:overlay)$git_branch$git_status$character";
       right_format = "$time";
       palette = "rose-pine-${theme.rosePineVariant}";
 
@@ -38,28 +30,18 @@
       };
 
       git_status = {
-        ahead = "[ \(\${count}\)](bg:overlay fg:foam)";
-        behind = "[ \(\${count}\)](bg:overlay fg:rose)";
-        deleted = "[×\($count\) ](style)";
+        ahead = "[ \\($count\\)](bg:overlay fg:foam)";
+        behind = "[ \\($count\\)](bg:overlay fg:rose)";
+        deleted = "[×\\($count\\) ](style)";
         disabled = false;
-        diverged = lib.concatStrings [
-          "[\[]"
-          "(bg:overlay fg:iris)"
-          "[ \(\${ahead_count}\)]"
-          "(bg:overlay fg:foam)"
-          "[ \(\${behind_count}\)]"
-          "(bg:overlay fg:rose)"
-          "[\]]"
-          "(bg:overlay fg:iris)"
-        ];
-
+        diverged = "[\\[](bg:overlay fg:iris)[ \\($ahead_count\\)](bg:overlay fg:foam)[  \\($behind_count\\)](bg:overlay fg:rose)[\\]](bg:overlay fg:iris)";
         format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
-        modified = "[!\($count\) ](bg:overlay fg:gold)";
-        renamed = "[ \($count\) ](bg:overlay fg:iris)";
-        staged = "[+\($count\) ](bg:overlay fg:gold)";
-        stashed = "[\$ ](bg:overlay fg:iris)";
+        modified = "[!\\($count\\) ](bg:overlay fg:gold)";
+        renamed = "[ \\($count\\) ](bg:overlay fg:iris)";
+        staged = "[+\\($count\\) ](bg:overlay fg:gold)";
+        stashed = "[$ ](bg:overlay fg:iris)";
         style = "bold bg:overlay fg:love";
-        untracked = "[?\($count\) ](bg:overlay fg:gold)";
+        untracked = "[?\\($count\\) ](bg:overlay fg:gold)";
         up_to_date = "[✓](bg:overlay fg:iris)";
       };
 
@@ -162,7 +144,7 @@
 
       docker_context.symbol = "  ";
       elixir = {
-        format = "[$symbol($version \(OTP $otp_version\) )]($style)";
+        format = "[$symbol($version \\(OTP $otp_version\\) )]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
@@ -242,7 +224,7 @@
         symbol = "  ";
       };
       ocaml = {
-        format = "$symbol($version )(\($switch_indicator$switch_name\) )]($style)";
+        format = "$symbol($version )(\\($switch_indicator$switch_name\\) )]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
@@ -265,7 +247,7 @@
       pijul_channel.symbol = "  ";
       pixi.symbol = " 󰏗 ";
       python = {
-        format = "[\${symbol}\${pyenv_prefix}(\${version} )(\($virtualenv\) )]($style)";
+        format = "[$symbol$pyenv_prefix($version )(\\($virtualenv\\) )]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
