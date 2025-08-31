@@ -50,8 +50,8 @@
       rm $out/share/applications/mpv.desktop
       rm $out/share/applications/nixos-manual.desktop
       rm $out/share/applications/yazi.desktop
-      sed -i 's/^GNU Image Manipulation Program$/GIMP/' $out/share/applications/gimp.desktop
-      sed -i 's/^IntelliJ IDEA CE$/IDEA/' $out/share/applications/idea-ultimate.desktop
+      sed -i 's/GNU Image Manipulation Program/GIMP/' $out/share/applications/gimp.desktop
+      sed -i 's/IntelliJ IDEA/IDEA/' $out/share/applications/idea-ultimate.desktop
     '';
   };
 }
