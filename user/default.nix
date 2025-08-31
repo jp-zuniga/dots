@@ -31,8 +31,15 @@ in {
       };
 
       environment.systemPackages = builtins.attrValues packages;
-      programs.hyprland = {
-        enable = true;
+      programs = {
+        hyprland = {
+          enable = true;
+        };
+
+        java = {
+          enable = true;
+          package = pkgs.jdk17;
+        };
       };
     };
 
