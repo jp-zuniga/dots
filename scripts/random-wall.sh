@@ -2,10 +2,9 @@
 
 WALL_DIR=/home/jaq/wallpapers
 
-# select a random subdirectory that is not .git/*
+# select a random subdirectory (excluding .git)
 RANDOM_FLAVOR=$(\
-    find $WALL_DIR -type d \
-    -not -path "*/.git" -not -path "*/.git/*" -print0 | \
+    find $WALL_DIR -type d -name ".git" -prune -o -type d -print0 | \
     shuf -z -n 1 | tr -d '\0' \
 )
 
@@ -15,6 +14,7 @@ RANDOM_WALL=$(\
     shuf -z -n 1 | tr -d '\0' \
 )
 
+mkdir -p ~/.cache
 ln -sf $RANDOM_WALL ~/.cache/.current-wall
 
 swww img "$RANDOM_WALL" \
