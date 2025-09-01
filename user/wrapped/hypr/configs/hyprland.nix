@@ -33,21 +33,16 @@ in {
   };
 
   bind =
-    [
-      # tabbing between stuff
+    workspaces
+    ++ [
       "ALT, Tab, cyclenext,"
       "ALT SHIFT, Tab, cyclenext, prev"
       "${mod}, Tab, workspace, previous"
 
-      # screenshots
       ", PRINT, exec, hyprshot -m region"
       "SHIFT, PRINT, exec, hyprshot -m active -m window"
       "${mod}, PRINT, exec, hyprshot -m active -m output"
 
-      # quit to tty
-      "${mod}, ESCAPE, exit,"
-
-      # window controls
       "ALT SHIFT, W, movefocus, u"
       "ALT SHIFT, A, movefocus, d"
       "ALT SHIFT, S, movefocus, l"
@@ -62,41 +57,31 @@ in {
       "CONTROL SHIFT, D, layoutmsg, orientationright"
 
       "${mod}, B, exec, pidof waybar || waybar"
-      "${mod} SHIFT, B, exec, ! pidof waybar || kill $(pgrep waybar)"
+      "${mod} SHIFT, B, exec, ! pidof waybar || pkill waybar"
       "${mod}, C, exec, code"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, pidof firefox || firefox"
-      "${mod}, L, exec, hyprlock"
+      "${mod}, L, exec, pidof hyprlock || hyprlock"
       "${mod}, M, exec, ~/dots/scripts/focus.sh"
       "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
       "${mod}, Q, killactive,"
-      "${mod} SHIFT, Q, exec, systemctl suspend"
       "${mod}, T, exec, ${terminal}"
-      "${mod}, W, exec, ~/dots/scripts/random-wall.sh"
-    ]
-    ++ workspaces;
-
-  # bindl = [
-  #   # media controls
-  #   ", XF86AudioPlay, exec, playerctl play-pause"
-  #   ", XF86AudioPrev, exec, playerctl previous"
-  #   ", XF86AudioNext, exec, playerctl next"
-
-  #   # volume
-  #   ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-  #   ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-  # ];
+      "${mod}, W, exec, ~/dots/scripts/random-wall.sh &"
+    ];
 
   bindle = [
-    # backlight
-    ", XF86MonBrightnessUp,   exec, brightnessctl -n2 set 5%+"
+    "${mod}, ESCAPE, exit,"
+    "${mod} SHIFT, Q, exec, systemctl suspend"
+
+    ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
     ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
 
-    # volume
-    ", XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-    ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-    ", XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+    ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+    ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   ];
 
   bindm = [
@@ -133,17 +118,16 @@ in {
   };
 
   env = [
-    "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+    "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
   ];
 
   exec-once = [
+    "systemctl --user start hyprpolkitagent &"
     "mako &"
     "hypridle &"
     "swww-daemon &"
-    "systemctl --user start hyprpolkitagent &"
+    "~/dots/scripts/random-wall.sh &"
     "waybar &"
-
-    "~/dots/scripts/random-wall.sh"
   ];
 
   general = {
@@ -164,8 +148,6 @@ in {
   input = {
     follow_mouse = 1;
     kb_layout = "us";
-    # kb_variant = "qwerty,";
-    # kb_options = "caps:escape";
     sensitivity = 0;
     "touchpad:natural_scroll" = true;
   };
@@ -187,8 +169,9 @@ in {
   ];
 
   windowrule = [
-    "suppressevent maximize, class:.*"
     "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
+    "opacity 1.0,^(jetbrains-.*)$"
+    "suppressevent maximize, class:.*"
   ];
 
   windowrulev2 = ["fullscreenstate 0 3, class:code*"];
