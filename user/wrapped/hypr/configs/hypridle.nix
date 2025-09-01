@@ -8,20 +8,13 @@ hyprColors: {
   listener = [
     {
       timeout = 180;
-      on-timeout = "brillo -O; brillo -u 500000 -S 10";
-      on-resume = "brillo -I -u 250000";
+      on-timeout = "brillo -O && brillo -u 1000000 -S 0";
+      on-resume = "brillo -I -u 1000000";
     }
     {
       timeout = 180;
-      on-timeout = ''
-        current=$(brightnessctl -sd rgb:kbd_backlight get)
-        steps=10
-        for i in $(seq $steps -1 1); do
-          brightnessctl -sd rgb:kbd_backlight set $((current * i / steps)) > /dev/null
-          sleep 0.05
-        done
-      '';
-      on-resume = "brightnessctl -rd rgb:kbd_backlight";
+      on-timeout = "brightnessctl -sd tpacpi::kbd_backlight set 0";
+      on-resume = "brightnessctl -rd tpacpi::kbd_backlight";
     }
     {
       timeout = 300;
