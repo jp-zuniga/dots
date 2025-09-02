@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "firefoxTheme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749676909,
-        "narHash": "sha256-JmY1hvUKdhk/RahI8IqoNQkHRoxpSjn0aG1ZnndgAbo=",
-        "owner": "rose-pine",
-        "repo": "firefox",
-        "rev": "2fa9921301134b28e8ba31a56dee46dc78af15ff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rose-pine",
-        "repo": "firefox",
-        "type": "github"
-      }
-    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1755330281,
@@ -66,7 +50,6 @@
     },
     "root": {
       "inputs": {
-        "firefoxTheme": "firefoxTheme",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "spicetify-nix": "spicetify-nix",
