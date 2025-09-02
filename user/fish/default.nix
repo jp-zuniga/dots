@@ -24,6 +24,7 @@
 in {
   programs.fish = {
     enable = true;
+    generateCompletions = false;
     shellAbbrs = {
       # nix aliases
       rebuild = "~/dots/scripts/rebuild.sh";
