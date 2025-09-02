@@ -27,7 +27,6 @@ in {
     generateCompletions = false;
     shellAbbrs = {
       # nix aliases
-      rebuild = "~/dots/scripts/rebuild.sh";
       ale = "alejandra -q .";
 
       # git aliases

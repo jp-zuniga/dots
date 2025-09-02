@@ -1,16 +1,19 @@
 {pkgs, ...}: let
   theme = import ./theme;
   packages = let
-    inherit (pkgs) callPackage;
     theme = import ./theme pkgs;
   in {
-    alacritty = callPackage ./wrapped/alacritty {inherit theme;};
-    bat = callPackage ./wrapped/bat {inherit theme;};
-    btop = callPackage ./wrapped/btop {inherit theme;};
-    hypr = callPackage ./wrapped/hypr {inherit theme;};
-    mako = callPackage ./wrapped/mako {inherit theme;};
-    rofi = callPackage ./wrapped/rofi {inherit theme;};
-    waybar = callPackage ./wrapped/waybar {inherit theme;};
+    alacritty = pkgs.callPackage ./wrapped/alacritty {inherit theme;};
+    bat = pkgs.callPackage ./wrapped/bat {inherit theme;};
+    btop = pkgs.callPackage ./wrapped/btop {inherit theme;};
+    hypr = pkgs.callPackage ./wrapped/hypr {inherit theme;};
+    mako = pkgs.callPackage ./wrapped/mako {inherit theme;};
+    rofi = pkgs.callPackage ./wrapped/rofi {inherit theme;};
+    waybar = pkgs.callPackage ./wrapped/waybar {inherit theme;};
+
+    focus = import ./scripts/focus pkgs;
+    random-wall = import ./scripts/random-wall pkgs;
+    rebuild = import ./scripts/rebuild pkgs;
   };
 in {
   inherit packages;
@@ -50,6 +53,7 @@ in {
       ./fish
       ./git
       ./gtk
+      ./qt
       ./qbittorrent
       ./spotify
       ./starship
