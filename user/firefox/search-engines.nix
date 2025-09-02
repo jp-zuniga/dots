@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+  icon = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg";
 in {
   Add = [
     {
@@ -25,6 +25,7 @@ in {
   ];
 
   Default = "Startpage";
+  DefaultPrivate = "Startpage";
   PreventInstalls = true;
   Remove = [
     "Actions"
