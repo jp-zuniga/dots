@@ -62,12 +62,12 @@ in {
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, pidof firefox || firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, M, exec, ~/dots/scripts/focus.sh"
+      "${mod}, M, exec, focus"
       "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
       "${mod}, Q, killactive,"
       "${mod}, T, exec, ${terminal}"
-      "${mod}, W, exec, ~/dots/scripts/random-wall.sh &"
+      "${mod}, W, exec, random-wall &"
     ];
 
   bindle = [
