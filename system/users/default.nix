@@ -7,6 +7,7 @@
   users.users = {
     jaq = {
       extraGroups = [
+        "libvirtd"
         "networkmanager"
         "wheel"
       ];
