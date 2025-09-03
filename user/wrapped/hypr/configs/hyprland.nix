@@ -72,6 +72,8 @@ in {
 
   bindle = [
     "${mod}, ESCAPE, exit,"
+    "${mod}, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
+    "${mod} SHIFT, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod} SHIFT, Q, exec, systemctl suspend"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
@@ -96,20 +98,20 @@ in {
     active_opacity = 1.0;
     inactive_opacity = 0.8;
 
-    "shadow:enabled" = false;
     blur = {
       enabled = true;
       passes = 1;
       size = 3;
     };
 
+    "shadow:enabled" = false;
     rounding = 5;
     rounding_power = 5;
   };
 
   dwindle = {
-    pseudotile = true;
     preserve_split = true;
+    pseudotile = true;
   };
 
   ecosystem = {
@@ -126,7 +128,7 @@ in {
     "mako &"
     "hypridle &"
     "swww-daemon &"
-    "~/dots/scripts/random-wall.sh &"
+    "random-wall &"
     "waybar &"
   ];
 
