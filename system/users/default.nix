@@ -1,9 +1,4 @@
-{
-  flake,
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   users.users = {
     jaq = {
       extraGroups = [

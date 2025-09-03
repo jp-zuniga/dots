@@ -1,15 +1,9 @@
 {pkgs, ...}: {
   fonts = {
-    packages =
-      builtins.attrValues {
-        inherit
-          (pkgs)
-          noto-fonts
-          ;
-      }
-      ++ [
-        pkgs.nerd-fonts.jetbrains-mono
-      ];
+    packages = [
+      pkgs.nerd-fonts.jetbrains-mono
+      pkgs.noto-fonts
+    ];
 
     fontconfig = {
       defaultFonts = {
