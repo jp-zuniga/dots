@@ -30,19 +30,19 @@
       };
 
       git_status = {
-        ahead = "[ \\($count\\)](bg:overlay fg:foam)";
-        behind = "[ \\($count\\)](bg:overlay fg:rose)";
+        ahead = "[ \\($count\\)](bg:overlay fg:foam)";
+        behind = "[ \\($count\\)](bg:overlay fg:rose)";
         deleted = "[×\\($count\\) ](style)";
         disabled = false;
         diverged = "[\\[](bg:overlay fg:iris)[ \\($ahead_count\\)](bg:overlay fg:foam)[  \\($behind_count\\)](bg:overlay fg:rose)[\\]](bg:overlay fg:iris)";
         format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
         modified = "[!\\($count\\) ](bg:overlay fg:gold)";
-        renamed = "[ \\($count\\) ](bg:overlay fg:iris)";
+        renamed = "[ \\($count\\) ](bg:overlay fg:iris)";
         staged = "[+\\($count\\) ](bg:overlay fg:gold)";
-        stashed = "[$ ](bg:overlay fg:iris)";
+        stashed = "[\\$ ](bg:overlay fg:iris)";
         style = "bold bg:overlay fg:love";
         untracked = "[?\\($count\\) ](bg:overlay fg:gold)";
-        up_to_date = "[✓](bg:overlay fg:iris)";
+        up_to_date = "[󰸞](bg:overlay fg:iris)";
       };
 
       os = {
@@ -76,6 +76,7 @@
           pine = "#31748f";
           rose = "#ebbcba";
         };
+
         rose-pine-dawn = {
           foam = "#56949f";
           gold = "#ea9d34";
@@ -85,6 +86,7 @@
           pine = "#286983";
           rose = "#d7827e";
         };
+
         rose-pine-moon = {
           foam = "#9ccfd8";
           gold = "#f6c177";
