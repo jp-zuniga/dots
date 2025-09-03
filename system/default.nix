@@ -5,7 +5,6 @@
     ./fonts
     ./net
     ./nix
-    ./printing
     ./security
     ./services
     ./users
