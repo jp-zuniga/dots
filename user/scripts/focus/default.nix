@@ -7,6 +7,7 @@ pkgs.writeShellScriptBin "focus" ''
     ! pidof waybar  || pkill waybar &
     hyprctl keyword animations:enabled 0 &
     hyprctl keyword decoration:blur:enabled 0 &
+    hyprctl keyword decoration:inactive_opacity 1.0 &
     hyprctl keyword decoration:rounding 0 &
     hyprctl keyword decoration:shadow:enabled 0 &
     hyprctl keyword general:gaps_in 0 &
@@ -18,6 +19,7 @@ pkgs.writeShellScriptBin "focus" ''
   else
     hyprctl keyword animations:enabled 1 &
     hyprctl keyword decoration:blur:enabled 1 &
+    hyprctl keyword decoration:inactive_opacity 0.8 &
     hyprctl keyword decoration:rounding 5 &
     hyprctl keyword decoration:shadow:enabled 0 &
     hyprctl keyword general:gaps_in 5 &
