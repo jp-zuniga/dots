@@ -9,6 +9,7 @@
     ./security
     ./services
     ./users
+    ./virtualisation
     ./wayland
   ];
 
