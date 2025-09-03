@@ -104,6 +104,9 @@ in {
       size = 3;
     };
 
+    dim_inactive = true;
+    dim_strength = 0.8;
+
     "shadow:enabled" = false;
     rounding = 5;
     rounding_power = 5;
