@@ -3,14 +3,30 @@
   theme,
 }: let
   config = import ./rofi-conf.nix {inherit pkgs theme;};
+  rofiWithoutDesktop = pkgs.rofi-wayland.overrideAttrs (oldAttrs: {
+    postBuild =
+      (oldAttrs.postBuild or "")
+      + ''
+        rm -rf $out/share/applications
+      '';
+
+    postInstall =
+      (oldAttrs.postInstall or "")
+      + ''
+        rm -rf $out/share/applications
+      '';
+  });
 in
   pkgs.symlinkJoin {
     name = "rofi-wrapped";
-    paths = [pkgs.rofi-wayland];
+    paths = [rofiWithoutDesktop];
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/rofi --add-flags "-config ${config}"
-      rm $out/share/applications/rofi.desktop
-      rm $out/share/applications/rofi-theme-selector.desktop
+      rm -rf $out/share/applications
+    '';
+
+    postInstall = ''
+      rm -rf $out/share/applications
     '';
   }
