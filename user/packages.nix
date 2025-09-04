@@ -56,6 +56,7 @@
       sed -i 's/LibreOffice Calc/Calc/' $out/share/applications/calc.desktop
       sed -i 's/LibreOffice Impress/Impress/' $out/share/applications/impress.desktop
       sed -i 's/LibreOffice Writer/Writer/' $out/share/applications/writer.desktop
+      sed -i 's/Virtual Machine Manager/VM Manager/' $out/share/applications/virt-manager.desktop
       sed -i 's/Visual Studio Code/Code/' $out/share/applications/code.desktop
     '';
   };
