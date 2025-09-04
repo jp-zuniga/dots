@@ -15,6 +15,7 @@ in
     postBuild = ''
       export BAT_CONFIG_DIR="$out/share/bat"
       export BAT_CACHE_PATH="$out/share/bat/cache"
+
       THEME_DIR="$BAT_CONFIG_DIR/themes"
 
       mkdir -p "$THEME_DIR"

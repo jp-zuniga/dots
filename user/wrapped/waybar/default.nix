@@ -2,14 +2,14 @@
   pkgs,
   theme,
 }: let
-  config = import ./waybar-conf.nix pkgs;
-  style = import ./waybar-style.nix {inherit pkgs theme;};
+  waybarConf = import ./waybar-conf.nix pkgs;
+  waybarStyle = import ./waybar-style.nix {inherit pkgs theme;};
 in
   pkgs.symlinkJoin {
     name = "waybar-wrapped";
     paths = [pkgs.waybar];
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
-      wrapProgram $out/bin/waybar --add-flags "-c ${config} -s ${style}"
+      wrapProgram $out/bin/waybar --add-flags "-c ${waybarConf} -s ${waybarStyle}"
     '';
   }
