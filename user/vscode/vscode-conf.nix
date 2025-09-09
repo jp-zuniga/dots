@@ -121,6 +121,7 @@
     explorer.confirmDelete = false;
     explorer.confirmDragAndDrop = false;
     explorer.confirmPasteNative = false;
+    extensions.ignoreRecommendations = true;
 
     files.autoSave = "afterDelay";
     files.autoSaveDelay = 1000;
