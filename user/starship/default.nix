@@ -25,24 +25,24 @@
 
       git_branch = {
         format = "[](fg:overlay)[ $symbol $branch ]($style)[ ](fg:overlay)";
-        style = "bg:overlay fg:foam";
+        style = "bold bg:overlay fg:foam";
         symbol = "";
       };
 
       git_status = {
-        ahead = "[ \\($count\\)](bg:overlay fg:foam)";
-        behind = "[ \\($count\\)](bg:overlay fg:rose)";
-        deleted = "[×\\($count\\) ](style)";
+        ahead = "[ \\($count\\)](bold bg:overlay fg:foam)";
+        behind = "[ \\($count\\)](bold bg:overlay fg:rose)";
+        deleted = "[×\\($count\\) ](bold bg:overlay fg:love)";
         disabled = false;
-        diverged = "[\\[](bg:overlay fg:iris)[ \\($ahead_count\\)](bg:overlay fg:foam)[  \\($behind_count\\)](bg:overlay fg:rose)[\\]](bg:overlay fg:iris)";
+        diverged = "[\\[](bold bg:overlay fg:iris)[ \\($ahead_count\\)](bold bg:overlay fg:foam)[  \\($behind_count\\)](bold bg:overlay fg:rose)[\\]](bold bg:overlay fg:iris)";
         format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
-        modified = "[!\\($count\\) ](bg:overlay fg:gold)";
-        renamed = "[ \\($count\\) ](bg:overlay fg:iris)";
-        staged = "[+\\($count\\) ](bg:overlay fg:gold)";
-        stashed = "[\\$ ](bg:overlay fg:iris)";
+        modified = "[!\\($count\\) ](bold bg:overlay fg:rose)";
+        renamed = "[ \\($count\\) ](bold bg:overlay fg:iris)";
+        staged = "[+\\($count\\) ](bold bg:overlay fg:pine)";
+        stashed = "[\\$ ](bold bg:overlay fg:iris)";
         style = "bold bg:overlay fg:love";
-        untracked = "[?\\($count\\) ](bg:overlay fg:gold)";
-        up_to_date = "[󰸞](bg:overlay fg:iris)";
+        untracked = "[?\\($count\\) ](bold bg:overlay fg:gold)";
+        up_to_date = "[✔](bg:overlay fg:iris)";
       };
 
       os = {
@@ -53,7 +53,7 @@
       time = {
         disabled = false;
         format = "[](fg:overlay)[ $time ]($style)[ ](fg:overlay)";
-        style = "bg:overlay fg:rose";
+        style = "bold bg:overlay fg:rose";
         time_format = "%I:%M%P";
         use_12hr = true;
       };
