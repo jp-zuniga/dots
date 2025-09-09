@@ -96,7 +96,7 @@ in {
   debug.disable_logs = false;
   decoration = {
     active_opacity = 1.0;
-    inactive_opacity = 0.8;
+    inactive_opacity = 0.9;
 
     blur = {
       enabled = true;
@@ -105,7 +105,7 @@ in {
     };
 
     dim_inactive = true;
-    dim_strength = 0.8;
+    dim_strength = 0.25;
 
     "shadow:enabled" = false;
     rounding = 5;

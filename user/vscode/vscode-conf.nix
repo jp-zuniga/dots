@@ -122,10 +122,6 @@
     explorer.confirmDragAndDrop = false;
     explorer.confirmPasteNative = false;
 
-    files.associations = {
-      "*.lock" = "json";
-    };
-
     files.autoSave = "afterDelay";
     files.autoSaveDelay = 1000;
 
