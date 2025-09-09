@@ -1,0 +1,132 @@
+let
+  lockFalse = {
+    Status = "locked";
+    Value = false;
+  };
+
+  lockTrue = {
+    Status = "locked";
+    Value = true;
+  };
+in {
+  "app.update.auto" = false;
+  "browser.aboutConfig.showWarning" = false;
+  "browser.aboutwelcome.enabled" = false;
+  "browser.bookmarks.restore_default_bookmarks" = false;
+  "browser.contentblocking.category" = "strict";
+  "browser.ctrlTab.recentlyUsedOrder" = false;
+  "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
+  "browser.discovery.enabled" = false;
+  "browser.formfill.enable" = true;
+  "browser.laterrun.enabled" = false;
+  "browser.newtabpage.activity-stream.enabled" = false;
+  "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+  "browser.newtabpage.activity-stream.feeds.snippets" = false;
+  "browser.newtabpage.activity-stream.feeds.topsites" = false;
+  "browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar" = false;
+  "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned" = "";
+  "browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines" = "";
+  "browser.newtabpage.activity-stream.showSponsored" = false;
+  "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+  "browser.newtabpage.activity-stream.telemetry" = false;
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false;
+  "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false;
+  "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+  "browser.newtabpage.enhanced" = false;
+  "browser.newtabpage.introShown" = true;
+  "browser.newtabpage.pinned" = false;
+  "browser.ping-centre.telemetry" = false;
+  "browser.privatebrowsing.forceMediaMemoryCache" = true;
+  "browser.protections_panel.infoMessage.seen" = true;
+  "browser.search.suggest.enabled" = false;
+  "browser.search.suggest.enabled.private" = false;
+  "browser.search.update" = false;
+  "browser.shell.checkDefaultBrowser" = false;
+  "browser.ssb.enabled" = true;
+  "browser.startup.homepage" = "";
+  "browser.startup.homepage_override.mstone" = "ignore";
+  "browser.startup.page" = 3;
+  "browser.tabs.crashReporting.sendReport" = false;
+  "browser.tabs.delayHidingAudioPlayingIconMS" = 0;
+  "browser.tabs.firefox-view" = false;
+  "browser.tabs.inTitlebar" = 0;
+  "browser.tabs.warnOnClose" = false;
+  "browser.toolbars.bookmarks.visibility" = "never";
+  # "browser.uiCustomization.navBarWhenVerticalTabs" = [
+  #   "vertical-spacer"
+  #   "managed-bookmarks"
+  #   "urlbar-container"
+  #   "downloads-button"
+  #   "unified-extensions-button"
+  # ];
+
+  # "browser.uiCustomization.state" = builtins.toJSON {
+  #   placements = {
+  #     PersonalToolbar = [];
+  #     TabsToolbar = [
+  #       "tabbrowser-tabs"
+  #     ];
+
+  #     nav-bar = [
+  #       "managed-bookmarks"
+  #       "urlbar-container"
+  #       "downloads-button"
+  #       "unified-extensions-button"
+  #     ];
+
+  #     toolbar-menubar = [];
+  #     widget-overflow-fixed-list = [];
+  #   };
+  # };
+
+  "browser.urlbar.placeholderName" = "";
+  "browser.urlbar.suggest.openpage" = false;
+  "browser.urlbar.suggest.recentsearches" = false;
+  "browser.urlbar.suggest.topsites" = false;
+  "datareporting.policy.dataSubmissionEnable" = false;
+  "datareporting.policy.dataSubmissionEnabled" = false;
+  "datareporting.policy.dataSubmissionPolicyAcceptedVersion" = 2;
+  "dom.block_multiple_popups" = true;
+  "dom.security.https_only_mode" = true;
+  "dom.security.https_only_mode_ever_enabled" = true;
+  "dom.webnotifications.enabled" = false;
+  "dom.webnotifications.serviceworker.enabled" = false;
+  "extensions.allowPrivateBrowsingByDefault" = true;
+  "extensions.autoDisableScopes" = 0;
+  "extensions.enabledScopes" = 15;
+  "extensions.firefoxalpenglow.enabled" = false;
+  "extensions.formautofill.addresses.enabled" = false;
+  "extensions.formautofill.available" = "off";
+  "extensions.formautofill.creditCards.available" = false;
+  "extensions.formautofill.creditCards.enabled" = false;
+  "extensions.formautofill.heuristics.enabled" = false;
+  "extensions.getAddons.cache.enabled" = false;
+  "extensions.getAddons.showPane" = false;
+  "extensions.htmlaboutaddons.recommendations.enabled" = false;
+  "extensions.light.enabled" = false;
+  "extensions.screenshots.disabled" = true;
+  "extensions.systemthemeauto.enabled" = false;
+  "extensions.ui.locale.hidden" = true;
+  "extensions.ui.sitepermission.hidden" = true;
+  "extensions.update.enabled" = false;
+  "extensions.webextensions.restrictedDomains" = "";
+  "extensions.webcompat.enable_picture_in_picture_overrides" = true;
+  "extensions.webcompat.enable_shims" = true;
+  "extensions.webcompat.perform_injections" = true;
+  "extensions.webcompat.perform_ua_overrides" = true;
+  "general.smoothScroll" = true;
+  "layout.css.backdrop-filter.enabled" = true;
+  "layout.css.color-mix.enabled" = true;
+  "layout.word_select.eat_space_to_next_word" = false;
+  "media.ffmpeg.vaapi.enabled" = true;
+  "privacy.globalprivacycontrol.enabled" = true;
+  "privacy.userContext.enabled" = true;
+  "privacy.userContext.ui.enabled" = true;
+  "services.sync.prefs.sync.browser.firefox-view.feature-tour" = false;
+  "sidebar.main.tools" = "";
+  "sidebar.revamp" = true;
+  "sidebar.verticalTabs" = true;
+  "signon.rememberSignons" = false;
+  "svg.context-properties.content.enabled" = true;
+  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+}

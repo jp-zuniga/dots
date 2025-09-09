@@ -1,5 +1,6 @@
-.dotter/cache/
-.dotter/cache.toml
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*
 
-dotfiles/nix/hardware-configuration.nix
-wallpapers/.current.png
+# Ignore automatically generated direnv output
+.direnv
