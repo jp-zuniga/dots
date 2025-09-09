@@ -1,14 +1,4 @@
-let
-  lockFalse = {
-    Status = "locked";
-    Value = false;
-  };
-
-  lockTrue = {
-    Status = "locked";
-    Value = true;
-  };
-in {
+{
   "app.update.auto" = false;
   "browser.aboutConfig.showWarning" = false;
   "browser.aboutwelcome.enabled" = false;
@@ -51,38 +41,19 @@ in {
   "browser.tabs.firefox-view" = false;
   "browser.tabs.inTitlebar" = 0;
   "browser.tabs.warnOnClose" = false;
+  "browser.theme.content-theme" = 0;
+  "browser.theme.native-theme" = false;
+  "browser.theme.toolbar-theme" = 0;
   "browser.toolbars.bookmarks.visibility" = "never";
-  # "browser.uiCustomization.navBarWhenVerticalTabs" = [
-  #   "vertical-spacer"
-  #   "managed-bookmarks"
-  #   "urlbar-container"
-  #   "downloads-button"
-  #   "unified-extensions-button"
-  # ];
-
-  # "browser.uiCustomization.state" = builtins.toJSON {
-  #   placements = {
-  #     PersonalToolbar = [];
-  #     TabsToolbar = [
-  #       "tabbrowser-tabs"
-  #     ];
-
-  #     nav-bar = [
-  #       "managed-bookmarks"
-  #       "urlbar-container"
-  #       "downloads-button"
-  #       "unified-extensions-button"
-  #     ];
-
-  #     toolbar-menubar = [];
-  #     widget-overflow-fixed-list = [];
-  #   };
-  # };
-
   "browser.urlbar.placeholderName" = "";
+  "browser.urlbar.shortcuts.actions" = false;
+  "browser.urlbar.shortcuts.history" = false;
+  "browser.urlbar.shortcuts.tabs" = false;
   "browser.urlbar.suggest.openpage" = false;
   "browser.urlbar.suggest.recentsearches" = false;
+  "browser.urlbar.suggest.quickactions" = false;
   "browser.urlbar.suggest.topsites" = false;
+  "browser.urlbar.suggest.trending" = false;
   "datareporting.policy.dataSubmissionEnable" = false;
   "datareporting.policy.dataSubmissionEnabled" = false;
   "datareporting.policy.dataSubmissionPolicyAcceptedVersion" = 2;
@@ -122,11 +93,7 @@ in {
   "privacy.globalprivacycontrol.enabled" = true;
   "privacy.userContext.enabled" = true;
   "privacy.userContext.ui.enabled" = true;
-  "services.sync.prefs.sync.browser.firefox-view.feature-tour" = false;
-  "sidebar.main.tools" = "";
-  "sidebar.revamp" = true;
-  "sidebar.verticalTabs" = true;
+  "signon.firefoxRelay.feature" = "";
   "signon.rememberSignons" = false;
   "svg.context-properties.content.enabled" = true;
-  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 }

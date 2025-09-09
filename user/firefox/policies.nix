@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   theme,
   ...
@@ -12,7 +13,7 @@
   BlockAboutConfig = false;
   BlockAboutProfiles = false;
   BlockAboutSupport = false;
-  DefaultDownloadDirectory = "~/dwnlds";
+  DefaultDownloadDirectory = "${config.users.users.jaq.home}/dwnlds";
   DisableAppUpdate = true;
   DisableFirefoxAccounts = false;
   DisableFirefoxScreenshots = true;
