@@ -34,7 +34,7 @@
         behind = "[ \\($count\\)](bg:overlay fg:rose)";
         deleted = "[×\\($count\\) ](style)";
         disabled = false;
-        diverged = "[\\[](bg:overlay fg:iris)[ \\($ahead_count\\)](bg:overlay fg:foam)[  \\($behind_count\\)](bg:overlay fg:rose)[\\]](bg:overlay fg:iris)";
+        diverged = "[\\[](bg:overlay fg:iris)[ \\($ahead_count\\)](bg:overlay fg:foam)[  \\($behind_count\\)](bg:overlay fg:rose)[\\]](bg:overlay fg:iris)";
         format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
         modified = "[!\\($count\\) ](bg:overlay fg:gold)";
         renamed = "[ \\($count\\) ](bg:overlay fg:iris)";
