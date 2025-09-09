@@ -27,18 +27,13 @@ pkgs.writeShellScriptBin "rebuild" ''
   git diff -U0 "*.nix"
 
   echo
-  echo "Rebuilding system..."
+  echo -n "Rebuilding system..."
 
   sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "NixOS rebuild failed!" && \
     exit 1 \
   )
-
-  # commit all changes with generation number and hostname
-  # git commit -am "Generation #$(\
-  #   nixos-rebuild list-generations | grep current | awk '{print $1}' \
-  # ) on $HOST"
 
   cd -
   notify-send "NixOS rebuild successful!"
