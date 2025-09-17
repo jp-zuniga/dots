@@ -147,7 +147,11 @@ in {
   };
 
   gestures = {
-    workspace_swipe = false;
+    workspace_swipe = true;
+    workspace_swipe_distance = 200;
+    workspace_swipe_invert = 1;
+    workspace_swipe_min_speed_to_force = 20;
+    workspace_swipe_cancel_ratio = 0.5;
   };
 
   input = {

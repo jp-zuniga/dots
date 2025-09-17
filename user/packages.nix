@@ -11,6 +11,7 @@
           alejandra
           brightnessctl
           brillo
+          clang-tools
           delta
           discord
           dust
@@ -23,10 +24,10 @@
           microfetch
           mpv
           pastel
+          playerctl
           swww
           qview
           uv
-          unzip
           ;
       }
       ++ [
