@@ -4,7 +4,6 @@
   ...
 }: let
   vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
-  # vscodeConf = (pkgs.formats.json {}).generate "settings.json" (import ./vscode-conf.nix pkgs);
   vscodeConf = import ./vscode-conf.nix pkgs;
 in {
   environment.systemPackages = with pkgs; [
@@ -15,6 +14,7 @@ in {
         bbenoist.nix
         charliermarsh.ruff
         kamadorueda.alejandra
+        llvm-vs-code-extensions.vscode-clangd
         ms-python.python
         ms-python.vscode-pylance
         mvllow.rose-pine
