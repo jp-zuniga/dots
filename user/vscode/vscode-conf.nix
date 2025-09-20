@@ -141,6 +141,7 @@
     git.confirmSync = false;
     git.enableSmartCommit = true;
     git.openRepositoryInParentFolders = "always";
+    github.gitProtocol = "ssh";
 
     python = {
       analysis = {

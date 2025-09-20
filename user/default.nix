@@ -14,6 +14,7 @@
     focus = import ./scripts/focus pkgs;
     random-wall = import ./scripts/random-wall pkgs;
     rebuild = import ./scripts/rebuild pkgs;
+    upgrade = import ./scripts/upgrade pkgs;
   };
 in {
   inherit packages;
@@ -47,7 +48,6 @@ in {
     };
 
     imports = [
-      ./packages.nix
       ./eza
       ./firefox
       ./fish
@@ -59,8 +59,10 @@ in {
       ./starship
       ./steam
       ./vscode
-      ./wrapped/btop/btop-theme.nix
       ./yazi
+
+      ./wrapped/btop/btop-theme.nix
+      ./packages.nix
     ];
   };
 }

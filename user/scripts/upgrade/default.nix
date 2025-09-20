@@ -1,5 +1,5 @@
 {pkgs, ...}:
-pkgs.writeShellScriptBin "rebuild" ''
+pkgs.writeShellScriptBin "upgrade" ''
   # Based on the work of 0atman:
   # - https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
   # ------------------------------------------------------------------
@@ -28,7 +28,7 @@ pkgs.writeShellScriptBin "rebuild" ''
   echo
   echo -n "Rebuilding system..."
 
-  sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
+  sudo nixos-rebuild switch --upgrade --max-jobs 1 --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "NixOS rebuild failed!" && \
     exit 1 \
