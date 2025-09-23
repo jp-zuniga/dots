@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   theme = import ./theme;
   packages = let
     theme = import ./theme pkgs;
