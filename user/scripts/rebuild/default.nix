@@ -28,7 +28,7 @@ pkgs.writeShellScriptBin "rebuild" ''
   echo
   echo -n "Rebuilding system..."
 
-  sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
+  echo && sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "NixOS rebuild failed!" && \
     exit 1 \
