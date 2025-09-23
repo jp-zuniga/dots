@@ -40,8 +40,8 @@ in {
       "${mod}, Tab, workspace, previous"
 
       ", PRINT, exec, hyprshot -m region"
-      "SHIFT, PRINT, exec, hyprshot -m active -m window"
-      "${mod}, PRINT, exec, hyprshot -m active -m output"
+      "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
+      "${mod}, PRINT, exec, hyprshot -m active -m output -o ~/pics/ss"
 
       "ALT SHIFT, W, movefocus, u"
       "ALT SHIFT, A, movefocus, d"
