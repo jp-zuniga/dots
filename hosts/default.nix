@@ -7,12 +7,10 @@
   mkHost = name:
     nixpkgs.lib.nixosSystem {
       modules =
-        [
+        builtins.attrValues self.nixosModules
+        ++ [
           ./${name}
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
-          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen1
-        ]
-        ++ builtins.attrValues self.nixosModules;
+        ];
 
       specialArgs = {
         inherit inputs;
