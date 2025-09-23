@@ -15,7 +15,7 @@
 
   outputs = inputs @ {nixpkgs, ...}: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    user = import ./user pkgs;
+    user = import ./user {inherit inputs pkgs;};
   in {
     packages.x86_64-linux = user.packages;
     formatter.x86_64-linux = pkgs.alejandra;
