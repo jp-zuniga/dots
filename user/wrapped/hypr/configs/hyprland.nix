@@ -38,6 +38,7 @@ in {
       "ALT, Tab, cyclenext,"
       "ALT SHIFT, Tab, cyclenext, prev"
       "${mod}, Tab, workspace, previous"
+      "${mod} SHIFT, D, togglefloating,"
 
       ", PRINT, exec, hyprshot -m region"
       "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
@@ -62,7 +63,7 @@ in {
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, pidof firefox || firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, M, exec, focus"
+      "${mod}, M, exec, focus &"
       "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
       "${mod}, Q, killactive,"
