@@ -7,6 +7,8 @@
     ./hardware.nix
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen1
+
+    ../../user
   ];
 
   hardware.laptop.enable = true;

@@ -1,42 +1,43 @@
-{
-  pkgs,
-  theme,
-  ...
-}: {
+{pkgs, ...}: {
   environment = {
-    systemPackages =
-      builtins.attrValues {
-        inherit
-          (pkgs)
-          alejandra
-          brightnessctl
-          brillo
-          clang-tools
-          delta
-          discord
-          dust
-          gimp3
-          hyprpicker
-          hyprpolkitagent
-          hyprshot
-          libnotify
-          libreoffice-fresh
-          microfetch
-          mpv
-          pastel
-          playerctl
-          swww
-          qview
-          uv
-          ;
-      }
-      ++ [
-        pkgs.jetbrains.idea-ultimate
-        (pkgs.runCommandLocal "system-cursor-theme" {} ''
-          mkdir -p $out/share/icons
-          ln -s ${theme.cursor.x.package}/share/icons/BreezeX-RosePine-Linux $out/share/icons/default
-        '')
-      ];
+    systemPackages = let
+      theme = import ./theme pkgs;
+    in [
+      pkgs.alejandra
+      pkgs.brightnessctl
+      pkgs.brillo
+      pkgs.clang-tools
+      pkgs.delta
+      pkgs.discord
+      pkgs.dust
+      pkgs.gimp3
+      pkgs.hyprpicker
+      pkgs.hyprpolkitagent
+      pkgs.hyprshot
+      pkgs.libnotify
+      pkgs.libreoffice-fresh
+      pkgs.microfetch
+      pkgs.mpv
+      pkgs.pastel
+      pkgs.playerctl
+      pkgs.swww
+      pkgs.qview
+      pkgs.uv
+      pkgs.jetbrains.idea-ultimate
+
+      (import ./scripts/focus pkgs)
+      (import ./scripts/random-wall pkgs)
+      (import ./scripts/rebuild pkgs)
+      (import ./scripts/upgrade pkgs)
+      (pkgs.callPackage ./scripts/system-cursor {inherit pkgs theme;})
+      (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
+      (pkgs.callPackage ./wrapped/bat {inherit theme;})
+      (pkgs.callPackage ./wrapped/btop {inherit theme;})
+      (pkgs.callPackage ./wrapped/hypr {inherit theme;})
+      (pkgs.callPackage ./wrapped/mako {inherit theme;})
+      (pkgs.callPackage ./wrapped/rofi {inherit theme;})
+      (pkgs.callPackage ./wrapped/waybar {inherit theme;})
+    ];
 
     extraSetup = ''
       rm $out/share/applications/Alacritty.desktop
@@ -60,5 +61,13 @@
       sed -i 's/Virtual Machine Manager/VM Manager/' $out/share/applications/virt-manager.desktop
       sed -i 's/Visual Studio Code/Code/' $out/share/applications/code.desktop
     '';
+  };
+
+  programs = {
+    hyprland.enable = true;
+    java = {
+      enable = true;
+      package = pkgs.jdk17;
+    };
   };
 }
