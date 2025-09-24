@@ -4,7 +4,8 @@
   ...
 }: {
   imports = [
-    # ./hardware.nix
+    ./hardware.nix
+    inputs.homix.nixosModules.default
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t460
   ];
 

@@ -3,32 +3,29 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (lib) mkEnableOption mkIf;
-  cfg = config.hardware.laptop;
-in {
+}: {
   options = {
-    hardware.laptop.enable = mkEnableOption "Enable laptop specific configuration.";
+    hardware.laptop.enable = lib.mkEnableOption "Enable laptop-specific configuration.";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf config.hardware.laptop.enable {
     services = {
       thermald.enable = true;
       tlp = {
         enable = true;
         settings = {
+          CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+          CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
           CPU_SCALING_GOVERNOR_ON_AC = "performance";
           CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-          CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-          CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
-          CPU_MIN_PERF_ON_AC = 0;
           CPU_MAX_PERF_ON_AC = 100;
-          CPU_MIN_PERF_ON_BAT = 0;
           CPU_MAX_PERF_ON_BAT = 50;
+          CPU_MIN_PERF_ON_AC = 0;
+          CPU_MIN_PERF_ON_BAT = 0;
 
-          START_CHARGE_THRESH_BAT0 = 60;
-          STOP_CHARGE_THRESH_BAT0 = 80;
+          START_CHARGE_THRESH_BAT0 = 40;
+          STOP_CHARGE_THRESH_BAT0 = 90;
         };
       };
     };
