@@ -5,7 +5,7 @@
   theme,
   ...
 }: let
-  fishConf = import ./fish-conf.nix pkgs;
+  fishConf = import ./fish-conf.nix {inherit pkgs theme;};
   fishTheme = pkgs.fetchurl {
     hash = "sha256-WUCByT9bdqKGkWxoxUG184ZY51oczCfe06Fkj/iz7HE=";
     url = let
@@ -26,10 +26,12 @@ in {
     enable = true;
     generateCompletions = false;
     shellAbbrs = {
-      # nix aliases
       ale = "alejandra -q .";
-
-      # git aliases
+      e = "custom-eza";
+      ea = "custom-eza -a";
+      el = "custom-eza -al";
+      et = "custom-eza -at";
+      er = "custom-eza -atr";
       g = "git";
       ga = "git add";
       gb = "git branch";
@@ -47,13 +49,6 @@ in {
       gs = "git status --short";
       gst = "git stash";
       gsw = "git switch";
-
-      # eza/ls aliases
-      e = "custom-eza";
-      ea = "custom-eza -a";
-      el = "custom-eza -al";
-      et = "custom-eza -at";
-      er = "custom-eza -atr";
     };
   };
 

@@ -2,9 +2,10 @@
   pkgs,
   lib,
   theme,
+  ...
 }: let
-  hyprColors = import ./hyprcolors.nix {inherit lib theme;};
-  toHyprConf = import ./tohyprconf.nix lib;
+  hyprColors = import ./hypr-colors.nix {inherit lib theme;};
+  hyprConf = import ./hypr-conf.nix lib;
 in
   pkgs.symlinkJoin {
     name = "hypr-and-friends";
@@ -16,8 +17,8 @@ in
 
       buildInputs = [pkgs.makeWrapper];
       postBuild = let
-        config = pkgs.writeText "${x}.conf" (toHyprConf {
-          attrs = import ./configs/${x}.nix hyprColors;
+        config = pkgs.writeText "${x}.conf" (hyprConf {
+          attrs = import ./config/${x}.nix hyprColors;
         });
       in ''
         wrapProgram $out/bin/${x} --add-flags "-c ${config}"

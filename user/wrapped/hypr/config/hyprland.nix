@@ -6,8 +6,6 @@ hyprColors: let
   shell = "fish";
   terminal = "alacritty";
 
-  # credits: fufexan
-  # binds $mod + [shift/control] {1..10} to [move to] workspace [silent] {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -38,7 +36,6 @@ in {
       "ALT, Tab, cyclenext,"
       "ALT SHIFT, Tab, cyclenext, prev"
       "${mod}, Tab, workspace, previous"
-      "${mod} SHIFT, D, togglefloating,"
 
       ", PRINT, exec, hyprshot -m region"
       "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
@@ -60,6 +57,7 @@ in {
       "${mod}, B, exec, pidof waybar || waybar"
       "${mod} SHIFT, B, exec, ! pidof waybar || pkill waybar"
       "${mod}, C, exec, code"
+      "${mod} SHIFT, D, togglefloating,"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, pidof firefox || firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
@@ -68,7 +66,11 @@ in {
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
       "${mod}, Q, killactive,"
       "${mod}, T, exec, ${terminal}"
+      "${mod}, U, exec, makoctl dismiss --all"
       "${mod}, W, exec, random-wall &"
+
+      "${mod}, P, exec, adjust-opacity increase &"
+      "${mod}, O, exec, adjust-opacity increase &"
     ];
 
   bindle = [
@@ -128,7 +130,6 @@ in {
   ];
 
   exec-once = [
-    # "systemctl --user start hyprpolkitagent &"
     "mako &"
     "hypridle &"
     "sunsetr &"
@@ -181,10 +182,13 @@ in {
 
   windowrule = [
     "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-    "opacity 1.0,^(jetbrains-.*)$"
     "suppressevent maximize, class:.*"
   ];
 
-  windowrulev2 = ["fullscreenstate 0 3, class:code*"];
+  windowrulev2 = [
+    "opacity 1.0, class:jetbrains*"
+    "fullscreenstate 0 3, class:code*"
+  ];
+
   xwayland.force_zero_scaling = true;
 }

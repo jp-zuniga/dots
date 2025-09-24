@@ -22,7 +22,7 @@ pkgs.writeShellScriptBin "rebuild" ''
       echo "Exiting." && exit 0
     fi
 
-    echo "Proceeding with rebuild..."
+    echo && echo -n "Proceeding with rebuild..."
   fi
 
   # autoformat
@@ -40,6 +40,6 @@ pkgs.writeShellScriptBin "rebuild" ''
     exit 1 \
   )
 
-  cd -
+  cd - > /dev/null
   notify-send "Rebuild successful!"
 ''

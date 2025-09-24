@@ -22,7 +22,7 @@ pkgs.writeShellScriptBin "upgrade" ''
       echo "Exiting." && exit 0
     fi
 
-    echo "Proceeding with upgrade..."
+    echo && echo -n "Proceeding with upgrade..."
   fi
 
   # autoformat
@@ -40,6 +40,6 @@ pkgs.writeShellScriptBin "upgrade" ''
     exit 1 \
   )
 
-  cd -
+  cd - > /dev/null
   notify-send "NixOS upgrade successful!"
 ''

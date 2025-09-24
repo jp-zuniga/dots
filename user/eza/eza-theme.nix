@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  ...
 }:
 pkgs.writeText "theme.yml" ''
   colourful: true

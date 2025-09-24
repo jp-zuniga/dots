@@ -1,34 +1,12 @@
 {pkgs, ...}: {
-  security = {
-    protectKernelImage = false;
-    lockKernelModules = false;
-    forcePageTableIsolation = true;
-    polkit.enable = true;
-    sudo.package = pkgs.sudo.override {withInsults = true;};
-
-    rtkit.enable = true;
-    apparmor = {
-      enable = true;
-      killUnconfinedConfinables = true;
-      packages = [pkgs.apparmor-profiles];
-    };
-  };
-
-  # credits: poz
-  fileSystems = let
-    defaults = ["nodev" "nosuid" "noexec"];
-  in {
-    "/boot".options = defaults;
-  };
-
   boot = {
     blacklistedKernelModules = [
-      # Obscure network protocols
+      # obscure network protocols
       "ax25"
       "netrom"
       "rose"
 
-      # Old or rare or insufficiently audited filesystems
+      # old/rare filesystems
       "adfs"
       "affs"
       "bfs"
@@ -62,5 +40,25 @@
       "qnx6"
       "sysv"
     ];
+  };
+
+  fileSystems = let
+    defaults = ["nodev" "nosuid" "noexec"];
+  in {
+    "/boot".options = defaults;
+  };
+
+  security = {
+    apparmor = {
+      enable = true;
+      killUnconfinedConfinables = true;
+      packages = [pkgs.apparmor-profiles];
+    };
+
+    forcePageTableIsolation = true;
+    lockKernelModules = false;
+    polkit.enable = true;
+    protectKernelImage = false;
+    rtkit.enable = true;
   };
 }

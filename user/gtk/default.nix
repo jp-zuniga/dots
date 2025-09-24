@@ -1,12 +1,14 @@
 {
+  inputs,
+  lib,
   pkgs,
   theme,
-  lib,
   ...
 }: let
   inherit (builtins) toString isBool;
   inherit (lib) boolToString escape generators optionalAttrs;
 
+  gtk-theme-name = theme.gtk.name;
   toGtk3Ini = generators.toINI {
     mkKeyValue = key: value: let
       value' =
@@ -15,14 +17,9 @@
         else toString value;
     in "${escape ["="] key}=${value'}";
   };
-
-  gtk-theme-name =
-    if theme.gtk.enable
-    then theme.gtk.name
-    else "adw-gtk3-dark";
 in {
   homix = let
-    css = import ./colors.nix {inherit theme;};
+    colors = import ./colors.nix {inherit theme;};
     gtkINI = {
       inherit gtk-theme-name;
       gtk-application-prefer-dark-theme = 1;
@@ -34,34 +31,27 @@ in {
       gtk-xft-rgba = "rgb";
       gtk-cursor-theme-name = theme.cursor.x.name;
     };
-  in
-    {
-      ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
-        Settings = gtkINI;
-      };
-
-      ".config/gtk-4.0/settings.ini".text = toGtk3Ini {
-        Settings =
-          gtkINI
-          // {
-            gtk-application-prefer-dark-theme = 1;
-          };
-      };
-    }
-    // optionalAttrs theme.gtk.enable {
-      ".config/gtk-3.0/gtk.css".text = css;
-      ".config/gtk-4.0/gtk.css".text = css;
+  in {
+    ".config/gtk-3.0/gtk.css".text = colors;
+    ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
+      Settings = gtkINI;
     };
+
+    ".config/gtk-4.0/gtk.css".text = colors;
+    ".config/gtk-4.0/settings.ini".text = toGtk3Ini {
+      Settings =
+        gtkINI
+        // {
+          gtk-application-prefer-dark-theme = 1;
+        };
+    };
+  };
 
   environment = {
     systemPackages = [
-      theme.cursor.x.package
-      (
-        if theme.gtk.enable
-        then theme.gtk.package
-        else pkgs.adw-gtk3
-      )
       pkgs.rose-pine-icon-theme
+      theme.cursor.x.package
+      theme.gtk.package
     ];
 
     variables = let
@@ -69,11 +59,10 @@ in {
     in {
       GTK_THEME = gtk-theme-name;
       GSK_RENDERER = "gl";
-      XCURSOR_THEME = theme.cursor.x.name;
-      XCURSOR_SIZE = cursorSize;
-
       HYPRCURSOR_THEME = theme.cursor.hypr.name;
       HYPRCURSOR_SIZE = cursorSize;
+      XCURSOR_THEME = theme.cursor.x.name;
+      XCURSOR_SIZE = cursorSize;
     };
   };
 }

@@ -75,11 +75,6 @@
       comment = 2;
     };
 
-    chat.agent.enabled = false;
-    chat.agent.maxRequests = 0;
-    chat.commandCenter.enabled = false;
-    chat.detectParticipant.enabled = false;
-    chat.useFileStorage = false;
     clangd.inactiveRegions.opacity = 0.6;
     codesnap.containerPadding = "0";
     codesnap.realLineNumbers = true;
