@@ -16,23 +16,21 @@ pkgs.writeShellScriptBin "rebuild" ''
 
   if git diff --quiet "*.nix"; then
     read -p "No changes detected. Rebuild anyway? (y/N): " -n 1 -r
-    echo
 
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
       echo "Exiting." && exit 0
     fi
 
-    echo && echo -n "Proceeding with rebuild..."
+    echo -en "\nProceeding with rebuild..."
   fi
 
   # autoformat
   alejandra -q . &> $F_LOG || (echo "Formatting failed!" && exit 1)
 
   # show changes
-  git diff -U0 "*.nix"
+  git diff "*.nix"
 
-  echo
-  echo -n "Rebuilding system..."
+  echo -en "\nRebuilding system..."
 
   echo && sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
