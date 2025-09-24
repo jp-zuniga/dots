@@ -8,13 +8,11 @@ pkgs.symlinkJoin {
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/mako --add-flags "\
-      --font 'monospace 12' \
+      --font 'mono 12' \
       --border-radius 5 \
       --border-size 3 \
       --padding 10 \
-      --background-color '#${theme.overlay}' \
-      --border-color '#${theme.highlightHigh}' \
-      --progress-color '#${theme.pine}' \
+      --background-color '#${theme.bg}' \
       --text-color '#${theme.text}'"
   '';
 }

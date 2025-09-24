@@ -1,4 +1,4 @@
-pkgs: let
+{pkgs, ...}: let
   base00 = "#232136";
   base01 = "#2a273f";
   base02 = "#393552";
@@ -55,19 +55,18 @@ in {
 
   cursor = {
     hypr = {
-      package = pkgs.rose-pine-hyprcursor;
       name = "rose-pine-hyprcursor";
+      package = pkgs.rose-pine-hyprcursor;
     };
 
     x = {
-      package = pkgs.rose-pine-cursor;
       name = "BreezeX-RoséPine";
+      package = pkgs.rose-pine-cursor;
     };
   };
 
   gtk = {
-    enable = true;
-    package = pkgs.rose-pine-gtk-theme;
     name = "rose-pine-gtk";
+    package = pkgs.rose-pine-gtk-theme;
   };
 }

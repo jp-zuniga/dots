@@ -1,14 +1,22 @@
-{
-  lib,
-  theme,
-  ...
-}: {
+{theme, ...}: {
   programs.starship = {
     enable = true;
     settings = {
       format = "[ ](fg:overlay)$directory[ ](fg:overlay)$git_branch$git_status$character";
       right_format = "$time";
-      palette = "rose-pine-${theme.rosePineVariant}";
+
+      palette = "rose-pine";
+      palettes = {
+        rose-pine = {
+          foam = theme.foam;
+          gold = theme.gold;
+          iris = theme.iris;
+          love = theme.love;
+          overlay = theme.overlay;
+          pine = theme.pine;
+          rose = theme.rose;
+        };
+      };
 
       character = {
         error_symbol = "[■](bold fg:love)";
@@ -66,79 +74,55 @@
         style_user = "bg:overlay fg:iris";
       };
 
-      palettes = {
-        rose-pine = {
-          foam = "#9ccfd8";
-          gold = "#f6c177";
-          iris = "#c4a7e7";
-          love = "#eb6f92";
-          overlay = "#26233a";
-          pine = "#31748f";
-          rose = "#ebbcba";
-        };
-
-        rose-pine-dawn = {
-          foam = "#56949f";
-          gold = "#ea9d34";
-          iris = "#907aa9";
-          love = "#b4637a";
-          overlay = "#f2e9e1";
-          pine = "#286983";
-          rose = "#d7827e";
-        };
-
-        rose-pine-moon = {
-          foam = "#9ccfd8";
-          gold = "#f6c177";
-          iris = "#c4a7e7";
-          love = "#eb6f92";
-          overlay = "#393552";
-          pine = "#3e8fb0";
-          rose = "#ea9a97";
-        };
-      };
-
       aws.symbol = "  ";
       buf = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       bun = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       c = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       cpp = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       cmake = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       crystal = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       dart = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       deno = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       dotnet = {
         format = "[$symbol($version )]($style)";
         style = "bold fg:crust bg:green";
@@ -150,11 +134,13 @@
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       elm = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       fennel = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
@@ -168,6 +154,7 @@
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
       };
+
       golang = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
@@ -195,16 +182,19 @@
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       julia = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       kotlin = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       lua = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
@@ -225,21 +215,25 @@
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       ocaml = {
         format = "$symbol($version )(\\($switch_indicator$switch_name\\) )]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       package = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = " 󰏗 ";
       };
+
       perl = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       php = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
@@ -253,51 +247,62 @@
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       quarto = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
       };
+
       raku = {
         format = "[$symbol($version-$vm_version )]($style)";
         style = "bold fg:crust bg:green";
       };
+
       rlang = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = " 󰟔 ";
       };
+
       ruby = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       rust = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = " 󱘗 ";
       };
+
       scala = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       swift = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
         symbol = "  ";
       };
+
       typst = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
       };
+
       vagrant = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
       };
+
       vlang = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";
       };
+
       zig = {
         format = "[$symbol$version ]($style)";
         style = "bold fg:crust bg:green";

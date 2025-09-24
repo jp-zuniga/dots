@@ -5,17 +5,12 @@
   theme,
   ...
 }: {
-  environment.systemPackages = [
-    pkgs.spotify
-  ];
-
   imports = [inputs.spicetify-nix.nixosModules.default];
 
   programs.spicetify = let
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   in {
     enable = true;
-    theme = spicePkgs.themes.text;
 
     colorScheme = let
       capitalize = str: let
@@ -26,5 +21,7 @@
     in let
       themeVariant = capitalize theme.rosePineVariant;
     in "RosePine${themeVariant}";
+
+    theme = spicePkgs.themes.text;
   };
 }

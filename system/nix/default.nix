@@ -1,39 +1,29 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   nix = {
-    # give rebuilds low priority so system stays responsive
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
-
-    # use nh instead
     gc.automatic = false;
-
-    # nix but cooler
     package = pkgs.lix;
-
     settings = {
+      allowed-users = ["@wheel"];
       accept-flake-config = true;
       auto-optimise-store = true;
-      extra-experimental-features = ["flakes" "nix-command"];
-
-      # allow sudo users to mark the following values as trusted
-      allowed-users = ["@wheel"];
-      trusted-users = ["@wheel"];
-
-      commit-lockfile-summary = "chore: update flake.lock";
-      keep-derivations = true;
-      keep-outputs = true;
-      warn-dirty = false;
-
-      sandbox = true;
-      max-jobs = "auto";
-      keep-going = true; # continue building derivations if one fails
-      log-lines = 20;
-
-      # use binary cache, it's not gentoo
       builders-use-substitutes = true;
-      substituters = [
-        "https://cache.nixos.org"
-      ];
+      commit-lockfile-summary = "chore: update flake.lock";
+      extra-experimental-features = ["flakes" "nix-command"];
+      keep-derivations = true;
+      keep-going = true;
+      keep-outputs = true;
+      log-lines = 20;
+      max-jobs = "auto";
+      sandbox = true;
+      substituters = ["https://cache.nixos.org"];
+      trusted-users = ["@wheel"];
+      warn-dirty = false;
     };
   };
 
@@ -44,10 +34,13 @@
     };
   };
 
-  programs.nix-ld.enable = true;
-  programs.nh = {
-    enable = true;
-    flake = "/home/jaq/dots";
+  programs = {
+    nh = {
+      enable = true;
+      flake = "${config.users.users.jaq.home}/dots";
+    };
+
+    nix-ld.enable = true;
   };
 
   systemd.services.nix-daemon = {

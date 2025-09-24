@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  ...
 }: let
   waybarConf = import ./waybar-conf.nix pkgs;
   waybarStyle = import ./waybar-style.nix {inherit pkgs theme;};

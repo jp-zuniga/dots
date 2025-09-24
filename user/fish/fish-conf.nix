@@ -1,9 +1,13 @@
-{pkgs, ...}:
+{
+  pkgs,
+  theme,
+  ...
+}:
 pkgs.writeText "config.fish" ''
   set -g fish_greeting ""
 
   # pick theme
-  fish_config theme choose rose-pine-moon
+  fish_config theme choose rose-pine-${theme.rosePineVariant}
 
   # init starship for gui terminals
   # if pidof alacritty > /dev/null || pidof code > /dev/null
@@ -15,15 +19,15 @@ pkgs.writeText "config.fish" ''
     hyprland > /dev/null
   end
 
-  ##############################
-  ## define custom functions: ##
-  ##############################
+  #######################
+  ## custom functions: ##
+  #######################
 
-  function gl --description "'git log' with custom default arguments"
+  function gl --description "'git log' with custom defaults"
     git log --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
   end
 
-  function gsh --description "'git show' with custom default arguments"
+  function gsh --description "'git show' with custom defaults"
     git show --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'
   end
 

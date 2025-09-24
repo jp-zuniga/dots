@@ -9,11 +9,11 @@
 in {
   environment = {
     systemPackages = let
+      scripts = import ./scripts {inherit pkgs theme;};
       theme = import ./theme pkgs;
     in
-      builtins.attrValues (import ./scripts pkgs)
+      builtins.attrValues scripts
       ++ [
-        (pkgs.callPackage ./scripts/system-cursor {inherit pkgs theme;})
         (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
         (pkgs.callPackage ./wrapped/bat {inherit theme;})
         (pkgs.callPackage ./wrapped/btop {inherit theme;})
@@ -23,6 +23,7 @@ in {
         (pkgs.callPackage ./wrapped/waybar {inherit theme;})
 
         pkgs.alejandra
+        pkgs.bc
         pkgs.brightnessctl
         pkgs.brillo
         pkgs.clang-tools
@@ -31,7 +32,6 @@ in {
         pkgs.dust
         pkgs.gimp3
         pkgs.hyprpicker
-        # pkgs.hyprpolkitagent
         pkgs.hyprshot
         pkgs.jetbrains.idea-ultimate
         pkgs.jq
@@ -49,26 +49,27 @@ in {
       ];
 
     extraSetup = ''
-      rm $out/share/applications/Alacritty.desktop
-      rm $out/share/applications/base.desktop
-      rm $out/share/applications/btop.desktop
-      rm $out/share/applications/code-url-handler.desktop
-      rm $out/share/applications/cups.desktop
-      rm $out/share/applications/draw.desktop
-      rm $out/share/applications/fish.desktop
-      rm $out/share/applications/math.desktop
-      rm $out/share/applications/mpv.desktop
-      rm $out/share/applications/nixos-manual.desktop
-      rm $out/share/applications/startcenter.desktop
-      rm $out/share/applications/yazi.desktop
+      set -eu
 
-      sed -i 's/GNU Image Manipulation Program/GIMP/' $out/share/applications/gimp.desktop
-      sed -i 's/IntelliJ IDEA/IDEA/' $out/share/applications/idea-ultimate.desktop
-      sed -i 's/LibreOffice Calc/Calc/' $out/share/applications/calc.desktop
-      sed -i 's/LibreOffice Impress/Impress/' $out/share/applications/impress.desktop
-      sed -i 's/LibreOffice Writer/Writer/' $out/share/applications/writer.desktop
-      sed -i 's/Virtual Machine Manager/VM Manager/' $out/share/applications/virt-manager.desktop
-      sed -i 's/Visual Studio Code/Code/' $out/share/applications/code.desktop
+      for file in \
+        Alacritty.desktop base.desktop btop.desktop code-url-handler.desktop \
+        cups.desktop draw.desktop fish.desktop math.desktop mpv.desktop \
+        nixos-manual.desktop startcenter.desktop yazi.desktop
+      do
+        rm -f "$out/share/applications/$file" || true
+      done
+
+      rename() {
+        [ -f "$1" ] && sed -i "s/$2/$3/" "$file" || true
+      }
+
+      rename "$out/share/applications/gimp.desktop" "GNU Image Manipulation Program" "GIMP"
+      rename "$out/share/applications/idea-ultimate.desktop" "IntelliJ IDEA" "IDEA"
+      rename "$out/share/applications/calc.desktop" "LibreOffice Calc" "Calc"
+      rename "$out/share/applications/impress.desktop" "LibreOffice Impress" "Impress"
+      rename "$out/share/applications/writer.desktop" "LibreOffice Writer" "Writer"
+      rename "$out/share/applications/virt-manager.desktop" "Virtual Machine Manager" "VM Manager"
+      rename "$out/share/applications/code.desktop" "Visual Studio Code" "Code"
     '';
   };
 
