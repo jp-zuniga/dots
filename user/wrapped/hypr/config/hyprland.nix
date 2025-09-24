@@ -70,7 +70,7 @@ in {
       "${mod}, W, exec, random-wall &"
 
       "${mod}, P, exec, adjust-opacity increase &"
-      "${mod}, O, exec, adjust-opacity increase &"
+      "${mod}, O, exec, adjust-opacity decrease &"
     ];
 
   bindle = [

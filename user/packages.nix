@@ -1,23 +1,30 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: let
+  theme = import ./theme pkgs;
   unstable = import inputs.nixpkgs-unstable {
     system = "x86_64-linux";
   };
+
+  hyprPkgs = import ./wrapped/hypr {inherit lib pkgs theme unstable;};
+  scripts = import ./scripts {inherit pkgs theme;};
 in {
   environment = {
     systemPackages = let
-      scripts = import ./scripts {inherit pkgs theme;};
-      theme = import ./theme pkgs;
+      inherit hyprPkgs;
     in
       builtins.attrValues scripts
       ++ [
+        hyprPkgs.hypridle-wrapped
+        hyprPkgs.hyprland-wrapped
+        hyprPkgs.hyprlock-wrapped
+
         (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
         (pkgs.callPackage ./wrapped/bat {inherit theme;})
         (pkgs.callPackage ./wrapped/btop {inherit theme;})
-        (pkgs.callPackage ./wrapped/hypr {inherit theme;})
         (pkgs.callPackage ./wrapped/mako {inherit theme;})
         (pkgs.callPackage ./wrapped/rofi {inherit theme;})
         (pkgs.callPackage ./wrapped/waybar {inherit theme;})

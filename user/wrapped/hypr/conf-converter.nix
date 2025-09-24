@@ -20,7 +20,7 @@ lib: {
     ;
 
   initialIndent = concatStrings (replicate indentLevel "  ");
-  hyprConf = indent: attrs: let
+  confConverter = indent: attrs: let
     sections =
       filterAttrs (n: v: isAttrs v || (isList v && all isAttrs v)) attrs;
 
@@ -29,7 +29,7 @@ lib: {
       then (concatMapStringsSep "\n" (a: mkSection n a) attrs)
       else ''
         ${indent}${n} {
-        ${hyprConf "  ${indent}" attrs}${indent}}
+        ${confConverter "  ${indent}" attrs}${indent}}
       '';
 
     mkFields = generators.toKeyValue {
@@ -59,4 +59,4 @@ lib: {
     + concatStringsSep "\n" (mapAttrsToList mkSection sections)
     + mkFields fields;
 in
-  hyprConf initialIndent attrs
+  confConverter initialIndent attrs
