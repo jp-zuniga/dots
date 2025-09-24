@@ -23,6 +23,9 @@ in {
         (pkgs.callPackage ./wrapped/waybar {inherit theme;})
 
         pkgs.alejandra
+        pkgs.bat-extras.batdiff
+        pkgs.bat-extras.batgrep
+        pkgs.bat-extras.batman
         pkgs.bc
         pkgs.brightnessctl
         pkgs.brillo
