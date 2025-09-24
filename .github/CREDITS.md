@@ -21,7 +21,7 @@ My theme of choice for most of the packages included in my configuration.
 - [Alacritty](https://github.com/rose-pine/alacritty)
 - [Btop](https://github.com/rose-pine/btop)
 - [Cursors](https://github.com/rose-pine/cursor)
-- [Fish](https://github.com/rose-pine/fish)V
+- [Fish](https://github.com/rose-pine/fish)
 - [GTK](https://github.com/rose-pine/gtk)
 - [Icons](https://github.com/Henriquehnnm/rose-pine-icon-theme)
 - [IDEA](https://github.com/jonmorgs/rose-pine-intellij)
