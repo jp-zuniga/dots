@@ -128,9 +128,10 @@ in {
   ];
 
   exec-once = [
-    "systemctl --user start hyprpolkitagent &"
+    # "systemctl --user start hyprpolkitagent &"
     "mako &"
     "hypridle &"
+    "sunsetr &"
     "swww-daemon &"
     "random-wall &"
     "waybar &"

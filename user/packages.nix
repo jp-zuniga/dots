@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: let
+  unstable = import inputs.nixpkgs-unstable {
+    system = "x86_64-linux";
+  };
+in {
   environment = {
     systemPackages = let
       theme = import ./theme pkgs;
@@ -12,7 +20,7 @@
       pkgs.dust
       pkgs.gimp3
       pkgs.hyprpicker
-      pkgs.hyprpolkitagent
+      # pkgs.hyprpolkitagent
       pkgs.hyprshot
       pkgs.libnotify
       pkgs.libreoffice-fresh
@@ -24,6 +32,8 @@
       pkgs.qview
       pkgs.uv
       pkgs.jetbrains.idea-ultimate
+
+      unstable.sunsetr
 
       (import ./scripts/focus pkgs)
       (import ./scripts/random-wall pkgs)
