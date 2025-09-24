@@ -43,6 +43,7 @@ in {
         pkgs.gimp3
         pkgs.hyprpicker
         pkgs.hyprshot
+        pkgs.hyprsunset
         pkgs.jetbrains.idea-ultimate
         pkgs.jq
         pkgs.libnotify
