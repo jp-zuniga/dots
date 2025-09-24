@@ -14,9 +14,15 @@ pkgs.writeShellScriptBin "upgrade" ''
 
   cd $CONFIG
 
-  # exit if the configuration hasn't changed
   if git diff --quiet "*.nix"; then
-    echo "No changes detected, exiting." && exit 0
+    read -p "No changes detected. Upgrade anyway? (y/N): " -n 1 -r
+    echo
+
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+      echo "Exiting." && exit 0
+    fi
+
+    echo "Proceeding with upgrade..."
   fi
 
   # autoformat
@@ -26,14 +32,14 @@ pkgs.writeShellScriptBin "upgrade" ''
   git diff -U0 "*.nix"
 
   echo
-  echo -n "Rebuilding system..."
+  echo -n "Upgrading system..."
 
   echo && sudo nixos-rebuild switch --upgrade --max-jobs 1 --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
-    notify-send --urgency=critical "NixOS rebuild failed!" && \
+    notify-send --urgency=critical "NixOS upgrade failed!" && \
     exit 1 \
   )
 
   cd -
-  notify-send "NixOS rebuild successful!"
+  notify-send "NixOS upgrade successful!"
 ''

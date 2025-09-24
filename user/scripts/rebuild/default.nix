@@ -14,9 +14,15 @@ pkgs.writeShellScriptBin "rebuild" ''
 
   cd $CONFIG
 
-  # exit if the configuration hasn't changed
   if git diff --quiet "*.nix"; then
-    echo "No changes detected, exiting." && exit 0
+    read -p "No changes detected. Rebuild anyway? (y/N): " -n 1 -r
+    echo
+
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+      echo "Exiting." && exit 0
+    fi
+
+    echo "Proceeding with rebuild..."
   fi
 
   # autoformat
@@ -30,10 +36,10 @@ pkgs.writeShellScriptBin "rebuild" ''
 
   echo && sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
-    notify-send --urgency=critical "NixOS rebuild failed!" && \
+    notify-send --urgency=critical "Rebuild failed!" && \
     exit 1 \
   )
 
   cd -
-  notify-send "NixOS rebuild successful!"
+  notify-send "Rebuild successful!"
 ''
