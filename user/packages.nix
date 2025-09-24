@@ -10,44 +10,46 @@ in {
   environment = {
     systemPackages = let
       theme = import ./theme pkgs;
-    in [
-      pkgs.alejandra
-      pkgs.brightnessctl
-      pkgs.brillo
-      pkgs.clang-tools
-      pkgs.delta
-      pkgs.discord
-      pkgs.dust
-      pkgs.gimp3
-      pkgs.hyprpicker
-      # pkgs.hyprpolkitagent
-      pkgs.hyprshot
-      pkgs.libnotify
-      pkgs.libreoffice-fresh
-      pkgs.microfetch
-      pkgs.mpv
-      pkgs.pastel
-      pkgs.playerctl
-      pkgs.swww
-      pkgs.qview
-      pkgs.uv
-      pkgs.jetbrains.idea-ultimate
+    in
+      # import custom scripts
+      builtins.attrValues import ./scripts
+      ++ [
+        # call wrapped packages
+        (pkgs.callPackage ./scripts/system-cursor {inherit pkgs theme;})
+        (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
+        (pkgs.callPackage ./wrapped/bat {inherit theme;})
+        (pkgs.callPackage ./wrapped/btop {inherit theme;})
+        (pkgs.callPackage ./wrapped/hypr {inherit theme;})
+        (pkgs.callPackage ./wrapped/mako {inherit theme;})
+        (pkgs.callPackage ./wrapped/rofi {inherit theme;})
+        (pkgs.callPackage ./wrapped/waybar {inherit theme;})
 
-      unstable.sunsetr
+        # normal packages
+        pkgs.alejandra
+        pkgs.brightnessctl
+        pkgs.brillo
+        pkgs.clang-tools
+        pkgs.delta
+        pkgs.discord
+        pkgs.dust
+        pkgs.gimp3
+        pkgs.hyprpicker
+        # pkgs.hyprpolkitagent
+        pkgs.hyprshot
+        pkgs.libnotify
+        pkgs.libreoffice-fresh
+        pkgs.microfetch
+        pkgs.mpv
+        pkgs.pastel
+        pkgs.playerctl
+        pkgs.swww
+        pkgs.qview
+        pkgs.uv
+        pkgs.jetbrains.idea-ultimate
 
-      (import ./scripts/focus pkgs)
-      (import ./scripts/random-wall pkgs)
-      (import ./scripts/rebuild pkgs)
-      (import ./scripts/upgrade pkgs)
-      (pkgs.callPackage ./scripts/system-cursor {inherit pkgs theme;})
-      (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
-      (pkgs.callPackage ./wrapped/bat {inherit theme;})
-      (pkgs.callPackage ./wrapped/btop {inherit theme;})
-      (pkgs.callPackage ./wrapped/hypr {inherit theme;})
-      (pkgs.callPackage ./wrapped/mako {inherit theme;})
-      (pkgs.callPackage ./wrapped/rofi {inherit theme;})
-      (pkgs.callPackage ./wrapped/waybar {inherit theme;})
-    ];
+        # unstable stuff
+        unstable.sunsetr
+      ];
 
     extraSetup = ''
       rm $out/share/applications/Alacritty.desktop
