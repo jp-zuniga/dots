@@ -11,10 +11,8 @@ in {
     systemPackages = let
       theme = import ./theme pkgs;
     in
-      # import custom scripts
-      builtins.attrValues import ./scripts
+      builtins.attrValues (import ./scripts pkgs)
       ++ [
-        # call wrapped packages
         (pkgs.callPackage ./scripts/system-cursor {inherit pkgs theme;})
         (pkgs.callPackage ./wrapped/alacritty {inherit theme;})
         (pkgs.callPackage ./wrapped/bat {inherit theme;})
@@ -24,7 +22,6 @@ in {
         (pkgs.callPackage ./wrapped/rofi {inherit theme;})
         (pkgs.callPackage ./wrapped/waybar {inherit theme;})
 
-        # normal packages
         pkgs.alejandra
         pkgs.brightnessctl
         pkgs.brillo
@@ -36,6 +33,8 @@ in {
         pkgs.hyprpicker
         # pkgs.hyprpolkitagent
         pkgs.hyprshot
+        pkgs.jetbrains.idea-ultimate
+        pkgs.jq
         pkgs.libnotify
         pkgs.libreoffice-fresh
         pkgs.microfetch
@@ -45,9 +44,7 @@ in {
         pkgs.swww
         pkgs.qview
         pkgs.uv
-        pkgs.jetbrains.idea-ultimate
 
-        # unstable stuff
         unstable.sunsetr
       ];
 

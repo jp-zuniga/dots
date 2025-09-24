@@ -1,6 +1,6 @@
-{
-  focus = import ./scripts/focus;
-  random-wall = import ./scripts/random-wall;
-  rebuild = import ./scripts/rebuild;
-  upgrade = import ./scripts/upgrade;
+{pkgs, ...}: {
+  focus = pkgs.callPackage ./focus {inherit pkgs;};
+  random-wall = pkgs.callPackage ./random-wall {inherit pkgs;};
+  rebuild = pkgs.callPackage ./rebuild {inherit pkgs;};
+  upgrade = pkgs.callPackage ./upgrade {inherit pkgs;};
 }
