@@ -1,5 +1,13 @@
 # dots
-## nerd shit
 
-* beware:
-  * if you're allergic to configuration files, proceed with caution
+## About
+
+My current Linux setup, running NixOS + Hyprland.
+
+<div align="center">
+  <img src="./assets/desktop.png" alt="Deskktop screenshot." width="800" />
+</div>
+
+## Acknowledgements
+
+It's honestly funny how hard I dove off the deep-end into the NixOS rabbit hole. Getting a stable, working configuration that does exactly what I want, how I want it, would have been impossible without the resources listed [here](./CREDITS.md).
