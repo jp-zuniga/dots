@@ -57,7 +57,7 @@ in {
       "${mod}, SHIFT B, exec, pidof waybar || waybar"
       "${mod}, B, exec, ! pidof waybar || pkill waybar"
       "${mod}, C, exec, code"
-      "${mod} SHIFT, D, togglefloating,"
+      "${mod}, G, togglefloating,"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, pidof firefox || firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
@@ -75,8 +75,8 @@ in {
 
   bindle = [
     "${mod}, ESCAPE, exit,"
-    "${mod}, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
-    "${mod} SHIFT, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
+    "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle deactivated!'"
+    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle activated!'"
     "${mod} SHIFT, Q, exec, systemctl suspend"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
