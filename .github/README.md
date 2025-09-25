@@ -5,7 +5,7 @@
 My current Linux setup, running NixOS + Hyprland.
 
 <div align="center">
-  <img src="./assets/desktop.png" alt="Deskktop screenshot." width="1000" />
+  <img src="./assets/desktop.png" alt="Desktop screenshot."/>
 </div>
 
 ## Acknowledgements
