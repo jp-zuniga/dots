@@ -186,8 +186,10 @@ in {
   ];
 
   windowrulev2 = [
-    "opacity 1.0, class:jetbrains*"
+    "center, floating:1"
     "fullscreenstate 0 3, class:code*"
+    "opacity 1.0, class:jetbrains*"
+    "size 80% 70%, floating:1"
   ];
 
   xwayland.force_zero_scaling = true;
