@@ -21,7 +21,7 @@ pkgs.writeShellScriptBin "upgrade" ''
       echo "Exiting." && exit 0
     fi
 
-    echo -en "\nProceeding with upgrade..."
+    echo -e -n "\nProceeding with upgrade..."
   fi
 
   # autoformat
@@ -30,7 +30,7 @@ pkgs.writeShellScriptBin "upgrade" ''
   # show changes
   git diff "*.nix"
 
-  echo -en "\nUpgrading system..."
+  echo -e -n "\nUpgrading system..."
 
   echo && sudo nixos-rebuild switch --upgrade --max-jobs 1 --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
