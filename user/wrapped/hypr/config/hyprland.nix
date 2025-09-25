@@ -69,8 +69,8 @@ in {
       "${mod}, U, exec, makoctl dismiss --all"
       "${mod}, W, exec, random-wall &"
 
-      "${mod}, P, exec, adjust-opacity increase &"
-      "${mod}, O, exec, adjust-opacity decrease &"
+      "${mod}, P, exec, adjust-opacity -i &"
+      "${mod}, O, exec, adjust-opacity -d &"
     ];
 
   bindle = [
