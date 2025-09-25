@@ -71,7 +71,7 @@ in {
       done
 
       rename() {
-        [ -f "$1" ] && sed -i "s/$2/$3/" "$file" || true
+        [ -f "$1" ] && sed -i "s/$2/$3/" "$1" || true
       }
 
       rename "$out/share/applications/gimp.desktop" "GNU Image Manipulation Program" "GIMP"
