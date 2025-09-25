@@ -27,6 +27,7 @@ in {
         (pkgs.callPackage ./wrapped/btop {inherit theme;})
         (pkgs.callPackage ./wrapped/mako {inherit theme;})
         (pkgs.callPackage ./wrapped/rofi {inherit theme;})
+        (pkgs.callPackage ./wrapped/sunsetr {inherit pkgs unstable;})
         (pkgs.callPackage ./wrapped/waybar {inherit theme;})
 
         pkgs.alejandra
@@ -55,8 +56,6 @@ in {
         pkgs.swww
         pkgs.qview
         pkgs.uv
-
-        unstable.sunsetr
       ];
 
     extraSetup = ''
