@@ -54,8 +54,8 @@ in {
       "CONTROL SHIFT, S, layoutmsg, orientationleft"
       "CONTROL SHIFT, D, layoutmsg, orientationright"
 
-      "${mod}, B, exec, pidof waybar || waybar"
-      "${mod} SHIFT, B, exec, ! pidof waybar || pkill waybar"
+      "${mod}, SHIFT B, exec, pidof waybar || waybar"
+      "${mod}, B, exec, ! pidof waybar || pkill waybar"
       "${mod}, C, exec, code"
       "${mod} SHIFT, D, togglefloating,"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
