@@ -4,11 +4,11 @@
 
 The one that started it all. A great introduction to NixOS focusing on the end-user's practical QoL benefits.
 
-## [0atman's rebuild script](https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5)
+## [0atman's rebuild script](https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5#file-nixos-rebuild-sh)
 
 Used as a starting point for the [rebuild](../user/scripts/rebuild/default.nix) and [upgrade](../user/scripts/upgrade/default.nix) scripts.
 
-## [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles).
+## [Sioodmy's dotfiles](https://github.com/sioodmy/dotfiles)
 
 > ### Mined the depths of the forbidden archives and learned the dark magic of the ***`flake`***.
 
@@ -27,7 +27,7 @@ My theme of choice for most of the packages included in my configuration.
 - [IDEA](https://github.com/jonmorgs/rose-pine-intellij)
 - [Kvantum](https://github.com/rose-pine/kvantum)
 - [Mako](https://github.com/rose-pine/mako)
-- [QBittorrent](https://github.com/rose-pine/qbittorrent)
+- [qBittorrent](https://github.com/rose-pine/qbittorrent)
 - [Rofi](https://github.com/rose-pine/rofi)
 - [Spotify](https://github.com/nicoleajoy/rose-pine-spotify)
 - [Starship](https://github.com/rose-pine/starship)
