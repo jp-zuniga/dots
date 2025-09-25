@@ -12,7 +12,8 @@ pkgs.symlinkJoin {
       --border-radius 5 \
       --border-size 3 \
       --padding 10 \
-      --background-color '#${theme.bg}' \
-      --text-color '#${theme.text}'"
+      --background-color '${theme.bg}' \
+      --text-color '${theme.text}' \
+      --width 500"
   '';
 }
