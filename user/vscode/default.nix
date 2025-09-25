@@ -19,6 +19,7 @@ in {
         vscode-extensions.aaron-bond.better-comments
         vscode-extensions.bbenoist.nix
         vscode-extensions.charliermarsh.ruff
+        vscode-extensions.foxundermoon.shell-format
         vscode-extensions.kamadorueda.alejandra
         vscode-extensions.llvm-vs-code-extensions.vscode-clangd
         vscode-extensions.ms-python.python
