@@ -1,3 +1,3 @@
 {lib, ...}: {
-  capitalize = import ./strings.nix {inherit lib;};
+  capitalize = import ./capitalize.nix {inherit lib;};
 }
