@@ -7,39 +7,41 @@
 }: let
   confConverter = import ./conf-converter.nix lib;
   hyprColors = import ./hypr-colors.nix {inherit lib theme;};
-  wraps = [
+  hyprs = [
     {
       name = "hypridle-wrapped";
-      confFile = ./config/hypridle.nix;
-      binFile = ./bin/hypridle.nix;
-      extraArgs = {inherit pkgs theme;};
+      conf = ./config/hypridle.nix;
+      wrapper = ./bin/hypridle.nix;
+      args = {inherit pkgs theme;};
     }
     {
       name = "hyprland-wrapped";
-      confFile = ./config/hyprland.nix;
-      binFile = ./bin/hyprland.nix;
-      extraArgs = {
+      conf = ./config/hyprland.nix;
+      wrapper = ./bin/hyprland.nix;
+      args = {
         inherit theme;
         pkgs = unstable;
       };
     }
     {
       name = "hyprlock-wrapped";
-      confFile = ./config/hyprlock.nix;
-      binFile = ./bin/hyprlock.nix;
-      extraArgs = {inherit pkgs theme;};
+      conf = ./config/hyprlock.nix;
+      wrapper = ./bin/hyprlock.nix;
+      args = {inherit pkgs theme;};
     }
   ];
 in
   builtins.listToAttrs (
-    builtins.map (wrap: {
-      name = wrap.name;
-      value = let
-        conf = pkgs.writeText "${wrap.name}.conf" (confConverter {
-          attrs = import wrap.confFile hyprColors;
-        });
-      in
-        import wrap.binFile ({inherit conf;} // wrap.extraArgs);
-    })
-    wraps
+    builtins.map (
+      hypr: {
+        name = hypr.name;
+        value = let
+          conf = pkgs.writeText "${hypr.name}.conf" (confConverter {
+            attrs = import hypr.conf hyprColors;
+          });
+        in
+          import hypr.wrapper ({inherit conf;} // hypr.args);
+      }
+    )
+    hyprs
   )
