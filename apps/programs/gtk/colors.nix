@@ -41,7 +41,7 @@
   @define-color popover_fg_color ${theme.text};
   @define-color popover_shade_color rgba(0, 0, 0, 0.07);
   @define-color shade_color rgba(0, 0, 0, 0.07);
-  @define-color scrollbar_outline_color ${theme.base02};
+  @define-color scrollbar_outline_color ${theme.overlay};
   @define-color blue_1 ${theme.highlightLow};
   @define-color blue_2 ${theme.highlightLow};
   @define-color blue_3 ${theme.highlightLow};
