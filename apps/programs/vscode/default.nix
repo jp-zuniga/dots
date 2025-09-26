@@ -5,7 +5,7 @@
   ...
 }: let
   unstable = import inputs.nixpkgs-unstable {
-    system = "x86_64-linux";
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 

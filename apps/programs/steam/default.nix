@@ -6,7 +6,7 @@
   programs.steam = {
     enable = true;
     extraPackages = let
-      inherit (import ../scripts {inherit pkgs theme;}) system-cursor;
+      inherit (import ../../pkgs/scripts {inherit pkgs theme;}) system-cursor;
     in [system-cursor];
   };
 }

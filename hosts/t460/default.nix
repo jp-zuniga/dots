@@ -1,8 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./hardware.nix
     inputs.homix.nixosModules.default

@@ -1,14 +1,10 @@
-{
-  config,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     ./hardware.nix
     inputs.homix.nixosModules.default
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen1
-    ../../user
+    ../../apps
   ];
 
   hardware.laptop.enable = true;

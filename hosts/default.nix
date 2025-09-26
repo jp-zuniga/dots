@@ -1,11 +1,8 @@
-{
-  nixpkgs,
-  self,
-  ...
-}: let
+{self, ...}: let
   inherit (self) inputs;
+
   mkHost = name:
-    nixpkgs.lib.nixosSystem {
+    inputs.nixpkgs.lib.nixosSystem {
       modules =
         builtins.attrValues self.nixosModules
         ++ [
@@ -15,7 +12,7 @@
       specialArgs = {
         inherit inputs;
         flake = self;
-        theme = import ../user/theme nixpkgs.legacyPackages.x86_64-linux;
+        theme = import ../theme inputs.nixpkgs.legacyPackages.x86_64-linux;
       };
     };
 in {
