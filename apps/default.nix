@@ -1,30 +1,39 @@
-{...}: {
-  environment.sessionVariables = {
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_DOCUMENTS_DIR = "$HOME/docs";
-    XDG_DOWNLOAD_DIR = "$HOME/dwnlds";
-    XDG_MUSIC_DIR = "$HOME/moosic";
-    XDG_PICTURES_DIR = "$HOME/pics";
-    XDG_STATE_HOME = "$HOME/.local/state";
-  };
-
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
-    ./eza
-    ./firefox
-    ./fish
-    ./git
-    ./gtk
-    ./qt
-    ./qbittorrent
-    ./spotify
-    ./starship
-    ./steam
-    ./vscode
-    ./yazi
+    ./pkgs
+    ./programs
+  ];
 
-    ./packages.nix
-    ./wrapped/btop/btop-theme.nix
+  environment.systemPackages = [
+    pkgs.alejandra
+    pkgs.bat-extras.batdiff
+    pkgs.bat-extras.batgrep
+    pkgs.bat-extras.batman
+    pkgs.bc
+    pkgs.brightnessctl
+    pkgs.brillo
+    pkgs.clang-tools
+    pkgs.delta
+    pkgs.discord
+    pkgs.dust
+    pkgs.gimp3
+    pkgs.hyprpicker
+    pkgs.hyprshot
+    pkgs.hyprsunset
+    pkgs.jetbrains.idea-ultimate
+    pkgs.jq
+    pkgs.libnotify
+    pkgs.libreoffice-fresh
+    pkgs.microfetch
+    pkgs.mpv
+    pkgs.pastel
+    pkgs.swww
+    pkgs.qview
+    pkgs.uv
   ];
 }
