@@ -21,7 +21,7 @@ pkgs.writeShellScriptBin "rebuild" ''
       echo "Exiting." && exit 0
     fi
 
-    echo -e -n "\nProceeding with rebuild..."
+    echo -en "\nProceeding with rebuild..."
   fi
 
   # autoformat
@@ -30,9 +30,9 @@ pkgs.writeShellScriptBin "rebuild" ''
   # show changes
   git diff "*.nix"
 
-  echo -e -n "\nRebuilding system..."
+  echo -en "\nRebuilding system..."
 
-  echo && sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
+  sudo nixos-rebuild switch --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "Rebuild failed!" && \
     exit 1 \

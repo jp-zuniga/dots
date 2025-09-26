@@ -21,7 +21,7 @@ pkgs.writeShellScriptBin "upgrade" ''
       echo "Exiting." && exit 0
     fi
 
-    echo -e -n "\nProceeding with upgrade..."
+    echo -en "\nProceeding with upgrade..."
   fi
 
   # autoformat
@@ -30,9 +30,9 @@ pkgs.writeShellScriptBin "upgrade" ''
   # show changes
   git diff "*.nix"
 
-  echo -e -n "\nUpgrading system..."
+  echo -en "\nUpgrading system..."
 
-  echo && sudo nixos-rebuild switch --upgrade --max-jobs 1 --flake .#$HOST &> $S_LOG || (\
+  sudo nixos-rebuild switch --upgrade --max-jobs 3 --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "NixOS upgrade failed!" && \
     exit 1 \
