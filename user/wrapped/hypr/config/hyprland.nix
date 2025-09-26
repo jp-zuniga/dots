@@ -75,8 +75,8 @@ in {
 
   bindle = [
     "${mod}, ESCAPE, exit,"
-    "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle deactivated!'"
-    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle activated!'"
+    "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
+    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod} SHIFT, Q, exec, systemctl suspend"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
@@ -179,10 +179,8 @@ in {
   ];
 
   windowrulev2 = [
-    "center, floating:1"
     "fullscreenstate 0 3, class:code*"
     "opacity 1.0, class:jetbrains*"
-    "size 80% 70%, floating:1"
   ];
 
   xwayland.force_zero_scaling = true;
