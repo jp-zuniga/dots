@@ -5,7 +5,7 @@
   theme,
   ...
 }: let
-  hyprPkgs = pkgs.callPackage ./hypr {inherit lib theme unstable;};
+  hyprPkgs = import ./hypr {inherit lib pkgs theme unstable;};
 in
   hyprPkgs
   // {
