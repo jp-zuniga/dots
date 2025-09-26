@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./eza
     ./fish
     ./firefox
     ./git
