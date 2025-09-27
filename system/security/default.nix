@@ -42,12 +42,7 @@
     ];
   };
 
-  fileSystems = let
-    defaults = ["nodev" "nosuid" "noexec"];
-  in {
-    "/boot".options = defaults;
-  };
-
+  fileSystems."/boot".options = ["nodev" "nosuid" "noexec"];
   security = {
     apparmor = {
       enable = true;
