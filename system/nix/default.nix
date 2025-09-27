@@ -43,7 +43,5 @@
     nix-ld.enable = true;
   };
 
-  systemd.services.nix-daemon = {
-    environment.TMPDIR = "/var/tmp";
-  };
+  systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp";
 }

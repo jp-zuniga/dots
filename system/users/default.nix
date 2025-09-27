@@ -15,12 +15,12 @@
     enable = true;
     extraRules = [
       {
-        commands =
-          builtins.map (command: {
+        commands = builtins.map (
+          command: {
             command = "/run/current-system/sw/bin/${command}";
             options = ["NOPASSWD"];
-          })
-          ["nixos-rebuild" "poweroff" "reboot" "systemctl"];
+          }
+        ) ["nixos-rebuild" "poweroff" "reboot" "systemctl"];
 
         groups = ["wheel"];
       }

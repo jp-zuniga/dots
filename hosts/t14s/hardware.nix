@@ -1,20 +1,14 @@
-{
-  config,
-  lib,
-  pkgs,
-  modulesPath,
-  ...
-}: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
-
+{...}: {
   boot = {
-    extraModulePackages = [];
-    initrd = {
-      availableKernelModules = ["nvme" "ehci_pci" "xhci_pci_renesas" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
-      kernelModules = [];
-    };
+    initrd.availableKernelModules = [
+      "nvme"
+      "ehci_pci"
+      "xhci_pci_renesas"
+      "xhci_pci"
+      "usb_storage"
+      "sd_mod"
+      "rtsx_pci_sdmmc"
+    ];
 
     kernelModules = ["kvm-amd"];
   };
@@ -36,9 +30,6 @@
       fsType = "ext4";
     };
   };
-
-  networking.useDHCP = lib.mkDefault true;
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   swapDevices = [
     {device = "/dev/disk/by-uuid/06da4226-b6ad-4aca-b950-78ccda2f6ff9";}
