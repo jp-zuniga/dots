@@ -12,7 +12,7 @@
       specialArgs = {
         inherit inputs;
         flake = self;
-        theme = import ../theme inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+        theme = import ../theme inputs.nixpkgs.legacyPackages.x86_64-linux;
       };
     };
 in {
