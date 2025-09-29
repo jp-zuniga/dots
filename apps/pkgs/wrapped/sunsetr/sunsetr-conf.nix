@@ -14,6 +14,6 @@ pkgs.writeText "sunsetr.toml" ''
   day_gamma = 100
   day_temp = 6500
 
-  night_gamma = 100
-  night_temp = 3300
+  night_gamma = 90
+  night_temp = 3250
 ''
