@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   networking = {
     firewall.enable = true;
     networkmanager = {
@@ -8,7 +8,7 @@
       };
     };
 
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
   };
 
   systemd.services.NetworkManager-wait-online.enable = false;
