@@ -25,5 +25,6 @@
     pkgs.jq
     pkgs.libnotify
     pkgs.swww
+    pkgs.xdg-desktop-portal-hyprland
   ];
 }
