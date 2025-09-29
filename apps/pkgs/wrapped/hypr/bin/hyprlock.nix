@@ -6,11 +6,7 @@
 }:
 pkgs.symlinkJoin {
   name = "hyprlock-wrapped";
-  paths = [
-    pkgs.hyprlock
-    theme.cursor.hypr.package
-  ];
-
+  paths = [pkgs.hyprlock];
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/hyprlock --add-flags "-c ${conf}"
