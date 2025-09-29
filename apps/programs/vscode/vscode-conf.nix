@@ -10,7 +10,9 @@
 
     "[python]" = {
       editor.defaultFormatter = "charliermarsh.ruff";
+      editor.formatOnPaste = false;
       editor.formatOnSave = true;
+      editor.formatOnType = false;
     };
 
     accessibility.hideAccessibleView = true;
@@ -142,12 +144,19 @@
       analysis = {
         autoFormatStrings = true;
         autoImportCompletions = true;
+        completeFunctionParens = true;
         diagnosticMode = "openFilesOnly";
-        enablePytestSupport = false;
         generateWithTypeAnnotation = true;
+        inlayHints = {
+          callArgumentNames = "all";
+          functionReturnTypes = true;
+          pytestParameters = true;
+          variableTypes = true;
+        };
+
         languageServerMode = "full";
         logLevel = "Error";
-        typeCheckingMode = "standard";
+        typeCheckingMode = "strict";
         typeEvaluation = {
           deprecateTypingAliases = true;
           enableReachabilityAnalysis = true;
