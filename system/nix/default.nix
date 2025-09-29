@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -32,6 +33,8 @@
       allowUnfree = true;
       allowBroken = false;
     };
+
+    hostPlatform = lib.mkDefault "x86_64-linux";
   };
 
   programs = {
