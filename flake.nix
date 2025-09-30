@@ -2,11 +2,19 @@
   description = "rawdogging nix for shits and giggles";
 
   inputs = {
-    homix.url = "github:sioodmy/homix";
+    homix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sioodmy/homix";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     yaziTheme = {
       url = "github:Mintass/rose-pine-moon.yazi";
       flake = false;
