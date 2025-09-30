@@ -1,16 +1,12 @@
 {...}: {
   boot = {
-    initrd.availableKernelModules = [
-      "nvme"
-      "ehci_pci"
-      "xhci_pci_renesas"
-      "xhci_pci"
-      "usb_storage"
-      "sd_mod"
-      "rtsx_pci_sdmmc"
-    ];
+    initrd = {
+      availableKernelModules = ["nvme" "ehci_pci" "xhci_pci_renesas" "xhci_pci" "usbhid" "rtsx_pci_sdmmc"];
+      kernelModules = [];
+    };
 
     kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
   };
 
   fileSystems = {
