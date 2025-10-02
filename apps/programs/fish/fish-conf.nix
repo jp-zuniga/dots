@@ -9,14 +9,15 @@ pkgs.writeText "config.fish" ''
   # pick theme
   fish_config theme choose rose-pine-${theme.rosePineVariant}
 
-  # init starship for gui terminals
-  # if pidof alacritty > /dev/null || pidof code > /dev/null
-  #   starship init fish | source
-  # end
-
   # autostart hyprland on boot
   if ! pgrep Hyprland > /dev/null
     hyprland > /dev/null
+  end
+
+  # set-up ssh agent
+  if pidof alacritty > /dev/null || pidof code > /dev/null
+    eval (ssh-agent -c)
+    ssh-add ~/.ssh/id_ed25519
   end
 
   #######################
