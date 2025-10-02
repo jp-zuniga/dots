@@ -36,6 +36,7 @@
 
   core = {
     compression = 9;
+    editor = "code --wait";
     pager = "delta | $PAGER";
     preloadIndex = true;
     whitespace = "error";

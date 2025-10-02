@@ -156,7 +156,7 @@
 
         languageServerMode = "full";
         logLevel = "Error";
-        typeCheckingMode = "strict";
+        typeCheckingMode = "standard";
         typeEvaluation = {
           deprecateTypingAliases = true;
           enableReachabilityAnalysis = true;
