@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
+in {
   imports = [
     ./pkgs
     ./programs
@@ -36,7 +38,6 @@
 
     systemPackages = [
       pkgs.alejandra
-      pkgs.bat-extras.batdiff
       pkgs.bat-extras.batgrep
       pkgs.bat-extras.batman
       pkgs.discord
@@ -49,6 +50,7 @@
       pkgs.pastel
       pkgs.qview
       pkgs.uv
+      unstable.railway
     ];
   };
 
