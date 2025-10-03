@@ -15,6 +15,13 @@
       editor.formatOnType = false;
     };
 
+    "[shellscript]" = {
+      editor.defaultFormatter = "foxundermoon.shell-format";
+      editor.formatOnPaste = false;
+      editor.formatOnSave = true;
+      editor.formatOnType = false;
+    };
+
     accessibility.hideAccessibleView = true;
     accessibility.underlineLinks = true;
     alejandra.program = "alejandra";
@@ -78,12 +85,6 @@
     };
 
     clangd.inactiveRegions.opacity = 0.6;
-    codesnap.containerPadding = "0";
-    codesnap.realLineNumbers = true;
-    codesnap.roundedCorners = false;
-    codesnap.showWindowControls = false;
-    codesnap.target = "window";
-    codesnap.transparentBackground = true;
     editor.accessibilitySupport = "off";
     editor.fontFamily = "monospace";
     editor.minimap.maxColumn = 90;
