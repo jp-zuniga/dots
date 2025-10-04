@@ -2,11 +2,11 @@
   pkgs,
   theme,
   ...
-}: {
+}: let
+  inherit (import ../cursor {inherit pkgs theme;}) cursor-theme;
+in {
   programs.steam = {
     enable = true;
-    extraPackages = let
-      inherit (import ../../pkgs/scripts {inherit pkgs theme;}) system-cursor;
-    in [system-cursor];
+    extraPackages = [cursor-theme];
   };
 }
