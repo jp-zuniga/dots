@@ -20,8 +20,6 @@
           "--noprofile"
           "--env=QT_QPA_PLATFORMTHEME="
           "--env=QT_STYLE_OVERRIDE=Fusion"
-          "--env=XCURSOR_THEME=${theme.cursor.x.name}"
-          "--env=XCURSOR_SIZE=${theme.cursor.size}"
         ];
       };
 
