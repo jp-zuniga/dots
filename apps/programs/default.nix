@@ -11,6 +11,7 @@ in {
     ./firefox
     ./git
     ./gtk
+    ./packettracer
     ./qbittorrent
     ./qt
     ./spotify
