@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   format:
-    name: run alejandra
+    name: check format
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       - run: nix run nixpkgs#alejandra -- -q -c .
 
   deps:
-    name: run alejandra
+    name: deduplicate
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +38,7 @@ jobs:
       - run: nix run github:NotAShelf/flint -- --fail-if-multiple-versions
 
   build:
-    name: check flake
+    name: test build
     runs-on: ubuntu-latest
 
     steps:
