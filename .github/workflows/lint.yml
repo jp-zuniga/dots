@@ -1,0 +1,56 @@
+name: lint
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  format:
+    name: run alejandra
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            experimental-features = nix-command flakes
+
+      - run: nix run nixpkgs#alejandra -- -q -c .
+
+  deps:
+    name: run alejandra
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          nix_path: nixpkgs=channel:nixos-unstable
+
+      - run: nix run github:NotAShelf/flint -- --fail-if-multiple-versions
+
+  build:
+    name: check flake
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          install_url: https://nixos.org/nix/install
+          extra_nix_config: |
+            auto-optimise-store = true
+            experimental-features = nix-command flakes
+
+      - run: nix flake check
