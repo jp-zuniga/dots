@@ -85,6 +85,12 @@
     };
 
     clangd.inactiveRegions.opacity = 0.6;
+    codesnap.containerPadding = "0";
+    codesnap.realLineNumbers = true;
+    codesnap.roundedCorners = false;
+    codesnap.showWindowControls = false;
+    codesnap.target = "window";
+    codesnap.transparentBackground = true;
     editor.accessibilitySupport = "off";
     editor.fontFamily = "monospace";
     editor.minimap.maxColumn = 90;
