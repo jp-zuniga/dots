@@ -27,6 +27,7 @@ in {
         [ -f "$1" ] && sed -i "s/$2/$3/" "$1" || true
       }
 
+      rename "$out/share/applications/cisco-pt8.desktop.desktop" "Cisco Packet Tracer 8" "Packet Tracer"
       rename "$out/share/applications/gimp.desktop" "GNU Image Manipulation Program" "GIMP"
       rename "$out/share/applications/idea-ultimate.desktop" "IntelliJ IDEA" "IDEA"
       rename "$out/share/applications/calc.desktop" "LibreOffice Calc" "Calc"
