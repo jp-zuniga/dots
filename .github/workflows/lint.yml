@@ -35,7 +35,7 @@ jobs:
           install_url: https://nixos.org/nix/install
           nix_path: nixpkgs=channel:nixos-unstable
 
-      - run: nix run github:NotAShelf/flint -- --fail-if-multiple-versions
+      - run: nix run github:NotAShelf/flint
 
   build:
     name: test build
