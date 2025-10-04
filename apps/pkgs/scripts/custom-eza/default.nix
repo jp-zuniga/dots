@@ -10,17 +10,17 @@ pkgs.writeShellScriptBin "custom-eza" ''
   while [[ $# -gt 0 ]]; do
     case "$1" in
       -a | --all)
-        flags="${flags}a"
+        flags="''${flags}a"
         ;;
       -l | --long)
-        flags="${flags}hl"
+        flags="''${flags}hl"
         ;;
       -t | --tree)
-        flags="${flags}T"
+        flags="''${flags}T"
         level=1
         ;;
       -r | --recursive)
-        flags="${flags}R"
+        flags="''${flags}R"
         recursive_count=$((recursive_count + 1))
         ;;
       *)
