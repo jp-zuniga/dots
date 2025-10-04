@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  theme,
+  ...
+}: let
+  inherit (import ./cursor {inherit pkgs theme;}) cursor-theme;
+in {
   imports = [
     ./eza
     ./fish
@@ -15,6 +21,7 @@
   ];
 
   environment.systemPackages = [
+    cursor-theme
     pkgs.bc
     pkgs.brightnessctl
     pkgs.brillo
