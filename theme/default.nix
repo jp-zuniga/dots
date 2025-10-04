@@ -23,6 +23,7 @@
       package = pkgs.rose-pine-hyprcursor;
     };
 
+    size = "30";
     x = {
       name = "BreezeX-RoséPine";
       package = pkgs.rose-pine-cursor;

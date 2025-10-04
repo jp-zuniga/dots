@@ -54,15 +54,13 @@ in {
       theme.gtk.package
     ];
 
-    variables = let
-      cursorSize = 30;
-    in {
+    variables = {
       GTK_THEME = gtk-theme-name;
       GSK_RENDERER = "gl";
       HYPRCURSOR_THEME = theme.cursor.hypr.name;
-      HYPRCURSOR_SIZE = cursorSize;
+      HYPRCURSOR_SIZE = theme.cursor.size;
       XCURSOR_THEME = theme.cursor.x.name;
-      XCURSOR_SIZE = cursorSize;
+      XCURSOR_SIZE = theme.cursor.size;
     };
   };
 }
