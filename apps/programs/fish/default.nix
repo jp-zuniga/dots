@@ -43,11 +43,13 @@ in {
       gd = "git diff";
       gf = "git fetch --all -t";
       gi = "git init";
+      gl = "git log --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
       gp = "git push";
       gpf = "git push --force-with-lease";
       gpl = "git pull";
       gs = "git status --short";
       gst = "git stash";
+      gsh = "git show --pretty=format:'%n%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
       gsw = "git switch";
     };
   };
