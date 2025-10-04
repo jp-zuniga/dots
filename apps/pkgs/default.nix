@@ -7,7 +7,7 @@
 }: let
   unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
 
-  scripts = import ./scripts {inherit pkgs theme;};
+  scripts = import ./scripts {inherit pkgs;};
   wrapped = import ./wrapped {inherit lib pkgs unstable theme;};
 in {
   environment.systemPackages = builtins.attrValues (scripts // wrapped);
