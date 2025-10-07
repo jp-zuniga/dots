@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   theme,
   ...
@@ -11,6 +12,7 @@ in {
     ./firefox
     ./git
     ./gtk
+    ./jetbrains
     ./packettracer
     ./qbittorrent
     ./qt

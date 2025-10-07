@@ -44,7 +44,6 @@ in {
       pkgs.discord
       pkgs.dust
       pkgs.gimp3
-      pkgs.jetbrains.idea-ultimate
       pkgs.libreoffice-fresh
       pkgs.microfetch
       pkgs.mpv
@@ -57,9 +56,5 @@ in {
 
   programs = {
     hyprland.enable = true;
-    java = {
-      enable = true;
-      package = pkgs.jdk17;
-    };
   };
 }
