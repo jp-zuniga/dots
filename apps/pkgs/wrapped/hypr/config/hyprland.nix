@@ -37,7 +37,7 @@ in {
       "ALT SHIFT, Tab, cyclenext, prev"
       "${mod}, Tab, workspace, previous"
 
-      ", PRINT, exec, hyprshot -m region"
+      ", PRINT, exec, hyprshot -m region -o ~/pics/ss"
       "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
       "${mod}, PRINT, exec, hyprshot -m active -m output -o ~/pics/ss"
 
@@ -180,7 +180,7 @@ in {
 
   windowrulev2 = [
     "fullscreenstate 0 3, class:code*"
-    "opacity 1.0, class:jetbrains*"
+    "noinitialfocus, class:(jetbrains-)(.*)"
   ];
 
   xwayland.force_zero_scaling = true;
