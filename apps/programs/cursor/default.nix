@@ -8,7 +8,9 @@
 in {
   cursor-theme = pkgs.runCommandLocal "cursor-theme" {} ''
     mkdir -p $out/share/icons
-    ln -s ${pkg}/share/icons/${name} $out/share/icons/default
+    mkdir -p $out/share/icons/default
+
     ln -s ${pkg}/share/icons/${name} $out/share/icons/${name}
+    ln -s ${pkg}/share/icons/${name}/cursors $out/share/icons/default/cursors
   '';
 }
