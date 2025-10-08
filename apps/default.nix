@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  theme,
   ...
 }: let
   unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
@@ -52,6 +53,20 @@ in {
       unstable.uv
       unstable.railway
     ];
+
+    variables = {
+      HYPRCURSOR_SIZE = theme.cursor.size;
+      HYPRCURSOR_THEME = theme.cursor.hypr.name;
+      XCURSOR_PATH = lib.mkDefault (builtins.concatStringsSep ":" [
+        "$HOME/.icons"
+        "$HOME/.local/share/icons"
+        "/run/current-system/sw/share/icons"
+        "/run/opengl-driver/share/icons"
+      ]);
+
+      XCURSOR_SIZE = theme.cursor.size;
+      XCURSOR_THEME = theme.cursor.x.name;
+    };
   };
 
   programs = {

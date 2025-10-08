@@ -57,10 +57,6 @@ in {
     variables = {
       GTK_THEME = gtk-theme-name;
       GSK_RENDERER = "gl";
-      HYPRCURSOR_THEME = theme.cursor.hypr.name;
-      HYPRCURSOR_SIZE = theme.cursor.size;
-      XCURSOR_THEME = theme.cursor.x.name;
-      XCURSOR_SIZE = theme.cursor.size;
     };
   };
 }
