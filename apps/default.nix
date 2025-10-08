@@ -49,7 +49,7 @@ in {
       pkgs.mpv
       pkgs.pastel
       pkgs.qview
-      pkgs.uv
+      unstable.uv
       unstable.railway
     ];
   };
