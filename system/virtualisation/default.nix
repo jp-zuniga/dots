@@ -4,7 +4,6 @@
   ...
 }: {
   boot.kernelModules = ["vfio-pci"];
-  environment.systemPackages = [pkgs.virtio-win];
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = builtins.attrNames config.users.users;
   users.groups.kvm.members = builtins.attrNames config.users.users;
@@ -12,11 +11,7 @@
     libvirtd = {
       enable = true;
       qemu = {
-        ovmf = {
-          enable = true;
-          packages = [pkgs.OVMFFull.fd];
-        };
-
+        ovmf.enable = true;
         swtpm.enable = true;
       };
     };
