@@ -32,7 +32,7 @@ pkgs.writeShellScriptBin "upgrade" ''
 
   echo -en "\nUpgrading system..."
 
-  sudo nixos-rebuild switch --upgrade --max-jobs 3 --flake .#$HOST &> $S_LOG || (\
+  sudo nixos-rebuild switch --upgrade --flake .#$HOST &> $S_LOG || (\
     cat $S_LOG | grep --color error && \
     notify-send --urgency=critical "NixOS upgrade failed!" && \
     exit 1 \

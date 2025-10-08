@@ -12,22 +12,22 @@
   vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
   vscodeConf = import ./vscode-conf.nix pkgs;
 in {
-  environment.systemPackages = with pkgs; [
-    (vscode-with-extensions.override {
+  environment.systemPackages = [
+    (pkgs.vscode-with-extensions.override {
       vscodeExtensions = [
-        vscode-extensions.adpyke.codesnap
-        vscode-extensions.aaron-bond.better-comments
-        vscode-extensions.bbenoist.nix
-        vscode-extensions.charliermarsh.ruff
-        vscode-extensions.foxundermoon.shell-format
-        vscode-extensions.kamadorueda.alejandra
-        vscode-extensions.llvm-vs-code-extensions.vscode-clangd
-        vscode-extensions.ms-python.python
-        vscode-extensions.ms-python.vscode-pylance
-        vscode-extensions.mvllow.rose-pine
-        vscode-extensions.pkief.material-icon-theme
-        vscode-extensions.pkief.material-product-icons
-        vscode-extensions.tamasfe.even-better-toml
+        pkgs.vscode-extensions.adpyke.codesnap
+        pkgs.vscode-extensions.aaron-bond.better-comments
+        pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.charliermarsh.ruff
+        pkgs.vscode-extensions.foxundermoon.shell-format
+        pkgs.vscode-extensions.kamadorueda.alejandra
+        pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
+        pkgs.vscode-extensions.ms-python.python
+        pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.vscode-extensions.mvllow.rose-pine
+        pkgs.vscode-extensions.pkief.material-icon-theme
+        pkgs.vscode-extensions.pkief.material-product-icons
+        pkgs.vscode-extensions.tamasfe.even-better-toml
         unstable.vscode-extensions.github.copilot
         unstable.vscode-extensions.github.copilot-chat
       ];
