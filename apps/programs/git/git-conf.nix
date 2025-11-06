@@ -35,6 +35,7 @@
   };
 
   core = {
+    autocrlf = "input";
     compression = 9;
     editor = "code --wait";
     pager = "delta | $PAGER";
