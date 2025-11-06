@@ -59,7 +59,7 @@ in {
       "${mod}, C, exec, code"
       "${mod}, G, togglefloating,"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
-      "${mod}, F, exec, pidof firefox || firefox"
+      "${mod}, F, exec, firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
       "${mod}, M, exec, focus &"
       "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
@@ -78,6 +78,7 @@ in {
     "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
     "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod} SHIFT, Q, exec, systemctl suspend"
+    "${mod}, SPACE, exec, hyprctl switchxkblayout current next"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
     ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
@@ -152,7 +153,7 @@ in {
   gesture = ["3, horizontal, workspace"];
   input = {
     follow_mouse = 1;
-    kb_layout = "us";
+    kb_layout = "us,latam";
     sensitivity = 0;
     "touchpad:natural_scroll" = true;
   };
