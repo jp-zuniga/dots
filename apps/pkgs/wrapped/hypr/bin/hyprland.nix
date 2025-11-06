@@ -8,6 +8,7 @@ pkgs.symlinkJoin {
   name = "hyprland-wrapped";
   paths = [
     pkgs.hyprland
+    pkgs.xkeyboard_config
     theme.cursor.hypr.package
   ];
 
