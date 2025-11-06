@@ -18,7 +18,12 @@ in {
         pkgs.vscode-extensions.adpyke.codesnap
         pkgs.vscode-extensions.aaron-bond.better-comments
         pkgs.vscode-extensions.bbenoist.nix
+        pkgs.vscode-extensions.bierner.markdown-checkbox
+        pkgs.vscode-extensions.bierner.markdown-footnotes
+        pkgs.vscode-extensions.bierner.markdown-mermaid
+        pkgs.vscode-extensions.bierner.markdown-preview-github-styles
         pkgs.vscode-extensions.charliermarsh.ruff
+        pkgs.vscode-extensions.davidanson.vscode-markdownlint
         pkgs.vscode-extensions.foxundermoon.shell-format
         pkgs.vscode-extensions.kamadorueda.alejandra
         pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
@@ -28,6 +33,7 @@ in {
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.pkief.material-product-icons
         pkgs.vscode-extensions.tamasfe.even-better-toml
+        pkgs.vscode-extensions.yzhang.markdown-all-in-one
         unstable.vscode-extensions.github.copilot
         unstable.vscode-extensions.github.copilot-chat
       ];
