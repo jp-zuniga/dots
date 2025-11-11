@@ -44,14 +44,22 @@ in {
       gf = "git fetch --all -t";
       gi = "git init";
       gl = "git log --graph --pretty=format:'%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
+      gm = "git merge";
       gp = "git push";
       gpf = "git push --force-with-lease";
       gpl = "git pull";
+      grb = "git rebase";
+      grt = "git remote";
+      groa = "git remote add origin";
+      gror = "git remote remove origin";
       gs = "git status --short";
       gst = "git stash";
       gsh = "git show --pretty=format:'%n%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
       gsw = "git switch";
-      ruff = "uv tool run ruff";
+      gu = "git rm --cached";
+      gur = "git rm -r --cached";
+      rfc = "uv tool run ruff check";
+      rff = "uv tool run ruff format";
     };
   };
 
