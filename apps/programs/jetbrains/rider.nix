@@ -16,7 +16,7 @@
     unstable.avalonia
   ];
 
-  rider = pkgs.jetbrains.rider.overrideAttrs (attrs: {
+  rider = unstable.jetbrains.rider.overrideAttrs (attrs: {
     postInstall =
       ''
         mv $out/bin/rider $out/bin/.rider-toolless
