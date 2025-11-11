@@ -8,7 +8,7 @@
     config.allowUnfree = true;
   };
 in {
-  environment.systemPackages = [pkgs.jetbrains.idea-ultimate pkgs.postgresql_jdbc];
+  environment.systemPackages = [unstable.jetbrains.idea-ultimate pkgs.postgresql_jdbc];
   programs.java = {
     enable = true;
     package = pkgs.jdk17;
