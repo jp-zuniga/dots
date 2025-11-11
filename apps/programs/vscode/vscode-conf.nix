@@ -1,5 +1,13 @@
 {pkgs, ...}: let
   settings = {
+    "[cpp]" = {
+      editor.defaultFormatter = "llvm-vs-code-extensions.clangd";
+      editor.formatOnPaste = false;
+      editor.formatOnSave = true;
+      editor.formatOnType = false;
+      editor.tabSize = 2;
+    };
+
     "[nix]" = {
       editor.defaultFormatter = "kamadorueda.alejandra";
       editor.formatOnPaste = false;
@@ -13,6 +21,7 @@
       editor.formatOnPaste = false;
       editor.formatOnSave = true;
       editor.formatOnType = false;
+      editor.tabSize = 4;
     };
 
     "[shellscript]" = {
@@ -20,77 +29,14 @@
       editor.formatOnPaste = false;
       editor.formatOnSave = true;
       editor.formatOnType = false;
+      editor.tabSize = 2;
     };
 
     accessibility.hideAccessibleView = true;
     accessibility.underlineLinks = true;
     alejandra.program = "alejandra";
-
-    "better-comments.tags" = [
-      {
-        backgroundColor = "transparent";
-        bold = true;
-        color = "#98C379";
-        italic = true;
-        strikethrough = false;
-        tag = "*";
-        underline = false;
-      }
-      {
-        backgroundColor = "transparent";
-        bold = true;
-        color = "#FF2D00";
-        italic = false;
-        strikethrough = false;
-        tag = "!";
-        underline = false;
-      }
-      {
-        backgroundColor = "transparent";
-        bold = false;
-        color = "#3498DB";
-        italic = true;
-        strikethrough = false;
-        tag = "?";
-        underline = false;
-      }
-      {
-        backgroundColor = "transparent";
-        bold = true;
-        color = "#FF8C00";
-        italic = false;
-        strikethrough = false;
-        tag = "todo";
-        underline = false;
-      }
-      {
-        backgroundColor = "transparent";
-        bold = false;
-        color = "#474747";
-        italic = false;
-        strikethrough = true;
-        tag = "//";
-        underline = false;
-      }
-    ];
-
-    betterAlign.indentBase = "dontchange";
-    betterAlign.operatorPadding = "left";
-
-    betterAlign.surroundSpace = {
-      arrow = [1 1];
-      assignment = [1 1];
-      colon = [(-1) 1];
-      comment = 2;
-    };
-
+    chat.disableAIFeatures = true;
     clangd.inactiveRegions.opacity = 0.6;
-    codesnap.containerPadding = "0";
-    codesnap.realLineNumbers = true;
-    codesnap.roundedCorners = false;
-    codesnap.showWindowControls = false;
-    codesnap.target = "window";
-    codesnap.transparentBackground = true;
     editor.accessibilitySupport = "off";
     editor.fontFamily = "monospace";
     editor.minimap.maxColumn = 90;
@@ -174,7 +120,7 @@
       };
 
       createEnvironment.trigger = "off";
-      defaultInterpreterPath = "/bin/python3";
+      defaultInterpreterPath = "**/.venv/bin/python3";
       experiments.enabled = false;
       languageServer = "Pylance";
       pipenvPath = "";
@@ -201,23 +147,23 @@
       nativeServer = "on";
     };
 
-    rust-analyzer = {
-      diagnostics.enable = false;
-      inlayHints = {
-        chainingHints.enable = false;
-        renderColons = false;
-        typeHints = {
-          enable = false;
-          hideClosureInitialization = true;
-          hideClosureParameter = true;
-          hideNamedConstructor = true;
-        };
-      };
+    # rust-analyzer = {
+    #   diagnostics.enable = false;
+    #   inlayHints = {
+    #     chainingHints.enable = false;
+    #     renderColons = false;
+    #     typeHints = {
+    #       enable = false;
+    #       hideClosureInitialization = true;
+    #       hideClosureParameter = true;
+    #       hideNamedConstructor = true;
+    #     };
+    #   };
 
-      lens.enable = false;
-      restartServerOnConfigChange = true;
-      showDependenciesExplorer = false;
-    };
+    #   lens.enable = false;
+    #   restartServerOnConfigChange = true;
+    #   showDependenciesExplorer = false;
+    # };
 
     security.workspace.trust.untrustedFiles = "newWindow";
     telemetry.feedback.enabled = false;
@@ -227,13 +173,9 @@
       cursorBlinking = true;
       defaultProfile.linux = "fish";
       fontFamily = "monospace";
-      fontLigatures.enabled = true;
+      fontLigatures.enabled = false;
       profiles.linux = {
         bash = null;
-        "JavaScript Debug Terminal" = null;
-      };
-
-      profiles.windows = {
         "JavaScript Debug Terminal" = null;
       };
     };
