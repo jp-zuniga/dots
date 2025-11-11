@@ -1,10 +1,14 @@
 {
   config,
+  inputs,
   pkgs,
   ...
-}: {
+}: let
+  unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
+in {
   services.postgresql = {
     enable = true;
+    package = unstable.postgresql_18;
 
     # username must match pg user for peer authentication
     authentication = ''
