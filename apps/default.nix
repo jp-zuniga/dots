@@ -50,6 +50,7 @@ in {
       pkgs.mpv
       pkgs.pastel
       pkgs.qview
+      unstable.just
       unstable.uv
       unstable.railway
     ];
