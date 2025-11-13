@@ -58,6 +58,7 @@ in {
       gsw = "git switch";
       gu = "git rm --cached";
       gur = "git rm -r --cached";
+      lines = "nix-shell -p tokei --run tokei";
       rfc = "uv tool run ruff check";
       rff = "uv tool run ruff format";
     };

@@ -6,6 +6,18 @@
 }: let
   unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
 in {
+  environment.systemPackages = [pkgs.bluez];
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        AutoEnable = "true";
+        Experimental = "true";
+      };
+    };
+  };
+
   services.postgresql = {
     enable = true;
     package = unstable.postgresql_18;
