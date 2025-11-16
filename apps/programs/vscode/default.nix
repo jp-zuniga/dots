@@ -19,6 +19,7 @@ in {
         pkgs.vscode-extensions.llvm-vs-code-extensions.vscode-clangd
         pkgs.vscode-extensions.ms-python.python
         pkgs.vscode-extensions.ms-python.vscode-pylance
+        pkgs.vscode-extensions.nefrob.vscode-just-syntax
         pkgs.vscode-extensions.mvllow.rose-pine
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.pkief.material-product-icons

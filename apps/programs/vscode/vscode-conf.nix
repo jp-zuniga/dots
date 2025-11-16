@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   settings = {
     "[cpp]" = {
-      editor.defaultFormatter = "llvm-vs-code-extensions.clangd";
+      editor.defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
       editor.formatOnPaste = false;
       editor.formatOnSave = true;
       editor.formatOnType = false;
@@ -36,7 +36,13 @@
     accessibility.underlineLinks = true;
     alejandra.program = "alejandra";
     chat.disableAIFeatures = true;
-    clangd.inactiveRegions.opacity = 0.6;
+    clangd = {
+      enable = true;
+      enableCodeCompletion = true;
+      enableHover = true;
+      inactiveRegions.opacity = 0.6;
+    };
+
     editor.accessibilitySupport = "off";
     editor.fontFamily = "monospace";
     editor.minimap.maxColumn = 90;
