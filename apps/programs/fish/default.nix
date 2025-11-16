@@ -50,8 +50,11 @@ in {
       gpl = "git pull";
       grb = "git rebase";
       grt = "git remote";
-      groa = "git remote add origin";
-      gror = "git remote remove origin";
+      gra = "git remote add";
+      grao = "git remote add origin";
+      grr = "git remote remove";
+      grro = "git remote remove origin";
+      grv = "git remote -v";
       gs = "git status --short";
       gst = "git stash";
       gsh = "git show --pretty=format:'%n%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
