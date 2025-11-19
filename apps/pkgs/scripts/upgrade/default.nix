@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "upgrade" ''
   # - https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
   # ------------------------------------------------------------------
 
-  CONFIG=$HOME/dots
+  CONFIG=$HOME/dev/dots
   HOST=$(hostname)
 
   F_LOG=~/.nixos-format.log
