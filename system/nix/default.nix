@@ -40,7 +40,7 @@
   programs = {
     nh = {
       enable = true;
-      flake = "${config.users.users.jaq.home}/dots";
+      flake = "${config.users.users.jaq.home}/dev/dots";
     };
 
     nix-ld.enable = true;
