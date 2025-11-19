@@ -1,27 +1,24 @@
 {
-  config,
-  lib,
   pkgs,
-  theme,
+  lib,
   ...
 }: let
-  cpt8 = pkgs.ciscoPacketTracer8.override {
-    packetTracerSource = /home/jaq/docs/CiscoPacketTracer822_amd64_signed.deb;
+  packettracer9 = pkgs.callPackage ./v9-derivation.nix {
+    packetTracerSource = /home/jaq/docs/CiscoPacketTracer_900_Ubuntu_64bit.deb;
   };
 in {
-  environment.systemPackages = [cpt8];
+  environment.systemPackages = [packettracer9];
+
   programs.firejail = {
     enable = true;
-    wrappedBinaries.packettracer8 = {
-      executable = lib.getExe cpt8;
+    wrappedBinaries.packettracer9 = {
+      executable = lib.getExe packettracer9;
       extraArgs = [
         "--net=none"
         "--noprofile"
         "--env=QT_QPA_PLATFORMTHEME="
         "--env=QT_STYLE_OVERRIDE=Fusion"
       ];
-
-      desktop = "${pkgs.ciscoPacketTracer8}/share/applications/cisco-pt8.desktop.desktop";
     };
   };
 }
