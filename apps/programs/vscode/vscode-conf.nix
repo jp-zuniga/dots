@@ -24,6 +24,14 @@
       editor.tabSize = 4;
     };
 
+    "[rust]" = {
+      editor.defaultFormatter = "rust-lang.rust-analyzer";
+      editor.formatOnPaste = false;
+      editor.formatOnSave = true;
+      editor.formatOnType = false;
+      editor.tabSize = 4;
+    };
+
     "[shellscript]" = {
       editor.defaultFormatter = "foxundermoon.shell-format";
       editor.formatOnPaste = false;
@@ -153,23 +161,23 @@
       nativeServer = "on";
     };
 
-    # rust-analyzer = {
-    #   diagnostics.enable = false;
-    #   inlayHints = {
-    #     chainingHints.enable = false;
-    #     renderColons = false;
-    #     typeHints = {
-    #       enable = false;
-    #       hideClosureInitialization = true;
-    #       hideClosureParameter = true;
-    #       hideNamedConstructor = true;
-    #     };
-    #   };
+    rust-analyzer = {
+      diagnostics.enable = false;
+      inlayHints = {
+        chainingHints.enable = false;
+        renderColons = false;
+        typeHints = {
+          enable = true;
+          hideClosureInitialization = true;
+          hideClosureParameter = true;
+          hideNamedConstructor = true;
+        };
+      };
 
-    #   lens.enable = false;
-    #   restartServerOnConfigChange = true;
-    #   showDependenciesExplorer = false;
-    # };
+      lens.enable = false;
+      restartServerOnConfigChange = true;
+      showDependenciesExplorer = false;
+    };
 
     security.workspace.trust.untrustedFiles = "newWindow";
     telemetry.feedback.enabled = false;

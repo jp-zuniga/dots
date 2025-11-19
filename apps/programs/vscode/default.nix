@@ -23,6 +23,7 @@ in {
         pkgs.vscode-extensions.mvllow.rose-pine
         pkgs.vscode-extensions.pkief.material-icon-theme
         pkgs.vscode-extensions.pkief.material-product-icons
+        pkgs.vscode-extensions.rust-lang.rust-analyzer
         pkgs.vscode-extensions.tamasfe.even-better-toml
         pkgs.vscode-extensions.yzhang.markdown-all-in-one
       ];
