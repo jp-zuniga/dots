@@ -36,5 +36,6 @@ in {
     pkgs.libnotify
     pkgs.swww
     pkgs.xdg-desktop-portal-hyprland
+    pkgs.zoxide
   ];
 }

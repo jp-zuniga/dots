@@ -9,6 +9,9 @@ pkgs.writeText "config.fish" ''
   # pick theme
   fish_config theme choose rose-pine-${theme.rosePineVariant}
 
+  # init zoxide
+  zoxide init --cmd cd fish | source
+
   # on boot
   if ! pgrep Hyprland > /dev/null
     # one-time ssh
