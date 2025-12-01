@@ -4,7 +4,7 @@
   ...
 }: let
   config = import ./rofi-conf.nix {inherit pkgs theme;};
-  rofiWithoutDesktop = pkgs.rofi-wayland.overrideAttrs (oldAttrs: {
+  rofiWithoutDesktop = pkgs.rofi.overrideAttrs (oldAttrs: {
     postBuild =
       (oldAttrs.postBuild or "")
       + ''
