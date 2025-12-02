@@ -9,6 +9,6 @@ in {
     config = import ./git-conf.nix;
     enable = true;
     lfs.enable = true;
-    package = unstable.gitMinimal;
+    package = unstable.gitFull;
   };
 }
