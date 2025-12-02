@@ -1,6 +1,7 @@
 {
   advice = {
     addEmptyPathspec = false;
+    detachedHead = false;
     mergeConflict = false;
     pushNonFastForward = false;
     statusHints = false;
