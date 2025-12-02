@@ -36,8 +36,8 @@ in {
       ga = "git add";
       gb = "git branch";
       gc = "git commit";
+      gca = "git commit -a";
       gcm = "git commit -m";
-      gco = "git config";
       gcl = "git clone";
       gch = "git checkout";
       gd = "git diff";
@@ -64,6 +64,8 @@ in {
       lines = "nix-shell -p tokei --run tokei";
       rfc = "uv tool run ruff check";
       rff = "uv tool run ruff format";
+      shell = "nix-shell --command fish shell.nix";
+      try = "nix-shell --command fish -p";
     };
   };
 
