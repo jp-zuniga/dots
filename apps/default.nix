@@ -40,7 +40,6 @@ in {
 
     systemPackages = [
       pkgs.alejandra
-      pkgs.bat-extras.batgrep
       pkgs.bat-extras.batman
       pkgs.discord
       pkgs.dust
@@ -49,10 +48,12 @@ in {
       pkgs.microfetch
       pkgs.mpv
       pkgs.pastel
+      pkgs.pik
+      pkgs.ripgrep
       pkgs.qview
+      pkgs.tealdeer
       unstable.just
       unstable.uv
-      unstable.railway
     ];
 
     variables = {
