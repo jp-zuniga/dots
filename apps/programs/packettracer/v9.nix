@@ -158,7 +158,12 @@ in
         exec = "packettracer9 %f";
         icon = "packettracer";
         comment = "Cisco Packet Tracer 9.0.0";
-        categories = ["Education" "Network" "Utility"];
+        categories = [
+          "Education"
+          "Network"
+          "Utility"
+        ];
+
         mimeTypes = [
           "application/x-pkt"
           "application/x-pka"

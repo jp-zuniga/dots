@@ -6,6 +6,5 @@
 }: {
   imports = [
     ./idea.nix
-    ./rider.nix
   ];
 }
