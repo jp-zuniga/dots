@@ -1,8 +1,11 @@
-{pkgs, ...}:
-pkgs.writeShellScriptBin "switch-kb" ''
-  hyprctl switchxkblayout current next
+{pkgs, ...}: let
+  hctl = "${pkgs.hyprland}/bin/hyprctl";
+  notify = "${pkgs.libnotify}/bin/notify-send";
+in
+  pkgs.writeShellScriptBin "switch-kb" ''
+    ${hctl} switchxkblayout current next
 
-  NEW=$(get-kb)
+    NEW=$(get-kb)
 
-  pidof hyprlock || notify-send "$NEW"
-''
+    pidof hyprlock || ${notify} "$NEW"
+  ''
