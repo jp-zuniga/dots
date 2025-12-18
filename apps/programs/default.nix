@@ -37,5 +37,10 @@ in {
     pkgs.swww
     pkgs.xdg-desktop-portal-hyprland
     pkgs.zoxide
+
+    # minecraft!
+    (pkgs.prismlauncher.override {
+      additionalPrograms = [pkgs.libxrender];
+    })
   ];
 }
