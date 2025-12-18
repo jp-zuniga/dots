@@ -4,24 +4,7 @@
   pkgs,
   theme,
   ...
-}: let
-  fishConf = import ./fish-conf.nix {inherit pkgs theme;};
-  fishTheme = pkgs.fetchurl {
-    hash = "sha256-WUCByT9bdqKGkWxoxUG184ZY51oczCfe06Fkj/iz7HE=";
-    url = let
-      capitalize = str: let
-        firstChar = lib.substring 0 1 str;
-        rest = lib.substring 1 (lib.stringLength str - 1) str;
-      in
-        lib.toUpper firstChar + rest;
-    in let
-      themeVariant = capitalize theme.rosePineVariant;
-    in "https://raw.githubusercontent.com/rose-pine/fish/main/themes/Rosé%20Pine%20${themeVariant}.theme";
-  };
-
-  fishLocation = config.users.users.jaq.home + "/.config/fish";
-  themeLocation = "${fishLocation}/themes";
-in {
+}: {
   programs.fish = {
     enable = true;
     generateCompletions = false;
@@ -71,7 +54,24 @@ in {
 
   system.activationScripts.fishSetup = {
     deps = [];
-    text = ''
+    text = let
+      fishConf = import ./fish-conf.nix {inherit pkgs theme;};
+      fishTheme = pkgs.fetchurl {
+        hash = "sha256-WUCByT9bdqKGkWxoxUG184ZY51oczCfe06Fkj/iz7HE=";
+        url = let
+          capitalize = str: let
+            firstChar = lib.substring 0 1 str;
+            rest = lib.substring 1 (lib.stringLength str - 1) str;
+          in
+            lib.toUpper firstChar + rest;
+        in let
+          themeVariant = capitalize theme.rosePineVariant;
+        in "https://raw.githubusercontent.com/rose-pine/fish/main/themes/Rosé%20Pine%20${themeVariant}.theme";
+      };
+
+      fishLocation = config.users.users.jaq.home + "/.config/fish";
+      themeLocation = "${fishLocation}/themes";
+    in ''
       mkdir -p ${fishLocation} ${themeLocation}
       ln -sf ${fishConf} ${fishLocation}/config.fish
       ln -sf ${fishTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.theme

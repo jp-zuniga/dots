@@ -3,8 +3,8 @@
   lib,
   ...
 }: let
-  packettracer9 = pkgs.callPackage ./v9-derivation.nix {
-    packetTracerSource = /home/jaq/docs/CiscoPacketTracer_900_Ubuntu_64bit.deb;
+  packettracer9 = pkgs.callPackage ./v9.nix {
+    packetTracerSource = /path/to/CiscoPacketTracer_900_Ubuntu_64bit.deb;
   };
 in {
   environment.systemPackages = [packettracer9];

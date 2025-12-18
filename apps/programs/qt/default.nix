@@ -3,15 +3,7 @@
   pkgs,
   theme,
   ...
-}: let
-  kvantumConfig = pkgs.writeText "kvantum.kvconfig" ''
-    [General]
-    theme=rose-pine
-  '';
-
-  kvantumFlavor = "rose-pine-${theme.rosePineVariant}-iris";
-  kvantumLocation = "${config.users.users.jaq.home}/.config/Kvantum";
-in {
+}: {
   environment = {
     sessionVariables = {
       QT_QPA_PLATFORMTHEME = "qt5ct";
@@ -26,7 +18,15 @@ in {
 
   system.activationScripts.kvantumSetup = {
     deps = [];
-    text = ''
+    text = let
+      kvantumConfig = pkgs.writeText "kvantum.kvconfig" ''
+        [General]
+        theme=rose-pine
+      '';
+
+      kvantumFlavor = "rose-pine-${theme.rosePineVariant}-iris";
+      kvantumLocation = "${config.users.users.jaq.home}/.config/Kvantum";
+    in ''
       mkdir -p ${kvantumLocation} ${kvantumLocation}/rose-pine
       ln -sf ${pkgs.rose-pine-kvantum}/share/Kvantum/themes/${kvantumFlavor}/${kvantumFlavor}.kvconfig ${kvantumLocation}/rose-pine
       ln -sf ${kvantumConfig} ${kvantumLocation}/kvantum.kvconfig
