@@ -13,6 +13,5 @@ in
     btop = pkgs.callPackage ./btop {inherit theme;};
     mako = pkgs.callPackage ./mako {inherit theme;};
     rofi = pkgs.callPackage ./rofi {inherit theme;};
-    sunsetr = pkgs.callPackage ./sunsetr {inherit pkgs;};
     waybar = pkgs.callPackage ./waybar {inherit theme;};
   }

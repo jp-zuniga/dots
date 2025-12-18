@@ -19,6 +19,7 @@ in {
     ./spotify
     ./starship
     ./steam
+    ./sunsetr
     ./vscode
     ./yazi
   ];
