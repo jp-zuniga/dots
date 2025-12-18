@@ -2,7 +2,6 @@
   lib,
   pkgs,
   theme,
-  unstable,
   ...
 }: let
   confConverter = import ./conf-converter.nix lib;
@@ -18,10 +17,7 @@
       name = "hyprland-wrapped";
       conf = ./config/hyprland.nix;
       wrapper = ./bin/hyprland.nix;
-      args = {
-        inherit theme;
-        pkgs = unstable;
-      };
+      args = {inherit pkgs theme;};
     }
     {
       name = "hyprlock-wrapped";

@@ -1,14 +1,11 @@
 {
-  inputs,
   lib,
   pkgs,
   theme,
   ...
 }: let
-  unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
-
   scripts = import ./scripts {inherit pkgs;};
-  wrapped = import ./wrapped {inherit lib pkgs unstable theme;};
+  wrapped = import ./wrapped {inherit lib pkgs theme;};
 in {
   environment.systemPackages = builtins.attrValues (scripts // wrapped);
   imports = [./wrapped/btop/btop-theme.nix];

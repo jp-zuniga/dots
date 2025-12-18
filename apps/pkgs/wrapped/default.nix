@@ -1,11 +1,10 @@
 {
   lib,
   pkgs,
-  unstable,
   theme,
   ...
 }: let
-  hyprPkgs = import ./hypr {inherit lib pkgs theme unstable;};
+  hyprPkgs = import ./hypr {inherit lib pkgs theme;};
 in
   hyprPkgs
   // {
@@ -15,6 +14,6 @@ in
     mako = pkgs.callPackage ./mako {inherit theme;};
     prismlauncher = pkgs.callPackage ./prismlauncher {inherit theme;};
     rofi = pkgs.callPackage ./rofi {inherit theme;};
-    sunsetr = pkgs.callPackage ./sunsetr {inherit pkgs unstable;};
+    sunsetr = pkgs.callPackage ./sunsetr {inherit pkgs;};
     waybar = pkgs.callPackage ./waybar {inherit theme;};
   }
