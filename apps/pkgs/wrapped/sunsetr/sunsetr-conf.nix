@@ -1,8 +1,7 @@
 {pkgs, ...}:
 pkgs.writeText "sunsetr.toml" ''
-  backend = "auto"
+  backend = "hyprland"
   smoothing = true
-  start_hyprsunset = true
   transition_mode = "geo"
 
   startup_duration = 3
