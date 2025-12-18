@@ -26,18 +26,6 @@ in {
 
   environment.systemPackages = [
     cursor-theme
-    pkgs.bc
-    pkgs.brightnessctl
-    pkgs.brillo
-    pkgs.delta
-    pkgs.hyprpicker
-    pkgs.hyprshot
-    pkgs.hyprsunset
-    pkgs.jq
-    pkgs.libnotify
-    pkgs.swww
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.zoxide
 
     # minecraft!
     (pkgs.prismlauncher.override {
