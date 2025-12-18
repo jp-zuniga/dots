@@ -29,7 +29,7 @@
       systems = ["x86_64-linux"];
       imports = [
         ./theme/flake-module.nix
-        ./hosts/t14s/flake-module.nix
+        ./hosts/flake-module.nix
       ];
     };
 }

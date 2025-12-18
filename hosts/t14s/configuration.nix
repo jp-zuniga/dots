@@ -8,5 +8,6 @@
 
   hardware.laptop.enable = true;
   networking.hostName = "t14s";
+  time.timeZone = "America/Managua";
   system.stateVersion = "25.05";
 }
