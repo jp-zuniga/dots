@@ -54,23 +54,25 @@ in {
       "CONTROL SHIFT, S, layoutmsg, orientationleft"
       "CONTROL SHIFT, D, layoutmsg, orientationright"
 
-      "${mod}, SHIFT B, exec, pidof waybar || waybar"
+      "${mod} SHIFT, B, exec, pidof waybar || waybar"
       "${mod}, B, exec, ! pidof waybar || pkill waybar"
       "${mod}, C, exec, code"
       "${mod}, G, togglefloating,"
       "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
       "${mod}, F, exec, firefox"
       "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, M, exec, focus &"
       "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
       "${mod}, Q, killactive,"
       "${mod}, T, exec, ${terminal}"
       "${mod}, U, exec, makoctl dismiss --all"
-      "${mod}, W, exec, random-wall &"
+      "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr"
+      "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr"
 
-      "${mod}, P, exec, adjust-opacity -i &"
-      "${mod}, O, exec, adjust-opacity -d &"
+      "${mod}, M, exec, focus"
+      "${mod}, P, exec, adjust-opacity -i"
+      "${mod}, O, exec, adjust-opacity -d"
+      "${mod}, W, exec, random-wall"
     ];
 
   bindle = [
@@ -82,6 +84,10 @@ in {
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
     ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
+
+    ", XF86AudioPlay, exec, playerctl play-pause"
+    ", XF86AudioPrev, exec, playerctl previous"
+    ", XF86AudioNext, exec, playerctl next"
 
     ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
     ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -131,12 +137,12 @@ in {
   ];
 
   exec-once = [
-    "mako &"
-    "hypridle &"
-    "sunsetr &"
-    "swww-daemon &"
-    "random-wall &"
-    "waybar &"
+    "mako"
+    "hypridle"
+    "sunsetr"
+    "swww-daemon"
+    "random-wall"
+    "waybar"
   ];
 
   general = {
