@@ -5,7 +5,15 @@
 
   boot = {
     initrd = {
-      availableKernelModules = ["nvme" "ehci_pci" "xhci_pci_renesas" "xhci_pci" "usbhid" "rtsx_pci_sdmmc"];
+      availableKernelModules = [
+        "nvme"
+        "ehci_pci"
+        "xhci_pci_renesas"
+        "xhci_pci"
+        "usbhid"
+        "rtsx_pci_sdmmc"
+      ];
+
       kernelModules = [];
     };
 
@@ -22,7 +30,10 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/D380-15BF";
       fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
     };
 
     "/home" = {

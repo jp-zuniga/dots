@@ -15,7 +15,11 @@
       auto-optimise-store = true;
       builders-use-substitutes = true;
       commit-lockfile-summary = "chore: update flake.lock";
-      extra-experimental-features = ["flakes" "nix-command"];
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
+
       keep-derivations = true;
       keep-going = true;
       keep-outputs = true;
