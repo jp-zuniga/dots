@@ -78,7 +78,7 @@ in {
     "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
     "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod} SHIFT, Q, exec, systemctl suspend"
-    "${mod}, SPACE, exec, hyprctl switchxkblayout current next"
+    "${mod}, SPACE, exec, switch-kb"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
     ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
