@@ -30,7 +30,7 @@ hyprColors: {
       dots_spacing = 0.1;
 
       capslock_color = hyprColors.gold;
-      check_color = hyprColors.pine;
+      check_color = hyprColors.love;
       font_color = hyprColors.text;
       inner_color = hyprColors.surface;
       outer_color = hyprColors.iris;
@@ -54,7 +54,7 @@ hyprColors: {
       color = hyprColors.text;
       font_size = 36;
       font_family = "monospace";
-      text = "cmd[update:43200000] date +'%x'";
+      text = "cmd[update:1000] date +'%x'";
     }
     {
       monitor = "";
@@ -65,6 +65,16 @@ hyprColors: {
       font_size = 36;
       font_family = "monospace";
       text = "$TIME";
+    }
+    {
+      monitor = "";
+      position = "0, 20";
+      halign = "center";
+      valign = "bottom";
+      color = hyprColors.pine;
+      font_size = 14;
+      font_family = "monospace";
+      text = "cmd[update:50] get-kb";
     }
   ];
 }
