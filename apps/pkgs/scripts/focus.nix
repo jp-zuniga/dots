@@ -4,7 +4,7 @@ pkgs.writeShellScriptBin "focus" ''
 
   # disable visual eye-candy
   if [ "$MODE" = 1 ] ; then
-    ! pidof waybar  || pkill waybar &
+    ! pidof waybar || pkill waybar &
     hyprctl keyword animations:enabled 0 &
     hyprctl keyword decoration:blur:enabled 0 &
     hyprctl keyword decoration:inactive_opacity 1.0 &
