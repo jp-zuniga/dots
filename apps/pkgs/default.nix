@@ -4,7 +4,7 @@
   theme,
   ...
 }: let
-  scripts = import ./scripts {inherit pkgs;};
+  scripts = import ./scripts {inherit pkgs theme;};
   wrapped = import ./wrapped {inherit lib pkgs theme;};
 in {
   environment.systemPackages = builtins.attrValues (scripts // wrapped);
