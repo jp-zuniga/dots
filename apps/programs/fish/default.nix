@@ -27,11 +27,11 @@ in {
     generateCompletions = false;
     shellAbbrs = {
       ale = "alejandra -q .";
-      e = "custom-eza";
-      ea = "custom-eza -a";
-      el = "custom-eza -al";
-      et = "custom-eza -at";
-      er = "custom-eza -atr";
+      e = "cza";
+      ea = "cza -a";
+      el = "cza -al";
+      et = "cza -at";
+      er = "cza -atr";
       g = "git";
       ga = "git add";
       gb = "git branch";

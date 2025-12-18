@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   adjust-opacity = pkgs.callPackage ./adjust-opacity.nix pkgs;
-  custom-eza = pkgs.callPackage ./custom-eza.nix pkgs;
+  cza = pkgs.callPackage ./cza.nix pkgs;
   focus = pkgs.callPackage ./focus.nix pkgs;
   get-kb = pkgs.callPackage ./get-kb.nix pkgs;
   random-wall = pkgs.callPackage ./random-wall.nix pkgs;

@@ -1,5 +1,5 @@
 {pkgs, ...}:
-pkgs.writeShellScriptBin "custom-eza" ''
+pkgs.writeShellScriptBin "cza" ''
   set -euo pipefail
 
   declare -a args
