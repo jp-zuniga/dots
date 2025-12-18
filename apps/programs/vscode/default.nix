@@ -2,10 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
-  vscodeConf = import ./vscode-conf.nix pkgs;
-in {
+}: {
   environment.systemPackages = [
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = [
@@ -32,7 +29,10 @@ in {
 
   system.activationScripts.vscodeSetup = {
     deps = [];
-    text = ''
+    text = let
+      vscodeConfLocation = config.users.users.jaq.home + "/.config/Code/User";
+      vscodeConf = import ./vscode-conf.nix pkgs;
+    in ''
       mkdir -p ${vscodeConfLocation}
       ln -sf ${vscodeConf} ${vscodeConfLocation}/settings.json
     '';

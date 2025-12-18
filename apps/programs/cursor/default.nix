@@ -10,7 +10,7 @@ in {
     mkdir -p $out/share/icons
     mkdir -p $out/share/icons/default
 
-    ln -s ${pkg}/share/icons/${name} $out/share/icons/${name}
-    ln -s ${pkg}/share/icons/${name}/cursors $out/share/icons/default/cursors
+    ln -sf ${pkg}/share/icons/${name} $out/share/icons/${name}
+    ln -sf ${pkg}/share/icons/${name}/cursors $out/share/icons/default/cursors
   '';
 }

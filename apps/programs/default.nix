@@ -13,7 +13,6 @@ in {
     ./git
     ./gtk
     ./jetbrains
-    ./packettracer
     ./qbittorrent
     ./qt
     ./spotify
