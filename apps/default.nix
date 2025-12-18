@@ -41,6 +41,7 @@ in {
     systemPackages = [
       pkgs.alejandra
       pkgs.bat-extras.batman
+      pkgs.delta
       pkgs.discord
       pkgs.dust
       pkgs.gimp3
@@ -52,6 +53,7 @@ in {
       pkgs.ripgrep
       pkgs.qview
       pkgs.tealdeer
+      pkgs.zoxide
       unstable.just
       unstable.uv
     ];
