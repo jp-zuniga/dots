@@ -4,14 +4,16 @@
   theme,
   ...
 }: let
+  inherit (pkgs) callPackage;
+
   hyprPkgs = import ./hypr {inherit lib pkgs theme;};
 in
   hyprPkgs
   // {
-    alacritty = pkgs.callPackage ./alacritty {inherit theme;};
-    bat = pkgs.callPackage ./bat.nix {inherit theme;};
-    btop = pkgs.callPackage ./btop {inherit theme;};
-    mako = pkgs.callPackage ./mako.nix {inherit theme;};
-    rofi = pkgs.callPackage ./rofi {inherit theme;};
-    waybar = pkgs.callPackage ./waybar {inherit theme;};
+    alacritty = callPackage ./alacritty {inherit theme;};
+    bat = callPackage ./bat.nix {inherit theme;};
+    btop = callPackage ./btop {inherit theme;};
+    mako = callPackage ./mako.nix {inherit theme;};
+    rofi = callPackage ./rofi {inherit theme;};
+    waybar = callPackage ./waybar {inherit theme;};
   }
