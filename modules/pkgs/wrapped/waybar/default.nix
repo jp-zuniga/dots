@@ -11,6 +11,6 @@ in
     paths = [pkgs.waybar];
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
-      wrapProgram $out/bin/waybar --add-flags "-c ${waybarConf} -s ${waybarStyle}"
+      wrapProgram $out/bin/waybar --add-flags "--config ${waybarConf} --style ${waybarStyle}"
     '';
   }
