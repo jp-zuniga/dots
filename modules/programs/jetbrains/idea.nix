@@ -4,7 +4,7 @@
   ...
 }: {
   environment.systemPackages = [
-    unfreeunstable.jetbrains.idea-ultimate
+    unfree-unstable.jetbrains.idea-ultimate
     pkgs.postgresql_jdbc
   ];
 

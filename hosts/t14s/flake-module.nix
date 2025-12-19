@@ -3,8 +3,9 @@
     modules = [
       ./configuration.nix
 
-      ../../pkgs/packages.nix
-      ../../programs/default.nix
+      ../../modules/nixos/laptop.nix
+      ../../modules/pkgs/packages.nix
+      ../../modules/programs
     ];
 
     system = "x86_64-linux";
