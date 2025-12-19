@@ -19,7 +19,7 @@
       inherit system modules;
 
       specialArgs = {
-        inherit inputs pkgs users;
+        inherit inputs users;
 
         flake = config.flake;
         theme = config.flake.lib.mkTheme {inherit pkgs;};
