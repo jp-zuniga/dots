@@ -1,6 +1,12 @@
 {config, ...}: {
   flake.nixosConfigurations.t14s = config.flake.lib.mkHost {
-    modules = [./configuration.nix];
+    modules = [
+      ./configuration.nix
+
+      ../../pkgs/packages.nix
+      ../../programs
+    ];
+
     system = "x86_64-linux";
 
     users.jaq = {

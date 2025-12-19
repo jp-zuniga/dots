@@ -18,7 +18,7 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
-      modules = modules ++ [./modules/flake-module.nix];
+      modules = modules ++ [../modules/nixos];
 
       specialArgs = {
         inherit inputs users;
