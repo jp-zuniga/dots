@@ -45,8 +45,8 @@
       '';
 
     mkFields = generators.toKeyValue {
-      listsAsDuplicateKeys = true;
       inherit indent;
+      listsAsDuplicateKeys = true;
     };
 
     allFields =

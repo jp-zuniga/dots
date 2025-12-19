@@ -23,7 +23,7 @@
     {
       timeout = 360;
       on-timeout = "hyprctl dispatch dpms off";
-      on-resume = "hyprctl dispatch dpms on && brightnessctl - r";
+      on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
     }
     {
       timeout = 600;

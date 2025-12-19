@@ -22,6 +22,6 @@ pkgs.symlinkJoin {
 
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
-    wrapProgram $out/bin/hyprland --add-flags "-c ${conf}"
+    wrapProgram $out/bin/hyprland --add-flags "--config ${conf}"
   '';
 }

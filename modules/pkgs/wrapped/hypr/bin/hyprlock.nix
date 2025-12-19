@@ -8,6 +8,6 @@ pkgs.symlinkJoin {
   paths = [pkgs.hyprlock];
   buildInputs = [pkgs.makeWrapper];
   postBuild = ''
-    wrapProgram $out/bin/hyprlock --add-flags "-c ${conf}"
+    wrapProgram $out/bin/hyprlock --add-flags "--config ${conf}"
   '';
 }
