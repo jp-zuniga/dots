@@ -18,10 +18,18 @@
 
       specialArgs = {
         inherit inputs users;
+
         flake = config.flake;
         theme = config.flake.lib.mkTheme {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
         };
+
+        unfree-unstable = import inputs.nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+        unstable = import inputs.nixpkgs-unstable {inherit system;};
       };
     };
 }
