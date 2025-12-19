@@ -12,17 +12,17 @@
     system,
     users,
     ...
-  }:
+  }: let
+    pkgs = inputs.nixpkgs.legacyPackages.${system};
+  in
     inputs.nixpkgs.lib.nixosSystem {
       inherit system modules;
 
       specialArgs = {
-        inherit inputs users;
+        inherit inputs pkgs users;
 
         flake = config.flake;
-        theme = config.flake.lib.mkTheme {
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        };
+        theme = config.flake.lib.mkTheme {inherit pkgs;};
 
         unfree-unstable = import inputs.nixpkgs-unstable {
           inherit system;
