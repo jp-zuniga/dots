@@ -1,10 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
-  unstable = import inputs.nixpkgs-unstable {system = pkgs.stdenv.hostPlatform.system;};
-in {
+{unstable, ...}: {
   services.postgresql = {
     enable = true;
     package = unstable.postgresql_18;
