@@ -2,11 +2,12 @@
   lib,
   pkgs,
   theme,
+  users,
   ...
 }: let
   inherit (pkgs) callPackage;
 
-  hyprPkgs = import ./hypr {inherit lib pkgs theme;};
+  hyprPkgs = import ./hypr {inherit lib pkgs theme users;};
 in
   hyprPkgs
   // {

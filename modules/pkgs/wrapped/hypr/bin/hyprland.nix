@@ -2,26 +2,35 @@
   conf,
   pkgs,
   theme,
+  hyprland ? pkgs.hyprland,
   ...
-}:
-pkgs.symlinkJoin {
-  name = "hyprland-wrapped";
-  paths = [
-    pkgs.brightnessctl
-    pkgs.brillo
-    pkgs.hyprland
-    pkgs.hyprpicker
-    pkgs.libnotify
-    pkgs.hyprshot
-    pkgs.playerctl
-    pkgs.swww
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xkeyboard_config
-    theme.cursor.hypr.package
-  ];
+}: let
+  wrapped = pkgs.symlinkJoin {
+    name = "hyprland-wrapped";
+    paths = [
+      hyprland
+      pkgs.brightnessctl
+      pkgs.brillo
+      pkgs.hyprshot
+      pkgs.libnotify
+      pkgs.playerctl
+      pkgs.swww
+      theme.cursor.hypr.package
+    ];
 
-  buildInputs = [pkgs.makeWrapper];
-  postBuild = ''
-    wrapProgram $out/bin/hyprland --add-flags "--config ${conf}"
-  '';
-}
+    buildInputs = [pkgs.makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/hyprland --add-flags "--config ${conf}"
+    '';
+  };
+in
+  wrapped
+  // {
+    override = args:
+      import ./hyprland.nix {
+        inherit pkgs conf theme;
+        hyprland = hyprland.override args;
+      };
+
+    version = hyprland.version;
+  }
