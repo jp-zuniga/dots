@@ -6,15 +6,15 @@
   shell = "fish";
   terminal = "alacritty";
 
-  # taken from:
-  #   - author: https://github.com/sioodmy
-  #   - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
+  # - author: https://github.com/sioodmy
+  # - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
   #
-  # licensed under: GPLv3
-  #   - original license: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
+  # license:
+  #   - GPLv3
+  #     - https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
   #
   # original attribution:
-  #   credits: fufexan
+  #   - credits: fufexan
   #     - binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   #
   # changes:
@@ -69,20 +69,22 @@ in {
       "CONTROL SHIFT, S, layoutmsg, orientationleft"
       "CONTROL SHIFT, D, layoutmsg, orientationright"
 
+      "${mod}, G, togglefloating,"
+      "${mod}, Q, killactive,"
+      "${mod}, U, exec, makoctl dismiss --all"
+
+      "${mod}, C, exec, code"
+      "${mod}, F, exec, firefox"
+
+      "${mod}, T, exec, ${terminal}"
+      "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
+
+      "${mod}, L, exec, pidof hyprlock || hyprlock"
+      "${mod}, N, exec, pidof nmtui || ${terminal} -e ${shell} -c nmtui"
+      "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
+
       "${mod} SHIFT, B, exec, pidof waybar || waybar"
       "${mod}, B, exec, ! pidof waybar || pkill waybar"
-      "${mod}, C, exec, code"
-      "${mod}, G, togglefloating,"
-      "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
-      "${mod}, F, exec, firefox"
-      "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, N, exec, ${terminal} -e ${shell} -c nmtui"
-      "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
-      "${mod}, Q, killactive,"
-      "${mod}, T, exec, ${terminal}"
-      "${mod}, U, exec, makoctl dismiss --all"
-      "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr && notify-send 'Sunsetr activated!'"
-      "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"
 
       "${mod}, M, exec, focus"
       "${mod}, P, exec, adjust-opacity -i"
@@ -92,8 +94,12 @@ in {
 
   bindle = [
     "${mod}, ESCAPE, exit,"
-    "${mod} SHIFT, I, exec, pidof hypridle || hypridle && notify-send 'Hypridle activated!'"
+
+    "${mod} SHIFT, I, exec, pidof hypridle || hypridle & disown && notify-send 'Hypridle activated!'"
     "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
+    "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr & disown && notify-send 'Sunsetr activated!'"
+    "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"
+
     "${mod} SHIFT, Q, exec, systemctl suspend"
     "${mod}, SPACE, exec, switch-kb"
 
