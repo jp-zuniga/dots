@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  ...
 }: let
   alacrittyConf = import ./alacritty-conf.nix {inherit pkgs theme;};
 in

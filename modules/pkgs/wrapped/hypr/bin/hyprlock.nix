@@ -1,7 +1,6 @@
 {
   conf,
   pkgs,
-  theme,
   ...
 }:
 pkgs.symlinkJoin {

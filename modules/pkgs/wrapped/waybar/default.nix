@@ -3,7 +3,7 @@
   theme,
   ...
 }: let
-  waybarConf = import ./waybar-conf.nix pkgs;
+  waybarConf = import ./waybar-conf.nix {inherit pkgs;};
   waybarStyle = import ./waybar-style.nix {inherit pkgs theme;};
 in
   pkgs.symlinkJoin {

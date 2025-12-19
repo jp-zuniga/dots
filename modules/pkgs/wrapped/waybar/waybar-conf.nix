@@ -104,4 +104,4 @@
     };
   };
 in
-  pkgs.writeText "waybar-config.json" (builtins.toJSON settings)
+  pkgs.writeText "waybar-conf.json" (builtins.toJSON settings)

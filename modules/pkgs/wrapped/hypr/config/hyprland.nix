@@ -1,4 +1,4 @@
-hyprColors: let
+{hyprColors, ...}: let
   mod = "Super";
 
   fileManager = "yazi";
@@ -6,6 +6,21 @@ hyprColors: let
   shell = "fish";
   terminal = "alacritty";
 
+  # taken from:
+  #   - author: https://github.com/sioodmy
+  #   - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
+  #
+  # licensed under: GPLv3
+  #   - original license: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
+  #
+  # original attribution:
+  #   credits: fufexan
+  #     - binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+  #
+  # changes:
+  #   - added "$mod + ALT" bind (that i NEVER use! :D)
+  #
+  # ---------------------------------------------------------------------------------------
   workspaces = builtins.concatLists (builtins.genList (
       x: let
         ws = let
@@ -66,8 +81,8 @@ in {
       "${mod}, Q, killactive,"
       "${mod}, T, exec, ${terminal}"
       "${mod}, U, exec, makoctl dismiss --all"
-      "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr"
-      "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr"
+      "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr && notify-send 'Sunsetr activated!'"
+      "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"
 
       "${mod}, M, exec, focus"
       "${mod}, P, exec, adjust-opacity -i"
@@ -157,6 +172,7 @@ in {
   };
 
   gesture = ["3, horizontal, workspace"];
+
   input = {
     follow_mouse = 1;
     kb_layout = "us,latam";

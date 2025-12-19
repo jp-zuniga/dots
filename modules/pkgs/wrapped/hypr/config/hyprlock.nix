@@ -1,4 +1,4 @@
-hyprColors: {
+{hyprColors, ...}: {
   general = {
     monitor = "";
     disable_loading_bar = true;
@@ -54,7 +54,7 @@ hyprColors: {
       color = hyprColors.text;
       font_size = 36;
       font_family = "monospace";
-      text = "cmd[update:1000] date +'%x'";
+      text = "cmd[update:43200000] date +'%x'";
     }
     {
       monitor = "";

@@ -3,7 +3,7 @@
   theme,
   ...
 }:
-pkgs.writeText "style.css" ''
+pkgs.writeText "waybar-style.css" ''
   * {
       border:        0px;
       border-radius: 0px;
