@@ -3,11 +3,10 @@
   lib,
   pkgs,
   theme,
-  users,
   ...
 }: let
   scripts = import ./scripts {inherit pkgs theme;};
-  wrapped = import ./wrapped {inherit lib pkgs theme users;};
+  wrapped = import ./wrapped {inherit lib pkgs theme;};
 in {
   environment.systemPackages = builtins.attrValues (
     scripts // (builtins.removeAttrs wrapped ["hyprland-wrapped"])
