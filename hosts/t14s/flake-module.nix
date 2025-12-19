@@ -4,7 +4,7 @@
       ./configuration.nix
 
       ../../pkgs/packages.nix
-      ../../programs
+      ../../programs/default.nix
     ];
 
     system = "x86_64-linux";

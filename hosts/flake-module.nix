@@ -18,7 +18,7 @@
     inputs.nixpkgs.lib.nixosSystem {
       inherit system;
 
-      modules = modules ++ [../modules/nixos];
+      modules = modules ++ [../modules/nixos/default.nix];
 
       specialArgs = {
         inherit inputs users;
