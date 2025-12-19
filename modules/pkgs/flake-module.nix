@@ -1,9 +1,6 @@
 {config, ...}: {
-  perSystem = {
-    config,
-    pkgs,
-    ...
-  }: {
+  perSystem = {pkgs, ...}: let
+  in {
     packages = let
       theme = config.flake.lib.mkTheme {inherit pkgs;};
 
