@@ -8,17 +8,16 @@
   ];
 
   flake.lib.mkHost = {
-    system,
     modules,
+    system,
+    users,
     ...
   }:
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system;
-
-      modules = modules ++ [../../apps];
+      inherit system modules;
 
       specialArgs = {
-        inherit inputs;
+        inherit inputs users;
         flake = config.flake;
         theme = config.flake.lib.mkTheme {
           pkgs = inputs.nixpkgs.legacyPackages.${system};
