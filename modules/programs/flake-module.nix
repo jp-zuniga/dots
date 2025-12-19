@@ -8,6 +8,7 @@
     gtk = ./gtk;
     jetbrains = ./jetbrains;
     prismlauncher = ./prismlauncher.nix;
+    programs = ./packages.nix;
     qbittorrent = ./qbittorrent.nix;
     qt = ./qt.nix;
     spicetify = ./spicetify.nix;

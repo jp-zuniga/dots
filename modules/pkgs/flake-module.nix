@@ -16,5 +16,5 @@
       scripts // wrapped;
   };
 
-  flake.nixosModules.pkgs = ./default.nix;
+  flake.nixosModules.pkgs = ./packages.nix;
 }
