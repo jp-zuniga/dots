@@ -9,9 +9,9 @@ in
   hyprPkgs
   // {
     alacritty = pkgs.callPackage ./alacritty {inherit theme;};
-    bat = pkgs.callPackage ./bat {inherit theme;};
+    bat = pkgs.callPackage ./bat.nix {inherit theme;};
     btop = pkgs.callPackage ./btop {inherit theme;};
-    mako = pkgs.callPackage ./mako {inherit theme;};
+    mako = pkgs.callPackage ./mako.nix {inherit theme;};
     rofi = pkgs.callPackage ./rofi {inherit theme;};
     waybar = pkgs.callPackage ./waybar {inherit theme;};
   }

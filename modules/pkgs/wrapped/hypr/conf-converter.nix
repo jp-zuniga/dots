@@ -10,7 +10,7 @@
 #   - formatted file with `alejandra`
 #
 # ---------------------------------------------------------------------------------------
-lib: {
+{lib, ...}: {
   attrs,
   indentLevel ? 0,
   importantPrefixes ? ["$"],

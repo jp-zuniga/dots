@@ -1,0 +1,20 @@
+{
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
+    packages = let
+      theme = config.flake.lib.mkTheme {inherit pkgs;};
+
+      scripts = import ./scripts {inherit pkgs theme;};
+      wrapped = import ./wrapped {
+        inherit (pkgs) lib;
+        inherit pkgs theme;
+      };
+    in
+      scripts // wrapped;
+  };
+
+  flake.nixosModules.pkgs = ./default.nix;
+}

@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  ...
 }:
 pkgs.writeText "alacritty.toml" ''
   [colors.primary]
