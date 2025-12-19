@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   flake.lib.mkTheme = {pkgs, ...}: let
     cursorSize = 30;
 
