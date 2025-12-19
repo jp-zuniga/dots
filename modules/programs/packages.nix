@@ -55,17 +55,15 @@ in {
       HYPRCURSOR_SIZE = theme.cursor.size;
       HYPRCURSOR_THEME = theme.cursor.hypr.name;
 
-      XCURSOR_PATH = lib.mkDefault (builtins.concatStringsSep ":" [
-        "$HOME/.icons"
-        "$HOME/.local/share/icons"
-        "/run/current-system/sw/share/icons"
-        "/run/opengl-driver/share/icons"
-      ]);
+      # XCURSOR_PATH = lib.mkDefault (builtins.concatStringsSep ":" [
+      #   "$HOME/.icons"
+      #   "$HOME/.local/share/icons"
+      #   "/run/current-system/sw/share/icons"
+      #   "/run/opengl-driver/share/icons"
+      # ]);
 
       XCURSOR_SIZE = theme.cursor.size;
       XCURSOR_THEME = theme.cursor.x.name;
     };
   };
-
-  programs.hyprland.enable = true;
 }
