@@ -1,5 +1,5 @@
 {
-  inputs,
+  config,
   lib,
   ...
 }: {
@@ -9,7 +9,7 @@
     description = "Shared library functions.";
   };
 
-  flake.lib = {
+  config.flake.lib = {
     capitalize = import ./capitalize.nix {inherit lib;};
   };
 }
