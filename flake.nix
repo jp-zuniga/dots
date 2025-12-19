@@ -28,8 +28,9 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       imports = [
-        ./theme/flake-module.nix
         ./hosts/flake-module.nix
+        ./modules/flake-module.nix
+        ./theme/flake-module.nix
       ];
     };
 }
