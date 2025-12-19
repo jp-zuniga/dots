@@ -16,7 +16,9 @@
     pkgs = inputs.nixpkgs.legacyPackages.${system};
   in
     inputs.nixpkgs.lib.nixosSystem {
-      inherit system modules;
+      inherit system;
+
+      modules = modules ++ [./modules/flake-module.nix];
 
       specialArgs = {
         inherit inputs users;
