@@ -1,13 +1,8 @@
 {hyprColors, ...}: {
-  general = {
-    monitor = "";
-    disable_loading_bar = true;
-    hide_cursor = true;
-  };
+  general.hide_cursor = true;
 
   background = [
     {
-      monitor = "";
       blur_passes = 1;
       blur_size = 3;
       color = hyprColors.bg;
@@ -17,7 +12,6 @@
 
   input-field = [
     {
-      monitor = "eDP-1";
       position = "0, 0";
       size = "360, 60";
       font_family = "monospace";
@@ -47,7 +41,6 @@
 
   label = [
     {
-      monitor = "";
       position = "20, -8";
       halign = "left";
       valign = "top";
@@ -57,7 +50,6 @@
       text = "cmd[update:43200000] date +'%x'";
     }
     {
-      monitor = "";
       position = "-20, -8";
       halign = "right";
       valign = "top";
@@ -67,7 +59,6 @@
       text = "$TIME";
     }
     {
-      monitor = "";
       position = "0, 20";
       halign = "center";
       valign = "bottom";
