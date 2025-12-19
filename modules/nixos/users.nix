@@ -1,15 +1,16 @@
-{pkgs, ...}: {
-  users.users.jaq = {
-    extraGroups = [
-      "libvirtd"
-      "networkmanager"
-      "wheel"
-    ];
-
-    isNormalUser = true;
-    homix = true;
-    shell = pkgs.fish;
-  };
+{
+  pkgs,
+  users,
+  ...
+}: {
+  users.users =
+    builtins.mapAttrs (name: user: {
+      inherit (user) extraGroups home;
+      homix = true;
+      isNormalUser = true;
+      shell = pkgs.fish;
+    })
+    users;
 
   security.sudo = {
     enable = true;
