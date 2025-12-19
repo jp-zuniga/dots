@@ -8,8 +8,6 @@
       wrapped = import ./wrapped {
         inherit (pkgs) lib;
         inherit pkgs theme;
-
-        users = config.flake.nixosConfigurations.t14s.config.users.users;
       };
     in
       scripts // wrapped;

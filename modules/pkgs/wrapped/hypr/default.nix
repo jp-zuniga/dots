@@ -2,14 +2,13 @@
   lib,
   pkgs,
   theme,
-  users,
   ...
 }: let
   confConverter = import ./conf-converter.nix {inherit lib;};
   hyprColors = import ./hypr-colors.nix {inherit lib theme;};
   hyprs = [
     {
-      args = {inherit users;};
+      args = {};
       conf = ./config/hypridle.nix;
       name = "hypridle-wrapped";
       wrapper = ./bin/hypridle.nix;
