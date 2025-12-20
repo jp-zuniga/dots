@@ -11,5 +11,6 @@
 
   config.flake.lib = {
     capitalize = import ./capitalize.nix {inherit lib;};
+    toTOML = import ./to-toml.nix {inherit lib;};
   };
 }
