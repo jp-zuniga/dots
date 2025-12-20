@@ -10,6 +10,7 @@
     generateCompletions = false;
     shellAbbrs = {
       ale = "alejandra -q .";
+      bm = "batman";
       e = "cza";
       ea = "cza -a";
       el = "cza -al";
