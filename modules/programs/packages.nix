@@ -8,12 +8,12 @@
   customizeDesktopEntries = ''
     set -eu
 
-    for file in \
+    for FILE in \
       base.desktop code-url-handler.desktop \
       cups.desktop draw.desktop fish.desktop math.desktop mpv.desktop \
       nixos-manual.desktop startcenter.desktop yazi.desktop
     do
-      rm -f "$out/share/applications/$file" || true
+      rm -f "$out/share/applications/$FILE" || true
     done
 
     rename() {
@@ -46,8 +46,6 @@ in {
       pkgs.qview
       pkgs.tealdeer
       pkgs.zoxide
-      unstable.just
-      unstable.uv
     ];
 
     variables = {
