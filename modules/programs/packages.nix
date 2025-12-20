@@ -33,7 +33,6 @@ in {
     extraSetup = customizeDesktopEntries;
     systemPackages = [
       pkgs.alejandra
-      pkgs.bat-extras.batman
       pkgs.delta
       pkgs.discord
       pkgs.dust

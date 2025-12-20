@@ -9,6 +9,9 @@ pkgs.writeText "config.fish" ''
   # pick theme
   fish_config theme choose rose-pine-${theme.rosePineVariant}
 
+  abbr --add --position anywhere -- --help '--help | bat -plhelp'
+  abbr --add --position anywhere -- -h '-h | bat -plhelp'
+
   # init zoxide
   zoxide init --cmd cd fish | source
 

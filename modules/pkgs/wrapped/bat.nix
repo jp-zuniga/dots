@@ -4,13 +4,21 @@
   ...
 }: let
   batTheme = pkgs.fetchurl {
-    url = "https://github.com/rose-pine/tm-theme/blob/main/dist/rose-pine-${theme.rosePineVariant}.tmTheme";
-    hash = "sha256-W+ZR6Acd8gDO6nbS0af0ko5eCKkzcMEn+Xg5Hvt88kA=";
+    url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/rose-pine-${theme.rosePineVariant}.tmTheme";
+    hash = "sha256-yMDEO7RK66V9CzVFvFQj7ZwIvLfFQD6ytes7cbxgh5Y=";
   };
 in
   pkgs.symlinkJoin {
     name = "bat-wrapped";
-    paths = [pkgs.bat];
+    paths = let
+      bextras = pkgs.bat-extras;
+    in [
+      pkgs.bat
+      bextras.batgrep
+      bextras.batman
+      bextras.batpipe
+    ];
+
     buildInputs = [pkgs.makeWrapper];
     postBuild = ''
       export BAT_CONFIG_DIR="$out/share/bat"
@@ -23,9 +31,12 @@ in
 
       cp -f ${batTheme} "$THEME_DIR/rose-pine-${theme.rosePineVariant}.tmTheme"
 
-      BAT_CACHE_PATH="$out/share/bat/cache" $out/bin/bat cache --clear
-      BAT_CACHE_PATH="$out/share/bat/cache" $out/bin/bat cache --build
+      $out/bin/bat cache --clear
+      $out/bin/bat cache --build
 
-      wrapProgram $out/bin/bat --add-flags "--theme=rose-pine-${theme.rosePineVariant}"
+      wrapProgram $out/bin/bat \
+        --add-flags "--theme=rose-pine-${theme.rosePineVariant}" \
+        --set BAT_CONFIG_DIR "$out/share/bat" \
+        --set BAT_CACHE_PATH "$out/share/bat/cache"
     '';
   }
