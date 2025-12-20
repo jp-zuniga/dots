@@ -7,7 +7,6 @@
 }: {
   programs.fish = {
     enable = true;
-    generateCompletions = false;
     shellAbbrs = {
       ale = "alejandra -q .";
       bm = "batman";
@@ -46,9 +45,8 @@
       gu = "git rm --cached";
       gur = "git rm -r --cached";
       lines = "nix-shell -p tokei --run tokei";
-      rfc = "uv tool run ruff check";
-      rff = "uv tool run ruff format";
       shell = "nix-shell --command fish shell.nix";
+      start = "hyprland > /dev/null 2>&1";
       try = "nix-shell --command fish -p";
     };
   };

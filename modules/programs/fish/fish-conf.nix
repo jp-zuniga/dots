@@ -2,26 +2,26 @@
   pkgs,
   theme,
   ...
-}:
-pkgs.writeText "config.fish" ''
-  set -g fish_greeting ""
+}: let
+  star = "${pkgs.starship}/bin/starship";
+  zox = "${pkgs.zoxide}/bin/zoxide";
+in
+  pkgs.writeText "config.fish" ''
+    set -g fish_greeting ""
 
-  # pick theme
-  fish_config theme choose rose-pine-${theme.rosePineVariant}
+    fish_config theme choose rose-pine-${theme.rosePineVariant}
 
-  abbr --add --position anywhere -- --help '--help | bat -plhelp'
-  abbr --add --position anywhere -- -h '-h | bat -plhelp'
+    abbr --add --position anywhere -- --help '--help | bat -plhelp'
+    abbr --add --position anywhere -- -h '-h | bat -plhelp'
 
-  # init zoxide
-  zoxide init --cmd cd fish | source
+    ${zox} init --cmd cd fish | source
 
-  # on boot
-  if ! pgrep Hyprland > /dev/null
-    # one-time ssh
-    eval (ssh-agent -c)
-    ssh-add ~/.ssh/id_ed25519
+    if not set -q SSH_AUTH_SOCK
+      eval (ssh-agent -c)
+      ssh-add ~/.ssh/id_ed25519
+    end
 
-    # start graphical session
-    hyprland > /dev/null
-  end
-''
+    if set -q HYPRLAND_INSTANCE_SIGNATURE
+      ${star} init fish | source
+    end
+  ''
