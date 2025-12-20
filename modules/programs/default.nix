@@ -5,7 +5,6 @@
     ./fish
     ./git
     ./gtk
-    ./jetbrains
     ./starship
     ./sunsetr
     ./vscode
@@ -16,7 +15,6 @@
     ./prismlauncher.nix
     ./qbittorrent.nix
     ./qt.nix
-    ./spicetify.nix
     ./steam.nix
   ];
 }
