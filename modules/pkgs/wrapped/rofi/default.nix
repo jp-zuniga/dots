@@ -4,30 +4,17 @@
   ...
 }: let
   config = import ./rofi-conf.nix {inherit pkgs theme;};
-  rofiWithoutDesktop = pkgs.rofi.overrideAttrs (oldAttrs: {
-    postBuild =
-      (oldAttrs.postBuild or "")
-      + ''
-        rm -rf $out/share/applications
-      '';
-
-    postInstall =
-      (oldAttrs.postInstall or "")
-      + ''
-        rm -rf $out/share/applications
-      '';
-  });
+  rofi = pkgs.rofi-unwrapped;
 in
-  pkgs.symlinkJoin {
-    name = "rofi-wrapped";
-    paths = [rofiWithoutDesktop];
-    buildInputs = [pkgs.makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/rofi --add-flags "-config ${config}"
-      rm -rf $out/share/applications
-    '';
+  pkgs.runCommand "rofi-wrapped" {
+    nativeBuildInputs = [pkgs.makeWrapper];
+  } ''
+    mkdir -p $out/bin
+    mkdir -p $out/share
 
-    postInstall = ''
-      rm -rf $out/share/applications
-    '';
-  }
+    ln -s ${rofi}/bin/rofi $out/bin/rofi
+    ln -s ${rofi}/share/rofi $out/share/rofi
+    ln -s ${rofi}/share/icons $out/share/icons
+
+    wrapProgram $out/bin/rofi --add-flags "-config ${config}"
+  ''
