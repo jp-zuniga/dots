@@ -9,7 +9,7 @@
     set -eu
 
     for file in \
-      Alacritty.desktop base.desktop btop.desktop code-url-handler.desktop \
+      base.desktop code-url-handler.desktop \
       cups.desktop draw.desktop fish.desktop math.desktop mpv.desktop \
       nixos-manual.desktop startcenter.desktop yazi.desktop
     do
@@ -54,14 +54,6 @@ in {
     variables = {
       HYPRCURSOR_SIZE = theme.cursor.size;
       HYPRCURSOR_THEME = theme.cursor.hypr.name;
-
-      # XCURSOR_PATH = lib.mkDefault (builtins.concatStringsSep ":" [
-      #   "$HOME/.icons"
-      #   "$HOME/.local/share/icons"
-      #   "/run/current-system/sw/share/icons"
-      #   "/run/opengl-driver/share/icons"
-      # ]);
-
       XCURSOR_SIZE = theme.cursor.size;
       XCURSOR_THEME = theme.cursor.x.name;
     };
