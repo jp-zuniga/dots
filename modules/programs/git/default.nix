@@ -3,6 +3,8 @@
     config = import ./git-conf.nix;
     enable = true;
     lfs.enable = true;
-    package = unstable.gitFull;
+    package = unstable.gitMinimal.override {
+      withManual = true;
+    };
   };
 }
