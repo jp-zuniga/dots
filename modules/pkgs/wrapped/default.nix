@@ -1,4 +1,5 @@
 {
+  flake,
   lib,
   pkgs,
   theme,
@@ -10,7 +11,7 @@
 in
   hyprPkgs
   // {
-    alacritty = callPackage ./alacritty {inherit theme;};
+    alacritty = callPackage ./alacritty {inherit flake theme;};
     bat = callPackage ./bat.nix {inherit theme;};
     btop = callPackage ./btop {inherit theme;};
     mako = callPackage ./mako.nix {inherit theme;};

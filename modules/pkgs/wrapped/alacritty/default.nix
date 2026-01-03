@@ -1,9 +1,10 @@
 {
+  flake,
   pkgs,
   theme,
   ...
 }: let
-  alacrittyConf = import ./alacritty-conf.nix {inherit pkgs theme;};
+  alacrittyConf = import ./alacritty-conf.nix {inherit flake pkgs theme;};
 in
   pkgs.runCommand "alacritty-wrapped" {
     nativeBuildInputs = [pkgs.makeWrapper];
