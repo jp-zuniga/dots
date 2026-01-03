@@ -11,6 +11,7 @@
         vsc-pkgs.bbenoist.nix
         vsc-pkgs.bierner.markdown-preview-github-styles
         vsc-pkgs.charliermarsh.ruff
+        vsc-pkgs.editorconfig.editorconfig
         vsc-pkgs.kamadorueda.alejandra
         vsc-pkgs.llvm-vs-code-extensions.vscode-clangd
         vsc-pkgs.ms-python.python

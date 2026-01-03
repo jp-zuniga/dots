@@ -33,30 +33,42 @@
     };
 
     "[shellscript]" = {
-      editor.defaultFormatter = "foxundermoon.shell-format";
-      editor.formatOnPaste = false;
-      editor.formatOnSave = true;
-      editor.formatOnType = false;
+      # editor.defaultFormatter = "foxundermoon.shell-format";
+      # editor.formatOnPaste = false;
+      # editor.formatOnSave = true;
+      # editor.formatOnType = false;
       editor.tabSize = 2;
     };
 
-    accessibility.hideAccessibleView = true;
-    accessibility.underlineLinks = true;
+    accessibility = {
+      hideAccessibleView = true;
+      underlineLinks = true;
+    };
+
     alejandra.program = "alejandra";
     chat.disableAIFeatures = true;
     clangd = {
+      arguments = ["--query-driver=/nix/store/**/*"];
+      detectExtensionConflicts = false;
       enable = true;
       enableCodeCompletion = true;
       enableHover = true;
+      fallbackFlags = ["-xc++"];
       inactiveRegions.opacity = 0.6;
+      onConfigChanged = "restart";
     };
 
-    editor.accessibilitySupport = "off";
-    editor.fontFamily = "monospace";
-    editor.minimap.maxColumn = 90;
-    editor.minimap.renderCharacters = false;
-    editor.minimap.size = "fit";
-    editor.mouseWheelZoom = true;
+    editor = {
+      accessibilitySupport = "off";
+      fontFamily = "monospace";
+      minimap = {
+        maxColumn = 90;
+        renderCharacters = false;
+        size = "fit";
+      };
+
+      mouseWheelZoom = true;
+    };
 
     evenBetterToml = {
       completion.maxKeys = 3;
@@ -81,32 +93,43 @@
       taplo.configFile.enabled = false;
     };
 
-    explorer.autoReveal = "focusNoScroll";
-    explorer.confirmDelete = false;
-    explorer.confirmDragAndDrop = false;
-    explorer.confirmPasteNative = false;
+    explorer = {
+      autoReveal = "focusNoScroll";
+      confirmDelete = false;
+      confirmDragAndDrop = false;
+      confirmPasteNative = false;
+    };
+
     extensions.ignoreRecommendations = true;
+    files = {
+      associations = {
+        justfile = "shellscript";
+      };
 
-    files.autoSave = "afterDelay";
-    files.autoSaveDelay = 1000;
+      autoSave = "afterDelay";
+      autoSaveDelay = 1000;
 
-    files.exclude = {
-      "**/.git" = false;
+      exclude = {
+        "**/.git" = false;
+      };
+
+      readonlyInclude = {
+        "**/.cargo/git/checkouts/**/*.rs" = true;
+        "**/.cargo/registry/src/**/*.rs" = true;
+        "**/lib/rustlib/src/rust/library/**/*.rs" = true;
+      };
+
+      trimTrailingWhitespace = true;
     };
 
-    files.readonlyInclude = {
-      "**/.cargo/git/checkouts/**/*.rs" = true;
-      "**/.cargo/registry/src/**/*.rs" = true;
-      "**/lib/rustlib/src/rust/library/**/*.rs" = true;
+    git = {
+      autofetch = true;
+      confirmSync = false;
+      enableSmartCommit = true;
+      openRepositoryInParentFolders = "always";
     };
 
-    files.trimTrailingWhitespace = true;
-    git.autofetch = true;
-    git.confirmSync = false;
-    git.enableSmartCommit = true;
-    git.openRepositoryInParentFolders = "always";
     github.gitProtocol = "ssh";
-
     python = {
       analysis = {
         autoFormatStrings = true;
@@ -179,9 +202,12 @@
       showDependenciesExplorer = false;
     };
 
+    scm.defaultViewMode = "tree";
     security.workspace.trust.untrustedFiles = "newWindow";
-    telemetry.feedback.enabled = false;
-    telemetry.telemetryLevel = "off";
+    telemetry = {
+      feedback.enabled = false;
+      telemetryLevel = "off";
+    };
 
     terminal.integrated = {
       cursorBlinking = true;
@@ -219,8 +245,11 @@
 
       colorTheme = "Rosé Pine Moon";
       commandPalette.experimental.enableNaturalLanguageSearch = false;
-      editor.editorActionsLocation = "hidden";
-      editor.empty.hint = "hidden";
+      editor = {
+        editorActionsLocation = "hidden";
+        empty.hint = "hidden";
+      };
+
       enableExperiments = false;
       iconTheme = "material-icon-theme";
       layoutControl.enabled = false;
@@ -233,8 +262,10 @@
       tips.enabled = false;
     };
 
-    zenMode.hideLineNumbers = false;
-    zenMode.showTabs = "none";
+    zenMode = {
+      hideLineNumbers = false;
+      showTabs = "none";
+    };
   };
 in
   pkgs.writeText "vscode-conf.json" (builtins.toJSON settings)
