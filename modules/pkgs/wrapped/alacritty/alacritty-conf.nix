@@ -1,81 +1,103 @@
 {
+  flake,
   pkgs,
   theme,
   ...
-}:
-pkgs.writeText "alacritty.toml" ''
-  [colors.primary]
-  background = "${theme.bg}"
-  bright_foreground = "${theme.text}"
-  dim_foreground = "${theme.subtle}"
-  foreground = "${theme.text}"
+}: let
+  settings = {
+    colors = {
+      bright = {
+        black = theme.muted;
+        blue = theme.foam;
+        cyan = theme.rose;
+        green = theme.pine;
+        magenta = theme.iris;
+        red = theme.love;
+        white = theme.text;
+        yellow = theme.gold;
+      };
 
-  [colors.cursor]
-  cursor = "${theme.highlightHigh}"
-  text = "${theme.text}"
+      cursor = {
+        cursor = theme.highlightHigh;
+        text = theme.text;
+      };
 
-  [colors.vi_mode_cursor]
-  cursor = "${theme.highlightHigh}"
-  text = "${theme.text}"
+      dim = {
+        black = theme.muted;
+        blue = theme.foam;
+        cyan = theme.rose;
+        green = theme.pine;
+        magenta = theme.iris;
+        red = theme.love;
+        white = theme.text;
+        yellow = theme.gold;
+      };
 
-  [colors.search.matches]
-  background = "${theme.overlay}"
-  foreground = "${theme.subtle}"
+      hints = {
+        end = {
+          background = theme.surface;
+          foreground = theme.muted;
+        };
 
-  [colors.search.focused_match]
-  background = "${theme.rose}"
-  foreground = "${theme.bg}"
+        start = {
+          background = theme.surface;
+          foreground = theme.subtle;
+        };
+      };
 
-  [colors.hints.start]
-  background = "${theme.surface}"
-  foreground = "${theme.subtle}"
+      footer_bar = {
+        background = theme.surface;
+        foreground = theme.text;
+      };
 
-  [colors.hints.end]
-  background = "${theme.surface}"
-  foreground = "${theme.muted}"
+      line_indicator = {
+        background = "None";
+        foreground = "None";
+      };
 
-  [colors.line_indicator]
-  background = "None"
-  foreground = "None"
+      normal = {
+        black = theme.overlay;
+        blue = theme.foam;
+        cyan = theme.rose;
+        green = theme.pine;
+        magenta = theme.iris;
+        red = theme.love;
+        white = theme.text;
+        yellow = theme.gold;
+      };
 
-  [colors.footer_bar]
-  background = "${theme.surface}"
-  foreground = "${theme.text}"
+      primary = {
+        background = theme.bg;
+        bright_foreground = theme.text;
+        dim_foreground = theme.subtle;
+        foreground = theme.text;
+      };
 
-  [colors.selection]
-  background = "${theme.highlightMed}"
-  text = "${theme.text}"
+      search = {
+        focused_match = {
+          background = theme.rose;
+          foreground = theme.bg;
+        };
 
-  [colors.normal]
-  black = "${theme.overlay}"
-  blue = "${theme.foam}"
-  cyan = "${theme.rose}"
-  green = "${theme.pine}"
-  magenta = "${theme.iris}"
-  red = "${theme.love}"
-  white = "${theme.text}"
-  yellow = "${theme.gold}"
+        matches = {
+          background = theme.overlay;
+          foreground = theme.subtle;
+        };
+      };
 
-  [colors.bright]
-  black = "${theme.muted}"
-  blue = "${theme.foam}"
-  cyan = "${theme.rose}"
-  green = "${theme.pine}"
-  magenta = "${theme.iris}"
-  red = "${theme.love}"
-  white = "${theme.text}"
-  yellow = "${theme.gold}"
+      selection = {
+        background = theme.highlightMed;
+        text = theme.text;
+      };
 
-  [colors.dim]
-  black = "${theme.muted}"
-  blue = "${theme.foam}"
-  cyan = "${theme.rose}"
-  green = "${theme.pine}"
-  magenta = "${theme.iris}"
-  red = "${theme.love}"
-  white = "${theme.text}"
-  yellow = "${theme.gold}"
+      vi_mode_cursor = {
+        cursor = theme.highlightHigh;
+        text = theme.text;
+      };
+    };
 
-  [font]
-  size = 12
-''
+    env.TERM = "xterm-256color";
+    font.size = 12;
+  };
+in
+  pkgs.writeText "alacritty.toml" (flake.lib.toTOML settings)
