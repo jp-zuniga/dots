@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = [
     (pkgs.prismlauncher.override {
-      additionalPrograms = [pkgs.libxrender];
+      additionalPrograms = [pkgs.libxrender pkgs.jdk25];
     })
   ];
 }
