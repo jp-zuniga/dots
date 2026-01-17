@@ -11,7 +11,7 @@
     text = let
       yaziTheme = import ./yazi-theme.nix {inherit pkgs theme;};
       yaziConf = import ./yazi-conf.nix {inherit pkgs;};
-      yaziLocation = users.jaq.home + "/.config/yazi";
+      yaziLocation = "${users.jaq.home}/.config/yazi";
       flavorLocation = "${yaziLocation}/flavors/rose-pine-${theme.rosePineVariant}.yazi";
     in ''
       mkdir -p ${yaziLocation} ${flavorLocation}

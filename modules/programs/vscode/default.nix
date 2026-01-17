@@ -28,7 +28,7 @@
   system.activationScripts.vscodeSetup = {
     deps = [];
     text = let
-      vscodeConfLocation = users.jaq.home + "/.config/Code/User";
+      vscodeConfLocation = "${users.jaq.home}/.config/Code/User";
       vscodeConf = import ./vscode-conf.nix {inherit pkgs;};
     in ''
       mkdir -p ${vscodeConfLocation}

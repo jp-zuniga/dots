@@ -63,7 +63,7 @@
         in "https://raw.githubusercontent.com/rose-pine/fish/main/themes/Rosé%20Pine%20${themeVariant}.theme";
       };
 
-      fishLocation = users.jaq.home + "/.config/fish";
+      fishLocation = "${users.jaq.home}/.config/fish";
       themeLocation = "${fishLocation}/themes";
     in ''
       mkdir -p ${fishLocation} ${themeLocation}

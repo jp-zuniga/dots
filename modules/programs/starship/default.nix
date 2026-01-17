@@ -6,7 +6,7 @@
   ...
 }: let
   starshipConf = import ./star-conf.nix {inherit flake pkgs theme;};
-  starshipLocation = users.jaq.home + "/.config";
+  starshipLocation = "${users.jaq.home}/.config";
 in {
   environment.systemPackages = [pkgs.starship];
 
