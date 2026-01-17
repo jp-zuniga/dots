@@ -1,27 +1,22 @@
-# originally written by: 0atman
-#   - author: https://github.com/0atman
-#   - source: https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
-#
-# licensed under: n/a
-#   - no license was provided by author
-#   - its inclusion in this repository is licensed under the GPLv3
-#   - license: https://github.com/jp-zuniga/dots/blob/main/LICENSE
-#
-# changes:
-#   - minor qol and code-style adjustments to fit my preferences
-#   - identical to `rebuild` script, except with the `--upgrade` flag
-#
-# ---------------------------------------------------------------------------------------
 {pkgs, ...}: let
   ale = "${pkgs.alejandra}/bin/alejandra";
   git = "${pkgs.git}/bin/git";
   notify = "${pkgs.libnotify}/bin/notify-send";
 in
+  # - author: https://github.com/0atman
+  # - source: https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
+  #
+  # - license:
+  #   - n/a
+  #   - its inclusion in this repository is licensed under the GPLv3
+  #     - https://github.com/jp-zuniga/dots/blob/main/LICENSE
+  #
+  # - changes:
+  #   - minor qol and code-style adjustments to fit my preferences
+  #   - identical to `rebuild` script, except with the `--upgrade` flag
+  #
+  # ---------------------------------------------------------------------------------------
   pkgs.writeShellScriptBin "upgrade" ''
-    # Based on the work of 0atman:
-    # - https://gist.github.com/0atman/1a5133b842f929ba4c1e195ee67599d5
-    # ------------------------------------------------------------------
-
     CONFIG=$HOME/dev/dots
     HOST=$(hostname)
 
@@ -59,3 +54,5 @@ in
     cd - > /dev/null
     ${notify} "NixOS upgrade successful!"
   ''
+# ---------------------------------------------------------------------------------------
+

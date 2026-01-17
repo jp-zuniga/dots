@@ -1,11 +1,11 @@
 # - author: https://github.com/sioodmy
 # - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
 #
-# license:
+# - license:
 #   - GPLv3
 #     - https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
 #
-# changes:
+# - changes:
 #   - renamed function to `confConverter`
 #   - formatted file with `alejandra`
 #

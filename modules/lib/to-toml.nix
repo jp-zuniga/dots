@@ -1,13 +1,13 @@
 # - author: nprindle
-# - posted by: https://github.com/chessai
+# - poster: https://github.com/chessai
 # - source: https://github.com/NixOS/nix/issues/3929
 #
-# licensed under: n/a
-#   - no license was found
+# - license:
+#   - n/a
 #   - its inclusion in this repository is licensed under the GPLv3
-#     - license: https://github.com/jp-zuniga/dots/blob/main/LICENSE
+#     - https://github.com/jp-zuniga/dots/blob/main/LICENSE
 #
-# changes:
+# - changes:
 #   - rewritten to have no external dependencies and only use `nixpkgs.lib`
 #
 # ---------------------------------------------------------------------------------------
