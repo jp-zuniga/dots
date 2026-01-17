@@ -1,20 +1,19 @@
-# originally written by: dromse
-#   - author: https://github.com/dromse
-#   - source: https://github.com/dromse/hyprland-keyboard-layout/blob/35c21863c90becc30fffc5a85b7072ce434bea9d/hyprland-keyboard-layout.sh
-#
-# licensed under: n/a
-#   - no license was provided by author
-#   - its inclusion in this repository is licensed under the GPLv3
-#   - license: https://github.com/jp-zuniga/dots/blob/main/LICENSE
-#
-# changes:
-#   - removed substring calculation in final pipe
-#
-# ---------------------------------------------------------------------------------------
 {pkgs, ...}: let
   device = "at-translated-set-2-keyboard";
   hctl = "${pkgs.hyprland}/bin/hyprctl";
 in
+  # - author: https://github.com/dromse
+  # - source: https://github.com/dromse/hyprland-keyboard-layout/blob/35c21863c90becc30fffc5a85b7072ce434bea9d/hyprland-keyboard-layout.sh
+  #
+  # - license:
+  #   - n/a
+  #   - its inclusion in this repository is licensed under the GPLv3
+  #     - https://github.com/jp-zuniga/dots/blob/main/LICENSE
+  #
+  # - changes:
+  #   - removed substring calculation in final pipe
+  #
+  # ---------------------------------------------------------------------------------------
   pkgs.writeShellScriptBin "get-kb" ''
     DEVICE=${device}
     HEADING="active keymap:"
@@ -23,3 +22,5 @@ in
 
     echo 󰌌 $LAYOUT
   ''
+# ---------------------------------------------------------------------------------------
+

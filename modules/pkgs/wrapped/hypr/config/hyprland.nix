@@ -9,15 +9,15 @@
   # - author: https://github.com/sioodmy
   # - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
   #
-  # license:
+  # - license:
   #   - GPLv3
   #     - https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
   #
-  # original attribution:
+  # - original attribution:
   #   - credits: fufexan
   #     - binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   #
-  # changes:
+  # - changes:
   #   - added "$mod + ALT" bind (that i NEVER use! :D)
   #
   # ---------------------------------------------------------------------------------------
@@ -34,6 +34,7 @@
       ]
     )
     10);
+  # ---------------------------------------------------------------------------------------
 in {
   animations = {
     enabled = true;
