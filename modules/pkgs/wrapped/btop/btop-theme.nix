@@ -7,7 +7,7 @@
   system.activationScripts.btopSetup = {
     deps = [];
     text = let
-      btopThemeLocation = users.jaq.home + "/.config/btop/themes";
+      btopThemeLocation = "${users.jaq.home}/.config/btop/themes";
       btopTheme = pkgs.fetchurl {
         url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine-${theme.rosePineVariant}.theme";
         hash = "sha256-iJNhWAQ6xzl6EsI0wWxtN14/KqZ7YWZFJaqFOZjLO8g=";

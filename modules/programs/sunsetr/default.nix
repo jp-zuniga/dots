@@ -7,7 +7,7 @@
   system.activationScripts.sunsetrSetup = {
     deps = [];
     text = let
-      confLocation = users.jaq.home + "/.config/sunsetr";
+      confLocation = "${users.jaq.home}/.config/sunsetr";
       sunsetrConf = import ./sunsetr-conf.nix {inherit pkgs;};
     in ''
       mkdir -p ${confLocation}

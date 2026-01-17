@@ -9,7 +9,7 @@
     deps = [];
     text = let
       ezaTheme = import ./eza-theme.nix {inherit pkgs theme;};
-      themeLocation = users.jaq.home + "/.config/eza";
+      themeLocation = "${users.jaq.home}/.config/eza";
     in ''
       mkdir -p ${themeLocation}
       ln -sf ${ezaTheme} ${themeLocation}/theme.yml
