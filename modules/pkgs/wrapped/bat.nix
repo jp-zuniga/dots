@@ -16,7 +16,6 @@ in
       pkgs.bat
       bextras.batgrep
       bextras.batman
-      bextras.batpipe
     ];
 
     buildInputs = [pkgs.makeWrapper];
@@ -36,7 +35,7 @@ in
 
       wrapProgram $out/bin/bat \
         --add-flags "--theme=rose-pine-${theme.rosePineVariant}" \
-        --set BAT_CONFIG_DIR "$out/share/bat" \
-        --set BAT_CACHE_PATH "$out/share/bat/cache"
+        --set BAT_CACHE_PATH "$out/share/bat/cache" \
+        --set BAT_CONFIG_DIR "$out/share/bat"
     '';
   }
