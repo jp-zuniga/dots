@@ -26,6 +26,11 @@
         flake = config.flake;
         theme = config.flake.lib.mkTheme {inherit pkgs;};
 
+        unfree-pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
         unfree-unstable = import inputs.nixpkgs-unstable {
           inherit system;
           config.allowUnfree = true;
