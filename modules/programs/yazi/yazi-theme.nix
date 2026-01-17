@@ -1,10 +1,12 @@
 {
+  flake,
   pkgs,
   theme,
   ...
-}:
-pkgs.writeText "theme.toml" ''
-  [flavor]
-  dark = "rose-pine-${theme.rosePineVariant}"
-  light = "rose-pine-${theme.rosePineVariant}"
-''
+}: let
+  yaziTheme.flavor = {
+    dark = "rose-pine-${theme.rosePineVariant}";
+    light = "rose-pine-${theme.rosePineVariant}";
+  };
+in
+  pkgs.writeText "theme.toml" (flake.lib.toTOML yaziTheme)
