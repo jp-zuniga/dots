@@ -15,6 +15,8 @@
       el = "cza -al";
       et = "cza -at";
       er = "cza -atr";
+      start = "hyprland > /dev/null 2>&1";
+
       g = "git";
       ga = "git add";
       gb = "git branch";
@@ -42,11 +44,11 @@
       gst = "git stash";
       gsh = "git show --pretty=format:'%n%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
       gsw = "git switch";
-      gu = "git rm --cached";
-      gur = "git rm -r --cached";
+      gu = "git restore --staged";
+
       lines = "nix-shell -p tokei --run tokei";
+      ndev = "nix develop --command fish --profile";
       shell = "nix-shell --command fish shell.nix";
-      start = "hyprland > /dev/null 2>&1";
       try = "nix-shell --command fish -p";
     };
   };
