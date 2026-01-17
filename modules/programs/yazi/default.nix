@@ -1,5 +1,6 @@
 {
   inputs,
+  flake,
   pkgs,
   theme,
   users,
@@ -9,8 +10,9 @@
   system.activationScripts.yaziSetup = {
     deps = [];
     text = let
-      yaziTheme = import ./yazi-theme.nix {inherit pkgs theme;};
-      yaziConf = import ./yazi-conf.nix {inherit pkgs;};
+      yaziConf = import ./yazi-conf.nix {inherit flake pkgs;};
+      yaziTheme = import ./yazi-theme.nix {inherit flake pkgs theme;};
+
       yaziLocation = "${users.jaq.home}/.config/yazi";
       flavorLocation = "${yaziLocation}/flavors/rose-pine-${theme.rosePineVariant}.yazi";
     in ''
