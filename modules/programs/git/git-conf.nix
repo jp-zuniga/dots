@@ -1,4 +1,4 @@
-{
+{users, ...}: {
   advice = {
     addEmptyPathspec = false;
     detachedHead = false;
@@ -7,10 +7,7 @@
     statusHints = false;
   };
 
-  branch = {
-    sort = "-committerdate";
-  };
-
+  branch.sort = "-committerdate";
   color = {
     branch = {
       current = "magenta";
@@ -28,14 +25,8 @@
     };
   };
 
-  column = {
-    ui = "auto";
-  };
-
-  commit = {
-    gpgsign = true;
-  };
-
+  column.ui = "auto";
+  commit.gpgsign = true;
   core = {
     autocrlf = "input";
     compression = 9;
@@ -58,26 +49,11 @@
     navigate = true;
   };
 
-  gpg = {
-    format = "ssh";
-  };
-
-  init = {
-    defaultBranch = "main";
-  };
-
-  interactive = {
-    diffFilter = "delta --color-only";
-  };
-
-  log = {
-    graphColors = "blue,yellow,cyan,magenta,green,red";
-  };
-
-  merge = {
-    conflictstyle = "diff3";
-  };
-
+  gpg.format = "ssh";
+  init.defaultBranch = "main";
+  interactive.diffFilter = "delta --color-only";
+  log.graphColors = "blue,yellow,cyan,magenta,green,red";
+  merge.conflictstyle = "diff3";
   pull = {
     default = "current";
     rebase = true;
@@ -93,35 +69,23 @@
     missingCommitsCheck = "warn";
   };
 
-  rerere = {
-    enabled = true;
-  };
-
+  rerere.enabled = true;
   status = {
     branch = true;
     showStash = true;
     showUntrackedFiles = "all";
   };
 
-  tag = {
-    sort = "-taggerdate";
-  };
-
+  tag.sort = "-taggerdate";
   user = {
     name = "jp-zuniga";
     email = "jp.zuniga.dev@gmail.com";
-    signingKey = "/home/jaq/.ssh/id_ed25519.pub";
+    signingKey = "${users.jaq.home}/.ssh/id_ed25519.pub";
   };
 
   url = {
-    "https://github.com/" = {
-      insteadOf = "gh://";
-    };
-    "git@github.com:" = {
-      insteadOf = "gh:";
-    };
-    "git@github.com:jp-zuniga/" = {
-      insteadOf = "jpz:";
-    };
+    "https://github.com/".insteadOf = "gh://";
+    "git@github.com:".insteadOf = "gh:";
+    "git@github.com:jp-zuniga/".insteadOf = "jpz:";
   };
 }
