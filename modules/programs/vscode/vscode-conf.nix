@@ -1,43 +1,74 @@
 {pkgs, ...}: let
-  settings = {
-    "[cpp]" = {
-      editor.defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
-      editor.formatOnPaste = false;
-      editor.formatOnSave = true;
-      editor.formatOnType = false;
-      editor.tabSize = 2;
+  settings = let
+    fmtOptions = {
+      formatOnPaste = false;
+      formatOnSave = true;
+      formatOnType = false;
+      tabSize = 2;
     };
 
-    "[nix]" = {
-      editor.defaultFormatter = "kamadorueda.alejandra";
-      editor.formatOnPaste = false;
-      editor.formatOnSave = true;
-      editor.formatOnType = false;
-      editor.tabSize = 2;
+    prettier = "esbenp.prettier-vscode";
+  in {
+    "[c]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
     };
 
-    "[python]" = {
-      editor.defaultFormatter = "charliermarsh.ruff";
-      editor.formatOnPaste = false;
-      editor.formatOnSave = true;
-      editor.formatOnType = false;
-      editor.tabSize = 4;
+    "[cpp]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
     };
 
-    "[rust]" = {
-      editor.defaultFormatter = "rust-lang.rust-analyzer";
-      editor.formatOnPaste = false;
-      editor.formatOnSave = true;
-      editor.formatOnType = false;
-      editor.tabSize = 4;
+    "[css]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = prettier;
     };
 
-    "[shellscript]" = {
-      # editor.defaultFormatter = "foxundermoon.shell-format";
-      # editor.formatOnPaste = false;
-      # editor.formatOnSave = true;
-      # editor.formatOnType = false;
-      editor.tabSize = 2;
+    "[html]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = prettier;
+    };
+
+    "[json]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = prettier;
+    };
+
+    "[jsonc]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = prettier;
+    };
+
+    "[markdown]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = prettier;
+    };
+
+    "[nix]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "kamadorueda.alejandra";
+    };
+
+    "[python]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "charliermarsh.ruff";
+      tabSize = 4;
+    };
+
+    "[rust]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "rust-lang.rust-analyzer";
+      tabSize = 4;
+    };
+
+    "[shellscript]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "mads-hartmann.bash-ide-vscode";
+    };
+
+    "[toml]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "tamasfe.even-better-toml";
     };
 
     accessibility = {
@@ -159,7 +190,8 @@
       createEnvironment.trigger = "off";
       defaultInterpreterPath = "**/.venv/bin/python3";
       experiments.enabled = false;
-      languageServer = "Pylance";
+      languageServer = "None";
+      missingPackage.severity = "Warning";
       pipenvPath = "";
       pixiToolPath = "";
       poetryPath = "";
@@ -177,10 +209,8 @@
     };
 
     ruff = {
-      codeAction.disableRuleComment = {
-        enable = false;
-      };
-
+      codeAction.disableRuleComment.enable = false;
+      lint.preview = true;
       nativeServer = "on";
     };
 
@@ -218,6 +248,10 @@
         bash = null;
         "JavaScript Debug Terminal" = null;
       };
+    };
+
+    ty = {
+      diagnosticMode = "workspace";
     };
 
     update = {
