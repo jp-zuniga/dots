@@ -46,7 +46,7 @@
       gsw = "git switch";
       gu = "git restore --staged";
 
-      lines = "nix-shell -p tokei --run tokei";
+      lines = "nix-shell -p tokei --run 'tokei --sort lines'";
       ndev = "nix develop --command fish --profile";
       shell = "nix-shell --command fish shell.nix";
       try = "nix-shell --command fish -p";

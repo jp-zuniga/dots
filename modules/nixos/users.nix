@@ -21,7 +21,7 @@
             command = "/run/current-system/sw/bin/${command}";
             options = ["NOPASSWD"];
           }
-        ) ["nixos-rebuild" "reboot"];
+        ) ["nh" "nixos-rebuild" "reboot"];
 
         groups = ["wheel"];
       }

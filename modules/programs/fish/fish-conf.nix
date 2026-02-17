@@ -3,6 +3,7 @@
   theme,
   ...
 }: let
+  denv = "${pkgs.direnv}/bin/direnv";
   star = "${pkgs.starship}/bin/starship";
   zox = "${pkgs.zoxide}/bin/zoxide";
 in
@@ -14,6 +15,7 @@ in
     abbr --add --position anywhere -- --help '--help | bat -plhelp'
     abbr --add --position anywhere -- -h '-h | bat -plhelp'
 
+    ${denv} hook fish | source
     ${zox} init --cmd cd fish | source
 
     if not set -q SSH_AUTH_SOCK

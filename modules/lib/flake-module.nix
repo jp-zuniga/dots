@@ -4,9 +4,9 @@
   ...
 }: {
   options.flake.lib = lib.mkOption {
-    type = lib.types.attrsOf lib.types.raw;
     default = {};
     description = "Shared library functions.";
+    type = lib.types.attrsOf lib.types.raw;
   };
 
   config.flake.lib = {
