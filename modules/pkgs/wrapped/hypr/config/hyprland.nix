@@ -198,10 +198,7 @@ in {
     vfr = true;
   };
 
-  monitor = [
-    "eDP-1, 1920x1080@60, 0x0, 1, mirror, DP-1"
-    ", preferred, auto, 1, mirror, eDP-1"
-  ];
+  monitor = ["eDP-1, 1920x1080@60, 0x0, 1, mirror, DP-1"];
 
   windowrule = [
     "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"

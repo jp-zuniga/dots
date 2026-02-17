@@ -5,8 +5,8 @@
   ...
 }: {
   options.sys.cursor = lib.mkOption {
-    type = lib.types.package;
     description = "Themed cursor package.";
+    type = lib.types.package;
   };
 
   config = let

@@ -30,7 +30,7 @@
   core = {
     autocrlf = "input";
     compression = 9;
-    editor = "code --wait";
+    editor = "code -r --wait > /dev/null 2>&1";
     pager = "delta | $PAGER";
     preloadIndex = true;
     whitespace = "error";
