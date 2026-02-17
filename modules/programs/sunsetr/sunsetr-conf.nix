@@ -7,20 +7,20 @@
     backend = "wayland";
 
     sunset = "18:00:00";
-    sunrise = "06:00:00";
-    transition_duration = 5;
-    transition_mode = "center";
+    sunrise = "08:00:00";
+    transition_duration = 30;
+    transition_mode = "finish_by";
 
     smoothing = true;
-    startup_duration = 3;
-    shutdown_duration = 3;
-    adaptive_interval = 1;
+    startup_duration = 5;
+    shutdown_duration = 5;
+    adaptive_interval = 5;
 
     day_gamma = 100;
-    day_temp = 6500;
+    day_temp = 6000;
 
     night_gamma = 90;
-    night_temp = 3750;
+    night_temp = 3500;
   };
 in
   pkgs.writeText "sunsetr.toml" (flake.lib.toTOML settings)
