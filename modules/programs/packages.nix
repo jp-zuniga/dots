@@ -8,12 +8,13 @@
   customizeDesktopEntries = ''
     set -eu
 
-    for FILE in \
-      base.desktop code-url-handler.desktop \
-      cups.desktop draw.desktop fish.desktop math.desktop mpv.desktop \
-      nixos-manual.desktop startcenter.desktop yazi.desktop
+    for file in \
+      base.desktop code-url-handler.desktop  cups.desktop \
+      draw.desktop fish.desktop impress.desktop math.desktop \
+      mpv.desktop nixos-manual.desktop startcenter.desktop \
+      yazi.desktop
     do
-      rm -f "$out/share/applications/$FILE" || true
+      rm -f "$out/share/applications/$file" || true
     done
 
     rename() {
@@ -22,11 +23,8 @@
 
     rename "$out/share/applications/calc.desktop" "LibreOffice Calc" "Calc"
     rename "$out/share/applications/code.desktop" "Visual Studio Code" "Code"
-    rename "$out/share/applications/gimp.desktop" "GNU Image Manipulation Program" "GIMP"
-    rename "$out/share/applications/idea-ultimate.desktop" "IntelliJ IDEA" "IDEA"
-    rename "$out/share/applications/impress.desktop" "LibreOffice Impress" "Impress"
+    rename "$out/share/applications/idea.desktop" "IntelliJ IDEA" "IDEA"
     rename "$out/share/applications/org.prismlauncher.PrismLauncher.desktop" "Prism Launcher" "Minecraft"
-    rename "$out/share/applications/virt-manager.desktop" "Virtual Machine Manager" "VM Manager"
     rename "$out/share/applications/writer.desktop" "LibreOffice Writer" "Writer"
   '';
 in {
@@ -35,13 +33,14 @@ in {
     systemPackages = [
       pkgs.alejandra
       pkgs.delta
+      pkgs.direnv
       pkgs.discord
       pkgs.dust
-      pkgs.gimp3
       pkgs.hyperfine
       pkgs.libreoffice-fresh
       pkgs.microfetch
       pkgs.mpv
+      pkgs.nix-direnv
       pkgs.pastel
       pkgs.pik
       pkgs.ripgrep
