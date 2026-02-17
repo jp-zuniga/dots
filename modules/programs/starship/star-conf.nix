@@ -6,7 +6,6 @@
 }: let
   settings = {
     format = "[ ](fg:overlay)$directory[ ](fg:overlay)$git_branch$git_status$character";
-    right_format = "$time";
 
     palette = "rose-pine";
     palettes = {
