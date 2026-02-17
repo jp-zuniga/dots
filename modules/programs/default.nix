@@ -11,6 +11,7 @@
     ./yazi
 
     ./cursor.nix
+    ./idea.nix
     ./packages.nix
     ./prismlauncher.nix
     ./qbittorrent.nix
