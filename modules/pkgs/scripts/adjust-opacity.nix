@@ -21,4 +21,5 @@ in
     esac
 
     ${hctl} dispatch setprop activewindow alpha $NEW_ALPHA
+    ${hctl} dispatch setprop activewindow alphainactive $NEW_ALPHA
   ''
