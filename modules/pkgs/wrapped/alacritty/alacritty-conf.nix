@@ -98,6 +98,12 @@
 
     env.TERM = "xterm-256color";
     font.size = 12;
+
+    window = {
+      decorations = "None";
+      padding.x = 10;
+      padding.y = 5;
+    };
   };
 in
   pkgs.writeText "alacritty.toml" (flake.lib.toTOML settings)

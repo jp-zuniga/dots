@@ -4,8 +4,17 @@
   theme,
   ...
 }: let
+  close = "[](fg:overlay)";
+  open = "[](fg:overlay)";
+  openClose = "[ ](fg:overlay)";
+
+  openDiverged = "[\\[](bold bg:overlay fg:iris)";
+  divergedAhead = "[ \\($ahead_count\\)](bold bg:overlay fg:foam)";
+  divergedBehind = "[  \\($behind_count\\)](bold bg:overlay fg:rose)";
+  closeDiverged = "[\\]](bold bg:overlay fg:iris)";
+
   settings = {
-    format = "[ ](fg:overlay)$directory[ ](fg:overlay)$git_branch$git_status$character";
+    format = "$directory$git_branch$git_status $character ";
 
     palette = "rose-pine";
     palettes = {
@@ -22,56 +31,57 @@
 
     character = {
       error_symbol = "[■](bold fg:love)";
-      format = "$symbol ";
+      format = "$symbol";
       success_symbol = "[●](bold fg:iris)";
     };
 
     directory = {
-      format = "[ $path ]($style)";
+      format = "${open}[$path]($style)${close}";
       style = "bg:overlay fg:pine";
-      truncation_length = 4;
+      truncation_length = 3;
       truncation_symbol = ".../";
     };
 
     git_branch = {
-      format = "[](fg:overlay)[ $symbol $branch ]($style)[ ](fg:overlay)";
+      format = " ${open}[$symbol $branch]($style)${close}";
       style = "bold bg:overlay fg:foam";
-      symbol = "";
+      symbol = "󰊢";
     };
 
     git_status = {
       ahead = "[ \\($count\\)](bold bg:overlay fg:foam)";
       behind = "[ \\($count\\)](bold bg:overlay fg:rose)";
+      conflicted = "[= ](bold bg:overlay fg:love)";
       deleted = "[×\\($count\\) ](bold bg:overlay fg:love)";
       disabled = false;
-      diverged = "[\\[](bold bg:overlay fg:iris)[ \\($ahead_count\\)](bold bg:overlay fg:foam)[  \\($behind_count\\)](bold bg:overlay fg:rose)[\\]](bold bg:overlay fg:iris)";
-      format = "[](fg:overlay)([$all_status$ahead_behind]($style))[ ](fg:overlay)";
+      diverged = "${openDiverged}${divergedAhead}${divergedBehind}${closeDiverged}";
+      format = " ${open}[$all_status$ahead_behind]($style)${close}";
       modified = "[!\\($count\\) ](bold bg:overlay fg:rose)";
       renamed = "[ \\($count\\) ](bold bg:overlay fg:iris)";
       staged = "[+\\($count\\) ](bold bg:overlay fg:pine)";
       stashed = "[\\$ ](bold bg:overlay fg:iris)";
-      style = "bold bg:overlay fg:love";
-      untracked = "[?\\($count\\) ](bold bg:overlay fg:gold)";
-      up_to_date = "[✔](bg:overlay fg:iris)";
+      style = "bg:overlay";
+      untracked = "[?\\($count\\)](bold bg:overlay fg:gold) ";
+      up_to_date = "[✔](bold bg:overlay fg:iris)";
     };
 
     os = {
-      disabled = false;
+      disabled = true;
       style = "bg:overlay fg:iris";
     };
 
     time = {
-      disabled = false;
-      format = "[](fg:overlay)[ $time ]($style)[ ](fg:overlay)";
+      disabled = true;
+      format = "(fg:overlay)[ $time ]($style)(fg:overlay)";
       style = "bold bg:overlay fg:rose";
       time_format = "%I:%M%P";
       use_12hr = true;
     };
 
     username = {
-      disabled = false;
+      disabled = true;
       format = "[ $user ]($style)";
-      show_always = true;
+      show_always = false;
       style_root = "bg:overlay fg:love";
       style_user = "bg:overlay fg:iris";
     };

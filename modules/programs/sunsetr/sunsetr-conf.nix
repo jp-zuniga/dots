@@ -6,15 +6,15 @@
   settings = {
     backend = "wayland";
 
-    sunset = "18:00:00";
-    sunrise = "08:00:00";
-    transition_duration = 30;
+    sunset = "18:30:00";
+    sunrise = "09:30:00";
+    transition_duration = 60;
     transition_mode = "finish_by";
 
     smoothing = true;
     startup_duration = 5;
     shutdown_duration = 5;
-    adaptive_interval = 5;
+    adaptive_interval = 1;
 
     day_gamma = 100;
     day_temp = 6000;
