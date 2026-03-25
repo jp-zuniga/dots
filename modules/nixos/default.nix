@@ -9,6 +9,7 @@
     ./postgres.nix
     ./security.nix
     ./users.nix
+    ./virtualisation.nix
     ./wayland.nix
     ./xdg.nix
   ];

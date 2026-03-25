@@ -25,6 +25,7 @@
     rename "$out/share/applications/code.desktop" "Visual Studio Code" "Code"
     rename "$out/share/applications/idea.desktop" "IntelliJ IDEA" "IDEA"
     rename "$out/share/applications/org.prismlauncher.PrismLauncher.desktop" "Prism Launcher" "Minecraft"
+    rename "$out/share/applications/virt-manager.desktop" "Virtual Machine Manager" "VM Manager"
     rename "$out/share/applications/writer.desktop" "LibreOffice Writer" "Writer"
   '';
 in {
