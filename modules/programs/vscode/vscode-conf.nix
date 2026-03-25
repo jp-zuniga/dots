@@ -39,6 +39,12 @@
       defaultFormatter = prettier;
     };
 
+    "[just]".editor = {
+      inherit fmtOptions;
+      defaultFormatter = "nefrob.vscode-just-syntax";
+      tabSize = 4;
+    };
+
     "[markdown]".editor = {
       inherit fmtOptions;
       defaultFormatter = prettier;
@@ -133,10 +139,6 @@
 
     extensions.ignoreRecommendations = true;
     files = {
-      associations = {
-        justfile = "shellscript";
-      };
-
       autoSave = "afterDelay";
       autoSaveDelay = 1000;
 
@@ -188,7 +190,7 @@
       };
 
       createEnvironment.trigger = "off";
-      defaultInterpreterPath = "**/.venv/bin/python3";
+      defaultInterpreterPath = "\${workspaceFolder}/.venv/bin/python3";
       experiments.enabled = false;
       languageServer = "None";
       missingPackage.severity = "Warning";

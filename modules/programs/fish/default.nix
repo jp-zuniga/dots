@@ -21,7 +21,7 @@
       ga = "git add";
       gb = "git branch";
       gc = "git commit";
-      gca = "git commit -a";
+      gca = "git commit -am";
       gcm = "git commit -m";
       gcl = "git clone";
       gch = "git checkout";

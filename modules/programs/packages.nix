@@ -12,7 +12,7 @@
       base.desktop code-url-handler.desktop  cups.desktop \
       draw.desktop fish.desktop impress.desktop math.desktop \
       mpv.desktop nixos-manual.desktop startcenter.desktop \
-      yazi.desktop
+      writer.desktop yazi.desktop
     do
       rm -f "$out/share/applications/$file" || true
     done
