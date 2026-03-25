@@ -21,6 +21,7 @@
       [ -f "$1" ] && sed -i "s/$2/$3/" "$1" || true
     }
 
+    rename "$out/share/applications/android-studio.desktop" "Android Studio (stable channel)" "Android Studio"
     rename "$out/share/applications/calc.desktop" "LibreOffice Calc" "Calc"
     rename "$out/share/applications/code.desktop" "Visual Studio Code" "Code"
     rename "$out/share/applications/idea.desktop" "IntelliJ IDEA" "IDEA"
