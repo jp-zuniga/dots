@@ -11,6 +11,7 @@
     ./yazi
 
     ./cursor.nix
+    ./direnv.nix
     ./idea.nix
     ./packages.nix
     ./prismlauncher.nix

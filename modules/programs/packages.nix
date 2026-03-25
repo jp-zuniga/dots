@@ -34,14 +34,12 @@ in {
     systemPackages = [
       pkgs.alejandra
       pkgs.delta
-      pkgs.direnv
       pkgs.discord
       pkgs.dust
       pkgs.hyperfine
       pkgs.libreoffice-fresh
       pkgs.microfetch
       pkgs.mpv
-      pkgs.nix-direnv
       pkgs.pastel
       pkgs.pik
       pkgs.ripgrep
