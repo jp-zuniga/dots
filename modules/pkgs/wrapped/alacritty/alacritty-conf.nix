@@ -102,7 +102,6 @@
     window = {
       decorations = "None";
       padding.x = 10;
-      padding.y = 5;
     };
   };
 in

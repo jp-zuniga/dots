@@ -21,6 +21,7 @@
     #     vsc-pkgs.ms-python.python
     #     vsc-pkgs.ms-python.vscode-pylance
     #     vsc-pkgs.mvllow.rose-pine
+    #     vsc-pkgs.nefrob.vscode-just-syntax
     #     vsc-pkgs.pkief.material-icon-theme
     #     vsc-pkgs.pkief.material-product-icons
     #     vsc-pkgs.rust-lang.rust-analyzer
