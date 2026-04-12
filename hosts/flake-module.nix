@@ -23,8 +23,12 @@
       specialArgs = {
         inherit inputs users;
 
-        flake = config.flake;
-        theme = config.flake.lib.mkTheme {inherit pkgs;};
+        inherit (config) flake;
+
+        theme = config.flake.lib.mkTheme {
+          inherit (config.flake) lib;
+          inherit pkgs;
+        };
 
         unfree-pkgs = import inputs.nixpkgs {
           inherit system;

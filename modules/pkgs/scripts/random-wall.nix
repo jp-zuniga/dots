@@ -1,10 +1,14 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  theme,
+  ...
+}: let
   swww = "${pkgs.swww}/bin/swww";
 in
   pkgs.writeShellScriptBin "random-wall" ''
     mkdir -p ~/.cache
 
-    WALL_DIR=$HOME/wallpapers
+    WALL_DIR=$HOME/wallpapers/dots/${theme.kebabName}
 
     RANDOM_FLAVOR=$(\
       find "$WALL_DIR" -type d -name ".git" -prune -o -type d -print | \

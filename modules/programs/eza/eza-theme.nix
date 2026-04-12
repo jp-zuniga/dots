@@ -3,115 +3,117 @@
   theme,
   ...
 }: let
-  ezaTheme = {
+  ezaTheme = let
+    inherit (theme) colors;
+  in {
     colourful = true;
     filekinds = {
-      normal.foreground = theme.text;
-      directory.foreground = theme.foam;
-      symlink.foreground = theme.highlightHigh;
-      pipe.foreground = theme.subtle;
-      block_device.foreground = theme.rose;
-      char_device.foreground = theme.gold;
-      socket.foreground = theme.surface;
-      special.foreground = theme.iris;
-      executable.foreground = theme.iris;
-      mount_point.foreground = theme.highlightMed;
+      normal.foreground = colors.white;
+      directory.foreground = colors.blue;
+      symlink.foreground = colors.black;
+      pipe.foreground = colors.foreground;
+      block_device.foreground = colors.cyan;
+      char_device.foreground = colors.yellow;
+      socket.foreground = colors.accent;
+      special.foreground = colors.magenta;
+      executable.foreground = colors.magenta;
+      mount_point.foreground = colors.black;
     };
 
     file_type = {
-      image.foreground = theme.gold;
-      video.foreground = theme.love;
-      music.foreground = theme.foam;
-      lossless.foreground = theme.muted;
-      crypto.foreground = theme.highlightMed;
-      document.foreground = theme.subtle;
-      compressed.foreground = theme.iris;
-      temp.foreground = theme.rose;
-      compiled.foreground = theme.pine;
-      build.foreground = theme.muted;
-      source.foreground = theme.rose;
-      punctuation.foreground = theme.highlightLow;
-      date.foreground = theme.pine;
-      inode.foreground = theme.subtle;
-      blocks.foreground = theme.highlightHigh;
-      header.foreground = theme.subtle;
-      octal.foreground = theme.foam;
-      flags.foreground = theme.iris;
-      symlink_path.foreground = theme.foam;
-      control_char.foreground = theme.pine;
-      broken_symlink.foreground = theme.love;
-      broken_path_overlay.foreground = theme.highlightHigh;
+      image.foreground = colors.yellow;
+      video.foreground = colors.red;
+      music.foreground = colors.blue;
+      lossless.foreground = colors.foreground;
+      crypto.foreground = colors.black;
+      document.foreground = colors.foreground;
+      compressed.foreground = colors.magenta;
+      temp.foreground = colors.cyan;
+      compiled.foreground = colors.green;
+      build.foreground = colors.foreground;
+      source.foreground = colors.cyan;
+      punctuation.foreground = colors.accent;
+      date.foreground = colors.green;
+      inode.foreground = colors.foreground;
+      blocks.foreground = colors.black;
+      header.foreground = colors.foreground;
+      octal.foreground = colors.blue;
+      flags.foreground = colors.magenta;
+      symlink_path.foreground = colors.blue;
+      control_char.foreground = colors.green;
+      broken_symlink.foreground = colors.red;
+      broken_path_overlay.foreground = colors.black;
     };
 
     git = {
-      new.foreground = theme.foam;
-      modified.foreground = theme.gold;
-      deleted.foreground = theme.love;
-      renamed.foreground = theme.pine;
-      typechange.foreground = theme.iris;
-      ignored.foreground = theme.muted;
-      conflicted.foreground = theme.rose;
+      new.foreground = colors.blue;
+      modified.foreground = colors.yellow;
+      deleted.foreground = colors.red;
+      renamed.foreground = colors.green;
+      typechange.foreground = colors.magenta;
+      ignored.foreground = colors.foreground;
+      conflicted.foreground = colors.cyan;
     };
 
     git_repo = {
-      branch_main.foreground = theme.subtle;
-      branch_other.foreground = theme.iris;
-      git_clean.foreground = theme.foam;
-      git_dirty.foreground = theme.love;
+      branch_main.foreground = colors.foreground;
+      branch_other.foreground = colors.magenta;
+      git_clean.foreground = colors.blue;
+      git_dirty.foreground = colors.red;
     };
 
     links = {
-      normal.foreground = theme.foam;
-      multi_link_file.foreground = theme.pine;
+      normal.foreground = colors.blue;
+      multi_link_file.foreground = colors.green;
     };
 
     perms = {
-      user_read.foreground = theme.subtle;
-      user_write.foreground = theme.highlightMed;
-      user_execute_file.foreground = theme.iris;
-      user_execute_other.foreground = theme.iris;
-      group_read.foreground = theme.subtle;
-      group_write.foreground = theme.highlightMed;
-      group_execute.foreground = theme.iris;
-      other_read.foreground = theme.subtle;
-      other_write.foreground = theme.highlightMed;
-      other_execute.foreground = theme.iris;
-      special_user_file.foreground = theme.iris;
-      special_other.foreground = theme.highlightMed;
-      attribute.foreground = theme.subtle;
+      user_read.foreground = colors.foreground;
+      user_write.foreground = colors.black;
+      user_execute_file.foreground = colors.magenta;
+      user_execute_other.foreground = colors.magenta;
+      group_read.foreground = colors.foreground;
+      group_write.foreground = colors.black;
+      group_execute.foreground = colors.magenta;
+      other_read.foreground = colors.foreground;
+      other_write.foreground = colors.black;
+      other_execute.foreground = colors.magenta;
+      special_user_file.foreground = colors.magenta;
+      special_other.foreground = colors.black;
+      attribute.foreground = colors.foreground;
     };
 
     security_context = {
-      colon.foreground = theme.subtle;
-      user.foreground = theme.foam;
-      role.foreground = theme.iris;
-      typ.foreground = theme.muted;
-      range.foreground = theme.iris;
+      colon.foreground = colors.foreground;
+      user.foreground = colors.blue;
+      role.foreground = colors.magenta;
+      typ.foreground = colors.foreground;
+      range.foreground = colors.magenta;
     };
 
     size = {
-      major.foreground = theme.subtle;
-      minor.foreground = theme.foam;
-      number_byte.foreground = theme.subtle;
-      number_kilo.foreground = theme.highlightHigh;
-      number_mega.foreground = theme.pine;
-      number_giga.foreground = theme.iris;
-      number_huge.foreground = theme.iris;
-      unit_byte.foreground = theme.subtle;
-      unit_kilo.foreground = theme.pine;
-      unit_mega.foreground = theme.iris;
-      unit_giga.foreground = theme.iris;
-      unit_huge.foreground = theme.foam;
+      major.foreground = colors.foreground;
+      minor.foreground = colors.blue;
+      number_byte.foreground = colors.foreground;
+      number_kilo.foreground = colors.black;
+      number_mega.foreground = colors.green;
+      number_giga.foreground = colors.magenta;
+      number_huge.foreground = colors.magenta;
+      unit_byte.foreground = colors.foreground;
+      unit_kilo.foreground = colors.green;
+      unit_mega.foreground = colors.magenta;
+      unit_giga.foreground = colors.magenta;
+      unit_huge.foreground = colors.blue;
     };
 
     users = {
-      user_you.foreground = theme.gold;
-      user_root.foreground = theme.love;
-      user_other.foreground = theme.iris;
-      group_yours.foreground = theme.highlightHigh;
-      group_other.foreground = theme.muted;
-      group_root.foreground = theme.love;
+      user_you.foreground = colors.yellow;
+      user_root.foreground = colors.red;
+      user_other.foreground = colors.magenta;
+      group_yours.foreground = colors.black;
+      group_other.foreground = colors.foreground;
+      group_root.foreground = colors.red;
     };
   };
 in
-  pkgs.writeText "theme.yml" (builtins.toJSON ezaTheme)
+  pkgs.writeText "colors.yml" (builtins.toJSON ezaTheme)

@@ -4,76 +4,67 @@
   theme,
   ...
 }: let
-  close = "[](fg:overlay)";
-  open = "[](fg:overlay)";
-  openClose = "[ ](fg:overlay)";
+  close = "[](fg:black)";
+  open = "[](fg:black)";
 
-  openDiverged = "[\\[](bold bg:overlay fg:iris)";
-  divergedAhead = "[ \\($ahead_count\\)](bold bg:overlay fg:foam)";
-  divergedBehind = "[  \\($behind_count\\)](bold bg:overlay fg:rose)";
-  closeDiverged = "[\\]](bold bg:overlay fg:iris)";
+  openDiverged = "[\\[](bold bg:black fg:magenta)";
+  divergedAhead = "[ \\($ahead_count\\)](bold bg:black fg:blue)";
+  divergedBehind = "[  \\($behind_count\\)](bold bg:black fg:cyan)";
+  closeDiverged = "[\\]](bold bg:black fg:magenta)";
 
   settings = {
     format = "$directory$git_branch$git_status $character ";
 
-    palette = "rose-pine";
+    palette = "colors";
     palettes = {
-      rose-pine = {
-        foam = theme.foam;
-        gold = theme.gold;
-        iris = theme.iris;
-        love = theme.love;
-        overlay = theme.overlay;
-        pine = theme.pine;
-        rose = theme.rose;
-      };
+      inherit (theme) colors;
     };
 
     character = {
-      error_symbol = "[■](bold fg:love)";
+      error_symbol = "[■](bold fg:red)";
       format = "$symbol";
-      success_symbol = "[●](bold fg:iris)";
+      success_symbol = "[●](bold fg:magenta)";
     };
 
     directory = {
       format = "${open}[$path]($style)${close}";
-      style = "bg:overlay fg:pine";
+      style = "bg:black fg:green";
       truncation_length = 3;
       truncation_symbol = ".../";
     };
 
     git_branch = {
       format = " ${open}[$symbol $branch]($style)${close}";
-      style = "bold bg:overlay fg:foam";
+      style = "bold bg:black fg:blue";
       symbol = "󰊢";
     };
 
     git_status = {
-      ahead = "[ \\($count\\)](bold bg:overlay fg:foam)";
-      behind = "[ \\($count\\)](bold bg:overlay fg:rose)";
-      conflicted = "[= ](bold bg:overlay fg:love)";
-      deleted = "[×\\($count\\) ](bold bg:overlay fg:love)";
+      ahead = "[ \\($count\\)](bold bg:black fg:blue)";
+      behind = "[ \\($count\\)](bold bg:black fg:cyan)";
+      conflicted = "[= ](bold bg:black fg:red)";
+      deleted = "[×\\($count\\) ](bold bg:black fg:red)";
       disabled = false;
       diverged = "${openDiverged}${divergedAhead}${divergedBehind}${closeDiverged}";
       format = " ${open}[$all_status$ahead_behind]($style)${close}";
-      modified = "[!\\($count\\) ](bold bg:overlay fg:rose)";
-      renamed = "[ \\($count\\) ](bold bg:overlay fg:iris)";
-      staged = "[+\\($count\\) ](bold bg:overlay fg:pine)";
-      stashed = "[\\$ ](bold bg:overlay fg:iris)";
-      style = "bg:overlay";
-      untracked = "[?\\($count\\)](bold bg:overlay fg:gold) ";
-      up_to_date = "[✔](bold bg:overlay fg:iris)";
+      modified = "[!\\($count\\) ](bold bg:black fg:cyan)";
+      renamed = "[ \\($count\\) ](bold bg:black fg:magenta)";
+      staged = "[+\\($count\\) ](bold bg:black fg:green)";
+      stashed = "[\\$ ](bold bg:black fg:magenta)";
+      style = "bg:black";
+      untracked = "[?\\($count\\)](bold bg:black fg:yellow) ";
+      up_to_date = "[✔](bold bg:black fg:magenta)";
     };
 
     os = {
       disabled = true;
-      style = "bg:overlay fg:iris";
+      style = "bg:black fg:magenta";
     };
 
     time = {
       disabled = true;
-      format = "(fg:overlay)[ $time ]($style)(fg:overlay)";
-      style = "bold bg:overlay fg:rose";
+      format = "(fg:black)[ $time ]($style)(fg:black)";
+      style = "bold bg:black fg:cyan";
       time_format = "%I:%M%P";
       use_12hr = true;
     };
@@ -82,8 +73,8 @@
       disabled = true;
       format = "[ $user ]($style)";
       show_always = false;
-      style_root = "bg:overlay fg:love";
-      style_user = "bg:overlay fg:iris";
+      style_root = "bg:black fg:red";
+      style_user = "bg:black fg:magenta";
     };
 
     aws.symbol = "  ";
@@ -324,7 +315,7 @@
     os.symbols = {
       AlmaLinux = "  ";
       Alpaquita = "  ";
-      Alpine = "  ";
+      Algreen = "  ";
       Amazon = "  ";
       Android = "  ";
       Arch = "  ";

@@ -12,9 +12,9 @@ in
     mkdir -p $out/bin
     mkdir -p $out/share
 
-    ln -s ${rofi}/bin/rofi $out/bin/rofi
-    ln -s ${rofi}/share/rofi $out/share/rofi
-    ln -s ${rofi}/share/icons $out/share/icons
+    ln -sf ${rofi}/bin/rofi $out/bin/rofi
+    ln -sf ${rofi}/share/rofi $out/share/rofi
+    ln -sf ${rofi}/share/icons $out/share/icons
 
     wrapProgram $out/bin/rofi --add-flags "-config ${config}"
   ''

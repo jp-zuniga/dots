@@ -11,7 +11,7 @@ in
   } ''
     mkdir -p $out/bin
 
-    ln -s ${pkgs.alacritty}/bin/alacritty $out/bin/alacritty
+    ln -sf ${pkgs.alacritty}/bin/alacritty $out/bin/alacritty
 
     wrapProgram $out/bin/alacritty --add-flags "--config-file ${alacrittyConf}"
   ''

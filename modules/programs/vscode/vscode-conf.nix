@@ -1,80 +1,55 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  theme,
+  ...
+}: let
+  # @ts: { formatter: string; tabs: number; fmtOnPaste: boolean; fmtOnSave: boolean; fmtOnType: boolean}
+  mkEditor = {
+    formatter,
+    fmtOnPaste ? false,
+    fmtOnSave ? true,
+    fmtOnType ? false,
+    tabs ? 2,
+  }: {
+    editor = {
+      defaultFormatter = formatter;
+      formatOnPaste = fmtOnPaste;
+      formatOnSave = fmtOnSave;
+      formatOnType = fmtOnType;
+      tabSize = tabs;
+    };
+  };
+
   settings = let
-    fmtOptions = {
-      formatOnPaste = false;
-      formatOnSave = true;
-      formatOnType = false;
-      tabSize = 2;
-    };
-
-    prettier = "esbenp.prettier-vscode";
+    c-cpp = mkEditor {formatter = "llvm-vs-code-extensions.vscode-clangd";};
+    prettier = mkEditor {formatter = "esbenp-prettier-vscode";};
   in {
-    "[c]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
+    "[c]" = c-cpp;
+    "[cpp]" = c-cpp;
+
+    "[css]" = prettier;
+    "[html]" = prettier;
+    "[javascript]" = prettier;
+    "[json]" = prettier;
+    "[jsonc]" = prettier;
+    "[markdown]" = prettier;
+
+    "[nix]" = mkEditor {formatter = "kamadorueda.alejandra";};
+    "[shellscript]" = mkEditor {formatter = "mkhl.shfmt";};
+    "[toml]" = mkEditor {formatter = "tamasfe.even-better-toml";};
+    "[just]" = mkEditor {
+      formatter = "nefrob.vscode-just-syntax";
+      tabs = 4;
     };
 
-    "[cpp]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
+    "[python]" = mkEditor {
+      formatter = "charliermarsh.ruff";
+      tabs = 4;
     };
 
-    "[css]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = prettier;
-    };
-
-    "[html]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = prettier;
-    };
-
-    "[json]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = prettier;
-    };
-
-    "[jsonc]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = prettier;
-    };
-
-    "[just]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "nefrob.vscode-just-syntax";
-      tabSize = 4;
-    };
-
-    "[markdown]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = prettier;
-    };
-
-    "[nix]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "kamadorueda.alejandra";
-    };
-
-    "[python]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "charliermarsh.ruff";
-      tabSize = 4;
-    };
-
-    "[rust]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "rust-lang.rust-analyzer";
-      tabSize = 4;
-    };
-
-    "[shellscript]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "mads-hartmann.bash-ide-vscode";
-    };
-
-    "[toml]".editor = {
-      inherit fmtOptions;
-      defaultFormatter = "tamasfe.even-better-toml";
+    "[rust]" = mkEditor {
+      formatter = "rust-lang.rust-analyzer";
+      tabs = 4;
     };
 
     accessibility = {
@@ -83,6 +58,11 @@
     };
 
     alejandra.program = "alejandra";
+    catppuccin = {
+      extraBordersEnabled = true;
+      syncWithIconPack = false;
+    };
+
     chat.disableAIFeatures = true;
     clangd = {
       arguments = ["--query-driver=/nix/store/**/*"];
@@ -104,7 +84,7 @@
         size = "fit";
       };
 
-      mouseWheelZoom = true;
+      mouseWheelZoom = false;
     };
 
     evenBetterToml = {
@@ -163,7 +143,14 @@
     };
 
     github.gitProtocol = "ssh";
+    nix = {
+      enableLanguageServer = true;
+      serverPath = "nil";
+      serverSettings.nil.formatting.command = ["alejandra"];
+    };
+
     python = {
+      activateStateToolPath = "";
       analysis = {
         autoFormatStrings = true;
         autoImportCompletions = true;
@@ -202,21 +189,29 @@
         provideVariables = false;
       };
 
-      terminal.activateEnvironment = false;
+      terminal = {
+        activateEnvironment = false;
+        shellIntegration.enabled = false;
+      };
+
       testing = {
         autoTestDiscoverOnSaveEnabled = false;
         promptToConfigure = false;
         pytestPath = "";
+        unittestArgs = [];
       };
     };
 
     ruff = {
       codeAction.disableRuleComment.enable = false;
+      configurationPreference = "filesystemFirst";
+      format.preview = true;
       lint.preview = true;
       nativeServer = "on";
     };
 
     rust-analyzer = {
+      assist.preferSelf = true;
       diagnostics.enable = false;
       inlayHints = {
         chainingHints.enable = false;
@@ -254,6 +249,7 @@
 
     ty = {
       diagnosticMode = "workspace";
+      importStrategy = "useBundled";
     };
 
     update = {
@@ -279,7 +275,7 @@
         continueOn = "off";
       };
 
-      colorTheme = "Rosé Pine Moon";
+      colorTheme = theme.fancy;
       commandPalette.experimental.enableNaturalLanguageSearch = false;
       editor = {
         editorActionsLocation = "hidden";
@@ -287,11 +283,9 @@
       };
 
       enableExperiments = false;
-      iconTheme = "material-icon-theme";
+      iconTheme = theme.kebabName;
       layoutControl.enabled = false;
       navigationControl.enabled = false;
-      preferredDarkColorTheme = "Rosé Pine Moon";
-      preferredLightColorTheme = "Rosé Pine Dawn";
       productIconTheme = "material-product-icons";
       settings.enableNaturalLanguageSearch = false;
       startupEditor = "none";

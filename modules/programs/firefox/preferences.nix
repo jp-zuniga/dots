@@ -96,4 +96,5 @@
   "signon.firefoxRelay.feature" = "";
   "signon.rememberSignons" = false;
   "svg.context-properties.content.enabled" = true;
+  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 }

@@ -3,19 +3,18 @@
   theme,
   ...
 }: let
+  name = builtins.replaceStrings [" "] ["%20"] theme.name;
+
   batTheme = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/rose-pine/tm-theme/main/dist/rose-pine-${theme.rosePineVariant}.tmTheme";
-    hash = "sha256-yMDEO7RK66V9CzVFvFQj7ZwIvLfFQD6ytes7cbxgh5Y=";
+    hash = "sha256-OVVm8IzrMBuTa5HAd2kO+U9662UbEhVT8gHJnCvUqnc=";
+    url = "${theme.rawGithub}/bat/main/themes/${name}.tmTheme";
   };
 in
   pkgs.symlinkJoin {
     name = "bat-wrapped";
-    paths = let
-      bextras = pkgs.bat-extras;
-    in [
+    paths = [
       pkgs.bat
-      bextras.batgrep
-      bextras.batman
+      pkgs.bat-extras.batman
     ];
 
     buildInputs = [pkgs.makeWrapper];
@@ -28,13 +27,13 @@ in
       mkdir -p "$BAT_CACHE_PATH"
       mkdir -p "$THEME_DIR"
 
-      cp -f ${batTheme} "$THEME_DIR/rose-pine-${theme.rosePineVariant}.tmTheme"
+      cp -f ${batTheme} "$THEME_DIR/${theme.kebabName}.tmTheme"
 
       $out/bin/bat cache --clear
       $out/bin/bat cache --build
 
       wrapProgram $out/bin/bat \
-        --add-flags "--theme=rose-pine-${theme.rosePineVariant}" \
+        --add-flags "--theme=${theme.kebabName}" \
         --set BAT_CACHE_PATH "$out/share/bat/cache" \
         --set BAT_CONFIG_DIR "$out/share/bat"
     '';

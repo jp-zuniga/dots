@@ -1,8 +1,10 @@
 {config, ...}: {
-  perSystem = {pkgs, ...}: let
-  in {
+  perSystem = {pkgs, ...}: {
     packages = let
-      theme = config.flake.lib.mkTheme {inherit pkgs;};
+      theme = config.flake.lib.mkTheme {
+        inherit (config.flake) lib;
+        inherit pkgs;
+      };
 
       scripts = import ./scripts {inherit pkgs theme;};
       wrapped = import ./wrapped {

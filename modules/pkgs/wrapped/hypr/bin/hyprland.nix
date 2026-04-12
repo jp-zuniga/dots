@@ -6,7 +6,7 @@
   ...
 }: let
   wrapped = pkgs.symlinkJoin {
-    name = "hyprland-wrapped";
+    name = "hyprlandWrapped";
     paths = [
       hyprland
       pkgs.brightnessctl
@@ -15,7 +15,6 @@
       pkgs.libnotify
       pkgs.playerctl
       pkgs.swww
-      theme.cursor.hypr.package
     ];
 
     buildInputs = [pkgs.makeWrapper];
@@ -28,11 +27,11 @@
 in
   wrapped
   // {
+    inherit (hyprland) version;
+
     override = args:
       import ./hyprland.nix {
         inherit pkgs conf theme;
         hyprland = hyprland.override args;
       };
-
-    version = hyprland.version;
   }

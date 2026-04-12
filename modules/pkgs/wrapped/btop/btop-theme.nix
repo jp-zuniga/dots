@@ -9,12 +9,13 @@
     text = let
       btopThemeLocation = "${users.jaq.home}/.config/btop/themes";
       btopTheme = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/rose-pine/btop/main/rose-pine-${theme.rosePineVariant}.theme";
-        hash = "sha256-iJNhWAQ6xzl6EsI0wWxtN14/KqZ7YWZFJaqFOZjLO8g=";
+        hash = "sha256-THRpq5vaKCwf9gaso3ycC4TNDLZtBB5Ofh/tOXkfRkQ=";
+        url = "${theme.rawGithub}/btop/main/themes/${theme.snakeName}.theme";
       };
     in ''
       mkdir -p ${btopThemeLocation}
-      ln -sf ${btopTheme} ${btopThemeLocation}/rose-pine-${theme.rosePineVariant}.theme
+
+      ln -sf ${btopTheme} ${btopThemeLocation}/${theme.snakeName}.theme
     '';
   };
 }

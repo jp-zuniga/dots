@@ -4,7 +4,7 @@
   ...
 }:
 pkgs.writeText "btop.conf" ''
-  color_theme = "rose-pine-${theme.rosePineVariant}"
+  color_theme = ${theme.snakeName}
   theme_background = True
   truecolor = True
   force_tty = False
@@ -18,7 +18,7 @@ pkgs.writeText "btop.conf" ''
   graph_symbol_net = "default"
   graph_symbol_proc = "default"
   shown_boxes = "cpu mem disk proc"
-  update_ms = 2000
+  update_ms = 1000
   proc_sorting = "memory"
   proc_reversed = False
   proc_tree = False

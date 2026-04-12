@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  theme,
+  ...
+}: let
   settings = {
     layer = "top";
     position = "top";
@@ -38,9 +42,9 @@
     clock = {
       calendar = {
         format = {
-          months = "<span color='#f6c177'><b>{}</b></span>";
-          today = "<span color='#eb6f92'><b><u>{}</u></b></span>";
-          weekdays = "<span color='#ea9a97'><b>{}</b></span>";
+          months = "<span color='${theme.colors.yellow}'><b>{}</b></span>";
+          today = "<span color='${theme.colors.red}'><b><u>{}</u></b></span>";
+          weekdays = "<span color='${theme.colors.cyan}'><b>{}</b></span>";
         };
       };
 
