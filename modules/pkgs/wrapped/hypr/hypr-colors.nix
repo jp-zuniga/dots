@@ -3,6 +3,8 @@
   theme,
   ...
 }: let
+  inherit (theme) colors;
+
   hexColor = hex: let
     cleanHex = builtins.replaceStrings ["#"] [""] hex;
     paddedHex =
@@ -12,19 +14,16 @@
   in
     "0xff" + paddedHex;
 in {
-  bg = hexColor theme.bg;
-  surface = hexColor theme.surface;
-  overlay = hexColor theme.overlay;
-  muted = hexColor theme.muted;
-  subtle = hexColor theme.subtle;
-  text = hexColor theme.text;
-  love = hexColor theme.love;
-  gold = hexColor theme.gold;
-  rose = hexColor theme.rose;
-  pine = hexColor theme.pine;
-  foam = hexColor theme.foam;
-  iris = hexColor theme.iris;
-  highlightLow = hexColor theme.highlightLow;
-  highlightMed = hexColor theme.highlightMed;
-  highlightHigh = hexColor theme.highlightHigh;
+  foreground = hexColor colors.foreground;
+  accent = hexColor colors.accent;
+  base = hexColor colors.base;
+  black = hexColor colors.black;
+  red = hexColor colors.red;
+  green = hexColor colors.green;
+  yellow = hexColor colors.yellow;
+  blue = hexColor colors.blue;
+  magenta = hexColor colors.magenta;
+  cyan = hexColor colors.cyan;
+  white = hexColor colors.white;
+  iris = hexColor colors.iris;
 }

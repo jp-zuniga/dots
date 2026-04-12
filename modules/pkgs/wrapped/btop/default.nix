@@ -10,7 +10,7 @@ in
   } ''
     mkdir -p $out/bin
 
-    ln -s ${pkgs.btop}/bin/btop $out/bin/btop
+    ln -sf ${pkgs.btop}/bin/btop $out/bin/btop
 
     wrapProgram $out/bin/btop --add-flags "--config ${btopConf}"
   ''

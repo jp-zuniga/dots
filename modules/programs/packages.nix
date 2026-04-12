@@ -1,8 +1,6 @@
 {
-  lib,
   pkgs,
   theme,
-  unstable,
   ...
 }: let
   customizeDesktopEntries = ''
@@ -38,12 +36,14 @@ in {
       pkgs.discord
       pkgs.dust
       pkgs.hyperfine
-      pkgs.libreoffice-fresh
       pkgs.microfetch
       pkgs.mpv
+      pkgs.nil
       pkgs.pastel
       pkgs.pik
       pkgs.ripgrep
+      pkgs.shfmt
+      pkgs.statix
       pkgs.qview
       pkgs.tealdeer
       pkgs.zoxide
@@ -51,9 +51,9 @@ in {
 
     variables = {
       HYPRCURSOR_SIZE = theme.cursor.size;
-      HYPRCURSOR_THEME = theme.cursor.hypr.name;
+      HYPRCURSOR_THEME = theme.cursor.name;
       XCURSOR_SIZE = theme.cursor.size;
-      XCURSOR_THEME = theme.cursor.x.name;
+      XCURSOR_THEME = theme.cursor.name;
     };
   };
 }

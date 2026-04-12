@@ -10,7 +10,7 @@ in
   pkgs.writeText "config.fish" ''
     set -g fish_greeting ""
 
-    fish_config theme choose rose-pine-${theme.rosePineVariant}
+    fish_config theme choose ${theme.kebabName}
 
     abbr --add --position anywhere -- --help '--help | bat -plhelp'
     abbr --add --position anywhere -- -h '-h | bat -plhelp'

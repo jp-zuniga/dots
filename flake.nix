@@ -12,16 +12,6 @@
       url = "github:sioodmy/homix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    yaziTheme = {
-      url = "github:Mintass/rose-pine-moon.yazi";
-      flake = false;
-    };
   };
 
   outputs = inputs @ {flake-parts, ...}:

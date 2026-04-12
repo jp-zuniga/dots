@@ -9,13 +9,13 @@
   wrapped = import ./wrapped {inherit flake lib pkgs theme;};
 in {
   environment.systemPackages = builtins.attrValues (
-    scripts // (builtins.removeAttrs wrapped ["hyprland-wrapped"])
+    scripts // (builtins.removeAttrs wrapped ["hyprlandWrapped"])
   );
 
   imports = [./wrapped/btop/btop-theme.nix];
 
   programs.hyprland = {
     enable = true;
-    package = wrapped.hyprland-wrapped;
+    package = wrapped.hyprlandWrapped;
   };
 }

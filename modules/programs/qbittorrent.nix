@@ -10,13 +10,13 @@
     text = let
       themeLocation = "${users.jaq.home}/.config/qBittorrent/themes";
       qbitTheme = pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/rose-pine/qbittorrent/main/dist/${theme.rosePineVariant}.qbtheme";
-        hash = "sha256-VSll4vH6krhHgKejl7iTWdJ32qvqq6IlVpJ2Xq+PS2M=";
+        hash = "sha256-9t31ntiB6kpCPo1Ipz9vUHxZSlYPOYCXiR/LcLyCVeE=";
+        url = "${theme.github}/qbittorrent/releases/latest/download/${theme.kebabName}.qbtheme";
       };
     in ''
       mkdir -p ${themeLocation}
 
-      ln -sf ${qbitTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.qbtheme
+      ln -sf ${qbitTheme} ${themeLocation}/${theme.kebabName}.qbtheme
     '';
   };
 }

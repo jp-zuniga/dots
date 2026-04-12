@@ -72,7 +72,7 @@ in {
 
       "${mod}, G, togglefloating,"
       "${mod}, Q, killactive,"
-      "${mod}, U, exec, makoctl dismiss --all"
+      "${mod}, U, exec, dunstctl close-all"
 
       "${mod}, C, exec, code"
       "${mod}, F, exec, firefox"
@@ -159,7 +159,7 @@ in {
   ];
 
   exec-once = [
-    "mako"
+    "dunst"
     "hypridle"
     "sunsetr"
     "swww-daemon"
@@ -170,8 +170,8 @@ in {
   general = {
     allow_tearing = false;
     border_size = 3;
-    "col.active_border" = "${hyprColors.iris}";
-    "col.inactive_border" = "${hyprColors.muted}";
+    "col.active_border" = "${hyprColors.magenta}";
+    "col.inactive_border" = "${hyprColors.black}";
     gaps_in = 5;
     gaps_out = 5;
     layout = "master";

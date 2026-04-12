@@ -5,94 +5,82 @@
   ...
 }: let
   settings = {
-    colors = {
-      bright = {
-        black = theme.muted;
-        blue = theme.foam;
-        cyan = theme.rose;
-        green = theme.pine;
-        magenta = theme.iris;
-        red = theme.love;
-        white = theme.text;
-        yellow = theme.gold;
-      };
+    colors = let
+      palette = theme.colors;
+      alacrittyColors = builtins.removeAttrs palette ["accent" "base" "foreground"];
+    in {
+      bright = alacrittyColors;
 
       cursor = {
-        cursor = theme.highlightHigh;
-        text = theme.text;
+        cursor = palette.black;
+        text = palette.base;
       };
 
-      dim = {
-        black = theme.muted;
-        blue = theme.foam;
-        cyan = theme.rose;
-        green = theme.pine;
-        magenta = theme.iris;
-        red = theme.love;
-        white = theme.text;
-        yellow = theme.gold;
+      dim = alacrittyColors;
+
+      footer_bar = {
+        background = palette.base;
+        foreground = palette.white;
       };
 
       hints = {
         end = {
-          background = theme.surface;
-          foreground = theme.muted;
+          background = palette.white;
+          foreground = palette.base;
         };
 
         start = {
-          background = theme.surface;
-          foreground = theme.subtle;
+          background = palette.yellow;
+          foreground = palette.base;
         };
       };
 
-      footer_bar = {
-        background = theme.surface;
-        foreground = theme.text;
-      };
+      indexed_colors = [
+        {
+          color = palette.yellow;
+          index = 16;
+        }
+        {
+          color = palette.magenta;
+          index = 17;
+        }
+      ];
 
       line_indicator = {
         background = "None";
         foreground = "None";
       };
 
-      normal = {
-        black = theme.overlay;
-        blue = theme.foam;
-        cyan = theme.rose;
-        green = theme.pine;
-        magenta = theme.iris;
-        red = theme.love;
-        white = theme.text;
-        yellow = theme.gold;
-      };
+      normal = alacrittyColors;
 
       primary = {
-        background = theme.bg;
-        bright_foreground = theme.text;
-        dim_foreground = theme.subtle;
-        foreground = theme.text;
+        inherit (palette) foreground;
+
+        background = palette.base;
+        bright_foreground = palette.foreground;
+        dim_foreground = palette.white;
       };
 
       search = {
         focused_match = {
-          background = theme.rose;
-          foreground = theme.bg;
+          background = palette.base;
+          foreground = palette.green;
         };
 
         matches = {
-          background = theme.overlay;
-          foreground = theme.subtle;
+          background = palette.base;
+          foreground = palette.white;
         };
       };
 
       selection = {
-        background = theme.highlightMed;
-        text = theme.text;
+        background = palette.foreground;
+        text = palette.base;
       };
 
       vi_mode_cursor = {
-        cursor = theme.highlightHigh;
-        text = theme.text;
+        cursor = palette.cyan;
+        text = palette.base;
       };
     };
 

@@ -1,20 +1,13 @@
+# @ts: { cursorSize: number; lib: Lib | any; pkgs: Nixpkgs; variant?: string; }
 {
   cursorSize,
+  lib,
   pkgs,
+  variant ? "mocha",
   ...
 }: let
-  variant = "mocha";
-
-  variantCursor = "${variant}Dark";
-  variantPalette = "${variant}Colors";
-
-  cursorAttrs = {
-    name = "catppuccin-cursors";
-    package = pkgs.catppuccin-cursors.${variantCursor};
-  };
-
   palettes = {
-    frappeColors = {
+    frappe = {
       foreground = "#c6d0f5";
       accent = "#44495d";
       base = "#303446";
@@ -28,7 +21,7 @@
       white = "#a5adce";
     };
 
-    latteColors = {
+    latte = {
       foreground = "#4c4f69";
       accent = "#eff1f5";
       base = "#d8dae1";
@@ -42,7 +35,7 @@
       white = "#acb0be";
     };
 
-    macchiatoColors = {
+    macchiato = {
       foreground = "#cad3f5";
       accent = "#3a3e53";
       base = "#24273a";
@@ -56,7 +49,7 @@
       white = "#a5adcb";
     };
 
-    mochaColors = {
+    mocha = {
       foreground = "#cdd6f4";
       accent = "#353748";
       base = "#1e1e2e";
@@ -70,20 +63,37 @@
       white = "#a6adc8";
     };
   };
-in {
-  inherit variant;
 
-  colors = palettes.${variantPalette};
+  base = "Catppuccin";
+
+  replaceLastChar = str: (new: (builtins.substring 0 (builtins.stringLength str - 1) str) + new);
+
+  fancy = "${base} ${lib.capitalize (
+    if builtins.elem variant ["frappe" "latte"]
+    then replaceLastChar variant "é"
+    else variant
+  )}";
+
+  name = "${base} ${lib.capitalize variant}";
+
+  kebabName = lib.toKebabCase name;
+  snakeName = lib.toSnakeCase name;
+in {
+  inherit fancy kebabName name snakeName variant;
+
+  github = "https://raw.githubusercontent.com/catppuccin";
+  rawGithub = "https://raw.githubusercontent.com/catppuccin";
+
+  colors = palettes.${variant};
 
   cursor = {
+    name = "${kebabName}-dark-cursors";
+    package = pkgs.catppuccin-cursors."${variant}Dark";
     size = cursorSize;
-
-    hypr = cursorAttrs;
-    x = cursorAttrs;
   };
 
   gtk = {
     name = "catppuccin-gtk";
-    package = pkgs.catppuccin-gtk;
+    package = pkgs.catppuccin-gtk.override {inherit variant;};
   };
 }

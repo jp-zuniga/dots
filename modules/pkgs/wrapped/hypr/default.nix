@@ -16,7 +16,7 @@
     {
       args = {inherit theme;};
       conf = ./config/hyprland.nix;
-      name = "hyprland-wrapped";
+      name = "hyprlandWrapped";
       wrapper = ./bin/hyprland.nix;
     }
     {
@@ -30,7 +30,8 @@ in
   builtins.listToAttrs (
     builtins.map (
       hypr: {
-        name = hypr.name;
+        inherit (hypr) name;
+
         value = let
           conf = pkgs.writeText "${hypr.name}.conf" (confConverter {
             attrs = import hypr.conf {inherit hyprColors;};

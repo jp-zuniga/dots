@@ -5,32 +5,30 @@
   ...
 }: {
   environment = {
-    sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qt5ct";
-    };
-
+    sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
     systemPackages = [
-      pkgs.libsForQt5.qt5ct
-      pkgs.libsForQt5.qtstyleplugin-kvantum
-      pkgs.rose-pine-kvantum
+      pkgs.darkly
+      pkgs.darkly-qt5
     ];
   };
 
-  system.activationScripts.kvantumSetup = {
+  system.activationScripts.qtSetup = {
     deps = [];
     text = let
-      kvantumConfig = pkgs.writeText "kvantum.kvconfig" ''
-        [General]
-        theme=rose-pine
-      '';
+      qtTheme = pkgs.fetchurl {
+        hash = "sha256-2HIOxEuHqJrgzqT24SRoLyjTGXrutVy8KsH7MnO8AxM=";
+        url = "${theme.rawGithub}/qt5ct/main/themes/${theme.kebabName}-sapphire.conf";
+      };
 
-      kvantumFlavor = "rose-pine-${theme.rosePineVariant}-iris";
-      kvantumLocation = "${users.jaq.home}/.config/Kvantum";
+      userConf = "${users.jaq.home}/.config";
     in ''
-      mkdir -p ${kvantumLocation} ${kvantumLocation}/rose-pine
+      QT5="${userConf}/qt5ct/colors"
+      QT6="${userConf}/qt6ct/colors"
 
-      ln -sf ${pkgs.rose-pine-kvantum}/share/Kvantum/themes/${kvantumFlavor}/${kvantumFlavor}.kvconfig ${kvantumLocation}/rose-pine
-      ln -sf ${kvantumConfig} ${kvantumLocation}/kvantum.kvconfig
+      mkdir -p $QT5 $QT6
+
+      ln -sf ${qtTheme} $QT5
+      ln -sf ${qtTheme} $QT6
     '';
   };
 

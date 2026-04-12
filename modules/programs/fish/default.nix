@@ -1,5 +1,4 @@
 {
-  flake,
   pkgs,
   theme,
   users,
@@ -44,10 +43,10 @@
       gst = "git stash";
       gsh = "git show --pretty=format:'%n%C(magenta)%h%C(white) - %an - %C(yellow)%ar%C(auto) - %D%n%s'";
       gsw = "git switch";
-      gu = "git restore --staged";
+      gu = "git restore";
+      gus = "git restore --staged";
 
       lines = "nix-shell -p tokei --run 'tokei --sort lines'";
-      ndev = "nix develop --command fish --profile";
       shell = "nix-shell --command fish shell.nix";
       try = "nix-shell --command fish -p";
     };
@@ -58,21 +57,18 @@
     text = let
       fishConf = import ./fish-conf.nix {inherit pkgs theme;};
 
-      fishTheme = let
-        themeVariant = flake.lib.capitalize theme.rosePineVariant;
-      in
-        pkgs.fetchurl {
-          hash = "sha256-WUCByT9bdqKGkWxoxUG184ZY51oczCfe06Fkj/iz7HE=";
-          url = "https://raw.githubusercontent.com/rose-pine/fish/main/themes/Rosé%20Pine%20${themeVariant}.theme";
-        };
+      fishTheme = pkgs.fetchurl {
+        hash = "sha256-sAn4eJy6tmloWbN0p+mBdku3CK5TUeKVtVsaH/CBnGk=";
+        url = "${theme.rawGithub}/fish/main/themes/static/${theme.kebabName}.theme";
+      };
 
-      fishLocation = "${users.jaq.home}/.config/fish";
-      themeLocation = "${fishLocation}/themes";
+      confLocation = "${users.jaq.home}/.config/fish";
+      themeLocation = "${confLocation}/themes";
     in ''
-      mkdir -p ${fishLocation} ${themeLocation}
+      mkdir -p ${confLocation} ${themeLocation}
 
-      ln -sf ${fishConf} ${fishLocation}/config.fish
-      ln -sf ${fishTheme} ${themeLocation}/rose-pine-${theme.rosePineVariant}.theme
+      ln -sf ${fishConf} ${confLocation}/config.fish
+      ln -sf ${fishTheme} ${themeLocation}/${theme.kebabName}.theme
     '';
   };
 }

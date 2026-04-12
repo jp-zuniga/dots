@@ -12,7 +12,8 @@
 
     ./cursor.nix
     ./direnv.nix
-    ./idea.nix
+    ./jetbrains.nix
+    ./libreoffice.nix
     ./packages.nix
     ./prismlauncher.nix
     ./qbittorrent.nix

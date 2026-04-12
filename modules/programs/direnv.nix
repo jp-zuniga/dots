@@ -28,6 +28,7 @@
       direnvToml = pkgs.writeText direnv (flake.lib.toTOML direnvConf);
     in ''
       mkdir -p ${confLocation}
+
       ln -sf ${direnvToml} ${confLocation}/${direnv}
     '';
   };
