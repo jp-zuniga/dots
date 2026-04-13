@@ -74,7 +74,7 @@
       };
 
       selection = {
-        background = palette.foreground;
+        background = palette.white;
         text = palette.base;
       };
 

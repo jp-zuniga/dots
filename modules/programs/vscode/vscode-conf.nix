@@ -22,7 +22,7 @@
 
   settings = let
     c-cpp = mkEditor {formatter = "llvm-vs-code-extensions.vscode-clangd";};
-    prettier = mkEditor {formatter = "esbenp-prettier-vscode";};
+    prettier = mkEditor {formatter = "esbenp.prettier-vscode";};
   in {
     "[c]" = c-cpp;
     "[cpp]" = c-cpp;

@@ -56,6 +56,7 @@ in {
       ", PRINT, exec, hyprshot -m region -o ~/pics/ss"
       "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
       "${mod}, PRINT, exec, hyprshot -m active -m output -o ~/pics/ss"
+      "CONTROL, PRINT, exec, hyprpicker"
 
       "ALT SHIFT, W, movefocus, u"
       "ALT SHIFT, A, movefocus, d"
@@ -170,7 +171,7 @@ in {
   general = {
     allow_tearing = false;
     border_size = 3;
-    "col.active_border" = "${hyprColors.magenta}";
+    "col.active_border" = "${hyprColors.blue}";
     "col.inactive_border" = "${hyprColors.black}";
     gaps_in = 5;
     gaps_out = 5;
