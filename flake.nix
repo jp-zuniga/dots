@@ -2,31 +2,25 @@
   description = "rawdogging nix for shits and giggles";
 
   inputs = {
-    homix = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:sioodmy/homix";
-    };
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    spicetify-nix = {
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
+    homix = {
+      url = "github:sioodmy/homix";
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:Gerg-L/spicetify-nix";
-    };
-
-    yaziTheme = {
-      url = "github:Mintass/rose-pine-moon.yazi";
-      flake = false;
     };
   };
 
-  outputs = inputs @ {self, ...}: {
-    nixosConfigurations = import ./hosts inputs;
-    nixosModules =
-      import ./modules
-      // {
-        system = import ./system;
-      };
-  };
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
+      imports = [
+        ./hosts/flake-module.nix
+        ./modules/flake-module.nix
+        ./theme/flake-module.nix
+      ];
+    };
 }
