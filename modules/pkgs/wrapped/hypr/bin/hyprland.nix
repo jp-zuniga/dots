@@ -11,6 +11,7 @@
       hyprland
       pkgs.brightnessctl
       pkgs.brillo
+      pkgs.hyprpicker
       pkgs.hyprshot
       pkgs.libnotify
       pkgs.playerctl
