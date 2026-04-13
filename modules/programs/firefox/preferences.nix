@@ -33,7 +33,7 @@
   "browser.search.update" = false;
   "browser.shell.checkDefaultBrowser" = false;
   "browser.ssb.enabled" = true;
-  "browser.startup.homepage" = "";
+  "browser.startup.homepage" = "about:home";
   "browser.startup.homepage_override.mstone" = "ignore";
   "browser.startup.page" = 3;
   "browser.tabs.crashReporting.sendReport" = false;

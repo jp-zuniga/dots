@@ -1,6 +1,5 @@
 {
   pkgs,
-  theme,
   users,
   ...
 }: {
@@ -14,37 +13,52 @@
   system.activationScripts.firefoxSetup = {
     deps = [];
     text = let
-      cascadeTheme = pkgs.fetchFromGitHub {
-        owner = "cascadefox";
-        repo = "cascade";
-        rev = "8700d7718d130023815f0b036f3b1c4aaa2d5392";
-        hash = "sha256-uGC+SIRisABvulJcpiHwE4mhhwzMVtpo3RMJEJoCaPU=";
+      textfox = pkgs.fetchFromGitHub {
+        hash = "sha256-SL+uh4u43h+P1w5aZEQtnJ7WZyiFsnkM7GRv3JXTqaw=";
+        owner = "adriankarlen";
+        repo = "textfox";
+        rev = "2449bec4ba919adf24396e378a5c9ae4405e77fd";
       };
 
-      customKeys = "customKeys.json";
+      keybinds = pkgs.writeText "keybinds.json" (builtins.toJSON {key_quitApplication = {};});
 
-      keys.key_quitApplication = {};
-
-      firefoxConf = pkgs.writeText customKeys (builtins.toJSON keys);
       firefoxConfLocation = "${users.jaq.home}/.mozilla/firefox";
     in ''
       mkdir -p ${firefoxConfLocation}
 
-      INI="${firefoxConfLocation}/profiles.ni"
+      INI="${firefoxConfLocation}/profiles.ini"
 
       if [ -f "$INI" ]; then
         PROFILE_DIR=$(grep "^Path=" "$INI" | cut -d "=" -f2)
 
         FULL_PROFILE_PATH="${firefoxConfLocation}/$PROFILE_DIR"
+        CHROME_PATH="$FULL_PROFILE_PATH/chrome"
 
         mkdir -p "$FULL_PROFILE_PATH"
-        mkdir -p "$FULL_PROFILE_PATH/chrome"
+        mkdir -p "$CHROME_PATH"
 
-        ln -sf ${firefoxConf} "$FULL_PROFILE_PATH/${customKeys}"
-        ln -sf ${cascadeTheme}/chrome/* "$FULL_PROFILE_PATH/chrome"
-        ln -sf ${cascadeTheme}/integrations/catppuccin/* "$FULL_PROFILE_PATH/chrome/includes"
+        ln -sf ${keybinds} "$FULL_PROFILE_PATH/customKeys.json"
+        ln -sf ${textfox}/user.js "$FULL_PROFILE_PATH/user.js"
 
-        sed -i 's|@import "includes/cascade-colours.css";|@import "includes/cascade-${theme.variant}.css";|' "${cascadeTheme}/chrome/userChrome.css"
+        cp -rf ${textfox}/chrome/* "$CHROME_PATH"
+
+        chmod -R +w "$CHROME_PATH"
+
+        echo "
+        :root {
+          --tf-display-sidebar-tools: none !important;
+          --tf-display-titles: none !important;
+        }
+
+        box#vertical-tabs {
+          min-width: 58px !important;
+        }
+
+        #back-button,
+        #forward-button,
+        #unified-extensions-button {
+          display: none !important;
+        }" >> "$FULL_PROFILE_PATH/chrome/userChrome.css"
       fi
     '';
   };

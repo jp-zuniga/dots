@@ -1,4 +1,4 @@
-{users, ...}: {
+_: {
   AllowFileSelectionDialogs = true;
   AppAutoUpdate = false;
   AutofillAddressEnabled = false;
@@ -8,7 +8,6 @@
   BlockAboutConfig = false;
   BlockAboutProfiles = false;
   BlockAboutSupport = false;
-  DefaultDownloadDirectory = "${users.jaq.home}/dwnlds";
   DisableAppUpdate = true;
   DisableFirefoxAccounts = false;
   DisableFirefoxScreenshots = true;
@@ -46,13 +45,13 @@
       installation_mode = "blocked";
     };
 
-    # "FirefoxColor@mozilla.com" = {
-    #   # firefox color
-    #   default_area = "menupanel";
-    #   installation_mode = "force_installed";
-    #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
-    #   private_browsing = true;
-    # };
+    "FirefoxColor@mozilla.com" = {
+      # firefox color
+      default_area = "menupanel";
+      installation_mode = "force_installed";
+      install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-color/latest.xpi";
+      private_browsing = true;
+    };
 
     "jid1-MnnxcxisBPnSXQ@jetpack" = {
       # privacy badger
