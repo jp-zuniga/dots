@@ -7,8 +7,6 @@
     fish = ./fish;
     git = ./git;
     gtk = ./gtk;
-    jetbrains = ./jetbrains.nix;
-    libreoffice = ./libreoffice.nix;
     packages = ./packages.nix;
     prismlauncher = ./prismlauncher.nix;
     qbittorrent = ./qbittorrent.nix;

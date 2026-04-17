@@ -11,13 +11,13 @@
   };
 in
   pkgs.symlinkJoin {
+    buildInputs = [pkgs.makeWrapper];
     name = "bat-wrapped";
     paths = [
       pkgs.bat
       pkgs.bat-extras.batman
     ];
 
-    buildInputs = [pkgs.makeWrapper];
     postBuild = ''
       export BAT_CONFIG_DIR="$out/share/bat"
       export BAT_CACHE_PATH="$out/share/bat/cache"

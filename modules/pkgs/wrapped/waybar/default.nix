@@ -7,9 +7,9 @@
   waybarStyle = import ./waybar-style.nix {inherit pkgs theme;};
 in
   pkgs.symlinkJoin {
+    buildInputs = [pkgs.makeWrapper];
     name = "waybar-wrapped";
     paths = [pkgs.waybar];
-    buildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/waybar --add-flags "--config ${waybarConf} --style ${waybarStyle}"
     '';

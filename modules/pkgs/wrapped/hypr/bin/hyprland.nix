@@ -1,24 +1,14 @@
 {
   conf,
+  hyprland ? pkgs.hyprland,
   pkgs,
   theme,
-  hyprland ? pkgs.hyprland,
   ...
 }: let
   wrapped = pkgs.symlinkJoin {
-    name = "hyprlandWrapped";
-    paths = [
-      hyprland
-      pkgs.brightnessctl
-      pkgs.brillo
-      pkgs.hyprpicker
-      pkgs.hyprshot
-      pkgs.libnotify
-      pkgs.playerctl
-      pkgs.swww
-    ];
-
     buildInputs = [pkgs.makeWrapper];
+    name = "hyprlandWrapped";
+    paths = [hyprland];
     postBuild = ''
       rm -f $out/bin/Hyprland $out/bin/hyprland
 

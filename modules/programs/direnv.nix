@@ -14,7 +14,6 @@
     text = let
       confLocation = "${users.jaq.home}/.config/direnv";
       direnv = "direnv.toml";
-
       direnvConf = {
         global = {
           disable_stdin = true;

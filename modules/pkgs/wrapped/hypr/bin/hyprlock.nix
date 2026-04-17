@@ -4,9 +4,9 @@
   ...
 }:
 pkgs.symlinkJoin {
+  buildInputs = [pkgs.makeWrapper];
   name = "hyprlock-wrapped";
   paths = [pkgs.hyprlock];
-  buildInputs = [pkgs.makeWrapper];
   postBuild = ''
     wrapProgram $out/bin/hyprlock --add-flags "--config ${conf}"
   '';
