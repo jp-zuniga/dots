@@ -21,7 +21,7 @@ pkgs.writeText "btop.conf" ''
   update_ms = 1000
   proc_sorting = "memory"
   proc_reversed = False
-  proc_tree = False
+  proc_tree = True
   proc_colors = True
   proc_gradient = True
   proc_per_core = False

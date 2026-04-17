@@ -1,12 +1,12 @@
 {
+  colors,
   flake,
   pkgs,
-  theme,
   ...
 }: let
   settings = {
     colors = let
-      palette = theme.colors;
+      palette = colors;
       alacrittyColors = builtins.removeAttrs palette ["accent" "base" "foreground"];
     in {
       bright = alacrittyColors;
