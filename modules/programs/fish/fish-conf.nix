@@ -10,8 +10,6 @@ in
   pkgs.writeText "config.fish" ''
     set -g fish_greeting ""
 
-    fish_config theme choose ${theme.kebabName}
-
     abbr --add --position anywhere -- --help '--help | bat -plhelp'
     abbr --add --position anywhere -- -h '-h | bat -plhelp'
 
@@ -24,6 +22,7 @@ in
     end
 
     if set -q HYPRLAND_INSTANCE_SIGNATURE
+      fish_config theme choose ${theme.kebabName}
       ${star} init fish | source
     end
   ''

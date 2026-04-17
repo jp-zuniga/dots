@@ -1,6 +1,9 @@
 {
+  flake,
   inputs,
+  lib,
   pkgs,
+  theme,
   ...
 }: {
   imports = [
@@ -9,6 +12,17 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen1
   ];
+
+  console = let
+    clean = builtins.mapAttrs (_: value: lib.removePrefix "#" value) theme.colors;
+    base8 = with clean; [base red green yellow blue magenta cyan white];
+    bright8 = builtins.map (color: flake.lib.brightenColor color 20) base8;
+  in {
+    colors = base8 ++ bright8;
+    earlySetup = true;
+    font = "ter-v32n";
+    packages = [pkgs.terminus_font];
+  };
 
   hardware.laptop.enable = true;
   networking.hostName = "t14s";

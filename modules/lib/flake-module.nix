@@ -10,6 +10,7 @@
   in
     {
       inherit capitalize;
+      brightenColor = import ./brighten-color.nix;
       toTOML = import ./to-toml.nix {inherit lib;};
     }
     // import ./case-convert.nix {inherit capitalize lib;};
