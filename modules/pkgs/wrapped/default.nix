@@ -3,6 +3,7 @@
   lib,
   pkgs,
   theme,
+  unstable,
   ...
 }: let
   inherit (pkgs) callPackage;
@@ -14,7 +15,8 @@ in
     alacritty = callPackage ./alacritty {inherit flake pkgs theme;};
     bat = callPackage ./bat.nix {inherit pkgs theme;};
     btop = callPackage ./btop {inherit pkgs theme;};
-    dunst = callPackage ./dunst.nix {inherit pkgs theme;};
+    dunst = callPackage ./dunst {inherit pkgs theme;};
     rofi = callPackage ./rofi {inherit pkgs theme;};
     waybar = callPackage ./waybar {inherit pkgs theme;};
+    wifitui = callPackage ./wifitui {inherit flake pkgs theme unstable;};
   }
