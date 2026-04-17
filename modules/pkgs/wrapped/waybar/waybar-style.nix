@@ -7,33 +7,33 @@
 in
   pkgs.writeText "waybar-style.css" ''
     * {
-        border:        0px;
-        border-radius: 0px;
-        box-shadow:    none;
-        font-family:   monospace;
-        font-size:     12pt;
-        font-weight:   bold;
-        margin:        0px;
-        padding:       0px;
-        text-shadow:   none;
+      border:        0px;
+      border-radius: 0px;
+      box-shadow:    none;
+      font-family:   monospace;
+      font-size:     12pt;
+      font-weight:   bold;
+      margin:        0px;
+      padding:       0px;
+      text-shadow:   none;
     }
 
     tooltip {
-        background:    ${colors.base};
-        border:        3px solid ${colors.black};
-        border-radius: 5px;
+      background:    ${colors.base};
+      border:        3px solid ${colors.black};
+      border-radius: 5px;
     }
 
     #waybar.main {
-        background: transparent;
+      background: transparent;
     }
 
     #waybar.main.modules-center
     #waybar.main.modules-left
     #waybar.main.modules-right {
-        background:    ${colors.base};
-        border:        3px solid ${colors.black};
-        border-radius: 5px;
+      background:    ${colors.base};
+      border:        3px solid ${colors.black};
+      border-radius: 5px;
     }
 
     #waybar.main #battery,
@@ -49,90 +49,81 @@ in
     #waybar.main #tray,
     #waybar.main #window,
     #waybar.main #workspaces {
-        background:     ${colors.base};
-        border:         3px solid ${colors.black};
-        border-radius:  5px;
-        padding-top:    0px;
-        padding-bottom: 0px;
-        padding-left:   10px;
-        padding-right:  10px;
+      background:     ${colors.base};
+      border:         3px solid ${colors.black};
+      border-radius:  5px;
+      padding-top:    0px;
+      padding-bottom: 0px;
+      padding-left:   10px;
+      padding-right:  10px;
     }
 
     #waybar.main #tray menu {
-        background:    ${colors.base};
-        border:        3px solid ${colors.black};
-        border-radius: 5px;
-        color:         ${colors.blue};
-        padding:       3px;
+      background:    ${colors.base};
+      border:        3px solid ${colors.black};
+      border-radius: 5px;
+      color:         ${colors.blue};
+      padding:       3px;
     }
 
     #waybar.main #tray > .active,
     #waybar.main #tray > .passive,
     #waybar.main #tray > .needs-attention {
-        border-radius: 5px;
+      border-radius: 5px;
     }
 
     #waybar.main #workspaces button {
-        background:    transparent;
-        color:         ${colors.black};
-        transition:    all 0.25s ease;
-    }
-
-    #waybar.main #workspaces button.visible {
-        color: ${colors.cyan};
+      background: transparent;
+      color:      ${colors.black};
+      transition: all 0.25s ease;
     }
 
     #waybar.main #workspaces button.active {
-        color: ${colors.yellow};
+      color: ${colors.magenta};
     }
 
     #waybar.main #workspaces button:hover {
-        color: ${colors.red};
+      color: ${colors.blue};
     }
 
     #waybar.main #clock {
-        color: ${colors.magenta};
+      color: ${colors.foreground};
     }
 
     #waybar.main #temperature,
     #waybar.main #cpu,
     #waybar.main #memory.ram,
     #waybar.main #disk,
-    #waybar.main #network {
+    #waybar.main #network,
+    #waybar.main #pulseaudio,
+    #waybar.main #backlight,
+    #waybar.main #battery {
         color: ${colors.blue};
     }
 
     #waybar.main #network.disconnected {
-        color: ${colors.black};
-    }
-
-    #waybar.main #language,
-    #waybar.main #pulseaudio,
-    #waybar.main #backlight,
-    #waybar.main #battery {
-        color: ${colors.green};
+      color: ${colors.black};
     }
 
     #waybar.main #battery {
-        padding-right: 10px;
+      padding-right: 10px;
     }
 
     #waybar.main #battery.warning,
     #waybar.main #cpu.warning,
     #waybar.main #memory.ram.warning,
     #waybar.main #temperature.warning {
-        color: ${colors.cyan};
+      color: ${colors.yellow};
     }
 
     #waybar.main #battery.critical,
     #waybar.main #cpu.critical,
     #waybar.main #memory.ram.critical,
     #waybar.main #temperature.critical {
-        color: ${colors.red};
+      color: ${colors.red};
     }
 
-    #waybar.main #pulseaudio.output.black,
-    #waybar.main #pulseaudio.input.source-black {
-        color: ${colors.black};
+    #waybar.main #pulseaudio.output.muted {
+      color: ${colors.black};
     }
   ''
