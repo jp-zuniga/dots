@@ -1,10 +1,9 @@
 {hyprColors, ...}: let
   mod = "Super";
 
-  fileManager = "yazi";
   menu = "rofi";
   shell = "fish";
-  terminal = "alacritty";
+  term = "alacritty";
 
   # - author: https://github.com/sioodmy
   # - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
@@ -53,9 +52,10 @@ in {
       "ALT SHIFT, Tab, cyclenext, prev"
       "${mod}, Tab, workspace, previous"
 
-      ", PRINT, exec, hyprshot -m region -o ~/pics/ss"
-      "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
       "${mod}, PRINT, exec, hyprshot -m active -m output -o ~/pics/ss"
+      "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
+      ", PRINT, exec, hyprshot -m region -o ~/pics/ss"
+
       "CONTROL, PRINT, exec, hyprpicker"
 
       "ALT SHIFT, W, movefocus, u"
@@ -77,16 +77,20 @@ in {
 
       "${mod}, C, exec, code"
       "${mod}, F, exec, firefox"
+      "${mod}, R, exec, ${term} -e ${shell} -c btop"
 
-      "${mod}, T, exec, ${terminal}"
-      "${mod}, E, exec, ${terminal} -e ${shell} -c ${fileManager}"
+      "${mod}, T, exec, ${term}"
+      "${mod}, E, exec, ${term} -e ${shell} -c yazi"
 
       "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, N, exec, pidof nmtui || ${terminal} -e ${shell} -c nmtui"
       "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
 
       "${mod} SHIFT, B, exec, pidof waybar || waybar"
+      "${mod} SHIFT, N, exec, pidof bluetui || ${term} -o 'font.size=24' -e ${shell} -c bluetui"
+      "${mod} SHIFT, P, exec, hyprctl reload"
       "${mod}, B, exec, ! pidof waybar || pkill waybar"
+      "${mod}, N, exec, pidof wifitui || ${term} -o 'font.size=24' -e ${shell} -c wifitui"
+      "${mod}, P, exec, hyprctl keyword monitor ', preferred, auto, 1, mirror, eDP-1'"
 
       "${mod}, M, exec, focus"
       "${mod}, P, exec, adjust-opacity -i"
@@ -96,13 +100,14 @@ in {
 
   bindle = [
     "${mod}, ESCAPE, exit,"
+    "${mod} SHIFT, Q, exec, systemctl suspend"
+
 
     "${mod} SHIFT, I, exec, pidof hypridle || hypridle & disown && notify-send 'Hypridle activated!'"
-    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr & disown && notify-send 'Sunsetr activated!'"
+    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
     "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"
 
-    "${mod} SHIFT, Q, exec, systemctl suspend"
     "${mod}, SPACE, exec, switch-kb"
 
     ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
@@ -199,7 +204,7 @@ in {
     vfr = true;
   };
 
-  monitor = ["eDP-1, 1920x1080@60, 0x0, 1, mirror, DP-1"];
+  monitor = ["eDP-1, 1920x1080@60, 0x0, 1"];
 
   windowrule = [
     "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
