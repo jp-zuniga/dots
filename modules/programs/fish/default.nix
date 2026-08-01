@@ -14,7 +14,6 @@
       el = "cza -al";
       et = "cza -at";
       er = "cza -atr";
-      start = "hyprland > /dev/null 2>&1";
 
       g = "git";
       ga = "git add";
@@ -46,8 +45,7 @@
       gu = "git restore";
       gus = "git restore --staged";
 
-      lines = "nix-shell -p tokei --run 'tokei --sort lines'";
-      shell = "nix-shell --command fish shell.nix";
+      lines = "tokei --sort lines";
       try = "nix-shell --command fish -p";
     };
   };

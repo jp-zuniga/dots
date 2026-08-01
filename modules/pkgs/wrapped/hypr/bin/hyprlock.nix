@@ -5,6 +5,7 @@
 }:
 pkgs.symlinkJoin {
   buildInputs = [pkgs.makeWrapper];
+  meta.mainProgram = "hyprlock";
   name = "hyprlock-wrapped";
   paths = [pkgs.hyprlock];
   postBuild = ''

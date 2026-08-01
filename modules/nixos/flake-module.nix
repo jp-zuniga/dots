@@ -10,7 +10,6 @@
     postgres = ./postgres.nix;
     services = ./services.nix;
     users = ./users.nix;
-    virtualisation = ./virtualisation.nix;
     wayland = ./wayland.nix;
   };
 }

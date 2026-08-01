@@ -1,6 +1,7 @@
 {users, ...}: {
   advice = {
     addEmptyPathspec = false;
+    addIgnoredFile = false;
     detachedHead = false;
     mergeConflict = false;
     pushNonFastForward = false;

@@ -6,7 +6,7 @@
   unstable,
   ...
 }: let
-  hyprland = "hyprlandWrapped";
+  hyprland = "hyprland-wrapped";
   scripts = import ./scripts {inherit pkgs theme;};
   # @ts: typeof: Record<string, Derivation>
   wrapped = import ./wrapped {inherit flake lib pkgs theme unstable;};
@@ -19,6 +19,6 @@ in {
 
   programs.hyprland = {
     enable = true;
-    package = wrapped.hyprland;
+    package = wrapped.${hyprland};
   };
 }

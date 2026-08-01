@@ -3,23 +3,22 @@
   hctl = "${pkgs.hyprland}/bin/hyprctl";
 in
   pkgs.writeShellScriptBin "adjust-opacity" ''
-    OLD_ALPHA=$(hyprctl getprop activewindow alpha)
+    OLD_OPACITY=$(${hctl} getprop active opacity)
 
     case "$1" in
       "-i")
-        NEW_ALPHA=$(echo "$OLD_ALPHA + 0.1" | ${bc} -l)
-        if (( $(echo "$NEW_ALPHA > 1.0" | ${bc} -l) )); then
-          NEW_ALPHA=1.0
+        NEW_OPACITY=$(echo "$OLD_OPACITY + 0.1" | ${bc} -l)
+        if (( $(echo "$NEW_OPACITY > 1.0" | ${bc} -l) )); then
+          NEW_OPACITY=1.0
         fi
       ;;
       "-d")
-        NEW_ALPHA=$(echo "$OLD_ALPHA - 0.1" | ${bc} -l)
-        if (( $(echo "$NEW_ALPHA < 0.25" | ${bc} -l) )); then
-          NEW_ALPHA=0.25
+        NEW_OPACITY=$(echo "$OLD_OPACITY - 0.1" | ${bc} -l)
+        if (( $(echo "$NEW_OPACITY < 0.25" | ${bc} -l) )); then
+          NEW_OPACITY=0.25
         fi
       ;;
     esac
 
-    ${hctl} dispatch setprop activewindow alpha $NEW_ALPHA
-    ${hctl} dispatch setprop activewindow alphainactive $NEW_ALPHA
+    ${hctl} dispatch 'hl.dsp.window.set_prop({ prop = "opacity", value = '"$NEW_OPACITY"' })'
   ''

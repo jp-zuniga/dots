@@ -1,7 +1,11 @@
-{config, ...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
   perSystem = {
     pkgs,
-    unstable,
+    system,
     ...
   }: {
     packages = let
@@ -11,6 +15,7 @@
       };
 
       scripts = import ./scripts {inherit pkgs theme;};
+      unstable = import inputs.nixpkgs-unstable {inherit system;};
       wrapped = import ./wrapped {
         inherit (config) flake;
         inherit (pkgs) lib;

@@ -6,10 +6,7 @@
 }: {
   environment = {
     sessionVariables.QT_QPA_PLATFORMTHEME = "qt5ct";
-    systemPackages = [
-      pkgs.darkly
-      pkgs.darkly-qt5
-    ];
+    systemPackages = [pkgs.darkly];
   };
 
   system.activationScripts.qtSetup = {

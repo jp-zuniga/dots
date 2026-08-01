@@ -4,36 +4,56 @@
   ...
 }: let
   hctl = "${pkgs.hyprland}/bin/hyprctl";
+  jq = "${pkgs.jq}/bin/jq";
 
   wyb-pkg = pkgs.callPackage ../wrapped/waybar {inherit theme;};
   wyb = "${wyb-pkg}/bin/waybar";
 in
   pkgs.writeShellScriptBin "focus" ''
-    MODE=$(${hctl} getoption animations:enabled | awk 'NR==1{print $2}')
+    MODE=$(${hctl} getoption -j animations:enabled | ${jq} -r '.bool')
 
     # disable visual eye-candy
-    if [ "$MODE" = 1 ] ; then
+    if [ "$MODE" = "true" ] ; then
       ! pidof waybar || pkill waybar
-      ${hctl} keyword animations:enabled 0
-      ${hctl} keyword decoration:blur:enabled 0
-      ${hctl} keyword decoration:inactive_opacity 1.0
-      ${hctl} keyword decoration:rounding 0
-      ${hctl} keyword decoration:shadow:enabled 0
-      ${hctl} keyword general:gaps_in 0
-      ${hctl} keyword general:gaps_out 0
-      ${hctl} keyword general:border_size 1
+
+      ${hctl} eval '
+        hl.config({
+          animations = { enabled = false },
+          decoration = {
+            blur = { enabled = false },
+            inactive_opacity = 1.0,
+            rounding = 0,
+            shadow = { enabled = false },
+          },
+          general = {
+            gaps_in = 0,
+            gaps_out = 0,
+            border_size = 1,
+          },
+        })
+      '
+
       exit 0
 
     # re-enable eye-candy
     else
-      ${hctl} keyword animations:enabled 1
-      ${hctl} keyword decoration:blur:enabled 1
-      ${hctl} keyword decoration:inactive_opacity 0.8
-      ${hctl} keyword decoration:rounding 5
-      ${hctl} keyword decoration:shadow:enabled 0
-      ${hctl} keyword general:gaps_in 5
-      ${hctl} keyword general:gaps_out 5
-      ${hctl} keyword general:border_size 3
+      ${hctl} eval '
+        hl.config({
+          animations = { enabled = true },
+          decoration = {
+            blur = { enabled = true },
+            inactive_opacity = 0.8,
+            rounding = 5,
+            shadow = { enabled = false },
+          },
+          general = {
+            gaps_in = 5,
+            gaps_out = 5,
+            border_size = 3,
+          },
+        })
+      '
+
       pidof waybar || ${wyb}
       exit 0
     fi

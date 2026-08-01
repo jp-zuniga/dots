@@ -1,220 +1,214 @@
 {hyprColors, ...}: let
-  mod = "Super";
+  toLuaColor = c: "rgba(${builtins.substring 4 6 c}${builtins.substring 2 2 c})";
+in ''
+  local mod = "SUPER"
+  local menu = "rofi"
+  local shell = "fish"
+  local term = "alacritty"
 
-  menu = "rofi";
-  shell = "fish";
-  term = "alacritty";
+  hl.monitor({
+    output = "eDP-1",
+    mode = "1920x1080@60",
+    position = "0x0",
+    scale = 1,
+  })
 
-  # - author: https://github.com/sioodmy
-  # - source: https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/user/wrapped/hypr/tohyprconf.nix
-  #
-  # - license:
-  #   - GPLv3
-  #     - https://github.com/sioodmy/dotfiles/blob/15ff23fc19cff8a5e4903bf95e93be025520c6b5/LICENSE
-  #
-  # - original attribution:
-  #   - credits: fufexan
-  #     - binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-  #
-  # - changes:
-  #   - added "$mod + ALT" bind (that i NEVER use! :D)
-  #
-  # ---------------------------------------------------------------------------------------
-  workspaces = builtins.concatLists (builtins.genList (
-      x: let
-        ws = let
-          c = (x + 1) / 10;
-        in
-          builtins.toString (x + 1 - (c * 10));
-      in [
-        "${mod}, ${ws}, workspace, ${toString (x + 1)}"
-        "${mod} SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-        "${mod} ALT, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-      ]
-    )
-    10);
-  # ---------------------------------------------------------------------------------------
-in {
-  animations = {
-    enabled = true;
-    animation = [
-      "border, 1, 2, default"
-      "fade, 1, 4, default"
-      "windows, 1, 2, default"
-      "workspaces, 1, 3, default, slide"
-    ];
-  };
+  hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 
-  bind =
-    workspaces
-    ++ [
-      "ALT, Tab, cyclenext,"
-      "ALT SHIFT, Tab, cyclenext, prev"
-      "${mod}, Tab, workspace, previous"
+  hl.on(
+    "hyprland.start",
+    function()
+      hl.exec_cmd("dunst")
+      hl.exec_cmd("hypridle")
+      hl.exec_cmd("sunsetr")
+      hl.exec_cmd("awww-daemon")
+      hl.exec_cmd("random-wall")
+      hl.exec_cmd("waybar")
+    end
+  )
 
-      "${mod}, PRINT, exec, hyprshot -m active -m output -o ~/pics/ss"
-      "SHIFT, PRINT, exec, hyprshot -m active -m window -o ~/pics/ss"
-      ", PRINT, exec, hyprshot -m region -o ~/pics/ss"
+  hl.config({
+    general = {
+      allow_tearing = false,
+      border_size = 3,
+      col = {
+        active_border = "${toLuaColor hyprColors.blue}",
+        inactive_border = "${toLuaColor hyprColors.black}",
+      },
+      gaps_in = 5,
+      gaps_out = 5,
+      layout = "master",
+      resize_on_border = true,
+    },
 
-      "CONTROL, PRINT, exec, hyprpicker"
+    decoration = {
+      active_opacity = 1.0,
+      inactive_opacity = 0.9,
+      rounding = 5,
+      rounding_power = 5,
+      dim_inactive = true,
+      dim_strength = 0.25,
 
-      "ALT SHIFT, W, movefocus, u"
-      "ALT SHIFT, A, movefocus, d"
-      "ALT SHIFT, S, movefocus, l"
-      "ALT SHIFT, D, movefocus, r"
-      "ALT CONTROL, W, swapwindow, u"
-      "ALT CONTROL, A, swapwindow, d"
-      "ALT CONTROL, S, swapwindow, l"
-      "ALT CONTROL, D, swapwindow, r"
-      "CONTROL SHIFT, W, layoutmsg, orientationtop"
-      "CONTROL SHIFT, A, layoutmsg, orientationbottom"
-      "CONTROL SHIFT, S, layoutmsg, orientationleft"
-      "CONTROL SHIFT, D, layoutmsg, orientationright"
+      shadow = {
+        enabled = false,
+      },
 
-      "${mod}, G, togglefloating,"
-      "${mod}, Q, killactive,"
-      "${mod}, U, exec, dunstctl close-all"
+      blur = {
+        enabled = true,
+        passes = 1,
+        size = 3,
+      },
+    },
 
-      "${mod}, C, exec, code"
-      "${mod}, F, exec, firefox"
-      "${mod}, R, exec, ${term} -e ${shell} -c btop"
+    animations = {
+      enabled = true,
+    },
 
-      "${mod}, T, exec, ${term}"
-      "${mod}, E, exec, ${term} -e ${shell} -c yazi"
+    master = {
+      new_status = "master",
+    },
 
-      "${mod}, L, exec, pidof hyprlock || hyprlock"
-      "${mod}, S, exec, pidof ${menu} || ${menu} -show drun"
+    misc = {
+      disable_autoreload = true,
+      disable_hyprland_logo = true,
+      force_default_wallpaper = 0,
+    },
 
-      "${mod} SHIFT, B, exec, pidof waybar || waybar"
-      "${mod} SHIFT, N, exec, pidof bluetui || ${term} -o 'font.size=24' -e ${shell} -c bluetui"
-      "${mod} SHIFT, P, exec, hyprctl reload"
-      "${mod}, B, exec, ! pidof waybar || pkill waybar"
-      "${mod}, N, exec, pidof wifitui || ${term} -o 'font.size=24' -e ${shell} -c wifitui"
-      "${mod}, P, exec, hyprctl keyword monitor ', preferred, auto, 1, mirror, eDP-1'"
+    ecosystem = {
+      no_update_news = true,
+      no_donation_nag = true,
+    },
 
-      "${mod}, M, exec, focus"
-      "${mod}, P, exec, adjust-opacity -i"
-      "${mod}, O, exec, adjust-opacity -d"
-      "${mod}, W, exec, random-wall"
-    ];
+    debug = {
+      disable_logs = false,
+    },
 
-  bindle = [
-    "${mod}, ESCAPE, exit,"
-    "${mod} SHIFT, Q, exec, systemctl suspend"
+    xwayland = {
+      force_zero_scaling = true,
+    },
+  })
 
+  hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "default" })
+  hl.animation({ leaf = "fade", enabled = true, speed = 4, bezier = "default" })
+  hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "default" })
+  hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "default", style = "slide" })
 
-    "${mod} SHIFT, I, exec, pidof hypridle || hypridle & disown && notify-send 'Hypridle activated!'"
-    "${mod} SHIFT, Y, exec, pidof sunsetr || sunsetr & disown && notify-send 'Sunsetr activated!'"
-    "${mod}, I, exec, ! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"
-    "${mod}, Y, exec, ! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"
+  hl.config({
+    input = {
+      follow_mouse = 1,
+      kb_layout = "us,latam",
+      sensitivity = 0,
 
-    "${mod}, SPACE, exec, switch-kb"
+      touchpad = {
+        natural_scroll = true,
+      },
+    },
+  })
 
-    ", XF86MonBrightnessUp, exec, brightnessctl -n2 set 5%+"
-    ", XF86MonBrightnessDown, exec, brightnessctl -n2 set 5%-"
+  hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace",
+  })
 
-    ", XF86AudioPlay, exec, playerctl play-pause"
-    ", XF86AudioPrev, exec, playerctl previous"
-    ", XF86AudioNext, exec, playerctl next"
+  for i = 1, 10 do
+    local key = i % 10
+    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+    hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mod .. " + ALT + " .. key, hl.dsp.window.move({ workspace = i, silent = true }))
+  end
 
-    ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-    ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+  hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
+  hl.bind("ALT + SHIFT + Tab", hl.dsp.window.cycle_next("prev"))
+  hl.bind(mod .. " + Tab", hl.dsp.focus({ workspace = "previous" }))
 
-    ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-  ];
+  hl.bind(mod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m active -m output -o ~/pics/ss"))
+  hl.bind("SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m active -m window -o ~/pics/ss"))
+  hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region -o ~/pics/ss"))
+  hl.bind("CONTROL + PRINT", hl.dsp.exec_cmd("hyprpicker"))
 
-  bindm = [
-    "${mod}, mouse:272, movewindow"
-    "${mod}, Control_L, movewindow"
-    "${mod}, mouse:273, resizewindow"
-    "${mod}, ALT_L, resizewindow"
-  ];
+  hl.bind("ALT + SHIFT + W", hl.dsp.focus({ direction = "u" }))
+  hl.bind("ALT + SHIFT + A", hl.dsp.focus({ direction = "d" }))
+  hl.bind("ALT + SHIFT + S", hl.dsp.focus({ direction = "l" }))
+  hl.bind("ALT + SHIFT + D", hl.dsp.focus({ direction = "r" }))
 
-  debug.disable_logs = false;
-  decoration = {
-    active_opacity = 1.0;
-    inactive_opacity = 0.9;
+  hl.bind("ALT + CONTROL + W", hl.dsp.window.swap({ direction = "u" }))
+  hl.bind("ALT + CONTROL + A", hl.dsp.window.swap({ direction = "d" }))
+  hl.bind("ALT + CONTROL + S", hl.dsp.window.swap({ direction = "l" }))
+  hl.bind("ALT + CONTROL + D", hl.dsp.window.swap({ direction = "r" }))
 
-    blur = {
-      enabled = true;
-      passes = 1;
-      size = 3;
-    };
+  hl.bind("CONTROL + SHIFT + W", hl.dsp.layout("orientationtop"))
+  hl.bind("CONTROL + SHIFT + A", hl.dsp.layout("orientationbottom"))
+  hl.bind("CONTROL + SHIFT + S", hl.dsp.layout("orientationleft"))
+  hl.bind("CONTROL + SHIFT + D", hl.dsp.layout("orientationright"))
 
-    dim_inactive = true;
-    dim_strength = 0.25;
+  hl.bind(mod .. " + G", hl.dsp.window.float({ action = "toggle" }))
+  hl.bind(mod .. " + Q", hl.dsp.window.close())
+  hl.bind(mod .. " + U", hl.dsp.exec_cmd("dunstctl close-all"))
 
-    "shadow:enabled" = false;
-    rounding = 5;
-    rounding_power = 5;
-  };
+  hl.bind(mod .. " + C", hl.dsp.exec_cmd("code"))
+  hl.bind(mod .. " + F", hl.dsp.exec_cmd("firefox"))
+  hl.bind(mod .. " + R", hl.dsp.exec_cmd(term .. " -e " .. shell .. " -c btop"))
+  hl.bind(mod .. " + T", hl.dsp.exec_cmd(term))
+  hl.bind(mod .. " + E", hl.dsp.exec_cmd(term .. " -e " .. shell .. " -c yazi"))
 
-  dwindle = {
-    preserve_split = true;
-    pseudotile = true;
-  };
+  hl.bind(mod .. " + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
+  hl.bind(mod .. " + S", hl.dsp.exec_cmd("pidof " .. menu .. " || " .. menu .. " -show drun"))
 
-  ecosystem = {
-    no_update_news = true;
-    no_donation_nag = true;
-  };
+  hl.bind(mod .. " + SHIFT + B", hl.dsp.exec_cmd("pidof waybar || waybar"))
+  hl.bind(mod .. " + SHIFT + N", hl.dsp.exec_cmd("pidof bluetui || " .. term .. " -o 'font.size=16' -e " .. shell .. " -c bluetui"))
+  hl.bind(mod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprctl reload"))
+  hl.bind(mod .. " + B", hl.dsp.exec_cmd("! pidof waybar || pkill waybar"))
+  hl.bind(mod .. " + N", hl.dsp.exec_cmd("pidof wifitui || " .. term .. " -o 'font.size=16' -e " .. shell .. " -c wifitui"))
 
-  env = [
-    "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-  ];
+  hl.bind(mod .. " + M", hl.dsp.exec_cmd("focus"))
+  hl.bind(mod .. " + P", hl.dsp.exec_cmd("adjust-opacity -i"))  -- WARNING: duplicate mod+P
+  hl.bind(mod .. " + O", hl.dsp.exec_cmd("adjust-opacity -d"))
+  hl.bind(mod .. " + W", hl.dsp.exec_cmd("random-wall"))
 
-  exec-once = [
-    "dunst"
-    "hypridle"
-    "sunsetr"
-    "swww-daemon"
-    "random-wall"
-    "waybar"
-  ];
+  hl.bind(mod .. " + ESCAPE", hl.dsp.exit(), { locked = true, repeating = true })
+  hl.bind(mod .. " + SHIFT + Q", hl.dsp.exec_cmd("systemctl suspend"), { locked = true, repeating = true })
 
-  general = {
-    allow_tearing = false;
-    border_size = 3;
-    "col.active_border" = "${hyprColors.blue}";
-    "col.inactive_border" = "${hyprColors.black}";
-    gaps_in = 5;
-    gaps_out = 5;
-    layout = "master";
-    resize_on_border = true;
-  };
+  hl.bind(mod .. " + SHIFT + I", hl.dsp.exec_cmd("pidof hypridle || hypridle & disown && notify-send 'Hypridle activated!'"), { locked = true, repeating = true })
+  hl.bind(mod .. " + SHIFT + Y", hl.dsp.exec_cmd("pidof sunsetr || sunsetr & disown && notify-send 'Sunsetr activated!'"), { locked = true, repeating = true })
+  hl.bind(mod .. " + I", hl.dsp.exec_cmd("! pidof hypridle || pkill hypridle && notify-send 'Hypridle deactivated!'"), { locked = true, repeating = true })
+  hl.bind(mod .. " + Y", hl.dsp.exec_cmd("! pidof sunsetr || pkill sunsetr && notify-send 'Sunsetr deactivated!'"), { locked = true, repeating = true })
 
-  gesture = ["3, horizontal, workspace"];
+  hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("switch-kb"), { locked = true, repeating = true })
 
-  input = {
-    follow_mouse = 1;
-    kb_layout = "us,latam";
-    sensitivity = 0;
-    "touchpad:natural_scroll" = true;
-  };
+  hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -n2 set 5%+"), { locked = true, repeating = true })
+  hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -n2 set 5%-"), { locked = true, repeating = true })
 
-  master = {
-    new_status = "master";
-  };
+  hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, repeating = true })
+  hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true, repeating = true })
+  hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true, repeating = true })
 
-  misc = {
-    disable_autoreload = true;
-    disable_hyprland_logo = true;
-    force_default_wallpaper = 0;
-    vfr = true;
-  };
+  hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+  hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
+  hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
+  hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
 
-  monitor = ["eDP-1, 1920x1080@60, 0x0, 1"];
+  hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+  hl.bind(mod .. " + Control_L", hl.dsp.window.drag(), { mouse = true })
+  hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+  hl.bind(mod .. " + ALT_L", hl.dsp.window.resize(), { mouse = true })
 
-  windowrule = [
-    "nofocus, class:^$, title:^$, xwayland:1, floating:1, fullscreen:0, pinned:0"
-    "suppressevent maximize, class:.*"
-  ];
+  hl.window_rule({
+    name = "no-initial-focus-empty-xwayland",
+    match = {
+      class = "^$",
+      title = "^$",
+      xwayland = true,
+      float = true,
+      fullscreen = false,
+      pin = false,
+    },
+    no_focus = true,
+  })
 
-  windowrulev2 = [
-    "fullscreenstate 0 3, class:code*"
-    "noinitialfocus, class:(jetbrains-)(.*)"
-  ];
-
-  xwayland.force_zero_scaling = true;
-}
+  hl.window_rule({
+    name = "suppress-maximize",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+  })
+''

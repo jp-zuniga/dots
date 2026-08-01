@@ -259,17 +259,17 @@
 
     window = {
       commandCenter = false;
-      customTitleBarVisibility = "windowed";
+      customTitleBarVisibility = "never";
       enableMenuBarMnemonics = false;
       menuBarVisibility = "compact";
-      newWindowDimensions = "maximized";
-      restoreFullscreen = true;
+      menuStyle = "custom";
       title = "";
-      titleBarStyle = "custom";
+      titleBarStyle = "native";
     };
 
     workbench = {
       activityBar.location = "top";
+      browser.showInTitleBar = false;
       cloudChanges = {
         autoResume = "off";
         continueOn = "off";
@@ -280,12 +280,14 @@
       editor = {
         editorActionsLocation = "hidden";
         empty.hint = "hidden";
+        useModal = "off";
       };
 
       enableExperiments = false;
       iconTheme = theme.kebabName;
       layoutControl.enabled = false;
       navigationControl.enabled = false;
+      openInAgents = false;
       productIconTheme = "material-product-icons";
       settings.enableNaturalLanguageSearch = false;
       startupEditor = "none";

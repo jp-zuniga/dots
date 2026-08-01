@@ -1,16 +1,19 @@
 {
-  description = "rawdogging nix for shits and giggles";
+  description = "rawdogging nix for shits and giggles.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:NixOS/nixos-hardware/master";
+    };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     homix = {
-      url = "github:sioodmy/homix";
       inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sioodmy/homix";
     };
   };
 

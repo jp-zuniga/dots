@@ -7,7 +7,8 @@
 }: let
   wrapped = pkgs.symlinkJoin {
     buildInputs = [pkgs.makeWrapper];
-    name = "hyprlandWrapped";
+    meta.mainProgram = "hyprland";
+    name = "hyprland-wrapped";
     paths = [hyprland];
     postBuild = ''
       rm -f $out/bin/Hyprland $out/bin/hyprland

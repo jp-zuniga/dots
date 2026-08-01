@@ -1,6 +1,7 @@
 {
   pkgs,
   theme,
+  unfree-pkgs,
   unfree-unstable,
   ...
 }: let
@@ -20,24 +21,21 @@
       [ -f "$1" ] && sed -i "s/$2/$3/" "$1" || true
     }
 
-    rename "$out/share/applications/android-studio.desktop" "Android Studio (stable channel)" "Android Studio"
     rename "$out/share/applications/code.desktop" "Visual Studio Code" "Code"
-    rename "$out/share/applications/idea.desktop" "IntelliJ IDEA" "IDEA"
     rename "$out/share/applications/org.prismlauncher.PrismLauncher.desktop" "Prism Launcher" "Minecraft"
-    rename "$out/share/applications/virt-manager.desktop" "Virtual Machine Manager" "VM Manager"
   '';
 in {
   environment = {
     extraSetup = customizeDesktopEntries;
     systemPackages = [
       pkgs.alejandra
+      pkgs.awww
       pkgs.bluetui
       pkgs.brightnessctl
       pkgs.brillo
       pkgs.delta
       pkgs.discord
       pkgs.dust
-      pkgs.hyperfine
       pkgs.hyprpicker
       pkgs.hyprshot
       pkgs.libnotify
@@ -46,16 +44,17 @@ in {
       pkgs.mpv
       pkgs.nil
       pkgs.pastel
-      pkgs.pik
       pkgs.playerctl
       pkgs.ripgrep
       pkgs.shfmt
       pkgs.statix
-      pkgs.swww
       pkgs.qview
       pkgs.tealdeer
+      pkgs.tokei
+      pkgs.uv
       pkgs.zoxide
-      unfree-unstable.android-studio
+      unfree-pkgs.claude-code
+      unfree-unstable.spotify
     ];
 
     variables = {

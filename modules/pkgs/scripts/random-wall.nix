@@ -3,7 +3,7 @@
   theme,
   ...
 }: let
-  swww = "${pkgs.swww}/bin/swww";
+  awww = "${pkgs.awww}/bin/awww";
 in
   pkgs.writeShellScriptBin "random-wall" ''
     mkdir -p ~/.cache
@@ -22,7 +22,7 @@ in
 
     ln -sf "$RANDOM_WALL" ~/.cache/.current-wall
 
-    ${swww} img "$RANDOM_WALL" \
+    ${awww} img "$RANDOM_WALL" \
       --transition-type any \
       --transition-duration 0.5 \
       --transition-fps 120
